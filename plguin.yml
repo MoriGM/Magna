@@ -1,0 +1,7 @@
+name: Magna
+version: 0.0.0
+author: MoriGM
+
+main: de.morigm.magna.Main
+
+commands:
