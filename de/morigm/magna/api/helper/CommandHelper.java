@@ -18,4 +18,9 @@ public interface CommandHelper extends CommandExecutor
 		javaPlugin.getCommand(cmd_name).setExecutor(this);
 	}
 	
+	public default String getPermission(String Permission)
+	{
+		return Main.getInstance().getPermissionManager().getPermission(Permission);
+	}
+	
 }

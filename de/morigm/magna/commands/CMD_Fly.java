@@ -4,7 +4,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -17,7 +16,7 @@ public class CMD_Fly implements CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(Main.getInstance().getPermissionManager().getPermission("fly")))
+			if(p.hasPermission(getPermission("fly")))
 			{
 				p.setAllowFlight(!p.getAllowFlight());
 				p.sendMessage(Chat.prefix + (p.getAllowFlight() ? "You can now fly" : "You can not fly anymore"));

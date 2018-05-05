@@ -19,4 +19,9 @@ public interface ListenerHelper extends Listener
 		Bukkit.getPluginManager().registerEvents(this, javaplugin);
 	}
 	
+	public default String getPermission(String Permission)
+	{
+		return Main.getInstance().getPermissionManager().getPermission(Permission);
+	}
+	
 }
