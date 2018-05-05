@@ -5,3 +5,4 @@ author: MoriGM
 main: de.morigm.magna.Main
 
 commands:
+      fly:
