@@ -15,7 +15,7 @@ public interface CommandHelper extends CommandExecutor
 	
 	public default void register(String cmd_name,JavaPlugin javaPlugin)
 	{
-		javaPlugin.getCommand(cmd_name).setExecutor(javaPlugin);
+		javaPlugin.getCommand(cmd_name).setExecutor(this);
 	}
 	
 }
