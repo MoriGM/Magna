@@ -7,6 +7,7 @@ import de.morigm.magna.commands.CMD_MUTED;
 import de.morigm.magna.commands.CMD_SetItemName;
 import de.morigm.magna.commands.CMD_getworld;
 import de.morigm.magna.commands.CMD_heal;
+import de.morigm.magna.commands.CMD_tpall;
 import de.morigm.magna.listener.Listener_GODMODE;
 import de.morigm.magna.listener.Listener_Muted;
 
@@ -22,6 +23,7 @@ public class PluginLoader
 		new CMD_getworld().register("getworld");
 		new CMD_SetItemName().register("setitemname");
 		new CMD_IP().register("ip");
+		new CMD_tpall().register("tpall");
 	}
 	
 	public void registerListener()

@@ -12,3 +12,4 @@ commands:
       getworld:
       setitemname:
       ip:
+      tpall:

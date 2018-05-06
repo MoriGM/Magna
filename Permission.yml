@@ -5,3 +5,4 @@ heal: magna.cmd.heal
 getworld: magna.cmd.getworld
 setitemname: magna.cmd.setitemname
 ip: magna.cmd.ip
+tpall: magna.cmd.tpall
