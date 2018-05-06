@@ -10,3 +10,5 @@ commands:
       mute:
       heal:
       getworld:
+      setitemname:
+      ip:
