@@ -6,3 +6,4 @@ main: de.morigm.magna.Main
 
 commands:
       fly:
+      godmode:
