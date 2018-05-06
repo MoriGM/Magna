@@ -2,3 +2,4 @@ fly: magna.cmd.fly
 godmode: magna.cmd.godmode
 mute: magna.cmd.mute
 heal: magna.cmd.heal
+getworld: magna.cmd.getworld
