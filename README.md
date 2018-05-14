@@ -5,6 +5,7 @@ A Minecraft Server Manager Tool
 ## Prerequisites
 
 Java JDK 8
+
 Spigot Server 1.12.2
 
 ## Authors
