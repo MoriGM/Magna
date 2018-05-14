@@ -29,6 +29,8 @@ This Project is licensed under the GNU GPL version 3
 
 ### Tested Spigot Server Version
 
+* Spigot 1.12.2 git-Spigot-2086bb0-d0a3620
+
 ## Built With
 
 * [Eclipse](https://www.eclipse.org) - The IDE used
