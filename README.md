@@ -16,6 +16,12 @@ Spigot Server 1.12.2
 
 This Project is licensed under the GNU GPL version 3
 
+## Building
+
+```
+ant build
+```
+
 ## Test
 
 ### Tested Operating System
@@ -37,3 +43,4 @@ This Project is licensed under the GNU GPL version 3
 * [Git](https://git-scm.com) - Used Versioning Programm
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Used Java Compiler
 * [Spigot](https://www.spigotmc.org) - Used Minecraft Server
+* [Ant](https://ant.apache.org) - Building Tool
