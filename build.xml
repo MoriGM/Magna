@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<project name="Magna">
+
+	<!-- Properties -->
+	<property name="bin" value="./bin"/>
+	<property name="src" value="./src"/>
+	<property name="dist" value="./dist"/>
+	<property name="lib" value="./lib"/>
+	<property name="homefolder" value="de"/>
+	<property name="file" value="Magna.jar"/>
+	<property name="premission" value="Permission.yml"/>
+	<property name="plugin" value="plugin.yml"/>
+	
+	<target name="build">
+		<mkdir dir="${src}/de"/>
+		<mkdir dir="${bin}"/>
+		<mkdir dir="${dist}"/>
+		<copy todir="${src}/de">
+			<fileset dir="./de/"/>
+		</copy>
+		<!--<delete dir="./de"/>-->
+		<javac
+				srcdir="${src}"
+				destdir="${bin}">
+				<classpath>
+					<pathelement path="${lib}/spigot.jar"/>
+				</classpath>
+		</javac>
+				
+		<copy file="${premission}" tofile="${bin}/${premission}"/>
+		<copy file="${plugin}" tofile="${bin}/${plugin}"/>
+		<jar jarfile="${dist}/${file}">
+			<fileset dir="${bin}"/>
+		</jar>
+	</target>
+	
+	<target name="clean">
+		<delete dir="${bin}"/>
+		<delete dir="${dist}"/>
+		<!--<mkdir dir="de"/>
+		<copy todir="${homefolder}">
+			<fileset dir="${src}/${homefolder}"/>
+		</copy>-->
+		<delete dir="${src}"/>
+	</target>
+	
+</project>
