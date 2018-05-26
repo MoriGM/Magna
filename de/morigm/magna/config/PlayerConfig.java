@@ -15,6 +15,7 @@ public class PlayerConfig
 	private FileConfiguration configuration;
 	public List<String> muted;
 	public List<String> godmode;
+	public List<String> cmdspy;
 
 	public void loadFile()
 	{
@@ -27,12 +28,14 @@ public class PlayerConfig
 		this.loadFile();
 		this.muted = this.configuration.getStringList("muted");
 		this.godmode = this.configuration.getStringList("godmode");
+		this.cmdspy = this.configuration.getStringList("cmdspy");
 	}
 	
 	public void save()
 	{
 		this.configuration.set("muted", this.muted);
 		this.configuration.set("godmode", this.godmode);
+		this.configuration.set("cmdspy", this.cmdspy);
 		try 
 		{
 			this.configuration.save(new File("./plugins/" + Chat.name + "/players.yml"));

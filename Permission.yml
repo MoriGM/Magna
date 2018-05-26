@@ -6,3 +6,6 @@ getworld: magna.cmd.getworld
 setitemname: magna.cmd.setitemname
 ip: magna.cmd.ip
 tpall: magna.cmd.tpall
+itemhead: magna.cmd.itemhead
+cmdspy: magna.cmd.cmdspy
+reloadconfig: magna.cmd.reloadconfig

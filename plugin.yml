@@ -13,3 +13,6 @@ commands:
       setitemname:
       ip:
       tpall:
+      itemhead:
+      cmdspy:
+      reloadconfig:
