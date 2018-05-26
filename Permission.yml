@@ -9,3 +9,5 @@ tpall: magna.cmd.tpall
 itemhead: magna.cmd.itemhead
 cmdspy: magna.cmd.cmdspy
 reloadconfig: magna.cmd.reloadconfig
+getpos: magna.cmd.getpos
+chatcolor: magna.event.chatcolor

@@ -8,10 +8,12 @@ import de.morigm.magna.commands.CMD_MUTED;
 import de.morigm.magna.commands.CMD_ReloadConfig;
 import de.morigm.magna.commands.CMD_SPY;
 import de.morigm.magna.commands.CMD_SetItemName;
+import de.morigm.magna.commands.CMD_getpos;
 import de.morigm.magna.commands.CMD_getworld;
 import de.morigm.magna.commands.CMD_heal;
 import de.morigm.magna.commands.CMD_tpall;
 import de.morigm.magna.listener.Listener_CMDSPY;
+import de.morigm.magna.listener.Listener_ChatColor;
 import de.morigm.magna.listener.Listener_GODMODE;
 import de.morigm.magna.listener.Listener_Muted;
 
@@ -31,6 +33,7 @@ public class PluginLoader
 		new CMD_ItemHead().register("itemhead");
 		new CMD_SPY().register("cmdspy");
 		new CMD_ReloadConfig().register("reloadconfig");
+		new CMD_getpos().register("getpos");
 	}
 	
 	public void registerListener()
@@ -38,6 +41,7 @@ public class PluginLoader
 		new Listener_GODMODE().register();
 		new Listener_Muted().register();
 		new Listener_CMDSPY().register();
+		new Listener_ChatColor().register();
 	}
 	
 }

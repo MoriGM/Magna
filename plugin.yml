@@ -16,3 +16,4 @@ commands:
       itemhead:
       cmdspy:
       reloadconfig:
+      getpos:
