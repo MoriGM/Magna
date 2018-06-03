@@ -13,7 +13,7 @@ import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 import net.md_5.bungee.api.ChatColor;
 
-public class CMD_MUTED implements CommandHelper 
+public class CMD_MUTED extends CommandHelper 
 {
 
 	@Override
@@ -34,7 +34,7 @@ public class CMD_MUTED implements CommandHelper
 					com.sendMessage(Chat.prefix + "All Muted Players: " + players);
 				}
 				else
-					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + "mute <on,off,status> <player> or mute <list>");
+					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> or mute <list>");
 			}
 			else
 			{
@@ -70,14 +70,14 @@ public class CMD_MUTED implements CommandHelper
 							com.sendMessage(Chat.prefix + "Player is " + (!Main.getInstance().getMutedPlayerManager().containsPlayer(t) ? ("not " + ChatColor.GREEN) : ChatColor.RED.toString()) + "muted");
 						}
 						else
-							com.sendMessage(Chat.prefix +  (com instanceof Player ? "/" : "") + "mute <on,off,status> <player> or mute <list>");
+							com.sendMessage(Chat.prefix +  (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> or mute <list>");
 					}
 					else
 						com.sendMessage(Chat.prefix + Chat.no_player);
 				}
 				else
 				{
-					com.sendMessage(Chat.prefix +  (com instanceof Player ? "/" : "") + "mute <on,off,status> <player> or mute <list>");
+					com.sendMessage(Chat.prefix +  (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> or mute <list>");
 				}
 			}
 		}

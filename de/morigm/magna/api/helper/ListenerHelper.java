@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.morigm.magna.Main;
 
-public interface ListenerHelper extends Listener
+public interface ListenerHelper extends Listener,PermissionHelper
 {
 	
 	public default void register()

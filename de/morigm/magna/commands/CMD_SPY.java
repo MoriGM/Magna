@@ -9,7 +9,7 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_SPY implements CommandHelper
+public class CMD_SPY extends CommandHelper
 {
 
 	@Override

@@ -6,9 +6,11 @@ import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
+import de.morigm.magna.api.manager.WarpManager;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.config.PlayerConfig;
 import de.morigm.magna.config.PluginConfig;
+import de.morigm.magna.config.WarpConfig;
 import de.morigm.magna.loader.PluginLoader;
 import de.morigm.magna.log.CommandLoger;
 
@@ -23,12 +25,14 @@ public class Main extends JavaPlugin
 	private MutedPlayerManager mutedPlayerManager;
 	private GodModeManager godModeManager;
 	private CommandSpyManager commandSpyManager;
+	private WarpManager warpmanager;
 	
 	private PlayerConfig playerconfig;
-
 	private PluginConfig pluginconfig;
-
+	private WarpConfig warpconfig;
+	
 	private CommandLoger commandsloger;
+	
 
 	@Override
 	public void onEnable() 
@@ -48,6 +52,9 @@ public class Main extends JavaPlugin
 		this.pluginconfig.load();
 		this.commandsloger = new CommandLoger();
 		this.commandsloger.load();
+		this.warpconfig = new WarpConfig();
+		this.warpconfig.load();
+		this.warpmanager = new WarpManager();
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage("Plugin is started");
 	}
@@ -58,6 +65,7 @@ public class Main extends JavaPlugin
 		this.playerconfig.save();
 		this.pluginconfig.save();
 		this.commandsloger.save();
+		this.warpconfig.save();
 		Chat.writeMessage("Plugin is stopped");
 	}
 	
@@ -99,6 +107,16 @@ public class Main extends JavaPlugin
 	public CommandLoger getCommandsLoger() 
 	{
 		return commandsloger;
+	}
+	
+	public WarpConfig getWarpConfig()
+	{
+		return warpconfig;
+	}
+	
+	public WarpManager getWarpManager() 
+	{
+		return warpmanager;
 	}
 	
 }

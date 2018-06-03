@@ -4,10 +4,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_ItemHead extends CommandHelper
+public class CMD_warp extends CommandHelper
 {
 
 	@Override
@@ -16,15 +17,21 @@ public class CMD_ItemHead extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("itemhead")))
+			if(p.hasPermission(getPermission("warp")))
 			{
-				if(p.getInventory().getItemInMainHand() != null)
+				if(args.length >= 1)
 				{
-					p.getInventory().setHelmet(p.getInventory().getItemInMainHand());
-					p.sendMessage(Chat.prefix + "Item is now in the Head Slot");
+					String warpname = args[0];
+					if(Main.getInstance().getWarpManager().containsWarp(warpname))
+					{
+						p.teleport(Main.getInstance().getWarpManager().getWarp(warpname));
+						p.sendMessage(Chat.prefix + "You was teleportet to Warp " + warpname);
+					}
+					else
+						p.sendMessage(Chat.prefix + "Warp doesn't exists");
 				}
 				else
-					p.sendMessage(Chat.prefix + "You have no Item in Hand");
+					p.sendMessage(Chat.prefix + "/warp <warp>");
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
@@ -33,5 +40,5 @@ public class CMD_ItemHead extends CommandHelper
 			Chat.writeMessage(Chat.no_console);
 		return false;
 	}
-
+	
 }

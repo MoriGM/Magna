@@ -4,10 +4,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_getworld extends CommandHelper
+public class CMD_setWarp extends CommandHelper
 {
 
 	@Override
@@ -16,9 +17,16 @@ public class CMD_getworld extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("getworld")))
+			if(p.hasPermission(getPermission("setwarp")))
 			{
-				p.sendMessage(Chat.prefix + "You are in the World " + p.getWorld().getName());
+				if(args.length >= 1)
+				{
+					String warpname = args[0];
+					Main.getInstance().getWarpManager().setWarp(warpname, p.getLocation());
+					p.sendMessage(Chat.prefix + "Warp " + warpname + " is now here");
+				}
+				else
+					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);

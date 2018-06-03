@@ -1,14 +1,15 @@
 package de.morigm.magna.commands;
 
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.meta.ItemMeta;
 
+import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_SetItemName extends CommandHelper
+public class CMD_getWarp extends CommandHelper
 {
 
 	@Override
@@ -17,21 +18,21 @@ public class CMD_SetItemName extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("setitemname")))
+			if(p.hasPermission(getPermission("getwarp")))
 			{
 				if(args.length >= 1)
 				{
-					if(p.getInventory().getItemInMainHand() != null)
+					String warpname = args[0];
+					if(Main.getInstance().getWarpManager().containsWarp(warpname))
 					{
-						ItemMeta meta = p.getInventory().getItemInMainHand().getItemMeta();
-						meta.setDisplayName(args[0]);
-						p.getInventory().getItemInMainHand().setItemMeta(meta);
+						Location loc = Main.getInstance().getWarpManager().getWarp(warpname);
+						p.sendMessage(Chat.prefix + "X:" + loc.getBlockX() + " Y:" + loc.getBlockY() + " Z:" + loc.getBlockZ() + " World:" + loc.getWorld().getName());
 					}
 					else
-						p.sendMessage(Chat.prefix + "You have no item in Hand");
+						p.sendMessage(Chat.prefix + "Warp doesn't exists");
 				}
 				else
-					p.sendMessage(Chat.prefix + "/" + getCommand() + " <name>");
+					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
@@ -40,5 +41,5 @@ public class CMD_SetItemName extends CommandHelper
 			Chat.writeMessage(Chat.no_console);
 		return false;
 	}
-
+	
 }

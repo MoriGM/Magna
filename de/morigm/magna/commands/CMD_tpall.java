@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_tpall implements CommandHelper
+public class CMD_tpall extends CommandHelper
 {
 
 	@Override
@@ -17,7 +17,7 @@ public class CMD_tpall implements CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission("tpall"))
+			if(p.hasPermission(getPermission("tpall")))
 			{
 				for(Player t : Bukkit.getOnlinePlayers())
 					if(t != p)

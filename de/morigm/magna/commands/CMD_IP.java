@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_IP implements CommandHelper
+public class CMD_IP extends CommandHelper
 {
 
 	@Override
@@ -25,7 +25,7 @@ public class CMD_IP implements CommandHelper
 					com.sendMessage(Chat.prefix + Chat.no_player);
 			}
 			else
-				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + "ip <Player>");
+				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <Player>");
 		}
 		else
 			com.sendMessage(Chat.prefix + Chat.no_permission);

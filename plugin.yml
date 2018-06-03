@@ -17,3 +17,8 @@ commands:
       cmdspy:
       reloadconfig:
       getpos:
+      setwarp:
+      getwarp:
+      removewarp:
+      warp:
+      warps:

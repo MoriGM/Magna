@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_heal implements CommandHelper
+public class CMD_heal extends CommandHelper
 {
 
 	@Override
@@ -17,7 +17,7 @@ public class CMD_heal implements CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission("heal"))
+			if(p.hasPermission(getPermission("heal")))
 			{
 				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
 				p.setFoodLevel(20);

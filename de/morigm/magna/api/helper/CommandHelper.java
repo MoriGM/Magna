@@ -5,22 +5,25 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.morigm.magna.Main;
 
-public interface CommandHelper extends CommandExecutor
+public abstract class CommandHelper implements CommandExecutor,PermissionHelper
 {
 
-	public default void register(String cmd_name)
+	String name = "";
+
+	public void register(String cmd_name)
 	{
 		this.register(cmd_name, Main.getInstance());
 	}
 	
-	public default void register(String cmd_name,JavaPlugin javaPlugin)
+	public void register(String cmd_name,JavaPlugin javaPlugin)
 	{
+		name = cmd_name;
 		javaPlugin.getCommand(cmd_name).setExecutor(this);
 	}
 	
-	public default String getPermission(String Permission)
+	public String getCommand()
 	{
-		return Main.getInstance().getPermissionManager().getPermission(Permission);
+		return name;
 	}
 	
 }

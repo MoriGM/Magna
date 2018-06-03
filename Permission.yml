@@ -10,5 +10,12 @@ itemhead: magna.cmd.itemhead
 cmdspy: magna.cmd.cmdspy
 reloadconfig: magna.cmd.reloadconfig
 getpos: magna.cmd.getpos
+setwarp: magna.cmd.warp.set
+getwarp: magna.cmd.warp.get
+warp: magna.cmd.warp.tp
+removewarp: magna.cmd.warp.remove
+warps: magna.cmd.warp.list
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
+createwarpsign: magna.event.warpsign.create
+warpsign: magna.event.warpsign.to
