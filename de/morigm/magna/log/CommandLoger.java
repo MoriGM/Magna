@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.LogerHelper;
 import de.morigm.magna.api.log.Log;
 
@@ -15,6 +16,8 @@ public class CommandLoger implements LogerHelper
 	@Override
 	public void load() 
 	{
+		if(Main.getInstance().getDefaultPluginConfig().commandlog)
+			return;
 		LocalDateTime local = LocalDateTime.now();
 		File dir = new File("./server-log/command/");
 		if(!dir.exists())

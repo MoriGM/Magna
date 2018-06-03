@@ -3,6 +3,8 @@ package de.morigm.magna.config;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.configuration.file.FileConfiguration;
+
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ConfigHelper;
 
@@ -11,28 +13,37 @@ public class PluginConfig implements ConfigHelper
 	
 	public List<String> commandspyblocked;
 	public boolean owncommandspy;
+	public boolean commandlog;
 
 	private void adddefault()
 	{
-		Main.getInstance().getConfig().options().copyDefaults(true);
-		Main.getInstance().getConfig().addDefault("owncommandspy", false);
-		Main.getInstance().getConfig().addDefault("commandspyblocked", new ArrayList<String>());
+		getConfig().options().copyDefaults(true);
+		getConfig().addDefault("owncommandspy", false);
+		getConfig().addDefault("commandlog", false);
+		getConfig().addDefault("commandspyblocked", new ArrayList<String>());
 	}
 	
 	public void load()
 	{
 		this.adddefault();
-		this.commandspyblocked = Main.getInstance().getConfig().getStringList("commandspyblocked");
-		this.owncommandspy = Main.getInstance().getConfig().getBoolean("owncommandspy");
+		this.commandspyblocked = getConfig().getStringList("commandspyblocked");
+		this.owncommandspy = getConfig().getBoolean("owncommandspy");
+		this.commandlog = getConfig().getBoolean("commandlog");
 	}
 	
 	
 
 	public void save()
 	{
-		Main.getInstance().getConfig().set("commandspyblocked", this.commandspyblocked);
-		Main.getInstance().getConfig().set("owncommandspy", this.owncommandspy);
+		getConfig().set("commandspyblocked", this.commandspyblocked);
+		getConfig().set("owncommandspy", this.owncommandspy);
+		getConfig().set("commandlog", this.commandlog);
 		Main.getInstance().saveConfig();
+	}
+	
+	public FileConfiguration getConfig()
+	{
+		return Main.getInstance().getConfig();
 	}
 
 }
