@@ -10,6 +10,7 @@ import de.morigm.magna.chat.Chat;
 import de.morigm.magna.config.PlayerConfig;
 import de.morigm.magna.config.PluginConfig;
 import de.morigm.magna.loader.PluginLoader;
+import de.morigm.magna.log.CommandLoger;
 
 public class Main extends JavaPlugin
 {
@@ -27,6 +28,8 @@ public class Main extends JavaPlugin
 
 	private PluginConfig pluginconfig;
 
+	private CommandLoger commandsloger;
+
 	@Override
 	public void onEnable() 
 	{
@@ -43,6 +46,8 @@ public class Main extends JavaPlugin
 		this.commandSpyManager = new CommandSpyManager();
 		this.pluginconfig = new PluginConfig();
 		this.pluginconfig.load();
+		this.commandsloger = new CommandLoger();
+		this.commandsloger.load();
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage("Plugin is started");
 	}
@@ -52,6 +57,7 @@ public class Main extends JavaPlugin
 	{
 		this.playerconfig.save();
 		this.pluginconfig.save();
+		this.commandsloger.save();
 		Chat.writeMessage("Plugin is stopped");
 	}
 	

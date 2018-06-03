@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.api.helper.ConfigHelper;
 
-public class PluginConfig 
+public class PluginConfig implements ConfigHelper
 {
 	
 	public List<String> commandspyblocked;
