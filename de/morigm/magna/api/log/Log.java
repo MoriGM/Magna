@@ -13,6 +13,8 @@ public class Log
 		
 		public Log(File f) throws IOException 
 		{
+			if(!f.exists())
+				f.createNewFile();
 			writer = new BufferedWriter(new FileWriter(f));
 		}
 		
@@ -21,7 +23,7 @@ public class Log
 			LocalTime time = LocalTime.now();
 			try 
 			{
-				writer.write("[LOG]" + time.getSecond() + ":" +  time.getMinute() + ":" + time.getHour() +  ":" + text);
+				writer.write("[LOG]" + "<" + time.getSecond() + ":" +  time.getMinute() + ":" + time.getHour() +  "> " + text);
 				writer.newLine();
 			}
 			catch (IOException e) 
@@ -36,7 +38,7 @@ public class Log
 			LocalTime time = LocalTime.now();
 			try 
 			{
-				writer.write("[ERROR]" + time.getSecond() + ":" +  time.getMinute() + ":" + time.getHour() +  ":" + text);
+				writer.write("[ERROR]" + "<" + time.getSecond() + ":" +  time.getMinute() + ":" + time.getHour() +  "> " + text);
 				writer.newLine();
 			}
 			catch (IOException e) 
@@ -56,5 +58,10 @@ public class Log
 			{
 				e.printStackTrace();
 			}
+		}
+		
+		public BufferedWriter getWriter()
+		{
+			return writer;
 		}
 }

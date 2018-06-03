@@ -96,4 +96,9 @@ public class Main extends JavaPlugin
 		return pluginconfig;
 	}
 	
+	public CommandLoger getCommandsLoger() 
+	{
+		return commandsloger;
+	}
+	
 }

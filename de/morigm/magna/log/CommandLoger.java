@@ -21,7 +21,7 @@ public class CommandLoger implements LogerHelper
 			dir.mkdirs();
 		try 
 		{
-			log = new Log(new File(dir, local.getDayOfMonth() + ":" + local.getMonthValue() + ":" + local.getYear() + ":" + local.getHour() + ":"  + local.getMinute() + ".log"));
+			log = new Log(new File(dir, local.getDayOfMonth() + "-" + local.getMonthValue() + "-" + local.getYear() + "-" + local.getHour() + "-"  + local.getMinute() + ".log"));
 		}
 		catch (IOException e) 
 		{
