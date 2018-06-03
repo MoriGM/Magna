@@ -14,6 +14,7 @@ import de.morigm.magna.commands.CMD_heal;
 import de.morigm.magna.commands.CMD_tpall;
 import de.morigm.magna.listener.Listener_CMDSPY;
 import de.morigm.magna.listener.Listener_ChatColor;
+import de.morigm.magna.listener.Listener_ColorSign;
 import de.morigm.magna.listener.Listener_GODMODE;
 import de.morigm.magna.listener.Listener_Muted;
 
@@ -42,6 +43,7 @@ public class PluginLoader
 		new Listener_Muted().register();
 		new Listener_CMDSPY().register();
 		new Listener_ChatColor().register();
+		new Listener_ColorSign().register();
 	}
 	
 }

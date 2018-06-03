@@ -11,3 +11,4 @@ cmdspy: magna.cmd.cmdspy
 reloadconfig: magna.cmd.reloadconfig
 getpos: magna.cmd.getpos
 chatcolor: magna.event.chatcolor
+colorsign: magna.event.colorsign
