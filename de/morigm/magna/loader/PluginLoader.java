@@ -13,6 +13,7 @@ import de.morigm.magna.commands.CMD_getWarp;
 import de.morigm.magna.commands.CMD_getpos;
 import de.morigm.magna.commands.CMD_getworld;
 import de.morigm.magna.commands.CMD_heal;
+import de.morigm.magna.commands.CMD_kickall;
 import de.morigm.magna.commands.CMD_removeWarp;
 import de.morigm.magna.commands.CMD_setWarp;
 import de.morigm.magna.commands.CMD_tpall;
@@ -47,6 +48,7 @@ public class PluginLoader
 		new CMD_removeWarp().register("removewarp");
 		new CMD_warp().register("warp");
 		new CMD_Warps().register("warps");
+		new CMD_kickall().register("kickall");
 	}
 	
 	public void registerListener()
