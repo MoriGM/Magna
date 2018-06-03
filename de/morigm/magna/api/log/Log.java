@@ -13,8 +13,6 @@ public class Log
 		
 		public Log(File f) throws IOException 
 		{
-			if(!f.exists())
-				throw new NullPointerException();
 			writer = new BufferedWriter(new FileWriter(f));
 		}
 		
