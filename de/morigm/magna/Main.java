@@ -7,6 +7,7 @@ import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.WarpManager;
+import de.morigm.magna.api.memorie.MemorieManager;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.config.PlayerConfig;
 import de.morigm.magna.config.PluginConfig;
@@ -26,6 +27,7 @@ public class Main extends JavaPlugin
 	private GodModeManager godModeManager;
 	private CommandSpyManager commandSpyManager;
 	private WarpManager warpmanager;
+	private MemorieManager memorieManager;
 	
 	private PlayerConfig playerconfig;
 	private PluginConfig pluginconfig;
@@ -55,6 +57,7 @@ public class Main extends JavaPlugin
 		this.warpconfig = new WarpConfig();
 		this.warpconfig.load();
 		this.warpmanager = new WarpManager();
+		this.memorieManager = new MemorieManager();
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage("Plugin is started");
 	}
@@ -117,6 +120,11 @@ public class Main extends JavaPlugin
 	public WarpManager getWarpManager() 
 	{
 		return warpmanager;
+	}
+	
+	public MemorieManager getMemorieManager() 
+	{
+		return memorieManager;
 	}
 	
 }

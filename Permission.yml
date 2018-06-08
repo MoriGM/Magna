@@ -16,6 +16,7 @@ warp: magna.cmd.warp.tp
 removewarp: magna.cmd.warp.remove
 warps: magna.cmd.warp.list
 kickall: magna.cmd.kickall
+memorie: magna.cmd.memorie
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create
