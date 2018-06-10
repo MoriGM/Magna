@@ -24,3 +24,5 @@ commands:
       warps:
       kickall:
       memorie:
+      chatclear:
+      allchatclear:

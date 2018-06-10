@@ -9,6 +9,8 @@ import de.morigm.magna.commands.CMD_ReloadConfig;
 import de.morigm.magna.commands.CMD_SPY;
 import de.morigm.magna.commands.CMD_SetItemName;
 import de.morigm.magna.commands.CMD_Warps;
+import de.morigm.magna.commands.CMD_allchatclear;
+import de.morigm.magna.commands.CMD_chatclear;
 import de.morigm.magna.commands.CMD_getWarp;
 import de.morigm.magna.commands.CMD_getpos;
 import de.morigm.magna.commands.CMD_getworld;
@@ -51,6 +53,8 @@ public class PluginLoader
 		new CMD_Warps().register("warps");
 		new CMD_kickall().register("kickall");
 		new CMD_memorie().register("memorie");
+		new CMD_chatclear().register("chatclear");
+		new CMD_allchatclear().register("allchatclear");
 	}
 	
 	public void registerListener()

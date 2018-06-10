@@ -14,12 +14,14 @@ public class PluginConfig implements ConfigHelper
 	public List<String> commandspyblocked;
 	public boolean owncommandspy;
 	public boolean commandlog;
+	public boolean chatclear;
 
 	private void adddefault()
 	{
 		getConfig().options().copyDefaults(true);
 		getConfig().addDefault("owncommandspy", false);
 		getConfig().addDefault("commandlog", false);
+		getConfig().addDefault("chatclear", false);
 		getConfig().addDefault("commandspyblocked", new ArrayList<String>());
 	}
 	
@@ -29,6 +31,7 @@ public class PluginConfig implements ConfigHelper
 		this.commandspyblocked = getConfig().getStringList("commandspyblocked");
 		this.owncommandspy = getConfig().getBoolean("owncommandspy");
 		this.commandlog = getConfig().getBoolean("commandlog");
+		this.chatclear = getConfig().getBoolean("chatclear");
 	}
 	
 	
@@ -38,6 +41,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().set("commandspyblocked", this.commandspyblocked);
 		getConfig().set("owncommandspy", this.owncommandspy);
 		getConfig().set("commandlog", this.commandlog);
+		getConfig().set("chatclear", this.chatclear);
 		Main.getInstance().saveConfig();
 	}
 	
