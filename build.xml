@@ -35,7 +35,7 @@
 	</target>
 	
 	<target name="test">
-		<echo message=""/>
+		<echo message="Not Supported yet"/>
 	</target>
 	
 	<target name="clean">

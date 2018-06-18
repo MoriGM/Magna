@@ -15,6 +15,7 @@ public class PluginConfig implements ConfigHelper
 	public boolean owncommandspy;
 	public boolean commandlog;
 	public boolean chatclear;
+	public List<String> groups;
 
 	private void adddefault()
 	{
@@ -32,6 +33,7 @@ public class PluginConfig implements ConfigHelper
 		this.owncommandspy = getConfig().getBoolean("owncommandspy");
 		this.commandlog = getConfig().getBoolean("commandlog");
 		this.chatclear = getConfig().getBoolean("chatclear");
+		this.groups = getConfig().getStringList("groups");
 	}
 	
 	
@@ -42,6 +44,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().set("owncommandspy", this.owncommandspy);
 		getConfig().set("commandlog", this.commandlog);
 		getConfig().set("chatclear", this.chatclear);
+		getConfig().set("groups", this.groups);
 		Main.getInstance().saveConfig();
 	}
 	

@@ -9,9 +9,11 @@ import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.WarpManager;
 import de.morigm.magna.api.memorie.MemorieManager;
 import de.morigm.magna.chat.Chat;
+import de.morigm.magna.config.GroupConfig;
 import de.morigm.magna.config.PlayerConfig;
 import de.morigm.magna.config.PluginConfig;
 import de.morigm.magna.config.WarpConfig;
+import de.morigm.magna.loader.GroupLoader;
 import de.morigm.magna.loader.PluginLoader;
 import de.morigm.magna.log.CommandLoger;
 
@@ -32,8 +34,11 @@ public class Main extends JavaPlugin
 	private PlayerConfig playerconfig;
 	private PluginConfig pluginconfig;
 	private WarpConfig warpconfig;
+	private GroupConfig groupconfig;
 	
 	private CommandLoger commandsloger;
+
+	private GroupLoader grouploader;
 	
 
 	@Override
@@ -58,6 +63,9 @@ public class Main extends JavaPlugin
 		this.warpconfig.load();
 		this.warpmanager = new WarpManager();
 		this.memorieManager = new MemorieManager();
+		this.groupconfig = new GroupConfig();
+		this.grouploader = new GroupLoader();
+		this.groupconfig.load();
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage("Plugin is started");
 	}
@@ -125,6 +133,16 @@ public class Main extends JavaPlugin
 	public MemorieManager getMemorieManager() 
 	{
 		return memorieManager;
+	}
+	
+	public GroupConfig getGroupConfig()
+	{
+		return groupconfig;
+	}
+	
+	public GroupLoader getGroupLoader() 
+	{
+		return grouploader;
 	}
 	
 }

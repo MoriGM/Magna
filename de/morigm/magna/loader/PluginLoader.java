@@ -44,7 +44,7 @@ public class PluginLoader
 		new CMD_tpall().register("tpall");
 		new CMD_ItemHead().register("itemhead");
 		new CMD_SPY().register("cmdspy");
-		new CMD_ReloadConfig().register("reloadconfig");
+		new CMD_ReloadConfig().register("magna-reloadconfig");
 		new CMD_getpos().register("getpos");
 		new CMD_setWarp().register("setwarp");
 		new CMD_getWarp().register("getwarp");

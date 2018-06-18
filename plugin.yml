@@ -15,7 +15,7 @@ commands:
       tpall:
       itemhead:
       cmdspy:
-      reloadconfig:
+      magna-reloadconfig:
       getpos:
       setwarp:
       getwarp:

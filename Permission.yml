@@ -8,7 +8,7 @@ ip: magna.cmd.ip
 tpall: magna.cmd.tpall
 itemhead: magna.cmd.itemhead
 cmdspy: magna.cmd.cmdspy
-reloadconfig: magna.cmd.reloadconfig
+magna-reloadconfig: magna.cmd.reloadconfig
 getpos: magna.cmd.getpos
 setwarp: magna.cmd.warp.set
 getwarp: magna.cmd.warp.get

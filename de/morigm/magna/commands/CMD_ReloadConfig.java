@@ -13,7 +13,7 @@ public class CMD_ReloadConfig extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("reloadconfig")))
+		if(com.hasPermission(getPermission("magna-reloadconfig")))
 		{
 			Main.getInstance().reloadConfig();
 			Main.getInstance().getDefaultPluginConfig().load();
