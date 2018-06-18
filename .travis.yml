@@ -11,7 +11,6 @@ sudo: false
 addons:
     apt:
         packages:
-        - maven
         - ant
         - git
 branches:
