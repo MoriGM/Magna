@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 public class CMD_MUTED extends CommandHelper 
 {
