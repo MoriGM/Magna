@@ -7,7 +7,7 @@ install:
 - java -jar BuildTools.jar --rev 1.12.2
 - mkdir lib
 - cd ..
-- cp ./spigot/spigot-1.12.2.jar ../lib/spigot.jar
+- cp spigot-1.12.2.jar ../lib/spigot.jar
 - ant build
 os: linux
 jdk:
