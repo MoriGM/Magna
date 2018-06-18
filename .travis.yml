@@ -1,13 +1,7 @@
 language: java
 install:
-- wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
-- mkdir spigot
-- mv BuildTools.jar ./spigot/
-- cd spigot
-- java -jar BuildTools.jar --rev 1.12.2
 - mkdir lib
-- cd ..
-- cp spigot-1.12.2.jar ../lib/spigot.jar
+- wget https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180617.030601-148.jar -i ./lib/spigot.jar
 - ant build
 os: linux
 jdk:
