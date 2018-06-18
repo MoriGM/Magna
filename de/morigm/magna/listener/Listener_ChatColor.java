@@ -11,7 +11,7 @@ public class Listener_ChatColor implements ListenerHelper
 	public void on(AsyncPlayerChatEvent e)
 	{
 		if(e.getPlayer().hasPermission(getPermission("chatcolor")))
-			e.setMessage(e.getMessage().replaceAll("&", "§"));
+			e.setMessage(e.getMessage().replaceAll("&", "$"));
 	}
 	
 }
