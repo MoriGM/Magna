@@ -35,7 +35,7 @@ ant
 
 ### Tested Spigot Server Version
 
-* Spigot 1.12.2 git-Spigot-2086bb0-8cc5a7e
+* Spigot 1.12.2 git-Spigot-2086bb0-2f3ed3b
 
 ## Built With
 
