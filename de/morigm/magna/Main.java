@@ -4,6 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.GodModeManager;
+import de.morigm.magna.api.manager.GroupManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.WarpManager;
@@ -30,6 +31,7 @@ public class Main extends JavaPlugin
 	private CommandSpyManager commandSpyManager;
 	private WarpManager warpmanager;
 	private MemorieManager memorieManager;
+	private GroupManager groupManager;
 	
 	private PlayerConfig playerconfig;
 	private PluginConfig pluginconfig;
@@ -66,6 +68,8 @@ public class Main extends JavaPlugin
 		this.groupconfig = new GroupConfig();
 		this.grouploader = new GroupLoader();
 		this.groupconfig.load();
+		this.grouploader.load();
+		this.groupManager = new GroupManager();
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage("Plugin is started");
 	}
@@ -143,6 +147,11 @@ public class Main extends JavaPlugin
 	public GroupLoader getGroupLoader() 
 	{
 		return grouploader;
+	}
+	
+	public GroupManager getGroupManager() 
+	{
+		return groupManager;
 	}
 	
 }

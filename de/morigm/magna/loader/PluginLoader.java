@@ -14,8 +14,11 @@ import de.morigm.magna.commands.CMD_chatclear;
 import de.morigm.magna.commands.CMD_getWarp;
 import de.morigm.magna.commands.CMD_getpos;
 import de.morigm.magna.commands.CMD_getworld;
+import de.morigm.magna.commands.CMD_groups;
 import de.morigm.magna.commands.CMD_heal;
 import de.morigm.magna.commands.CMD_kickall;
+import de.morigm.magna.commands.CMD_list;
+import de.morigm.magna.commands.CMD_magna_id;
 import de.morigm.magna.commands.CMD_memorie;
 import de.morigm.magna.commands.CMD_removeWarp;
 import de.morigm.magna.commands.CMD_setWarp;
@@ -55,6 +58,9 @@ public class PluginLoader
 		new CMD_memorie().register("memorie");
 		new CMD_chatclear().register("chatclear");
 		new CMD_allchatclear().register("allchatclear");
+		new CMD_groups().register("magna-groups");
+		new CMD_magna_id().register("magna-id");
+		new CMD_list().register("magna-list");
 	}
 	
 	public void registerListener()

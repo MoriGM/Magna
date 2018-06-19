@@ -41,6 +41,7 @@ ant
 
 * [Eclipse](https://www.eclipse.org) - The IDE used
 * [Git](https://git-scm.com) - Used Versioning Programm
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Used Java Compiler
+* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Used Windows Java Compiler
+* [OpenJDK 8] (http://openjdk.java.net/projects/jdk8/) - Used Linux Java Compiler
 * [Spigot](https://www.spigotmc.org) - Used Minecraft Server
 * [Ant](https://ant.apache.org) - Building Tool

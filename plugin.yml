@@ -26,3 +26,6 @@ commands:
       memorie:
       chatclear:
       allchatclear:
+      magna-groups:
+      magna-id:
+      magna-list:

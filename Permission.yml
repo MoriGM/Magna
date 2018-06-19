@@ -19,6 +19,9 @@ kickall: magna.cmd.kickall
 memorie: magna.cmd.memorie
 chatclear: magna.cmd.chatclear
 allchatclear: magna.cmd.allchatclear
+magna-groups: magna.cmd.groups
+magna-id: magna.cmd.id
+magna-list: magna.cmd.list
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create
