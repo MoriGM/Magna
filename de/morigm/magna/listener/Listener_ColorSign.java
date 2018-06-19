@@ -13,7 +13,7 @@ public class Listener_ColorSign implements ListenerHelper
 		if(e.getPlayer().hasPermission(getPermission("colorsign")))
 		{
 			for(int i = 0;i < 4;i++)
-				e.setLine(i, e.getLine(i).replaceAll("&", "$"));
+				e.setLine(i, e.getLine(i).replaceAll("&", "§"));
 		}
 	}
 }
