@@ -4,6 +4,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.api.manager.GroupManager;
 
 public abstract class CommandHelper implements CommandExecutor,PermissionHelper
 {
@@ -24,6 +25,11 @@ public abstract class CommandHelper implements CommandExecutor,PermissionHelper
 	public String getCommand()
 	{
 		return name;
+	}
+	
+	public GroupManager getGroupManager()
+	{
+		return Main.getInstance().getGroupManager();
 	}
 	
 }

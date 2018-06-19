@@ -16,7 +16,6 @@ public class Chat
 	public static final String no_permission = "You have no Permission to do that";
 	public static final String no_online = "Player is not Online";
 	
-	
 	public static void writeMessage(String text)
 	{
 		Bukkit.getConsoleSender().sendMessage(prefix + text);

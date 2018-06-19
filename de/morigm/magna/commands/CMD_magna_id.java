@@ -5,7 +5,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
 import de.morigm.magna.api.group.Group;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
@@ -25,14 +24,14 @@ public class CMD_magna_id extends CommandHelper
 					t = Bukkit.getPlayer(args[0]);
 				if(t != null)
 				{
-					Group group = Main.getInstance().getGroupManager().getGroupFromPlayer(t);
+					Group group = getGroupManager().getGroupFromPlayer(t);
 					if(group != null)
 						com.sendMessage(Chat.prefix + "Player " + t.getName() + " is in Group " + group.name);
 					else
 						com.sendMessage(Chat.prefix + "Player " + t.getName() + " is not in a Group");
 				}
 				else
-					com.sendMessage(Chat.prefix + "Player is not online");
+					com.sendMessage(Chat.prefix + Chat.no_online);
 			}
 			else
 			{
@@ -41,14 +40,14 @@ public class CMD_magna_id extends CommandHelper
 					Player t = Bukkit.getPlayer(args[0]);
 					if(t != null)
 					{
-						Group group = Main.getInstance().getGroupManager().getGroupFromPlayer(t);
+						Group group = getGroupManager().getGroupFromPlayer(t);
 						if(group != null)
 							com.sendMessage(Chat.prefix + "Player " + t.getName() + " is in Group " + group.name);
 						else
 							com.sendMessage(Chat.prefix + "Player " + t.getName() + " is not in a Group");
 					}
 					else
-						com.sendMessage(Chat.prefix + "Player is not online");
+						com.sendMessage(Chat.prefix + Chat.no_online);
 				}
 				else
 					Chat.writeMessage(getCommand() + " " + "<Player>");

@@ -10,10 +10,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
 import de.morigm.magna.api.group.Group;
 import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.api.manager.GroupManager;
 import de.morigm.magna.chat.Chat;
 
 public class CMD_list extends CommandHelper 
@@ -56,11 +54,6 @@ public class CMD_list extends CommandHelper
 		else
 			com.sendMessage(Chat.prefix + Chat.no_permission);
 		return false;
-	}
-	
-	public GroupManager getGroupManager()
-	{
-		return Main.getInstance().getGroupManager();
 	}
 
 }

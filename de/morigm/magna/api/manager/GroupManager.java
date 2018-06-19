@@ -49,7 +49,7 @@ public class GroupManager
 	{
 		List<Player> players = new ArrayList<>();
 		for(Player t : Bukkit.getOnlinePlayers())
-			if(t.hasPermission(group.permission))
+			if(group == getGroupFromPlayer(t) && !players.contains(t))
 				players.add(t);
 		return players;
 	}

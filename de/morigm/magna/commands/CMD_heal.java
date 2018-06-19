@@ -1,5 +1,6 @@
 package de.morigm.magna.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -16,15 +17,22 @@ public class CMD_heal extends CommandHelper
 	{
 		if(com instanceof Player)
 		{
-			Player p = (Player) com;
-			if(p.hasPermission(getPermission("heal")))
+			Player t = (Player) com;
+			if(com.hasPermission(getPermission("heal")))
 			{
-				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
-				p.setFoodLevel(20);
-				p.sendMessage(Chat.prefix + "You are healed");
+				if(args.length >= 1)
+					t = Bukkit.getPlayer(args[0]); 
+				if(t != null)
+				{
+					t.setHealth(t.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
+					t.setFoodLevel(20);
+					com.sendMessage(Chat.prefix + (t != ((Player) com) ? "You are healed" : "Player was healed"));
+				}
+				else
+					com.sendMessage(Chat.prefix + Chat.no_online);
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				com.sendMessage(Chat.prefix + Chat.no_permission);
 		}
 		else
 			Chat.writeMessage(Chat.no_console);
