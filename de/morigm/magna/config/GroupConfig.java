@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import de.morigm.magna.api.helper.ConfigHelper;
+import de.morigm.magna.chat.Chat;
 
 public class GroupConfig implements ConfigHelper
 {
@@ -17,7 +18,7 @@ public class GroupConfig implements ConfigHelper
 	@Override
 	public void load() 
 	{
-		this.file = new File("./plugins/Magna/groups.yml");
+		this.file = new File("./plugins/" + Chat.name + "/groups.yml");
 		if(!file.exists())
 		{
 			try 

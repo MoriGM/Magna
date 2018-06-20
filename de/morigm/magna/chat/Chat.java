@@ -19,7 +19,7 @@ public class Chat
 	
 	public static void writeMessage(String text)
 	{
-		Bukkit.getConsoleSender().sendMessage(prefix + text);
+		Bukkit.getConsoleSender().sendMessage(Chat.prefix + text);
 	}
 	
 	

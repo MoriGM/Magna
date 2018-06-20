@@ -22,6 +22,7 @@ allchatclear: magna.cmd.allchatclear
 magna-groups: magna.cmd.groups
 magna-id: magna.cmd.id
 magna-list: magna.cmd.list
+magna-group-exec: magna.cmd.group-exec
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create

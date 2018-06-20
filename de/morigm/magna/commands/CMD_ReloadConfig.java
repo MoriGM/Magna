@@ -17,6 +17,11 @@ public class CMD_ReloadConfig extends CommandHelper
 		{
 			Main.getInstance().reloadConfig();
 			Main.getInstance().getDefaultPluginConfig().load();
+			if(Main.getInstance().getDefaultPluginConfig().groups.size() >= 1)
+			{
+				Main.getInstance().getGroupConfig().load();
+				Main.getInstance().getGroupLoader().load();
+			}
 			com.sendMessage(Chat.prefix + "Plugin Config reloaded");
 		}
 		else
