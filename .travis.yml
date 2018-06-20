@@ -1,9 +1,7 @@
 language: java
 install:
 - mkdir lib
-- wget https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180617.030601-148.jar
-- mv spigot-api-1.12.2-R0.1-20180617.030601-148.jar spigot.jar
-- mv spigot.jar ./lib/
+- wget https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180617.030601-148.jar -O./lib/spigot.jar
 script: ant build
 os: linux
 jdk:
