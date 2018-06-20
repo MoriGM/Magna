@@ -16,11 +16,16 @@ public class CMD_groups extends CommandHelper
 	{
 		if(com.hasPermission(getPermission("magna-groups")))
 		{
-			String groups = "";
-			for(Group group : getGroupManager().getGroups())
-				groups += ChatColor.GREEN + group.name + ChatColor.RESET + " ";
-			groups = groups.substring(0,groups.length() - 1);
-			com.sendMessage(Chat.prefix + "Groups:" + groups);
+			if(getGroupManager().getGroups().length >= 1)
+			{
+				String groups = "";
+				for(Group group : getGroupManager().getGroups())
+					groups += ChatColor.GREEN + group.name + ChatColor.RESET + " ";
+				groups = groups.substring(0,groups.length() - 1);
+				com.sendMessage(Chat.prefix + "Groups:" + groups);
+			}
+			else
+				com.sendMessage(Chat.prefix + Chat.no_group);
 		}
 		else
 			com.sendMessage(Chat.prefix + Chat.no_permission);

@@ -22,34 +22,39 @@ public class CMD_list extends CommandHelper
 	{
 		if(com.hasPermission(getPermission("magna-list")))
 		{
-			if(Bukkit.getOnlinePlayers().size() >= 1)
+			if(getGroupManager().getGroups().length >= 1)
 			{
-				if(args.length >= 1)
+				if(Bukkit.getOnlinePlayers().size() >= 1)
 				{
-					Group group = getGroupManager().getGroup(args[0]);
-					if(group != null)
+					if(args.length >= 1)
 					{
-						List<Player> players = getGroupManager().getPlayersByGroup(group);
-						String groups = "";
-						for(Player t : players)
-							groups += ChatColor.GREEN + t.getName() + ChatColor.RESET + " ";
-						com.sendMessage(Chat.prefix + "Players:" + groups);
+						Group group = getGroupManager().getGroup(args[0]);
+						if(group != null)
+						{
+							List<Player> players = getGroupManager().getPlayersByGroup(group);
+							String groups = "";
+							for(Player t : players)
+								groups += ChatColor.GREEN + t.getName() + ChatColor.RESET + " ";
+							com.sendMessage(Chat.prefix + "Players:" + groups);
+						}
+						else
+							com.sendMessage(Chat.prefix + "This Group does not exists");
 					}
 					else
-						com.sendMessage(Chat.prefix + "This Group does not exists");
+					{
+						Map<Player,Group> map = getGroupManager().getOnlinePlayerWithGroup();
+						String group = "";
+						for(Entry<Player,Group> entry : map.entrySet())
+							group += "(" + entry.getKey().getName() + " : " + (entry.getValue().name != null ? entry.getValue().name : "NO GROUP") + "),";
+						group = group.substring(0,group.length() - 1);
+						com.sendMessage(Chat.prefix + group);
+					}
 				}
 				else
-				{
-					Map<Player,Group> map = getGroupManager().getOnlinePlayerWithGroup();
-					String group = "";
-					for(Entry<Player,Group> entry : map.entrySet())
-						group += "(" + entry.getKey().getName() + " : " + (entry.getValue().name != null ? entry.getValue().name : "NO GROUP") + "),";
-					group = group.substring(0,group.length() - 1);
-					com.sendMessage(Chat.prefix + group);
-				}
+					com.sendMessage(Chat.prefix + Chat.no_player);
 			}
 			else
-				com.sendMessage(Chat.prefix + "No player Online");
+				com.sendMessage(Chat.prefix + Chat.no_group);
 		}
 		else
 			com.sendMessage(Chat.prefix + Chat.no_permission);

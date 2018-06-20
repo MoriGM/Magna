@@ -17,27 +17,13 @@ public class CMD_magna_id extends CommandHelper
 	{
 		if(com.hasPermission(getPermission("magna-id")))
 		{
-			if(com instanceof Player)
+			if(getGroupManager().getGroups().length >= 1)
 			{
-				Player t = (Player) com;
-				if(args.length >= 1)
-					t = Bukkit.getPlayer(args[0]);
-				if(t != null)
+				if(com instanceof Player)
 				{
-					Group group = getGroupManager().getGroupFromPlayer(t);
-					if(group != null)
-						com.sendMessage(Chat.prefix + "Player " + t.getName() + " is in Group " + group.name);
-					else
-						com.sendMessage(Chat.prefix + "Player " + t.getName() + " is not in a Group");
-				}
-				else
-					com.sendMessage(Chat.prefix + Chat.no_online);
-			}
-			else
-			{
-				if(args.length >= 1)
-				{
-					Player t = Bukkit.getPlayer(args[0]);
+					Player t = (Player) com;
+					if(args.length >= 1)
+						t = Bukkit.getPlayer(args[0]);
 					if(t != null)
 					{
 						Group group = getGroupManager().getGroupFromPlayer(t);
@@ -50,8 +36,27 @@ public class CMD_magna_id extends CommandHelper
 						com.sendMessage(Chat.prefix + Chat.no_online);
 				}
 				else
-					Chat.writeMessage(getCommand() + " " + "<Player>");
+				{
+					if(args.length >= 1)
+					{
+						Player t = Bukkit.getPlayer(args[0]);
+						if(t != null)
+						{
+							Group group = getGroupManager().getGroupFromPlayer(t);
+							if(group != null)
+								com.sendMessage(Chat.prefix + "Player " + t.getName() + " is in Group " + group.name);
+							else
+								com.sendMessage(Chat.prefix + "Player " + t.getName() + " is not in a Group");
+						}
+						else
+							com.sendMessage(Chat.prefix + Chat.no_online);
+					}
+					else
+						Chat.writeMessage(getCommand() + " " + "<Player>");
+				}
 			}
+			else
+				com.sendMessage(Chat.prefix + Chat.no_group);
 		}
 		else
 			com.sendMessage(Chat.prefix + Chat.no_permission);
