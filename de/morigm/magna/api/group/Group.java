@@ -3,8 +3,7 @@ package de.morigm.magna.api.group;
 public class Group
 {
 	
-	public final String name;
-	public final String permission;
+	public final String name, permission;
 	public final int id;
 	
 	public Group(String name,String permission,int id)
