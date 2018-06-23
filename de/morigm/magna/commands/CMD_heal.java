@@ -26,7 +26,7 @@ public class CMD_heal extends CommandHelper
 				{
 					t.setHealth(t.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
 					t.setFoodLevel(20);
-					com.sendMessage(Chat.prefix + (t != ((Player) com) ? "You are healed" : "Player was healed"));
+					com.sendMessage(Chat.prefix + (t == ((Player) com) ? "You are healed" : "Player was healed"));
 				}
 				else
 					com.sendMessage(Chat.prefix + Chat.no_online);
