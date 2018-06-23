@@ -23,6 +23,7 @@ import de.morigm.magna.commands.CMD_magna_id;
 import de.morigm.magna.commands.CMD_memorie;
 import de.morigm.magna.commands.CMD_removeWarp;
 import de.morigm.magna.commands.CMD_setWarp;
+import de.morigm.magna.commands.CMD_teamchat;
 import de.morigm.magna.commands.CMD_tpall;
 import de.morigm.magna.commands.CMD_warp;
 import de.morigm.magna.listener.Listener_CMDSPY;
@@ -63,6 +64,7 @@ public class PluginLoader
 		new CMD_magna_id().register("magna-id");
 		new CMD_list().register("magna-list");
 		new CMD_group_exec().register("magna-group-exec");
+		new CMD_teamchat().register("teamchat");
 	}
 	
 	public void registerListener()

@@ -23,7 +23,9 @@ magna-groups: magna.cmd.groups
 magna-id: magna.cmd.id
 magna-list: magna.cmd.list
 magna-group-exec: magna.cmd.group-exec
+teamchat: magna.cmd.teamchat
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create
 warpsign: magna.event.warpsign.to
+teamchat-see: magna.teamchat.see
