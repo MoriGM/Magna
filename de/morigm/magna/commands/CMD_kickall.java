@@ -28,17 +28,17 @@ public class CMD_kickall extends CommandHelper
 					for(Player t : players)
 						t.kickPlayer("");
 					if(!(com instanceof Player))
-						Chat.writeMessage("All Players Kicked in this Group");
+						Chat.writeMessage(translate("cmd.kickall.group"));
 				}
 				else
-					com.sendMessage(Chat.prefix + "There is not Group with this name");
+					com.sendMessage(Chat.prefix + translate("cmd.kickall.group.no"));
 			}
 			else
 			{
 				for(Player t : Bukkit.getOnlinePlayers())
 					t.kickPlayer("");
 				if(!(com instanceof Player))
-					Chat.writeMessage("All Players Kicked");
+					Chat.writeMessage(translate("cmd.kickall"));
 			}
 		}
 		else

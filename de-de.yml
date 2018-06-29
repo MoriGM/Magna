@@ -26,3 +26,6 @@ cmd.ip= Die IP des Spieler
 cmd.ip.is= ist
 cmd.itemhead= Item ist nun in deinem Kopf Slot
 cmd.itemhead.no= Du hast kein Item in der Hand
+cmd.kickall= Alle Spieler wurden gekickt
+cmd.kickall.group= Alle Spieler wurden aus der Gruppe gekickt
+cmd.kickall.group.no= So eine Gruppe gibt es nicht
