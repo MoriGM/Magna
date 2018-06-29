@@ -11,3 +11,5 @@ cmd.fly.player.off= Spieler kann nun nicht mehr fliegen
 cmd.fly.you.on= Du kannst nun fliegen
 cmd.fly.you.off= Du kannst nun nicht mehr fliegen
 cmd.getpos.world= Welt
+cmd.getwarp.world= Welt
+cmd.getwarp.error= Diesen Warp gibt es nicht

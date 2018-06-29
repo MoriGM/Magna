@@ -26,10 +26,10 @@ public class CMD_getWarp extends CommandHelper
 					if(Main.getInstance().getWarpManager().containsWarp(warpname))
 					{
 						Location loc = Main.getInstance().getWarpManager().getWarp(warpname);
-						p.sendMessage(Chat.prefix + "X:" + loc.getBlockX() + " Y:" + loc.getBlockY() + " Z:" + loc.getBlockZ() + " World:" + loc.getWorld().getName());
+						p.sendMessage(Chat.prefix + "X:" + loc.getBlockX() + " Y:" + loc.getBlockY() + " Z:" + loc.getBlockZ() + " " + translate("cmd.getwarp.world") + ":" + loc.getWorld().getName());
 					}
 					else
-						p.sendMessage(Chat.prefix + "Warp doesn't exists");
+						p.sendMessage(Chat.prefix + translate("cmd.getwarp.error"));
 				}
 				else
 					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");

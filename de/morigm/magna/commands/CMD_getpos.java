@@ -27,7 +27,7 @@ public class CMD_getpos extends CommandHelper
 						return false;
 					}
 					else
-						p.sendMessage(Chat.prefix + "X:" +  t.getLocation().getBlockX() + " Y:" + t.getLocation().getBlockY() + " Z:" + t.getLocation().getBlockZ() + " World:" + t.getLocation().getWorld().getName());
+						p.sendMessage(Chat.prefix + "X:" +  t.getLocation().getBlockX() + " Y:" + t.getLocation().getBlockY() + " Z:" + t.getLocation().getBlockZ() + " " + translate("cmd.getpos.world") + ":" + t.getLocation().getWorld().getName());
 				}
 				else
 					p.sendMessage(Chat.prefix + "X:" +  p.getLocation().getBlockX() + " Y:" + p.getLocation().getBlockY() + " Z:" + p.getLocation().getBlockZ() + " " + translate("cmd.getpos.world") + ":" + p.getLocation().getWorld().getName());
