@@ -17,9 +17,9 @@ public class CMD_group_exec extends CommandHelper
 	{
 		if(com.hasPermission(getPermission("magna-group-exec")))
 		{
-			if(getGroupManager().getGroups().length >= 2)
+			if(getGroupManager().getGroups().length >= 1)
 			{
-				if(args.length >= 1)
+				if(args.length >= 2)
 				{
 					Group group = getGroupManager().getGroup(args[0]);
 					for(Player t : getGroupManager().getPlayersByGroup(group))
