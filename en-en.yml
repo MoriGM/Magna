@@ -20,3 +20,5 @@ cmd.godmode.off= Off
 cmd.godmode.for= for Player
 cmd.group-exec= All Commands used
 cmd.groups= Groups
+cmd.heal.you= You were healed
+cmd.heal.player= Player was healed
