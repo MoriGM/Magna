@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.GroupManager;
@@ -45,19 +46,26 @@ public class Main extends JavaPlugin
 
 	private GroupLoader grouploader;
 	
-	private File languageFolder = new File(getDataFolder(),"languages");
+	private File languageFolder;
 	private File jar;
 			
 	private LanguageLoader LanguageLoader;
+
+	private Language language;
 	
 
 	@Override
 	public void onEnable() 
 	{
-		jar = this.getFile();
 		Main.instance = this;
+		this.languageFolder = new File(getDataFolder(),"languages");
+		this.pluginconfig = new PluginConfig();
+		this.pluginconfig.load();
+		this.jar = this.getFile();
 		this.LanguageLoader = new LanguageLoader();
-		LanguageLoader.load();
+		this.LanguageLoader.load();
+		this.language = new Language();
+		this.language.load();
 		this.permissionManager = new PermissionManager();
 		this.permissionManager.load();
 		this.pluginLoader = new PluginLoader();
@@ -68,8 +76,6 @@ public class Main extends JavaPlugin
 		this.mutedPlayerManager = new MutedPlayerManager();
 		this.godModeManager = new  GodModeManager();
 		this.commandSpyManager = new CommandSpyManager();
-		this.pluginconfig = new PluginConfig();
-		this.pluginconfig.load();
 		this.commandsloger = new CommandLoger();
 		this.commandsloger.load();
 		this.warpconfig = new WarpConfig();
@@ -82,7 +88,7 @@ public class Main extends JavaPlugin
 		this.grouploader.load();
 		this.groupManager = new GroupManager();
 		Chat.writeMessage("Version: " + Chat.version);
-		Chat.writeMessage("Plugin is started");
+		Chat.writeMessage(this.getLanguage().translate("plugin.start"));
 	}
 	
 	@Override
@@ -92,7 +98,7 @@ public class Main extends JavaPlugin
 		this.pluginconfig.save();
 		this.commandsloger.save();
 		this.warpconfig.save();
-		Chat.writeMessage("Plugin is stopped");
+		Chat.writeMessage(this.getLanguage().translate("plugin.stop"));
 	}
 	
 	public static Main getInstance() 
@@ -178,5 +184,10 @@ public class Main extends JavaPlugin
 	public File getJar() 
 	{
 		return jar;
+	}
+	
+	public Language getLanguage() 
+	{
+		return language;
 	}
 }

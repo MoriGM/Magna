@@ -1,2 +1,12 @@
 plugin.start= Plugin ist gestartet
 plugin.stop= Plugin ist gestoppt
+chat.no-permission= Du hast kein recht dafuer
+chat.no-console= Du musst ein Spieler sein
+chat.no-player= Du musst die Console sein
+chat.no-online= Der Spieler ist offline
+chat.no-group= Es gibt keine Gruppen
+cmd.allchatclear= Dein Chat wurde geloescht von
+cmd.fly.player.on= Spieler kann nun fliegen
+cmd.fly.player.off= Spieler kann nun nicht mehr fliegen
+cmd.fly.you.on= Du kannst nun fliegen
+cmd.fly.you.off= Du kannst nun nicht mehr fliegen

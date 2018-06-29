@@ -24,10 +24,10 @@ public class CMD_Fly extends CommandHelper
 				if(t != null)
 				{
 					t.setAllowFlight(!t.getAllowFlight());
-					com.sendMessage(Chat.prefix + (t.getAllowFlight() ?  (com == t ? "You can now fly" : "Player can now Fly") : (com == t ? "You can not fly anymore" : "Player can now Fly")));
+					com.sendMessage(Chat.prefix + (t.getAllowFlight() ?  (com == t ? translate("cmd.fly.you.on") : translate("cmd.fly.player.on")) : (com == t ? translate("cmd.fly.you.off") : translate("cmd.fly.player.off"))));
 				}
 				else
-					com.sendMessage(Chat.prefix + Chat.no_player);
+					com.sendMessage(Chat.prefix + Chat.no_online);
 			}
 			else
 				com.sendMessage(Chat.prefix + Chat.no_permission);

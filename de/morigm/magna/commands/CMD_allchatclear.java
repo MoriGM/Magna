@@ -22,7 +22,7 @@ public class CMD_allchatclear extends CommandHelper
 				for(int i = 0;i < 100;i++)
 					p.sendMessage(" ");
 				if(Main.getInstance().getDefaultPluginConfig().chatclear)
-					p.sendMessage(Chat.prefix + "Your Chat was cleared from " + ((com instanceof Player) ? ((Player)com).getName() : "Sever"));
+					p.sendMessage(Chat.prefix + translate("cmd.allchatclear") + " " + ((com instanceof Player) ? ((Player)com).getName() : "Sever"));
 			}
 		}
 		else

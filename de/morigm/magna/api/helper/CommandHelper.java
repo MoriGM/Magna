@@ -32,4 +32,9 @@ public abstract class CommandHelper implements CommandExecutor,PermissionHelper
 		return Main.getInstance().getGroupManager();
 	}
 	
+	public String translate(String text)
+	{
+		return Main.getInstance().getLanguage().translate(text);
+	}
+	
 }
