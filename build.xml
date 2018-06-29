@@ -10,6 +10,8 @@
 	<property name="file" value="Magna.jar"/>
 	<property name="premission" value="Permission.yml"/>
 	<property name="plugin" value="plugin.yml"/>
+	<property name="language-de" value="de-de.yml"/>
+	<property name="language-en" value="en-en.yml"/>
 	
 	<target name="build">
 		<mkdir dir="${src}/de"/>
@@ -29,6 +31,8 @@
 				
 		<copy file="${premission}" tofile="${bin}/${premission}"/>
 		<copy file="${plugin}" tofile="${bin}/${plugin}"/>
+		<copy file="${language-de}" tofile="${bin}/${language-de}"/>
+		<copy file="${language-en}" tofile="${bin}/${language-en}"/>
 		<jar jarfile="${dist}/${file}">
 			<fileset dir="${bin}"/>
 		</jar>
