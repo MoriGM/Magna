@@ -13,5 +13,5 @@ jdk:
 - openjdk9
 sudo: false
 branches:
-        only:
-        - master
+    only:
+    - master
