@@ -22,3 +22,5 @@ cmd.group-exec= All Commands used
 cmd.groups= Groups
 cmd.heal.you= You were healed
 cmd.heal.player= Player was healed
+cmd.ip= The Ip of the Player
+cmd.ip.is= is

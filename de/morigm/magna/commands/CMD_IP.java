@@ -20,7 +20,7 @@ public class CMD_IP extends CommandHelper
 			{
 				Player t = Bukkit.getPlayer(args[0]);
 				if(t != null)
-					com.sendMessage(Chat.prefix + "The Ip of the Player " + t.getName() + " is " + t.getAddress().getHostString());
+					com.sendMessage(Chat.prefix + translate("cmd.ip") + " " + t.getName() + " " + translate("cmd.ip.is") + " " + t.getAddress().getHostString());
 				else
 					com.sendMessage(Chat.prefix + Chat.no_player);
 			}
