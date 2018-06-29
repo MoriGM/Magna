@@ -22,7 +22,7 @@ public class CMD_groups extends CommandHelper
 				for(Group group : getGroupManager().getGroups())
 					groups += ChatColor.GREEN + group.name + ChatColor.RESET + " ";
 				groups = groups.substring(0,groups.length() - 1);
-				com.sendMessage(Chat.prefix + "Groups:" + groups);
+				com.sendMessage(Chat.prefix + translate("cmd.groups") + ":" + groups);
 			}
 			else
 				com.sendMessage(Chat.prefix + Chat.no_group);

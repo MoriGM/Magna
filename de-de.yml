@@ -18,3 +18,5 @@ cmd.godmode= Godmode ist nun
 cmd.godmode.on= An
 cmd.godmode.off= Aus
 cmd.godmode.for= fuer Spieler
+cmd.group-exec= Alles Commands wurden ausgeführt
+cmd.groups= Gruppen

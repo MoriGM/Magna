@@ -24,10 +24,10 @@ public class CMD_group_exec extends CommandHelper
 					Group group = getGroupManager().getGroup(args[0]);
 					for(Player t : getGroupManager().getPlayersByGroup(group))
 						Bukkit.dispatchCommand(com, (args[1].startsWith("/") ? args[1].substring(1,args[1].length()) : args[1]) + " " + t.getName());
-					com.sendMessage(Chat.prefix + "All Commands used");
+					com.sendMessage(Chat.prefix + translate("cmd.group-exec"));
 				}
 				else
-					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + "magna-group-exec <Group> <Command>");
+					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <Group> <Command>");
 			}
 			else
 				com.sendMessage(Chat.prefix + Chat.no_group);
