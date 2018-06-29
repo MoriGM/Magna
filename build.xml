@@ -26,6 +26,7 @@
 				destdir="${bin}">
 				<classpath>
 					<pathelement path="${lib}/spigot.jar"/>
+					<pathelement path="${lib}/commons-io.jar"/>
 				</classpath>
 		</javac>
 				
