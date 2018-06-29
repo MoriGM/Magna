@@ -22,10 +22,10 @@ public class CMD_ItemHead extends CommandHelper
 				if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
 				{
 					p.getInventory().setHelmet(p.getInventory().getItemInMainHand());
-					p.sendMessage(Chat.prefix + "Item is now in the Head Slot");
+					p.sendMessage(Chat.prefix + translate("cmd.itemhead"));
 				}
 				else
-					p.sendMessage(Chat.prefix + "You have no Item in Hand");
+					p.sendMessage(Chat.prefix + translate("cmd.itemhead.no"));
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);

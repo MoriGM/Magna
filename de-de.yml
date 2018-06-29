@@ -24,3 +24,5 @@ cmd.heal.you= Du wurdest geheilt
 cmd.heal.player= Der Spieler wurde geheilt
 cmd.ip= Die IP des Spieler
 cmd.ip.is= ist
+cmd.itemhead= Item ist nun in deinem Kopf Slot
+cmd.itemhead.no= Du hast kein Item in der Hand
