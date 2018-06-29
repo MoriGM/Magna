@@ -1,8 +1,16 @@
 package de.morigm.magna.loader;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.io.IOUtils;
 
@@ -41,6 +49,52 @@ public class LanguageLoader implements LoadHelper
 	
 	public void update(File file,String data)
 	{
+		Map<String,String> map = new HashMap<>();
+		BufferedReader reader;
+		try 
+		{
+			reader = new BufferedReader(new FileReader(file));
+			while(reader.ready())
+			{
+				String[] args = reader.readLine().split("=");
+				String s = "";
+				for(int i = 1;i < args.length;i++)
+					s += args[i] + "=";
+				s = s.substring(0,s.length() - 1);
+				map.put(args[0], s);
+			}
+			reader.close();
+		}
+		catch (IOException e) 
+		{e.printStackTrace();}
+		try 
+		{
+			reader = new BufferedReader(new InputStreamReader(Main.getInstance().getResource(data)));
+			while(reader.ready())
+			{
+				String[] args = reader.readLine().split("=");
+				String s = "";
+				for(int i = 1;i < args.length;i++)
+					s += args[i] + "=";
+				s = s.substring(0,s.length() - 1);
+				if(!map.containsKey(args[0]))
+					map.put(args[0], s);
+			}
+			reader.close();
+		}
+		catch (IOException e) 
+		{e.printStackTrace();}
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+			for(Entry<String,String> set : map.entrySet())
+			{
+				writer.write(set.getKey() + "=" + set.getValue());
+				writer.newLine();
+			}
+			writer.close();
+		} 
+		catch (IOException e) 
+		{e.printStackTrace();}
 	}
 	
 	public void check()
