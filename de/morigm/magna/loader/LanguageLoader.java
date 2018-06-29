@@ -19,7 +19,7 @@ import de.morigm.magna.api.helper.LoadHelper;
 
 public class LanguageLoader implements LoadHelper
 {
-	File language;
+	private File language;
 	
 	public void installDe(File de)
 	{
@@ -111,6 +111,12 @@ public class LanguageLoader implements LoadHelper
 			update(de,"de-de.yml");
 		if(en.lastModified() < Main.getInstance().getJar().lastModified())
 			update(en,"en-en.yml");
+		
+		File language = new File(Main.getInstance().getLanguageFolder(),Main.getInstance().getDefaultPluginConfig().language);
+		if(language.exists())
+			this.language = language;
+		else
+			this.language = new File(Main.getInstance().getLanguageFolder(),"en-en.yml");
 	}
 	
 	public void load()
@@ -118,5 +124,10 @@ public class LanguageLoader implements LoadHelper
 		if(!Main.getInstance().getLanguageFolder().exists())
 			Main.getInstance().getLanguageFolder().mkdirs();
 		check();
+	}
+	
+	public File getLanguage() 
+	{
+		return language;
 	}
 }

@@ -19,6 +19,7 @@ public class PluginConfig implements ConfigHelper
 	public boolean chatclear;
 	public List<String> groups;
 	public Location spawn;
+	public String language;
 
 	private void adddefault()
 	{
@@ -27,6 +28,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().addDefault("commandlog", false);
 		getConfig().addDefault("chatclear", false);
 		getConfig().addDefault("commandspyblocked", new ArrayList<String>());
+		getConfig().addDefault("language", "en-en.yml");
 	}
 	
 	public void load()
@@ -37,6 +39,7 @@ public class PluginConfig implements ConfigHelper
 		this.commandlog = getConfig().getBoolean("commandlog");
 		this.chatclear = getConfig().getBoolean("chatclear");
 		this.groups = getConfig().getStringList("groups");
+		this.language = getConfig().getString("language");
 		
 		loadSpawn();
 	}
