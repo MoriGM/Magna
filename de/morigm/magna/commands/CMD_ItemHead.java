@@ -1,5 +1,6 @@
 package de.morigm.magna.commands;
 
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -18,7 +19,7 @@ public class CMD_ItemHead extends CommandHelper
 			Player p = (Player) com;
 			if(p.hasPermission(getPermission("itemhead")))
 			{
-				if(p.getInventory().getItemInMainHand() != null)
+				if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
 				{
 					p.getInventory().setHelmet(p.getInventory().getItemInMainHand());
 					p.sendMessage(Chat.prefix + "Item is now in the Head Slot");
