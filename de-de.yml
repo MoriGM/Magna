@@ -29,3 +29,6 @@ cmd.itemhead.no= Du hast kein Item in der Hand
 cmd.kickall= Alle Spieler wurden gekickt
 cmd.kickall.group= Alle Spieler wurden aus der Gruppe gekickt
 cmd.kickall.group.no= So eine Gruppe gibt es nicht
+cmd.list.player= Spieler
+cmd.list.group.notfound= Diese Gruppe gibt es nicht
+cmd.list.group.no= Keine Gruppe

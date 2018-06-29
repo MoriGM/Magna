@@ -29,3 +29,6 @@ cmd.itemhead.no= You have no Item in Hand
 cmd.kickall= All Players Kicked
 cmd.kickall.group= All Players Kicked in this Group
 cmd.kickall.group.no= There is not Group with this name
+cmd.list.player= Player
+cmd.list.group.notfound= This Group does not exists
+cmd.list.group.no= NO GROUP

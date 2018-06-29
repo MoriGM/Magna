@@ -35,17 +35,17 @@ public class CMD_list extends CommandHelper
 							String groups = "";
 							for(Player t : players)
 								groups += ChatColor.GREEN + t.getName() + ChatColor.RESET + " ";
-							com.sendMessage(Chat.prefix + "Players:" + groups);
+							com.sendMessage(Chat.prefix + translate("cmd.list.player") + ":" + groups);
 						}
 						else
-							com.sendMessage(Chat.prefix + "This Group does not exists");
+							com.sendMessage(Chat.prefix + translate("cmd.list.group.notfound"));
 					}
 					else
 					{
 						Map<Player,Group> map = getGroupManager().getOnlinePlayerWithGroup();
 						String group = "";
 						for(Entry<Player,Group> entry : map.entrySet())
-							group += "(" + entry.getKey().getName() + " : " + (entry.getValue() != null ? entry.getValue().name : "NO GROUP") + "),";
+							group += "(" + entry.getKey().getName() + " : " + (entry.getValue() != null ? entry.getValue().name : translate("cmd.list.group.no")) + "),";
 						group = group.substring(0,group.length() - 1);
 						com.sendMessage(Chat.prefix + group);
 					}
