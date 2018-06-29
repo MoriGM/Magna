@@ -7,6 +7,7 @@ import java.util.List;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ConfigHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -22,7 +23,7 @@ public class WarpConfig implements ConfigHelper
 		try
 		{
 			this.config.set("warps", this.warps);
-			this.config.save(new File("./plugins/" + Chat.name + "/warps.yml"));
+			this.config.save(new File(Main.getInstance().getDataFolder(),"/warps.yml"));
 		}
 		catch (IOException e) 
 		{

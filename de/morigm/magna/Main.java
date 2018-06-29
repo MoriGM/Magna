@@ -1,7 +1,10 @@
 package de.morigm.magna;
 
+import java.io.File;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
+import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.GroupManager;
@@ -42,11 +45,17 @@ public class Main extends JavaPlugin
 
 	private GroupLoader grouploader;
 	
+	private File languageFolder = new File(getDataFolder(),"languages");
+	
+	private Language language = new Language();
+	
 
 	@Override
 	public void onEnable() 
 	{
 		Main.instance = this;
+		this.language = new Language();
+		language.load();
 		this.permissionManager = new PermissionManager();
 		this.permissionManager.load();
 		this.pluginLoader = new PluginLoader();
@@ -152,6 +161,16 @@ public class Main extends JavaPlugin
 	public GroupManager getGroupManager() 
 	{
 		return groupManager;
+	}
+	
+	public File getLanguageFolder() 
+	{
+		return languageFolder;
+	}
+	
+	public Language getLanguage() 
+	{
+		return language;
 	}
 	
 }

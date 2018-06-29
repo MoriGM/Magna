@@ -7,6 +7,7 @@ import java.util.List;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ConfigHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -20,7 +21,7 @@ public class PlayerConfig implements ConfigHelper
 
 	public void loadFile()
 	{
-		FileConfiguration conf = YamlConfiguration.loadConfiguration(new File("./plugins/" + Chat.name + "/players.yml"));
+		FileConfiguration conf = YamlConfiguration.loadConfiguration(new File(Main.getInstance().getDataFolder(),"/players.yml"));
 		this.configuration = conf;
 	}
 	
