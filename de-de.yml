@@ -10,3 +10,4 @@ cmd.fly.player.on= Spieler kann nun fliegen
 cmd.fly.player.off= Spieler kann nun nicht mehr fliegen
 cmd.fly.you.on= Du kannst nun fliegen
 cmd.fly.you.off= Du kannst nun nicht mehr fliegen
+cmd.getpos.world= Welt

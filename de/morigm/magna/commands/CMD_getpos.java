@@ -23,14 +23,14 @@ public class CMD_getpos extends CommandHelper
 					Player t = Bukkit.getPlayer(args[0]);
 					if(t == null)
 					{
-						p.sendMessage(Chat.prefix + "Player is offline");
+						p.sendMessage(Chat.prefix + Chat.no_online);
 						return false;
 					}
 					else
 						p.sendMessage(Chat.prefix + "X:" +  t.getLocation().getBlockX() + " Y:" + t.getLocation().getBlockY() + " Z:" + t.getLocation().getBlockZ() + " World:" + t.getLocation().getWorld().getName());
 				}
 				else
-					p.sendMessage(Chat.prefix + "X:" +  p.getLocation().getBlockX() + " Y:" + p.getLocation().getBlockY() + " Z:" + p.getLocation().getBlockZ() + " World:" + p.getLocation().getWorld().getName());
+					p.sendMessage(Chat.prefix + "X:" +  p.getLocation().getBlockX() + " Y:" + p.getLocation().getBlockY() + " Z:" + p.getLocation().getBlockZ() + " " + translate("cmd.getpos.world") + ":" + p.getLocation().getWorld().getName());
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
 		}
