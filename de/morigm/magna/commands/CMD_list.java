@@ -45,7 +45,7 @@ public class CMD_list extends CommandHelper
 						Map<Player,Group> map = getGroupManager().getOnlinePlayerWithGroup();
 						String group = "";
 						for(Entry<Player,Group> entry : map.entrySet())
-							group += "(" + entry.getKey().getName() + " : " + (entry.getValue().name != null ? entry.getValue().name : "NO GROUP") + "),";
+							group += "(" + entry.getKey().getName() + " : " + (entry.getValue() != null ? entry.getValue().name : "NO GROUP") + "),";
 						group = group.substring(0,group.length() - 1);
 						com.sendMessage(Chat.prefix + group);
 					}
