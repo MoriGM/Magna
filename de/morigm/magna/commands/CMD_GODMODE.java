@@ -26,7 +26,7 @@ public class CMD_GODMODE extends CommandHelper
 					if(t != null)
 					{
 						Main.getInstance().getGodModeManager().togglePlayer(t);
-						p.sendMessage(Chat.prefix + "Godmode is now " + (Main.getInstance().getGodModeManager().containsPlayer(t) ? "On" : "Off") + " for Player " + t.getName());
+						p.sendMessage(Chat.prefix + translate("cmd.godmode") + " " + (Main.getInstance().getGodModeManager().containsPlayer(t) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")) + " " + translate("cmd.godmode.for") + " " + t.getName());
 					}
 					else
 						p.sendMessage(Chat.prefix + Chat.no_online);
@@ -35,7 +35,7 @@ public class CMD_GODMODE extends CommandHelper
 				else
 				{
 					Main.getInstance().getGodModeManager().togglePlayer(p);
-					p.sendMessage(Chat.prefix + "Godmode is now " + (Main.getInstance().getGodModeManager().containsPlayer(p) ? "On" : "Off"));
+					p.sendMessage(Chat.prefix + translate("cmd.godmode") + " " + (Main.getInstance().getGodModeManager().containsPlayer(p) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")));
 				}
 			}
 			else
@@ -49,7 +49,7 @@ public class CMD_GODMODE extends CommandHelper
 				if(t != null)
 				{
 					Main.getInstance().getGodModeManager().togglePlayer(t);
-					Chat.writeMessage("Godmode is now " + (Main.getInstance().getGodModeManager().containsPlayer(t) ? "On" : "Off") + " for Player " + t.getName());
+					Chat.writeMessage(translate("cmd.godmode") + " " + (Main.getInstance().getGodModeManager().containsPlayer(t) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")) + " " + translate("cmd.godmode.for") + " " + t.getName());
 				}
 				else
 					Chat.writeMessage(Chat.no_online);

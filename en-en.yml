@@ -14,3 +14,7 @@ cmd.getpos.world= World
 cmd.getwarp.world= World
 cmd.getwarp.error= Warp doesn't exists
 cmd.getworld= You are in the World
+cmd.godmode= Godmode is now
+cmd.godmode.on= On
+cmd.godmode.off= Off
+cmd.godmode.for= for Player
