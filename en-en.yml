@@ -13,3 +13,4 @@ cmd.fly.you.off= You can not fly anymore
 cmd.getpos.world= World
 cmd.getwarp.world= World
 cmd.getwarp.error= Warp doesn't exists
+cmd.getworld= You are in the World

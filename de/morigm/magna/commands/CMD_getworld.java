@@ -18,7 +18,7 @@ public class CMD_getworld extends CommandHelper
 			Player p = (Player) com;
 			if(p.hasPermission(getPermission("getworld")))
 			{
-				p.sendMessage(Chat.prefix + "You are in the World " + p.getWorld().getName());
+				p.sendMessage(Chat.prefix + translate("cmd.getworld") + " " + p.getWorld().getName());
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
