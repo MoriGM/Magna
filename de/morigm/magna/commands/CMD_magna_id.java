@@ -28,9 +28,9 @@ public class CMD_magna_id extends CommandHelper
 					{
 						Group group = getGroupManager().getGroupFromPlayer(t);
 						if(group != null)
-							com.sendMessage(Chat.prefix + "Player " + t.getName() + " is in Group " + group.name);
+							com.sendMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " " + translate("cmd.id.true") + " " + group.name);
 						else
-							com.sendMessage(Chat.prefix + "Player " + t.getName() + " is not in a Group");
+							com.sendMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " " + translate("cmd.id.false"));
 					}
 					else
 						com.sendMessage(Chat.prefix + Chat.no_online);
@@ -44,9 +44,9 @@ public class CMD_magna_id extends CommandHelper
 						{
 							Group group = getGroupManager().getGroupFromPlayer(t);
 							if(group != null)
-								com.sendMessage(Chat.prefix + "Player " + t.getName() + " is in Group " + group.name);
+								com.sendMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " " + translate("cmd.id.true") + " " + group.name);
 							else
-								com.sendMessage(Chat.prefix + "Player " + t.getName() + " is not in a Group");
+								com.sendMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " " + translate("cmd.id.false"));
 						}
 						else
 							com.sendMessage(Chat.prefix + Chat.no_online);

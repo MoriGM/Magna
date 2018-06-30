@@ -32,3 +32,6 @@ cmd.kickall.group.no= So eine Gruppe gibt es nicht
 cmd.list.player= Spieler
 cmd.list.group.notfound= Diese Gruppe gibt es nicht
 cmd.list.group.no= Keine Gruppe
+cmd.id.player= Spieler
+cmd.id.true= ist in der Gruppe
+cmd.id.false= ist in keiner Gruppe
