@@ -35,3 +35,6 @@ cmd.list.group.no= NO GROUP
 cmd.id.player= Player
 cmd.id.true= is in Group
 cmd.id.false= is not in a Group
+cmd.memorie.free= Free
+cmd.memorie.used= Used
+cmd.memorie.total= Total
