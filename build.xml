@@ -12,6 +12,7 @@
 	<property name="plugin" value="plugin.yml"/>
 	<property name="language-de" value="de-de.yml"/>
 	<property name="language-en" value="en-en.yml"/>
+	<property name="resources" value="resources"/>
 	
 	<target name="build">
 		<mkdir dir="${src}/de"/>
@@ -20,7 +21,6 @@
 		<copy todir="${src}/de">
 			<fileset dir="./de/"/>
 		</copy>
-		<!--<delete dir="./de"/>-->
 		<javac
 				srcdir="${src}"
 				destdir="${bin}">
@@ -30,10 +30,10 @@
 				</classpath>
 		</javac>
 				
-		<copy file="${premission}" tofile="${bin}/${premission}"/>
-		<copy file="${plugin}" tofile="${bin}/${plugin}"/>
-		<copy file="${language-de}" tofile="${bin}/${language-de}"/>
-		<copy file="${language-en}" tofile="${bin}/${language-en}"/>
+		<copy file="${resources}/${premission}" tofile="${bin}/${premission}"/>
+		<copy file="${resources}/${plugin}" tofile="${bin}/${plugin}"/>
+		<copy file="${resources}/${language-de}" tofile="${bin}/${language-de}"/>
+		<copy file="${resources}/${language-en}" tofile="${bin}/${language-en}"/>
 		<jar jarfile="${dist}/${file}">
 			<fileset dir="${bin}"/>
 		</jar>
