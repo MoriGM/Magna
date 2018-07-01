@@ -22,7 +22,7 @@ public class CMD_ReloadConfig extends CommandHelper
 				Main.getInstance().getGroupConfig().load();
 				Main.getInstance().getGroupLoader().load();
 			}
-			com.sendMessage(Chat.prefix + "Plugin Config reloaded");
+			com.sendMessage(Chat.prefix + translate("cmd.reloadconfig"));
 		}
 		else
 			com.sendMessage(Chat.prefix + Chat.no_permission);

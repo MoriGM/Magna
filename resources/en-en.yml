@@ -47,3 +47,4 @@ cmd.mute.status= Player is
 cmd.mute.status.not= not
 cmd.mute.status.status.muted= muted
 cmd.mute.or= or
+cmd.reloadconfig= Plugin Config reloaded
