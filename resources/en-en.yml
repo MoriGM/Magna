@@ -50,3 +50,7 @@ cmd.mute.or= or
 cmd.reloadconfig= Plugin Config reloaded
 cmd.removewarp= Warp is now removed
 cmd.removewarp.error= Warp doesn't exists
+cmd.setitemname.error= You have no item in Hand
+cmd.setspawn= Spawn was changed
+cmd.setwarp.warp= Warp
+cmd.setwarp.end= is now here

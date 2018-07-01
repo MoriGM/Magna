@@ -29,7 +29,7 @@ public class CMD_SetItemName extends CommandHelper
 						p.getInventory().getItemInMainHand().setItemMeta(meta);
 					}
 					else
-						p.sendMessage(Chat.prefix + "You have no item in Hand");
+						p.sendMessage(Chat.prefix + translate("cmd.setitemname.error"));
 				}
 				else
 					p.sendMessage(Chat.prefix + "/" + getCommand() + " <name>");

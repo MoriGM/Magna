@@ -20,7 +20,7 @@ public class CMD_setspawn extends CommandHelper
 			if(p.hasPermission(getPermission("setspawn")))
 			{
 				Main.getInstance().getDefaultPluginConfig().spawn = p.getLocation();
-				p.sendMessage(Chat.prefix + "Spawn was changed");
+				p.sendMessage(Chat.prefix + translate("cmd.setspawn"));
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);

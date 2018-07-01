@@ -23,7 +23,7 @@ public class CMD_setWarp extends CommandHelper
 				{
 					String warpname = args[0];
 					Main.getInstance().getWarpManager().setWarp(warpname, p.getLocation());
-					p.sendMessage(Chat.prefix + "Warp " + warpname + " is now here");
+					p.sendMessage(Chat.prefix + translate("cmd.setwarp.warp") + " " + warpname + " " + translate("cmd.setwarp.end"));
 				}
 				else
 					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");
