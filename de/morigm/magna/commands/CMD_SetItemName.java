@@ -1,5 +1,6 @@
 package de.morigm.magna.commands;
 
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -21,7 +22,7 @@ public class CMD_SetItemName extends CommandHelper
 			{
 				if(args.length >= 1)
 				{
-					if(p.getInventory().getItemInMainHand() != null)
+					if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
 					{
 						ItemMeta meta = p.getInventory().getItemInMainHand().getItemMeta();
 						meta.setDisplayName(args[0]);

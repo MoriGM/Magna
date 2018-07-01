@@ -24,6 +24,7 @@
 # Rebuild
 
 CommandHelper
+Command Class Names
 
 
 # Class
