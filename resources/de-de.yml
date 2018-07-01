@@ -54,3 +54,6 @@ cmd.setitemname.error= Du hast kein Item in der Hand
 cmd.setspawn= Du hast den Spawn gesetzt
 cmd.setwarp.warp= Warp
 cmd.setwarp.end= ist nun hier
+cmd.cmdspy= CommandSpy ist nun
+cmd.cmdspy.on= AN
+cmd.cmdspy.off= AUS

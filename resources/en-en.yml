@@ -54,3 +54,6 @@ cmd.setitemname.error= You have no item in Hand
 cmd.setspawn= Spawn was changed
 cmd.setwarp.warp= Warp
 cmd.setwarp.end= is now here
+cmd.cmdspy= CommandSpy is now
+cmd.cmdspy.on= ON
+cmd.cmdspy.off= OFF

@@ -21,7 +21,7 @@ public class CMD_SPY extends CommandHelper
 			if(p.hasPermission(getPermission("cmdspy")))
 			{
 				Main.getInstance().getCommandSpyManager().togglePlayer(p);
-				p.sendMessage(Chat.prefix + "CommandSPY is now " + (Main.getInstance().getCommandSpyManager().containsPlayer(p) ? (ChatColor.GREEN + "ON") : (ChatColor.RED + "OFF")));
+				p.sendMessage(Chat.prefix + translate("cmd.cmdspy") + " " + (Main.getInstance().getCommandSpyManager().containsPlayer(p) ? (ChatColor.GREEN + translate("cmd.cmdspy.on")) : (ChatColor.RED + translate("cmd.cmdspy.off"))));
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
