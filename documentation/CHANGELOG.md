@@ -1,5 +1,13 @@
 # CHANGLOG.md
 
+## 0.2.0
+
+### Add
+
+Added Language System
+
+### Bugfix
+
 ## 0.1.0
 
 ### Added Commands
