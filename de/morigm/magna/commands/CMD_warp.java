@@ -31,7 +31,7 @@ public class CMD_warp extends CommandHelper
 						p.sendMessage(Chat.prefix + "Warp doesn't exists");
 				}
 				else
-					p.sendMessage(Chat.prefix + "/warp <warp>");
+					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
