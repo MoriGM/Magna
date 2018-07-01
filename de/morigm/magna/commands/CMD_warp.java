@@ -25,10 +25,10 @@ public class CMD_warp extends CommandHelper
 					if(Main.getInstance().getWarpManager().containsWarp(warpname))
 					{
 						p.teleport(Main.getInstance().getWarpManager().getWarp(warpname));
-						p.sendMessage(Chat.prefix + "You was teleportet to Warp " + warpname);
+						p.sendMessage(Chat.prefix + translate("cmd.warp") + " " + warpname);
 					}
 					else
-						p.sendMessage(Chat.prefix + "Warp doesn't exists");
+						p.sendMessage(Chat.prefix + translate("cmd.warp.error"));
 				}
 				else
 					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");
