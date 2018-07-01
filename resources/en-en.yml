@@ -58,6 +58,6 @@ cmd.cmdspy= CommandSpy is now
 cmd.cmdspy.on= ON
 cmd.cmdspy.off= OFF
 cmd.tpall= All Players were send to You
-cmd.warp= You was teleportet to Warp
+cmd.warp= You were teleportet to Warp
 cmd.warp.error= Warp doesn't exists
 cmd.warps= Waprs
