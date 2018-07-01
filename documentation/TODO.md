@@ -20,6 +20,7 @@
 * sethome
 * home
 * delhome
+* trash
 
 # Rebuild
 
