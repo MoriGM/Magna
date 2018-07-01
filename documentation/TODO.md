@@ -35,3 +35,9 @@ User
 
 * Comamnd
 * Manager
+
+# Config
+
+* Join Text
+* Quit Text
+* Kick Text
