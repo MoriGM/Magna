@@ -30,3 +30,8 @@ Command Class Names
 # Class
 
 User
+
+# JUnit Test
+
+* Comamnd
+* Manager
