@@ -25,10 +25,10 @@ public class CMD_removeWarp extends CommandHelper
 					if(Main.getInstance().getWarpManager().containsWarp(warpname))
 					{
 						Main.getInstance().getWarpManager().removeWarp(warpname);
-						p.sendMessage(Chat.prefix + "Warp is now removed");
+						p.sendMessage(Chat.prefix + translate("cmd.removewarp"));
 					}
 					else
-						p.sendMessage(Chat.prefix + "Warp doesn't exists");
+						p.sendMessage(Chat.prefix + translate("cmd.removewarp.error"));
 				}
 				else
 					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");

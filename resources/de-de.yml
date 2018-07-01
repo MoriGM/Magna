@@ -48,3 +48,5 @@ cmd.mute.status.not= nicht
 cmd.mute.status.status.muted= gemuted
 cmd.mute.or= oder
 cmd.reloadconfig= Plugin Config wurde neu geladen
+cmd.removewarp= Warp wurde gelöscht
+cmd.removewarp.error= Warp gibt es nicht
