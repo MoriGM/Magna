@@ -57,3 +57,4 @@ cmd.setwarp.end= is now here
 cmd.cmdspy= CommandSpy is now
 cmd.cmdspy.on= ON
 cmd.cmdspy.off= OFF
+cmd.tpall= All Players were send to You

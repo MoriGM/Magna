@@ -22,7 +22,7 @@ public class CMD_tpall extends CommandHelper
 				for(Player t : Bukkit.getOnlinePlayers())
 					if(t != p)
 						t.teleport(p);
-				p.sendMessage(Chat.prefix + "All Player were send to You");
+				p.sendMessage(Chat.prefix + translate("cmd.tpall"));
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
