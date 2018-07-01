@@ -8,6 +8,20 @@ Added Language System
 
 ### Bugfix
 
+Command setitemname
+
+Command itemhead
+
+Command magna-group-exec
+
+Command manga-list
+
+Class CommandLoger
+
+### Typo
+
+Command heal
+
 ## 0.1.0
 
 ### Added Commands
