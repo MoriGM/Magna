@@ -58,3 +58,4 @@ cmd.cmdspy= CommandSpy ist nun
 cmd.cmdspy.on= AN
 cmd.cmdspy.off= AUS
 cmd.tpall= Alle Spieler wurden zu dir Teleportiert
+cmd.warps= Waprs

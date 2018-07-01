@@ -24,7 +24,7 @@ public class CMD_Warps extends CommandHelper
 						warps += s;
 					else
 						warps += "," + s;
-				p.sendMessage(Chat.prefix + "Waprs:" + warps);
+				p.sendMessage(Chat.prefix + translate("cmd.warps") + ":" + warps);
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
