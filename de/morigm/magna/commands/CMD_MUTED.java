@@ -31,10 +31,10 @@ public class CMD_MUTED extends CommandHelper
 						OfflinePlayer t = Bukkit.getPlayer(UUID.fromString(uuid));
 						players += t.getName() + " ";
 					}
-					com.sendMessage(Chat.prefix + "All Muted Players: " + players);
+					com.sendMessage(Chat.prefix + translate("cmd.mute.list") + ": " + players);
 				}
 				else
-					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> or mute <list>");
+					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() + " <list>");
 			}
 			else
 			{
@@ -48,10 +48,10 @@ public class CMD_MUTED extends CommandHelper
 							if(!Main.getInstance().getMutedPlayerManager().containsPlayer(t))
 							{
 								Main.getInstance().getMutedPlayerManager().addPlayer(t);
-								com.sendMessage(Chat.prefix + "Player now muted");
+								com.sendMessage(Chat.prefix + translate("cmd.mute.on"));
 							}
 							else
-								com.sendMessage(Chat.prefix + "Player is already muted");
+								com.sendMessage(Chat.prefix + translate("cmd.mute.on.error"));
 						}
 						else
 						if(args[0].equalsIgnoreCase("off"))
@@ -59,25 +59,25 @@ public class CMD_MUTED extends CommandHelper
 							if(Main.getInstance().getMutedPlayerManager().containsPlayer(t))
 							{
 								Main.getInstance().getMutedPlayerManager().removePlayer(t);
-								com.sendMessage(Chat.prefix + "Player now unmuted");
+								com.sendMessage(Chat.prefix + translate("cmd.mute.off"));
 							}
 							else
-								com.sendMessage(Chat.prefix + "Player is not muted");
+								com.sendMessage(Chat.prefix + translate("cmd.mute.off.error"));
 						}
 						else
 						if(args[0].equalsIgnoreCase("status"))
 						{
-							com.sendMessage(Chat.prefix + "Player is " + (!Main.getInstance().getMutedPlayerManager().containsPlayer(t) ? ("not " + ChatColor.GREEN) : ChatColor.RED.toString()) + "muted");
+							com.sendMessage(Chat.prefix + translate("cmd.mute.status") + " " + (!Main.getInstance().getMutedPlayerManager().containsPlayer(t) ? (translate("cmd.mute.status.not") + " " + ChatColor.GREEN) : ChatColor.RED.toString()) + "muted");
 						}
 						else
-							com.sendMessage(Chat.prefix +  (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> or mute <list>");
+							com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() + " <list>");
 					}
 					else
 						com.sendMessage(Chat.prefix + Chat.no_player);
 				}
 				else
 				{
-					com.sendMessage(Chat.prefix +  (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> or mute <list>");
+					com.sendMessage(Chat.prefix +  (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() +  " <list>");
 				}
 			}
 		}
