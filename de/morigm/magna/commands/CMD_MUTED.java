@@ -77,7 +77,7 @@ public class CMD_MUTED extends CommandHelper
 				}
 				else
 				{
-					com.sendMessage(Chat.prefix +  (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() +  " <list>");
+					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() +  " <list>");
 				}
 			}
 		}
