@@ -12,6 +12,7 @@ import de.morigm.magna.commands.Day;
 import de.morigm.magna.commands.SetItemName;
 import de.morigm.magna.commands.Warps;
 import de.morigm.magna.commands.AllChatClear;
+import de.morigm.magna.commands.Broadcast;
 import de.morigm.magna.commands.ChatClear;
 import de.morigm.magna.commands.GetWarp;
 import de.morigm.magna.commands.GetPos;
@@ -73,6 +74,7 @@ public class PluginLoader
 		new Spawn().register("spawn");
 		new Day().register("day");
 		new Night().register("night");
+		new Broadcast().register("broadcast");
 	}
 	
 	public void registerListener()

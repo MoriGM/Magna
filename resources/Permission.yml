@@ -28,6 +28,7 @@ setspawn: magna.cmd.setspawn
 spawn: magna.cmd.spawn
 day: magna.cmd.day
 night: magna.cmd.night
+broadcast: magna.cmd.broadcast
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create
