@@ -6,7 +6,7 @@ import org.bukkit.command.CommandSender;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_chatclear extends CommandHelper
+public class ChatClear extends CommandHelper
 {
 
 	@Override

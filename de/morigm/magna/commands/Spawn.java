@@ -8,7 +8,7 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_warp extends CommandHelper
+public class Spawn extends CommandHelper
 {
 
 	@Override
@@ -17,21 +17,15 @@ public class CMD_warp extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("warp")))
+			if(p.hasPermission(getPermission("spawn")))
 			{
-				if(args.length >= 1)
+				if(Main.getInstance().getDefaultPluginConfig().spawn != null)
 				{
-					String warpname = args[0];
-					if(Main.getInstance().getWarpManager().containsWarp(warpname))
-					{
-						p.teleport(Main.getInstance().getWarpManager().getWarp(warpname));
-						p.sendMessage(Chat.prefix + translate("cmd.warp") + " " + warpname);
-					}
-					else
-						p.sendMessage(Chat.prefix + translate("cmd.warp.error"));
+					p.teleport(Main.getInstance().getDefaultPluginConfig().spawn);
+					p.sendMessage(Chat.prefix + "Teleported to Spawn");
 				}
 				else
-					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");
+					p.sendMessage(Chat.prefix + "No Spawn is setted");
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
@@ -40,5 +34,5 @@ public class CMD_warp extends CommandHelper
 			Chat.writeMessage(Chat.no_console);
 		return false;
 	}
-	
+
 }

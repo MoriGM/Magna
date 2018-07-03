@@ -1,31 +1,37 @@
 package de.morigm.magna.commands;
 
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_ItemHead extends CommandHelper
+public class RemoveWarp extends CommandHelper
 {
-
+	
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("itemhead")))
+			if(p.hasPermission(getPermission("removewarp")))
 			{
-				if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
+				if(args.length >= 1)
 				{
-					p.getInventory().setHelmet(p.getInventory().getItemInMainHand());
-					p.sendMessage(Chat.prefix + translate("cmd.itemhead"));
+					String warpname = args[0];
+					if(Main.getInstance().getWarpManager().containsWarp(warpname))
+					{
+						Main.getInstance().getWarpManager().removeWarp(warpname);
+						p.sendMessage(Chat.prefix + translate("cmd.removewarp"));
+					}
+					else
+						p.sendMessage(Chat.prefix + translate("cmd.removewarp.error"));
 				}
 				else
-					p.sendMessage(Chat.prefix + translate("cmd.itemhead.no"));
+					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
@@ -34,5 +40,5 @@ public class CMD_ItemHead extends CommandHelper
 			Chat.writeMessage(Chat.no_console);
 		return false;
 	}
-
+	
 }

@@ -13,7 +13,7 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_MUTED extends CommandHelper 
+public class Mute extends CommandHelper 
 {
 
 	@Override

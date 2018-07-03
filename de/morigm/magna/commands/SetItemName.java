@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_SetItemName extends CommandHelper
+public class SetItemName extends CommandHelper
 {
 
 	@Override

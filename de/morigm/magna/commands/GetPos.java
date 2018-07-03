@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_getpos extends CommandHelper
+public class GetPos extends CommandHelper
 {
 
 	@Override

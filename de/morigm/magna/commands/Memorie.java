@@ -9,7 +9,7 @@ import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.memorie.MemorieManager.MemorieType;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_memorie extends CommandHelper
+public class Memorie extends CommandHelper
 {
 
 	public boolean onCommand(CommandSender com,Command cmd,String label,String[] args)

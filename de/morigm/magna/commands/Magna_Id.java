@@ -9,7 +9,7 @@ import de.morigm.magna.api.group.Group;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_magna_id extends CommandHelper
+public class Magna_Id extends CommandHelper
 {
 
 	@Override

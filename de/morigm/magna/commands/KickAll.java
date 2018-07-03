@@ -11,7 +11,7 @@ import de.morigm.magna.api.group.Group;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_kickall extends CommandHelper
+public class KickAll extends CommandHelper
 {
 
 	@Override

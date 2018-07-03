@@ -1,13 +1,15 @@
 package de.morigm.magna.commands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_getworld extends CommandHelper
+public class CommandSpy extends CommandHelper
 {
 
 	@Override
@@ -16,9 +18,10 @@ public class CMD_getworld extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("getworld")))
+			if(p.hasPermission(getPermission("cmdspy")))
 			{
-				p.sendMessage(Chat.prefix + translate("cmd.getworld") + " " + p.getWorld().getName());
+				Main.getInstance().getCommandSpyManager().togglePlayer(p);
+				p.sendMessage(Chat.prefix + translate("cmd.cmdspy") + " " + (Main.getInstance().getCommandSpyManager().containsPlayer(p) ? (ChatColor.GREEN + translate("cmd.cmdspy.on")) : (ChatColor.RED + translate("cmd.cmdspy.off"))));
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);

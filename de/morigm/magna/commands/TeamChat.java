@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMD_teamchat extends CommandHelper
+public class TeamChat extends CommandHelper
 {
 
 	@Override
