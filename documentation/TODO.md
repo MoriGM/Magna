@@ -12,8 +12,6 @@
 * damage
 * repair
 * skull
-* day
-* night
 * tpaccept
 * flyspeed
 * speed
