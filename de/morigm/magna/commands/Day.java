@@ -13,7 +13,7 @@ public class Day extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
 	{
-		if(com.hasPermission("day"))
+		if(com.hasPermission(getPermission("day")))
 		{
 			if(com instanceof Player)
 			{

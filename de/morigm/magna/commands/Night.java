@@ -13,7 +13,7 @@ public class Night extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
 	{
-		if(com.hasPermission("night"))
+		if(com.hasPermission(getPermission("night")))
 		{
 			if(com instanceof Player)
 			{
