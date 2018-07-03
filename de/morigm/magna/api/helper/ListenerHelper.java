@@ -24,4 +24,9 @@ public interface ListenerHelper extends Listener,PermissionHelper
 		return Main.getInstance().getPermissionManager().getPermission(Permission);
 	}
 	
+	public default String translate(String text)
+	{
+		return Main.getInstance().getLanguage().translate(text);
+	}
+	
 }

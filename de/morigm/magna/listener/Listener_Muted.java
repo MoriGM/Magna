@@ -15,7 +15,7 @@ public class Listener_Muted implements ListenerHelper
 	{
 		if(Main.getInstance().getMutedPlayerManager().containsPlayer(e.getPlayer()))
 		{
-			e.getPlayer().sendMessage(Chat.prefix + "You are muted");
+			e.getPlayer().sendMessage(Chat.prefix + translate("listener.mute"));
 			e.setCancelled(true);
 		}
 	}
