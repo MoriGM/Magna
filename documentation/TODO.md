@@ -21,6 +21,7 @@
 * home
 * delhome
 * trash
+* blacklist
 
 # Rebuild
 
