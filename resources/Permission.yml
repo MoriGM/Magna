@@ -26,6 +26,7 @@ magna-group-exec: magna.cmd.group-exec
 teamchat: magna.cmd.teamchat
 setspawn: magna.cmd.setspawn
 spawn: magna.cmd.spawn
+day: magna.cmd.day
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create

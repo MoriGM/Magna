@@ -42,6 +42,7 @@ cmd.mute.list= All Muted Players
 cmd.mute.on= Spieler ist nun gemuted
 cmd.mute.on.error= Spieler ist schon gemuted
 cmd.mute.off= Spieler ist nun nicht gemuted
+cmd.day= Nun ist es Tag
 cmd.mute.off.error= Spieler ist nicht gemuted
 cmd.mute.status= Spieler ist
 cmd.mute.status.not= nicht

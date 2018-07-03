@@ -7,6 +7,7 @@ import de.morigm.magna.commands.ItemHead;
 import de.morigm.magna.commands.Mute;
 import de.morigm.magna.commands.ReloadConfig;
 import de.morigm.magna.commands.CommandSpy;
+import de.morigm.magna.commands.Day;
 import de.morigm.magna.commands.SetItemName;
 import de.morigm.magna.commands.Warps;
 import de.morigm.magna.commands.AllChatClear;
@@ -69,6 +70,7 @@ public class PluginLoader
 		new TeamChat().register("teamchat");
 		new SetSpawn().register("setspawn");
 		new Spawn().register("spawn");
+		new Day().register("day");
 	}
 	
 	public void registerListener()
