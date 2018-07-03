@@ -5,6 +5,7 @@ import de.morigm.magna.commands.GodMode;
 import de.morigm.magna.commands.IP;
 import de.morigm.magna.commands.ItemHead;
 import de.morigm.magna.commands.Mute;
+import de.morigm.magna.commands.Night;
 import de.morigm.magna.commands.ReloadConfig;
 import de.morigm.magna.commands.CommandSpy;
 import de.morigm.magna.commands.Day;
@@ -71,6 +72,7 @@ public class PluginLoader
 		new SetSpawn().register("setspawn");
 		new Spawn().register("spawn");
 		new Day().register("day");
+		new Night().register("night");
 	}
 	
 	public void registerListener()

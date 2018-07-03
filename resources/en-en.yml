@@ -62,3 +62,4 @@ cmd.warp= You were teleportet to Warp
 cmd.warp.error= Warp doesn't exists
 cmd.warps= Waprs
 cmd.day= Now its day
+cmd.night= Now its night
