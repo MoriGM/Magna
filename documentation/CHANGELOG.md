@@ -10,6 +10,8 @@ Command night
 
 Command broadcast
 
+Command gamemodeinfo
+
 Mute Listener to Language System
 
 ## 0.2.0

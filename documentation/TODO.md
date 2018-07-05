@@ -5,7 +5,6 @@
 * banips
 * r
 * msg
-* gamemodeinfo
 * version
 * workbench
 * enderchest
