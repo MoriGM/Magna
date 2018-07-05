@@ -22,5 +22,4 @@ public class Chat
 		Bukkit.getConsoleSender().sendMessage(Chat.prefix + text);
 	}
 	
-	
 }

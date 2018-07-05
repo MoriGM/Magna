@@ -63,4 +63,5 @@ cmd.warp.error= Warp doesn't exists
 cmd.warps= Waprs
 cmd.day= Now its day
 cmd.night= Now its night
+cmd.gamemodeinfo= Gamemode
 listener.mute= You are muted

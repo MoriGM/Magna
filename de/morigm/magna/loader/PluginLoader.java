@@ -1,6 +1,7 @@
 package de.morigm.magna.loader;
 
 import de.morigm.magna.commands.Fly;
+import de.morigm.magna.commands.GameModeInfo;
 import de.morigm.magna.commands.GodMode;
 import de.morigm.magna.commands.IP;
 import de.morigm.magna.commands.ItemHead;
@@ -75,6 +76,7 @@ public class PluginLoader
 		new Day().register("day");
 		new Night().register("night");
 		new Broadcast().register("broadcast");
+		new GameModeInfo().register("gamemodeinfo");
 	}
 	
 	public void registerListener()
