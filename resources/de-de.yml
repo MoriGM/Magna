@@ -62,4 +62,6 @@ cmd.cmdspy.off= AUS
 cmd.tpall= Alle Spieler wurden zu dir Teleportiert
 cmd.warps= Waprs
 cmd.gamemodeinfo= Gamemode
+cmd.repair= Item wurde Repariert
+cmd.repair.error = Du hast kein Item in der Hand
 listener.mute= Du bist gemuted

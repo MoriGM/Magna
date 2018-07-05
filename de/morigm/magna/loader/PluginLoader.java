@@ -1,37 +1,38 @@
 package de.morigm.magna.loader;
 
-import de.morigm.magna.commands.Fly;
-import de.morigm.magna.commands.GameModeInfo;
-import de.morigm.magna.commands.GodMode;
-import de.morigm.magna.commands.IP;
-import de.morigm.magna.commands.ItemHead;
-import de.morigm.magna.commands.Mute;
-import de.morigm.magna.commands.Night;
-import de.morigm.magna.commands.ReloadConfig;
-import de.morigm.magna.commands.CommandSpy;
-import de.morigm.magna.commands.Day;
-import de.morigm.magna.commands.SetItemName;
-import de.morigm.magna.commands.Warps;
 import de.morigm.magna.commands.AllChatClear;
 import de.morigm.magna.commands.Broadcast;
 import de.morigm.magna.commands.ChatClear;
-import de.morigm.magna.commands.GetWarp;
+import de.morigm.magna.commands.CommandSpy;
+import de.morigm.magna.commands.Day;
+import de.morigm.magna.commands.Fly;
+import de.morigm.magna.commands.GameModeInfo;
 import de.morigm.magna.commands.GetPos;
+import de.morigm.magna.commands.GetWarp;
 import de.morigm.magna.commands.GetWorld;
+import de.morigm.magna.commands.GodMode;
 import de.morigm.magna.commands.Group_Exec;
 import de.morigm.magna.commands.Groups;
 import de.morigm.magna.commands.Heal;
+import de.morigm.magna.commands.IP;
+import de.morigm.magna.commands.ItemHead;
 import de.morigm.magna.commands.KickAll;
-import de.morigm.magna.commands.Magna_List;
 import de.morigm.magna.commands.Magna_Id;
+import de.morigm.magna.commands.Magna_List;
 import de.morigm.magna.commands.Memorie;
+import de.morigm.magna.commands.Mute;
+import de.morigm.magna.commands.Night;
+import de.morigm.magna.commands.ReloadConfig;
 import de.morigm.magna.commands.RemoveWarp;
-import de.morigm.magna.commands.SetWarp;
+import de.morigm.magna.commands.Repair;
+import de.morigm.magna.commands.SetItemName;
 import de.morigm.magna.commands.SetSpawn;
+import de.morigm.magna.commands.SetWarp;
 import de.morigm.magna.commands.Spawn;
-import de.morigm.magna.commands.TeamChat;
 import de.morigm.magna.commands.TPAll;
+import de.morigm.magna.commands.TeamChat;
 import de.morigm.magna.commands.Warp;
+import de.morigm.magna.commands.Warps;
 import de.morigm.magna.listener.Listener_CMDSPY;
 import de.morigm.magna.listener.Listener_ChatColor;
 import de.morigm.magna.listener.Listener_ColorSign;
@@ -77,6 +78,7 @@ public class PluginLoader
 		new Night().register("night");
 		new Broadcast().register("broadcast");
 		new GameModeInfo().register("gamemodeinfo");
+		new Repair().register("repair");
 	}
 	
 	public void registerListener()

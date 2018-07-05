@@ -4,6 +4,8 @@
 
 ### Add
 
+Command Repair
+
 Command day
 
 Command night
@@ -13,6 +15,10 @@ Command broadcast
 Command gamemodeinfo
 
 Mute Listener to Language System
+
+## Change
+
+Command Class Names
 
 ## 0.2.0
 

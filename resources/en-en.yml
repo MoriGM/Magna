@@ -64,4 +64,6 @@ cmd.warps= Waprs
 cmd.day= Now its day
 cmd.night= Now its night
 cmd.gamemodeinfo= Gamemode
+cmd.repair= Item was Repaired
+cmd.repair.error= No item in Hand
 listener.mute= You are muted

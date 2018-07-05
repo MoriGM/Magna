@@ -1,6 +1,8 @@
 package de.morigm.magna.api.helper;
 
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.morigm.magna.Main;
@@ -35,6 +37,11 @@ public abstract class CommandHelper implements CommandExecutor,PermissionHelper
 	public String translate(String text)
 	{
 		return Main.getInstance().getLanguage().translate(text);
+	}
+	
+	public boolean isPlayer(CommandSender com)
+	{
+		return com instanceof Player;
 	}
 	
 }
