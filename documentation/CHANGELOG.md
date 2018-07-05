@@ -1,5 +1,17 @@
 # CHANGLOG.md
 
+## 0.3.0
+
+### Add
+
+Command day
+
+Command night
+
+Command broadcast
+
+Mute Listener to Language System
+
 ## 0.2.0
 
 ### Add
