@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalTime;
 
+import de.morigm.magna.api.helper.FileHelper;
+
 public class Log 
 {
 	
@@ -13,8 +15,7 @@ public class Log
 		
 		public Log(File f) throws IOException 
 		{
-			if(!f.exists())
-				f.createNewFile();
+			FileHelper.createFileIfNotExists(f);
 			writer = new BufferedWriter(new FileWriter(f));
 		}
 		
