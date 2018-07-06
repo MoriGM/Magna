@@ -16,6 +16,8 @@ Command gamemodeinfo
 
 Mute Listener to Language System
 
+FileHelper Class
+
 ## Change
 
 Command Class Names
