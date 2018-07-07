@@ -2,6 +2,11 @@
 
 A Minecraft Server Manager Tool
 
+## Build status
+
+* Travis-CI:
+	* [![Build Status](https://api.travis-ci.org/MoriGM/Magna.svg)](https://travis-ci.com/MoriGM/Magna/)
+
 ## Prerequisites
 
 Java JDK 8
