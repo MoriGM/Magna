@@ -22,18 +22,19 @@
 
 # Rebuild
 
-CommandHelper
-Listener Class Names
-Repair
+* CommandHelper
+* Listener Class Names
+* Repair
 
 # Class
 
-User
+* User
+
 ItemHelper
 
 # Listener
 
-Trash Sign
+* Trash Sign
 
 # JUnit Test
 
