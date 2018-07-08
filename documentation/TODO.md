@@ -29,8 +29,8 @@
 # Class
 
 * User
-
 * ItemHelper
+* PlayerWriteBlockedWordEvent
 
 # Listener
 
