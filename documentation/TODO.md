@@ -46,3 +46,7 @@
 * Join Text
 * Quit Text
 * Kick Text
+
+# LICENSE 
+
+* Change From Gnu GPL 3 to other License 
