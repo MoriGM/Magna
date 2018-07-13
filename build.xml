@@ -6,7 +6,6 @@
 	<property name="src" value="./src"/>
 	<property name="dist" value="./dist"/>
 	<property name="lib" value="./lib"/>
-	<property name="homefolder" value="de"/>
 	<property name="file" value="Magna.jar"/>
 	<property name="premission" value="Permission.yml"/>
 	<property name="plugin" value="plugin.yml"/>
@@ -45,7 +44,6 @@
 	<target name="clean">
 		<delete dir="${bin}"/>
 		<delete dir="${dist}"/>
-		<delete dir="${src}"/>
 	</target>
 	
 </project>
