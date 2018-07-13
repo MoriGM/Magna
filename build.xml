@@ -13,6 +13,7 @@
 	<property name="language-de" value="de-de.yml"/>
 	<property name="language-en" value="en-en.yml"/>
 	<property name="resources" value="resources"/>
+	<property name="license" value="LICENSE"/>
 	
 	<target name="build">
 		<mkdir dir="${src}/de"/>
@@ -34,6 +35,7 @@
 		<copy file="${resources}/${plugin}" tofile="${bin}/${plugin}"/>
 		<copy file="${resources}/${language-de}" tofile="${bin}/${language-de}"/>
 		<copy file="${resources}/${language-en}" tofile="${bin}/${language-en}"/>
+		<copy file="${license}" tofile="${bin}/${license}"/>
 		<jar jarfile="${dist}/${file}">
 			<fileset dir="${bin}"/>
 		</jar>
