@@ -16,7 +16,7 @@
 	<property name="license" value="LICENSE"/>
 	
 	<target name="build">
-		<mkdir dir="${src}/de"/>
+		<mkdir dir="${src}"/>
 		<mkdir dir="${bin}"/>
 		<mkdir dir="${dist}"/>
 		<javac
