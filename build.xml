@@ -19,9 +19,6 @@
 		<mkdir dir="${src}/de"/>
 		<mkdir dir="${bin}"/>
 		<mkdir dir="${dist}"/>
-		<copy todir="${src}/de">
-			<fileset dir="./de/"/>
-		</copy>
 		<javac
 				srcdir="${src}"
 				destdir="${bin}">
