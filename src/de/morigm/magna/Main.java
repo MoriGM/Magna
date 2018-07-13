@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.GodModeManager;
@@ -87,6 +88,8 @@ public class Main extends JavaPlugin
 		this.groupconfig.load();
 		this.grouploader.load();
 		this.groupManager = new GroupManager();
+		if(Main.getInstance().getDefaultPluginConfig().warning && !Magna.isSupported())
+			Chat.writeMessage(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage(this.getLanguage().translate("plugin.start"));
 	}

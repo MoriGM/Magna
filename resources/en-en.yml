@@ -1,5 +1,6 @@
 plugin.start= Plugin is started
 plugin.stop= Plugin is stopped
+plugin.warning.supported= This Version is not Supported
 chat.no-permission= You have no Permission to do that
 chat.no-console= You must be a Player
 chat.no-player= You must be the Console

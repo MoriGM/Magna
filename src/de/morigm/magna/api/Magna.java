@@ -1,5 +1,7 @@
 package de.morigm.magna.api;
 
+import org.bukkit.Bukkit;
+
 import de.morigm.magna.Main;
 import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.GodModeManager;
@@ -11,6 +13,8 @@ import de.morigm.magna.api.memorie.MemorieManager;
 
 public class Magna
 {
+	private static String[] spigot_versions = {"v1_12_R1"};
+	
 	public static GroupManager getGroupManager()
 	{
 		return Main.getInstance().getGroupManager();
@@ -44,5 +48,24 @@ public class Magna
 	public static PermissionManager getPermissionManager() 
 	{
 		return Main.getInstance().getPermissionManager();
+	}
+	
+	public static String getServerVersion()
+	{
+		String version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
+		return version;
+	}
+	
+	public static String[] getSupportedVersions()
+	{
+		return spigot_versions;
+	}
+	
+	public static boolean isSupported()
+	{
+		for(String s : spigot_versions)
+			if(s.equals(getServerVersion()))
+				return true;
+		return false;
 	}
 }

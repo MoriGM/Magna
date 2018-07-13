@@ -14,10 +14,11 @@ public class PluginConfig implements ConfigHelper
 {
 	
 	public List<String> commandspyblocked;
+	public List<String> groups;
 	public boolean owncommandspy;
 	public boolean commandlog;
 	public boolean chatclear;
-	public List<String> groups;
+	public boolean warning;
 	public Location spawn;
 	public String language;
 
@@ -29,6 +30,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().addDefault("chatclear", false);
 		getConfig().addDefault("commandspyblocked", new ArrayList<String>());
 		getConfig().addDefault("language", "en-en.yml");
+		getConfig().addDefault("warning", true);
 	}
 	
 	public void load()
@@ -38,6 +40,7 @@ public class PluginConfig implements ConfigHelper
 		this.owncommandspy = getConfig().getBoolean("owncommandspy");
 		this.commandlog = getConfig().getBoolean("commandlog");
 		this.chatclear = getConfig().getBoolean("chatclear");
+		this.warning = getConfig().getBoolean("warning");
 		this.groups = getConfig().getStringList("groups");
 		this.language = getConfig().getString("language");
 		
@@ -74,6 +77,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().set("commandlog", this.commandlog);
 		getConfig().set("chatclear", this.chatclear);
 		getConfig().set("groups", this.groups);
+		getConfig().set("warning", this.warning);
 		Main.getInstance().saveConfig();
 	}
 	
