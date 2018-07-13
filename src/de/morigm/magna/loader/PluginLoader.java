@@ -22,6 +22,7 @@ import de.morigm.magna.commands.Magna_List;
 import de.morigm.magna.commands.Memorie;
 import de.morigm.magna.commands.Mute;
 import de.morigm.magna.commands.Night;
+import de.morigm.magna.commands.Ops;
 import de.morigm.magna.commands.ReloadConfig;
 import de.morigm.magna.commands.RemoveWarp;
 import de.morigm.magna.commands.Repair;
@@ -79,6 +80,7 @@ public class PluginLoader
 		new Broadcast().register("broadcast");
 		new GameModeInfo().register("gamemodeinfo");
 		new Repair().register("repair");
+		new Ops().register("ops");
 	}
 	
 	public void registerListener()
