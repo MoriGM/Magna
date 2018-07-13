@@ -21,27 +21,27 @@ public class Magna
 		return Main.getInstance().getMemorieManager();
 	}
 	
-	public WarpManager getWarpManager() 
+	public static WarpManager getWarpManager() 
 	{
 		return Main.getInstance().getWarpManager();
 	}
 	
-	public MutedPlayerManager getMutedPlayerManager()
+	public static MutedPlayerManager getMutedPlayerManager()
 	{
 		return Main.getInstance().getMutedPlayerManager();
 	}
 	
-	public GodModeManager getGodModeManager()
+	public static GodModeManager getGodModeManager()
 	{
 		return Main.getInstance().getGodModeManager();
 	}
 	
-	public CommandSpyManager getCommandSpyManager() 
+	public static CommandSpyManager getCommandSpyManager() 
 	{
 		return Main.getInstance().getCommandSpyManager();
 	}
 	
-	public PermissionManager getPermissionManager() 
+	public static PermissionManager getPermissionManager() 
 	{
 		return Main.getInstance().getPermissionManager();
 	}
