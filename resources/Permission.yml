@@ -32,6 +32,7 @@ broadcast: magna.cmd.broadcast
 gamemodeinfo: magna.cmd.gamemodeinfo
 repair: magna.cmd.repair
 ops: magna.cmd.ops
+bans: magna.cmd.bans
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create

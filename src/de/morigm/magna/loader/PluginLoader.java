@@ -1,6 +1,7 @@
 package de.morigm.magna.loader;
 
 import de.morigm.magna.commands.AllChatClear;
+import de.morigm.magna.commands.Bans;
 import de.morigm.magna.commands.Broadcast;
 import de.morigm.magna.commands.ChatClear;
 import de.morigm.magna.commands.CommandSpy;
@@ -81,6 +82,7 @@ public class PluginLoader
 		new GameModeInfo().register("gamemodeinfo");
 		new Repair().register("repair");
 		new Ops().register("ops");
+		new Bans().register("bans");
 	}
 	
 	public void registerListener()
