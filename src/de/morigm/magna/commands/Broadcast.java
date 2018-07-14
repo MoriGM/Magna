@@ -1,8 +1,10 @@
 package de.morigm.magna.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.StringHelper;
@@ -16,8 +18,13 @@ public class Broadcast extends CommandHelper
 	{
 		if(com.hasPermission(getPermission("broadcast")))
 		{
-			String s = StringHelper.StringArrayToString(args, " ").replace('&', '');
-			Bukkit.broadcastMessage(s);
+			if(args.length >= 1)
+			{
+				String s = StringHelper.StringArrayToString(args, " ").replace('&', ChatColor.COLOR_CHAR);
+				Bukkit.broadcastMessage(s);
+			}
+			else
+				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <message>");
 		}
 		else
 			com.sendMessage(Chat.prefix + Chat.no_permission);
