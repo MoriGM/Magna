@@ -30,6 +30,10 @@ Warning System
 
 Command Class Names
 
+### Bugfix
+
+Fixed a tiny Bug in Broadcast
+
 ## 0.2.0
 
 ### Add
