@@ -1,7 +1,6 @@
 # Commands
 
 * broadcast
-* bans
 * banips
 * r
 * msg

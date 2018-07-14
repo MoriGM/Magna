@@ -4,6 +4,8 @@
 
 ### Add
 
+Command Bans
+
 Command Ops
 
 Command Repair
