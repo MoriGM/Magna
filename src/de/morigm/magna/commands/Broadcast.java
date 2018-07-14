@@ -16,7 +16,7 @@ public class Broadcast extends CommandHelper
 	{
 		if(com.hasPermission(getPermission("broadcast")))
 		{
-			String s = StringHelper.StringArrayToString(args, " ").replace('&', '§');
+			String s = StringHelper.StringArrayToString(args, " ").replace('&', '');
 			Bukkit.broadcastMessage(s);
 		}
 		else
