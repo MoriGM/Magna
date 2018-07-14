@@ -4,6 +4,8 @@
 
 ### Add
 
+Command BanIps
+
 Command Bans
 
 Command Ops

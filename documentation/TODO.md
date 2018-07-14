@@ -1,7 +1,6 @@
 # Commands
 
 * broadcast
-* banips
 * r
 * msg
 * version
