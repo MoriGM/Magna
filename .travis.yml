@@ -1,7 +1,7 @@
 language: java
 install:
 - mkdir lib
-- wget https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180708.002800-152.jar -O ./lib/spigot.jar
+- wget https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180712.012057-156.jar -O ./lib/spigot.jar
 - wget https://repo.maven.apache.org/maven2/commons-io/commons-io/2.6/commons-io-2.6.jar -O ./lib/commons-io.jar
 script:
 - ant build
