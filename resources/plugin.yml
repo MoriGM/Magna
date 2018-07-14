@@ -40,3 +40,4 @@ commands:
       repair:
       ops:
       bans:
+      banips:
