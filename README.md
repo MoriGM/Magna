@@ -50,3 +50,14 @@ ant
 * [OpenJDK 8](http://openjdk.java.net/projects/jdk8/) - Used Linux Java Compiler
 * [Spigot](https://www.spigotmc.org) - Used Minecraft Server
 * [Ant](https://ant.apache.org) - Building Tool
+
+## Translator
+
+### English
+
+* MoriGM
+* ICEconchy
+
+### German
+
+* MoriGM
