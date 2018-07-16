@@ -16,7 +16,7 @@ public class GetWarp extends CommandHelper
 	public void registerUtils() 
 	{
 		util().registerCommandName(getCommand());
-		util().registerPermission("world");
+		util().registerPermission("getwarp");
 		util().registerTranslation("cmd.getwarp.error");
 		util().registerTranslation("cmd.getwarp.world");
 	}
