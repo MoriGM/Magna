@@ -24,7 +24,7 @@ This Project is licensed under the GNU GPL version 3
 ## Building
 
 ```
-ant
+mvn install
 ```
 
 ## Test
