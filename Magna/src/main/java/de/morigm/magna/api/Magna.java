@@ -3,6 +3,7 @@ package de.morigm.magna.api;
 import org.bukkit.Bukkit;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.api.command.CommandUtil;
 import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.GroupManager;
@@ -14,6 +15,8 @@ import de.morigm.magna.api.memorie.MemorieManager;
 public class Magna
 {
 	private static String[] spigot_versions = {"v1_12_R1"};
+	private static CommandUtil commandutil;
+	
 	
 	public static GroupManager getGroupManager()
 	{
@@ -67,5 +70,12 @@ public class Magna
 			if(s.equals(getServerVersion()))
 				return true;
 		return false;
+	}
+	
+	public static CommandUtil getCommandUtil()
+	{
+		if(Magna.commandutil == null)
+			Magna.commandutil = new CommandUtil();
+		return Magna.commandutil;
 	}
 }

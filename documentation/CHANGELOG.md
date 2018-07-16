@@ -10,9 +10,13 @@ CommandsHelper Function add registerUtils
 
 Junit System
 
+CommandTest
+
+SetTest
+
 ### Change
 
-
+Added Command BanIps to PluginLoader
 
 ## 0.3.0
 

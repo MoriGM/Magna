@@ -13,6 +13,14 @@ public class AllChatClear extends CommandHelper
 {
 
 	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("allchatclear");
+		util().registerTranslation("cmd.allchatclear");
+	}
+	
+	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
 		if(com.hasPermission(getPermission("allchatclear")))
@@ -29,5 +37,5 @@ public class AllChatClear extends CommandHelper
 			com.sendMessage(Chat.prefix + Chat.no_permission);
 		return false;
 	}
-	
+
 }

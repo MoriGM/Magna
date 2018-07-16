@@ -10,6 +10,15 @@ import de.morigm.magna.chat.Chat;
 
 public class Warps extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("warps");
+		util().registerTranslation("cmd.warps");
+	}
+	
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{

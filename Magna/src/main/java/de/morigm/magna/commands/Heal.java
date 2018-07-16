@@ -11,6 +11,15 @@ import de.morigm.magna.chat.Chat;
 
 public class Heal extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("heal");
+		util().registerTranslation("cmd.heal.you");
+		util().registerTranslation("cmd.heal.player");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 

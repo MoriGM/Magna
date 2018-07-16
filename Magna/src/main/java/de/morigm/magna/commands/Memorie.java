@@ -11,6 +11,16 @@ import de.morigm.magna.chat.Chat;
 
 public class Memorie extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("memorie");
+		util().registerTranslation("cmd.memorie.used");
+		util().registerTranslation("cmd.memorie.free");
+		util().registerTranslation("cmd.memorie.total");
+	}
 
 	public boolean onCommand(CommandSender com,Command cmd,String label,String[] args)
 	{

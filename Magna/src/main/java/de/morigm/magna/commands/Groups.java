@@ -12,6 +12,14 @@ public class Groups extends CommandHelper
 {
 
 	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("magna-groups");
+		util().registerTranslation("cmd.groups");
+	}
+	
+	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
 		if(com.hasPermission(getPermission("magna-groups")))

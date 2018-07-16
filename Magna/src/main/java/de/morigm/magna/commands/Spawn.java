@@ -10,6 +10,16 @@ import de.morigm.magna.chat.Chat;
 
 public class Spawn extends CommandHelper
 {
+	
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("spawn");
+		util().registerTranslation("cmd.spawn");
+		util().registerTranslation("cmd.spawn.error");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
@@ -22,10 +32,10 @@ public class Spawn extends CommandHelper
 				if(Main.getInstance().getDefaultPluginConfig().spawn != null)
 				{
 					p.teleport(Main.getInstance().getDefaultPluginConfig().spawn);
-					p.sendMessage(Chat.prefix + "Teleported to Spawn");
+					p.sendMessage(Chat.prefix + translate("cmd.spawn"));
 				}
 				else
-					p.sendMessage(Chat.prefix + "No Spawn is setted");
+					p.sendMessage(Chat.prefix + translate("cmd.spawn.error"));
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);

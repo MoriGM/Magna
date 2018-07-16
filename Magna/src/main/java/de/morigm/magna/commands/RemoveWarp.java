@@ -12,6 +12,15 @@ public class RemoveWarp extends CommandHelper
 {
 	
 	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("removewarp");
+		util().registerTranslation("cmd.removewarp");
+		util().registerTranslation("cmd.removewarp.error");
+	}
+	
+	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
 		if(com instanceof Player)

@@ -11,6 +11,14 @@ import de.morigm.magna.chat.Chat;
 
 public class Group_Exec extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("magna-group-exec");
+		util().registerTranslation("cmd.group-exec");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 

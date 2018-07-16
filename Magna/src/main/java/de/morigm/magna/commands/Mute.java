@@ -15,6 +15,19 @@ import de.morigm.magna.chat.Chat;
 
 public class Mute extends CommandHelper 
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("mute");
+		util().registerTranslation("cmd.mute.list");
+		util().registerTranslation("cmd.mute.or");
+		util().registerTranslation("cmd.mute.on");
+		util().registerTranslation("cmd.mute.on.error");
+		util().registerTranslation("cmd.mute.off");
+		util().registerTranslation("cmd.mute.off.error");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 

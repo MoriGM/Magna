@@ -11,6 +11,15 @@ import de.morigm.magna.chat.Chat;
 
 public class Repair extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("repair");
+		util().registerTranslation("cmd.repair");
+		util().registerTranslation("cmd.repair.error");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 

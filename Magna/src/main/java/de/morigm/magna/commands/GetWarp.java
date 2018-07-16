@@ -11,6 +11,15 @@ import de.morigm.magna.chat.Chat;
 
 public class GetWarp extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("world");
+		util().registerTranslation("cmd.getwarp.error");
+		util().registerTranslation("cmd.getwarp.world");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 

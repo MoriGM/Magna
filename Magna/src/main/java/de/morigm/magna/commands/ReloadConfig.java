@@ -9,6 +9,14 @@ import de.morigm.magna.chat.Chat;
 
 public class ReloadConfig extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("magna-reloadconfig");
+		util().registerTranslation("cmd.reloadconfig");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 

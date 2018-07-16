@@ -12,6 +12,13 @@ public class Ops extends CommandHelper
 {
 
 	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("ops");
+	}
+	
+	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
 		if(com.hasPermission(getPermission("ops")))

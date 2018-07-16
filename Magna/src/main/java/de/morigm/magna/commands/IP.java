@@ -10,6 +10,15 @@ import de.morigm.magna.chat.Chat;
 
 public class IP extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("ip");
+		util().registerTranslation("cmd.ip");
+		util().registerTranslation("cmd.ip.is");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 

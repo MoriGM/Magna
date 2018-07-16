@@ -10,6 +10,17 @@ import de.morigm.magna.chat.Chat;
 
 public class Fly extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("fly");
+		util().registerTranslation("cmd.fly.you.on");
+		util().registerTranslation("cmd.fly.player.on");
+		util().registerTranslation("cmd.fly.you.off");
+		util().registerTranslation("cmd.fly.player.off");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 

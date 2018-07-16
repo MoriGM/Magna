@@ -11,6 +11,17 @@ import de.morigm.magna.chat.Chat;
 
 public class GodMode extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("godmode");
+		util().registerTranslation("cmd.godmode");
+		util().registerTranslation("cmd.godmode.on");
+		util().registerTranslation("cmd.godmode.off");
+		util().registerTranslation("cmd.godmode.for");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 

@@ -16,6 +16,16 @@ import de.morigm.magna.chat.Chat;
 
 public class Magna_List extends CommandHelper 
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("magna-list");
+		util().registerTranslation("cmd.list.player");
+		util().registerTranslation("cmd.list.group.notfound");
+		util().registerTranslation("cmd.list.player");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args)

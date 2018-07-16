@@ -10,6 +10,15 @@ import de.morigm.magna.chat.Chat;
 
 public class SetSpawn extends CommandHelper
 {
+	
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("setspawn");
+		util().registerTranslation("cmd.setspawn");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 

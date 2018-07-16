@@ -22,37 +22,38 @@ import de.morigm.magna.loader.GroupLoader;
 import de.morigm.magna.loader.LanguageLoader;
 import de.morigm.magna.loader.PluginLoader;
 import de.morigm.magna.log.CommandLoger;
+import lombok.Getter;
 
 public class Main extends JavaPlugin
 {
 
-	private static Main instance;
+	@Getter private static Main instance;
 	
 	private PluginLoader pluginLoader;
 	
-	private PermissionManager permissionManager;
-	private MutedPlayerManager mutedPlayerManager;
-	private GodModeManager godModeManager;
-	private CommandSpyManager commandSpyManager;
-	private WarpManager warpmanager;
-	private MemorieManager memorieManager;
-	private GroupManager groupManager;
+	@Getter private PermissionManager permissionManager;
+	@Getter private MutedPlayerManager mutedPlayerManager;
+	@Getter private GodModeManager godModeManager;
+	@Getter private CommandSpyManager commandSpyManager;
+	@Getter private WarpManager warpManager;
+	@Getter private MemorieManager memorieManager;
+	@Getter private GroupManager groupManager;
 	
-	private PlayerConfig playerconfig;
-	private PluginConfig pluginconfig;
-	private WarpConfig warpconfig;
-	private GroupConfig groupconfig;
+	@Getter private PlayerConfig playerConfig;
+	private PluginConfig pluginConfig;
+	@Getter private WarpConfig warpConfig;
+	@Getter private GroupConfig groupConfig;
 	
-	private CommandLoger commandsloger;
+	@Getter private CommandLoger commandsLoger;
 
-	private GroupLoader grouploader;
+	@Getter private GroupLoader groupLoader;
 	
-	private File languageFolder;
-	private File jar;
+	@Getter private File languageFolder;
+	@Getter private File jar;
 			
-	private LanguageLoader LanguageLoader;
+	@Getter private LanguageLoader LanguageLoader;
 
-	private Language language;
+	@Getter private Language language;
 	
 
 	@Override
@@ -60,8 +61,8 @@ public class Main extends JavaPlugin
 	{
 		Main.instance = this;
 		this.languageFolder = new File(getDataFolder(),"languages");
-		this.pluginconfig = new PluginConfig();
-		this.pluginconfig.load();
+		this.pluginConfig = new PluginConfig();
+		this.pluginConfig.load();
 		this.jar = this.getFile();
 		this.LanguageLoader = new LanguageLoader();
 		this.LanguageLoader.load();
@@ -72,21 +73,21 @@ public class Main extends JavaPlugin
 		this.pluginLoader = new PluginLoader();
 		this.pluginLoader.registerCommands();
 		this.pluginLoader.registerListener();
-		this.playerconfig = new PlayerConfig();
-		this.playerconfig.load();
+		this.playerConfig = new PlayerConfig();
+		this.playerConfig.load();
 		this.mutedPlayerManager = new MutedPlayerManager();
 		this.godModeManager = new  GodModeManager();
 		this.commandSpyManager = new CommandSpyManager();
-		this.commandsloger = new CommandLoger();
-		this.commandsloger.load();
-		this.warpconfig = new WarpConfig();
-		this.warpconfig.load();
-		this.warpmanager = new WarpManager();
+		this.commandsLoger = new CommandLoger();
+		this.commandsLoger.load();
+		this.warpConfig = new WarpConfig();
+		this.warpConfig.load();
+		this.warpManager = new WarpManager();
 		this.memorieManager = new MemorieManager();
-		this.groupconfig = new GroupConfig();
-		this.grouploader = new GroupLoader();
-		this.groupconfig.load();
-		this.grouploader.load();
+		this.groupConfig = new GroupConfig();
+		this.groupLoader = new GroupLoader();
+		this.groupConfig.load();
+		this.groupLoader.load();
 		this.groupManager = new GroupManager();
 		if(Main.getInstance().getDefaultPluginConfig().warning && !Magna.isSupported())
 			Chat.writeMessage(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
@@ -97,100 +98,100 @@ public class Main extends JavaPlugin
 	@Override
 	public void onDisable() 
 	{
-		this.playerconfig.save();
-		this.pluginconfig.save();
-		this.commandsloger.save();
-		this.warpconfig.save();
+		this.playerConfig.save();
+		this.pluginConfig.save();
+		this.commandsLoger.save();
+		this.warpConfig.save();
 		Chat.writeMessage(this.getLanguage().translate("plugin.stop"));
 	}
 	
-	public static Main getInstance() 
-	{
-		return instance;
-	}
-	
-	public PermissionManager getPermissionManager() 
-	{
-		return permissionManager;
-	}
-	
-	public PlayerConfig getPlayerConfig()
-	{
-		return playerconfig;
-	}
-	
-	public MutedPlayerManager getMutedPlayerManager()
-	{
-		return mutedPlayerManager;
-	}
-	
-	public GodModeManager getGodModeManager()
-	{
-		return godModeManager;
-	}
-	
-	public CommandSpyManager getCommandSpyManager() 
-	{
-		return commandSpyManager;
-	}
-	
+//	public static Main getInstance() 
+//	{
+//		return instance;
+//	}
+//	
+//	public PermissionManager getPermissionManager() 
+//	{
+//		return permissionManager;
+//	}
+//	
+//	public PlayerConfig getPlayerConfig()
+//	{
+//		return playerconfig;
+//	}
+//	
+//	public MutedPlayerManager getMutedPlayerManager()
+//	{
+//		return mutedPlayerManager;
+//	}
+//	
+//	public GodModeManager getGodModeManager()
+//	{
+//		return godModeManager;
+//	}
+//	
+//	public CommandSpyManager getCommandSpyManager() 
+//	{
+//		return commandSpyManager;
+//	}
+//	
 	public PluginConfig getDefaultPluginConfig() 
 	{
-		return pluginconfig;
+		return pluginConfig;
 	}
 	
-	public CommandLoger getCommandsLoger() 
-	{
-		return commandsloger;
-	}
-	
-	public WarpConfig getWarpConfig()
-	{
-		return warpconfig;
-	}
-	
-	public WarpManager getWarpManager() 
-	{
-		return warpmanager;
-	}
-	
-	public MemorieManager getMemorieManager() 
-	{
-		return memorieManager;
-	}
-	
-	public GroupConfig getGroupConfig()
-	{
-		return groupconfig;
-	}
-	
-	public GroupLoader getGroupLoader() 
-	{
-		return grouploader;
-	}
-	
-	public GroupManager getGroupManager() 
-	{
-		return groupManager;
-	}
-	
-	public File getLanguageFolder() 
-	{
-		return languageFolder;
-	}
-	
-	public LanguageLoader getLanguageLoader() 
-	{
-		return this.LanguageLoader;
-	}
-	
-	public File getJar() 
-	{
-		return jar;
-	}
-	
-	public Language getLanguage() 
-	{
-		return language;
-	}
+//	public CommandLoger getCommandsLoger() 
+//	{
+//		return commandsloger;
+//	}
+//	
+//	public WarpConfig getWarpConfig()
+//	{
+//		return warpconfig;
+//	}
+//	
+//	public WarpManager getWarpManager() 
+//	{
+//		return warpmanager;
+//	}
+//	
+//	public MemorieManager getMemorieManager() 
+//	{
+//		return memorieManager;
+//	}
+//	
+//	public GroupConfig getGroupConfig()
+//	{
+//		return groupconfig;
+//	}
+//	
+//	public GroupLoader getGroupLoader() 
+//	{
+//		return grouploader;
+//	}
+//	
+//	public GroupManager getGroupManager() 
+//	{
+//		return groupManager;
+//	}
+//	
+//	public File getLanguageFolder() 
+//	{
+//		return languageFolder;
+//	}
+//	
+//	public LanguageLoader getLanguageLoader() 
+//	{
+//		return this.LanguageLoader;
+//	}
+//	
+//	public File getJar() 
+//	{
+//		return jar;
+//	}
+//	
+//	public Language getLanguage() 
+//	{
+//		return language;
+//	}
 }

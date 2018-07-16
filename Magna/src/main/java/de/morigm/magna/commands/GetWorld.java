@@ -11,6 +11,14 @@ public class GetWorld extends CommandHelper
 {
 
 	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("getworld");
+		util().registerTranslation("cmd.getworld");
+	}
+	
+	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
 		if(com instanceof Player)

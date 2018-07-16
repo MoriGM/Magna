@@ -13,6 +13,16 @@ public class CommandSpy extends CommandHelper
 {
 
 	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("cmdspy");
+		util().registerTranslation("cmd.cmdspy");
+		util().registerTranslation("cmd.cmdspy.on");
+		util().registerTranslation("cmd.cmdspy.off");
+	}
+	
+	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
 		if(com instanceof Player)

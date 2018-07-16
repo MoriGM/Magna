@@ -67,4 +67,6 @@ cmd.night= Time set to night
 cmd.gamemodeinfo= Gamemode
 cmd.repair= Item was Repaired
 cmd.repair.error= No item in Hand
+cmd.spawn= Teleported to Spawn
+cmd.spawn.error= No Spawn is setted
 listener.mute= You are muted

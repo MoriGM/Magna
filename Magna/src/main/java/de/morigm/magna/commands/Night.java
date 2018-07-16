@@ -9,6 +9,14 @@ import de.morigm.magna.chat.Chat;
 
 public class Night extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("night");
+		util().registerTranslation("cmd.night");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 

@@ -10,6 +10,14 @@ import de.morigm.magna.chat.Chat;
 
 public class GetPos extends CommandHelper
 {
+	
+	@Override
+	public void registerUtils() 
+	{
+		util().registerCommandName(getCommand());
+		util().registerPermission("getpos");
+		util().registerTranslation("cmd.getpos.world");
+	}
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
