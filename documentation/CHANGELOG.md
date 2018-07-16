@@ -1,5 +1,19 @@
 # CHANGLOG.md
 
+## 0.4.0
+
+### Add
+
+CommandUtil
+
+CommandsHelper Function add registerUtils
+
+Junit System
+
+### Change
+
+
+
 ## 0.3.0
 
 ### Add
