@@ -6,7 +6,6 @@
 * workbench
 * enderchest
 * damage
-* skull
 * tpaccept
 * flyspeed
 * speed
