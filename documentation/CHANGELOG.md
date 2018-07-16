@@ -4,6 +4,11 @@
 
 ### Add
 
+#### Command
+
+Added Command Skull to Magna
+
+#### Class
 CommandUtil
 
 CommandsHelper Function add registerUtils
@@ -12,7 +17,9 @@ Junit System
 
 CommandTest
 
-SetTest
+PluginSetTest
+
+PermissionTest
 
 ### Change
 
