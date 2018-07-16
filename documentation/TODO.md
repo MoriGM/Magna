@@ -1,6 +1,5 @@
 # Commands
 
-* broadcast
 * r
 * msg
 * version
@@ -16,7 +15,7 @@
 * home
 * delhome
 * trash
-* blacklist
+* censor (word blacklist)
 
 # Rebuild
 
