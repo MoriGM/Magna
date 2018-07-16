@@ -67,4 +67,5 @@ cmd.repair= Item wurde Repariert
 cmd.repair.error = Du hast kein Item in der Hand
 cmd.spawn= Du wurdest zum Spawn geportet
 cmd.spawn.error= Es wurde noch kein Spawn gesetzt
+cmd.skull= Du hast den Spieler Kopf bekommen
 listener.mute= Du bist gemuted

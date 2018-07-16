@@ -34,6 +34,7 @@ repair: magna.cmd.repair
 ops: magna.cmd.ops
 bans: magna.cmd.bans
 banips: magna.cmd.banips
+skull: magna.cmd.skull
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create

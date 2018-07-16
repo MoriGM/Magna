@@ -31,6 +31,7 @@ import de.morigm.magna.commands.Repair;
 import de.morigm.magna.commands.SetItemName;
 import de.morigm.magna.commands.SetSpawn;
 import de.morigm.magna.commands.SetWarp;
+import de.morigm.magna.commands.Skull;
 import de.morigm.magna.commands.Spawn;
 import de.morigm.magna.commands.TPAll;
 import de.morigm.magna.commands.TeamChat;
@@ -85,6 +86,7 @@ public class PluginLoader
 		new Ops().register("ops");
 		new Bans().register("bans");
 		new BanIps().register("banips");
+		new Skull().register("skull");
 	}
 	
 	public void registerListener()
