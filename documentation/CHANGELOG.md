@@ -25,6 +25,10 @@ PermissionTest
 
 Added Command BanIps to PluginLoader
 
+### Fixed
+
+Added cmd.warp and cmd.warp.error to German Translation
+
 ## 0.3.0
 
 ### Add

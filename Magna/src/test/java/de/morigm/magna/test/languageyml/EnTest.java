@@ -29,6 +29,7 @@ public class EnTest
 	@Test
 	public void testEnYml() throws IOException
 	{
+		System.out.println("Test En YML");
 		CommandLoader loader = new CommandLoader();
 		loader.registerCommands();
 		List<String> translations = Magna.getCommandUtil().getTranslations();

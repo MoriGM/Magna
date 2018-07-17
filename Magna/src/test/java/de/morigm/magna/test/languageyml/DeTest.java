@@ -29,6 +29,7 @@ public class DeTest
 	@Test
 	public void testDeYml() throws IOException
 	{
+		System.out.println("Test De YML");
 		CommandLoader loader = new CommandLoader();
 		loader.registerCommands();
 		List<String> translations = Magna.getCommandUtil().getTranslations();
