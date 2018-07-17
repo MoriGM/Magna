@@ -19,7 +19,7 @@ Spigot Server 1.12.2
 
 ## License
 
-This Project is licensed under the GNU GPL version 3
+This Project is licensed under the GNU GPL version 2
 
 ## Building
 

@@ -44,9 +44,4 @@
 
 # Extra Plugin
 
-* Money
 * ChatCopyLog
-
-# LICENSE 
-
-* Change From Gnu GPL 3 to other License 
