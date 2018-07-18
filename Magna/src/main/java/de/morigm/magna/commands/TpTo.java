@@ -42,7 +42,7 @@ public class TpTo extends CommandHelper
 					p.sendMessage(Chat.prefix + getCommand() + " <Player>");
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				p.sendMessage(Chat.prefix + Chat.no_console);
 		}
 		else
 			Chat.writeMessage(Chat.no_permission);
