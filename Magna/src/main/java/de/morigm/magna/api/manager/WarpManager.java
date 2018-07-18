@@ -5,34 +5,38 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.config.WarpConfig;
 
 public class WarpManager
 {
 	public void setWarp(String name,Location loc)
 	{
-		if(!Main.getInstance().getWarpConfig().warps.contains(name))
-			Main.getInstance().getWarpConfig().warps.add(name);
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".x", loc.getX());
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".y", loc.getY());
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".z", loc.getZ());
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".yaw", loc.getYaw());
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".pitch", loc.getPitch());
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".world", loc.getWorld().getName());
+		if(!getWarpConfig().warps.contains(name))
+			getWarpConfig().warps.add(name);
+		getConfig().set(name + ".x", loc.getX());
+		getConfig().set(name + ".y", loc.getY());
+		getConfig().set(name + ".z", loc.getZ());
+		getConfig().set(name + ".yaw", loc.getYaw());
+		getConfig().set(name + ".pitch", loc.getPitch());
+		getConfig().set(name + ".world", loc.getWorld().getName());
+		getConfig().set(name + ".permission", Main.getInstance().getPermissionManager().getPermission("warppermission") + "." + name);
 	}
 	
 	public void removeWarp(String name)
 	{
-		if(Main.getInstance().getWarpConfig().warps.contains(name))
-			Main.getInstance().getWarpConfig().warps.remove(name);
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".x", null);
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".y", null);
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".z", null);
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".yaw", null);
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".pitch", null);
-		Main.getInstance().getWarpConfig().getConfig().set(name + ".world", null);
-		Main.getInstance().getWarpConfig().getConfig().set(name, null);
+		if(getWarpConfig().warps.contains(name))
+			getWarpConfig().warps.remove(name);
+		getConfig().set(name + ".x", null);
+		getConfig().set(name + ".y", null);
+		getConfig().set(name + ".z", null);
+		getConfig().set(name + ".yaw", null);
+		getConfig().set(name + ".pitch", null);
+		getConfig().set(name + ".world", null);
+		getConfig().set(name + ".permission", null);
+		getConfig().set(name, null);
 	}
 	
 	public Location getWarp(String name)
@@ -41,11 +45,11 @@ public class WarpManager
 			return null;
 	
 		World world = Bukkit.getWorld(Main.getInstance().getWarpConfig().getConfig().getString(name + ".world"));
-		int x = Main.getInstance().getWarpConfig().getConfig().getInt(name + ".x");
-		int y = Main.getInstance().getWarpConfig().getConfig().getInt(name + ".y");
-		int z = Main.getInstance().getWarpConfig().getConfig().getInt(name + ".z");
-		float yaw = (float) Main.getInstance().getWarpConfig().getConfig().getDouble(name + ".yaw");
-		float pitch = (float) Main.getInstance().getWarpConfig().getConfig().getDouble(name + ".pitch");
+		int x = getConfig().getInt(name + ".x");
+		int y = getConfig().getInt(name + ".y");
+		int z = getConfig().getInt(name + ".z");
+		float yaw = (float) getConfig().getDouble(name + ".yaw");
+		float pitch = (float) getConfig().getDouble(name + ".pitch");
 		
 		
 		Location loc = new Location(world, x, y, z);
@@ -55,13 +59,35 @@ public class WarpManager
 		return loc;
 	}
 	
+	public boolean WarpHasPermission(String name)
+	{
+		if(containsWarp(name))
+			return getConfig().contains(name + ".permission");
+		return false;
+	}
+	
+	public String getPermissionFromWarp(String name)
+	{
+		return getConfig().getString(name + ".permission");
+	}
+	
 	public boolean containsWarp(String name)
 	{
-		return Main.getInstance().getWarpConfig().warps.contains(name);
+		return getWarpConfig().warps.contains(name);
 	}
 	
 	public List<String> getWarps()
 	{
-		return Main.getInstance().getWarpConfig().warps;
+		return getWarpConfig().warps;
+	}
+	
+	private FileConfiguration getConfig()
+	{
+		return Main.getInstance().getWarpConfig().getConfig();
+	}
+	
+	private WarpConfig getWarpConfig()
+	{
+		return Main.getInstance().getWarpConfig();
 	}
 }

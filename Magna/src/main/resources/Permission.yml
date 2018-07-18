@@ -40,3 +40,4 @@ colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create
 warpsign: magna.event.warpsign.to
 teamchat-see: magna.teamchat.see
+warppermission: magna.warp
