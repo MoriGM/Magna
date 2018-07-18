@@ -71,4 +71,5 @@ cmd.spawn= Teleported to Spawn
 cmd.spawn.error= No Spawn is setted
 cmd.skull= You get the Item
 cmd.tpto= Teleported to
+cmd.tphere= Player were teleported to you
 listener.mute= You are muted

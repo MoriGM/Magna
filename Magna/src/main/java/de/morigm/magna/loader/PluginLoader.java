@@ -35,6 +35,7 @@ import de.morigm.magna.commands.Skull;
 import de.morigm.magna.commands.Spawn;
 import de.morigm.magna.commands.TPAll;
 import de.morigm.magna.commands.TeamChat;
+import de.morigm.magna.commands.TpHere;
 import de.morigm.magna.commands.TpTo;
 import de.morigm.magna.commands.Warp;
 import de.morigm.magna.commands.Warps;
@@ -89,6 +90,7 @@ public class PluginLoader
 		new BanIps().register("banips");
 		new Skull().register("skull");
 		new TpTo().register("tpto");
+		new TpHere().register("tphere");
 	}
 	
 	public void registerListener()

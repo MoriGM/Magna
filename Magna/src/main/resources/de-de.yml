@@ -71,4 +71,5 @@ cmd.spawn= Du wurdest zum Spawn geportet
 cmd.spawn.error= Es wurde noch kein Spawn gesetzt
 cmd.skull= Du hast den Spieler Kopf bekommen
 cmd.tpto= Teleportiert zu
+cmd.tphere= Spieler wurde zu dir Teleportiert
 listener.mute= Du bist gemuted
