@@ -35,6 +35,7 @@ ops: magna.cmd.ops
 bans: magna.cmd.bans
 banips: magna.cmd.banips
 skull: magna.cmd.skull
+tpto: magna.cmd.tpto
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create

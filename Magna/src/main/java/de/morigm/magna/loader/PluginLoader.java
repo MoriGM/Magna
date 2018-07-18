@@ -35,6 +35,7 @@ import de.morigm.magna.commands.Skull;
 import de.morigm.magna.commands.Spawn;
 import de.morigm.magna.commands.TPAll;
 import de.morigm.magna.commands.TeamChat;
+import de.morigm.magna.commands.TpTo;
 import de.morigm.magna.commands.Warp;
 import de.morigm.magna.commands.Warps;
 import de.morigm.magna.listener.Listener_CMDSPY;
@@ -87,6 +88,7 @@ public class PluginLoader
 		new Bans().register("bans");
 		new BanIps().register("banips");
 		new Skull().register("skull");
+		new TpTo().register("tpto");
 	}
 	
 	public void registerListener()

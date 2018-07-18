@@ -7,6 +7,7 @@
 #### Command
 
 Added Command Skull to Magna
+Added Command TpTo to Magna
 
 #### Class
 CommandUtil
