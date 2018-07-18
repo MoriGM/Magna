@@ -19,7 +19,7 @@ public class Listener_SignWarp implements ListenerHelper
 	{
 		if(e.getPlayer().hasPermission(getPermission("createwarpsign")))
 			if(e.getLine(0) != null && !e.getLine(0).isEmpty() && e.getLine(1) != null && !e.getLine(1).isEmpty())
-				if(e.getLine(0).equals("[Warp]"))
+				if(e.getLine(0).equals("[Warp]") || e.getLine(0).equals("[warp]"))
 				{
 					e.setLine(0,ChatColor.GRAY + "[" + ChatColor.BLUE + "Warp" + ChatColor.GRAY +"]");
 				}

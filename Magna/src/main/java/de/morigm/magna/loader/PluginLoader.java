@@ -46,6 +46,7 @@ import de.morigm.magna.listener.Listener_CommandLog;
 import de.morigm.magna.listener.Listener_GODMODE;
 import de.morigm.magna.listener.Listener_Muted;
 import de.morigm.magna.listener.Listener_SignWarp;
+import de.morigm.magna.listener.Listener_TrashSign;
 
 public class PluginLoader 
 {
@@ -102,6 +103,7 @@ public class PluginLoader
 		new Listener_ColorSign().register();
 		new Listener_CommandLog().register();
 		new Listener_SignWarp().register();
+		new Listener_TrashSign().register();
 	}
 	
 }
