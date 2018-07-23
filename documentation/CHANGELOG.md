@@ -1,5 +1,11 @@
 # CHANGLOG.md
 
+## 0.5.0
+
+### Bug
+
+Fixed Command skull in Magna
+
 ## 0.4.0
 
 ### Add

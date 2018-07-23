@@ -24,7 +24,6 @@ public class Skull extends CommandHelper
 		util().registerTranslation("cmd.skull");
 	}
 	
-	@SuppressWarnings("deprecation")
 	@SneakyThrows
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
@@ -39,7 +38,7 @@ public class Skull extends CommandHelper
 					String owner = args[0];
 					ItemStack item = new ItemStack(Material.SKULL_ITEM, 1, (byte) 3);
 					SkullMeta meta = (SkullMeta) item.getItemMeta();
-					meta.setOwningPlayer(Bukkit.getOfflinePlayer(MojangApi.getNameFromUUID(owner)));
+					meta.setOwningPlayer(Bukkit.getOfflinePlayer(MojangApi.getPlayerUUID(owner)));
 					item.setItemMeta(meta);
 					p.getInventory().addItem(item);
 					p.sendMessage(Chat.prefix + translate("cmd.skull"));
