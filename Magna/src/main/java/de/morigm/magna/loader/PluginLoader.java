@@ -39,6 +39,7 @@ import de.morigm.magna.commands.TpHere;
 import de.morigm.magna.commands.TpTo;
 import de.morigm.magna.commands.Warp;
 import de.morigm.magna.commands.Warps;
+import de.morigm.magna.commands.getUUID;
 import de.morigm.magna.listener.Listener_CMDSPY;
 import de.morigm.magna.listener.Listener_ChatColor;
 import de.morigm.magna.listener.Listener_ColorSign;
@@ -92,6 +93,7 @@ public class PluginLoader
 		new Skull().register("skull");
 		new TpTo().register("tpto");
 		new TpHere().register("tphere");
+		new getUUID().register("getuuid");
 	}
 	
 	public void registerListener()
