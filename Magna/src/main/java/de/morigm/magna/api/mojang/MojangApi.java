@@ -53,15 +53,17 @@ public class MojangApi
 		HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 		PlayerProfile profile = gson.fromJson(new InputStreamReader(con.getInputStream()), PlayerProfile.class);
 		UUID uuid = MojangUUIDtoRealUUID(profile.id);
+		con.disconnect();
 		return uuid;
 	}
 	
 	
 	public static String getNameFromUUID(String uuid) throws IOException
 	{
-		URL url = new URL("https://api.mojang.com/user/profiles/" + uuid.toString() + "/names");
+		URL url = new URL("https://api.mojang.com/user/profiles/" + uuid + "/names");
 		HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 		PlayerName[] arr = gson.fromJson(new InputStreamReader(con.getInputStream()), PlayerName[].class);
+		con.disconnect();
 		return arr[arr.length - 1].name;
 	}
 	
@@ -93,6 +95,7 @@ public class MojangApi
 			if(sarr[0].equals("mojang.com"))
 				status.mojang_com = ServerStatus.StatusColor.valueOf(sarr[1].toUpperCase());
 		}
+		con.disconnect();
 		return status;
 	}
 	
