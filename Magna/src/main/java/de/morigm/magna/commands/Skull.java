@@ -9,7 +9,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.api.mojang.MojangApi;
 import de.morigm.magna.chat.Chat;
+import lombok.SneakyThrows;
 
 public class Skull extends CommandHelper
 {
@@ -23,6 +25,7 @@ public class Skull extends CommandHelper
 	}
 	
 	@SuppressWarnings("deprecation")
+	@SneakyThrows
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
@@ -36,7 +39,7 @@ public class Skull extends CommandHelper
 					String owner = args[0];
 					ItemStack item = new ItemStack(Material.SKULL_ITEM, 1, (byte) 3);
 					SkullMeta meta = (SkullMeta) item.getItemMeta();
-					meta.setOwningPlayer(Bukkit.getOfflinePlayer(owner));
+					meta.setOwningPlayer(Bukkit.getOfflinePlayer(MojangApi.getNameFromUUID(owner)));
 					item.setItemMeta(meta);
 					p.getInventory().addItem(item);
 					p.sendMessage(Chat.prefix + translate("cmd.skull"));
