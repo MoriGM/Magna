@@ -7,9 +7,13 @@
 #### Command
 
 Added Command Skull to Magna
+
 Added Command TpTo to Magna
+
 Added Command TpHere to Magna
+
 Added Command getuuid to Magna
+
 
 #### Listener
 
