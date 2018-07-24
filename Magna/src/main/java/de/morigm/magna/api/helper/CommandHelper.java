@@ -10,7 +10,7 @@ import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.command.CommandUtil;
 import de.morigm.magna.api.manager.GroupManager;
 
-public abstract class CommandHelper implements CommandExecutor,PermissionHelper
+public abstract class CommandHelper implements CommandExecutor, PermissionHelper, TranslationHelper
 {
 
 	String name = "";
@@ -36,11 +36,6 @@ public abstract class CommandHelper implements CommandExecutor,PermissionHelper
 	public GroupManager getGroupManager()
 	{
 		return Main.getInstance().getGroupManager();
-	}
-	
-	public String translate(String text)
-	{
-		return Main.getInstance().getLanguage().translate(text);
 	}
 	
 	public boolean isPlayer(CommandSender com)

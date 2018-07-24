@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.morigm.magna.Main;
 
-public interface ListenerHelper extends Listener,PermissionHelper
+public interface ListenerHelper extends Listener, PermissionHelper, TranslationHelper
 {
 	
 	public default void register()
@@ -18,15 +18,4 @@ public interface ListenerHelper extends Listener,PermissionHelper
 	{
 		Bukkit.getPluginManager().registerEvents(this, javaplugin);
 	}
-	
-	public default String getPermission(String Permission)
-	{
-		return Main.getInstance().getPermissionManager().getPermission(Permission);
-	}
-	
-	public default String translate(String text)
-	{
-		return Main.getInstance().getLanguage().translate(text);
-	}
-	
 }
