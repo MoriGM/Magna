@@ -2,6 +2,12 @@
 
 ## 0.5.0
 
+### Add
+
+#### Command
+
+Added Command trash to Magna
+
 ### Bug
 
 Fixed Command skull in Magna

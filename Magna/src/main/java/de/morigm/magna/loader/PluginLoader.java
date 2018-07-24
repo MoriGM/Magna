@@ -37,6 +37,7 @@ import de.morigm.magna.commands.TPAll;
 import de.morigm.magna.commands.TeamChat;
 import de.morigm.magna.commands.TpHere;
 import de.morigm.magna.commands.TpTo;
+import de.morigm.magna.commands.Trash;
 import de.morigm.magna.commands.Warp;
 import de.morigm.magna.commands.Warps;
 import de.morigm.magna.commands.getUUID;
@@ -94,6 +95,7 @@ public class PluginLoader
 		new TpTo().register("tpto");
 		new TpHere().register("tphere");
 		new getUUID().register("getuuid");
+		new Trash().register("trash");
 	}
 	
 	public void registerListener()

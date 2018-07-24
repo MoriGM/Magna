@@ -38,6 +38,7 @@ skull: magna.cmd.skull
 tpto: magna.cmd.tpto
 tphere: magna.cmd.tphere
 getuuid: magna.cmd.getuuid
+trash: magna.cmd.trash
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create
