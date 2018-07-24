@@ -11,6 +11,11 @@ Added Command trash to Magna
 ### Bug
 
 Fixed Command skull in Magna
+Fixed that you only can set a warp once
+
+### Rebuild
+
+Warp System
 
 ## 0.4.0
 
