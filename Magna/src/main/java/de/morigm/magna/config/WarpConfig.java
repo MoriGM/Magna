@@ -34,7 +34,6 @@ public class WarpConfig implements ConfigHelper
 	{
 		try
 		{
-			this.config.set("warps", this.warps);
 			FileHelper.createFileIfNotExists(configFile);
 			this.config.save(configFile);
 		}

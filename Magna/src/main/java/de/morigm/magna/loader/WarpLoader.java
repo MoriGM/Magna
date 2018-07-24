@@ -1,11 +1,13 @@
 package de.morigm.magna.loader;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -50,10 +52,13 @@ public class WarpLoader implements LoadHelper,SaveHelper
 	@Override
 	public void save()
 	{
-
-		FileConfiguration conf = YamlConfiguration.loadConfiguration(Main.getInstance().getWarpConfig().getConfigFile());
+		
+		deleteConfig();
+		
+		List<String> wrps = new ArrayList<>();
 		for(Warp w : warps)
 		{
+			wrps.add(w.name);
 			getConfig().set(w.name + ".x", w.location.getX());
 			getConfig().set(w.name + ".y", w.location.getY());
 			getConfig().set(w.name + ".z", w.location.getZ());
@@ -63,7 +68,14 @@ public class WarpLoader implements LoadHelper,SaveHelper
 			getConfig().set(w.name + ".permission", Main.getInstance().getPermissionManager().getPermission("warppermission") + "." + w.name);
 		}
 		
-		Main.getInstance().getWarpConfig().setConfig(conf);
+		getConfig().set("warps", wrps);
+		
+	}
+	
+	public void deleteConfig()
+	{
+		for(String key : getConfig().getKeys(true))
+			getConfig().set(key, null);
 	}
 	
 	private FileConfiguration getConfig()
