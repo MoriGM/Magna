@@ -25,11 +25,7 @@ public class WarpManager
 	
 	public Location getWarpLocation(String name)
 	{
-		for(Warp w : getWarps())
-			if(w.name.equals(name))
-				return w.location;
-			
-		return null;
+		return containsWarp(name) ? getWarp(name).location : null;
 	}
 	
 	public Warp getWarp(String name)
@@ -47,18 +43,12 @@ public class WarpManager
 	
 	public String getPermissionFromWarp(String name)
 	{
-		for(Warp w : Main.getInstance().getWarpLoader().getWarps())
-			if(w.name.equals(name))
-				return w.permission;
-		return null;
+		return containsWarp(name) ? getWarp(name).permission : null;
 	}
 	
 	public boolean containsWarp(String name)
 	{
-		for(Warp w : Main.getInstance().getWarpLoader().getWarps())
-			if(w.name.equals(name))
-				return true;
-		return false;
+		return getWarp(name) != null;
 	}
 	
 	public List<Warp> getWarps()
