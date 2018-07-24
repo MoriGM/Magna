@@ -13,7 +13,7 @@ import de.morigm.magna.api.manager.GroupManager;
 public abstract class CommandHelper implements CommandExecutor, PermissionHelper, TranslationHelper
 {
 
-	String name = "";
+	private String name = "";
 
 	public void register(String cmd_name)
 	{

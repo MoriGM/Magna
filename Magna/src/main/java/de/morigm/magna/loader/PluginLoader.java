@@ -24,6 +24,7 @@ import de.morigm.magna.commands.Magna_List;
 import de.morigm.magna.commands.Memorie;
 import de.morigm.magna.commands.Mute;
 import de.morigm.magna.commands.Night;
+import de.morigm.magna.commands.OpenEnderChest;
 import de.morigm.magna.commands.Ops;
 import de.morigm.magna.commands.ReloadConfig;
 import de.morigm.magna.commands.RemoveWarp;
@@ -96,6 +97,7 @@ public class PluginLoader
 		new TpHere().register("tphere");
 		new getUUID().register("getuuid");
 		new Trash().register("trash");
+		new OpenEnderChest().register("enderchest");
 	}
 	
 	public void registerListener()

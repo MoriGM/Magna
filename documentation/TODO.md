@@ -4,15 +4,14 @@
 * msg
 * version
 * workbench
-* enderchest
 * damage
 * tpaccept
+* tpa
 * flyspeed
 * speed
 * sethome
 * home
 * delhome
-* trash
 * censor (word blacklist)
 
 # Rebuild

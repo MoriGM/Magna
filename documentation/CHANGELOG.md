@@ -7,6 +7,7 @@
 #### Command
 
 Added Command trash to Magna
+Added Command enderchest to Magna
 
 ### Bug
 
