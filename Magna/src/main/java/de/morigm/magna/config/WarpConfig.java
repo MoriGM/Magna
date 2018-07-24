@@ -9,38 +9,39 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ConfigHelper;
-import de.morigm.magna.chat.Chat;
+import de.morigm.magna.api.helper.FileHelper;
+import lombok.Getter;
+import lombok.Setter;
 
 public class WarpConfig implements ConfigHelper
 {
 
-	private FileConfiguration config;
+	@Getter @Setter private FileConfiguration config;
 	public List<String> warps;
 
+	@Getter private File configFile = new File(Main.getInstance().getDataFolder(),"/warps.yml");
+
+	@Override
+	public void load() 
+	{
+		FileHelper.createFileIfNotExists(configFile);
+		this.config = YamlConfiguration.loadConfiguration(configFile);
+		this.warps = this.config.getStringList("warps");
+	}
+	
 	@Override
 	public void save() 
 	{
 		try
 		{
 			this.config.set("warps", this.warps);
-			this.config.save(new File(Main.getInstance().getDataFolder(),"/warps.yml"));
+			FileHelper.createFileIfNotExists(configFile);
+			this.config.save(configFile);
 		}
 		catch (IOException e) 
 		{
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public void load() 
-	{
-		this.config = YamlConfiguration.loadConfiguration(new File("./plugins/" + Chat.name + "/warps.yml"));
-		this.warps = this.config.getStringList("warps");
-	}
-	
-	public FileConfiguration getConfig() 
-	{
-		return config;
 	}
 
 }

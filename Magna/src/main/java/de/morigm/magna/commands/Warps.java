@@ -28,11 +28,11 @@ public class Warps extends CommandHelper
 			if(p.hasPermission(getPermission("warps")))
 			{
 				String warps = "";
-				for(String s : Main.getInstance().getWarpManager().getWarps())
+				for(de.morigm.magna.api.warp.Warp w : Main.getInstance().getWarpManager().getWarps())
 					if(warps.isEmpty())
-						warps += s;
+						warps += w.name;
 					else
-						warps += "," + s;
+						warps += "," + w.name;
 				p.sendMessage(Chat.prefix + translate("cmd.warps") + ":" + warps);
 			}
 			else

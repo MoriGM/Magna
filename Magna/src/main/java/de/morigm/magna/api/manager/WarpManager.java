@@ -8,77 +8,66 @@ import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.api.warp.Warp;
 import de.morigm.magna.config.WarpConfig;
+import de.morigm.magna.loader.WarpLoader;
 
 public class WarpManager
 {
 	public void setWarp(String name,Location loc)
 	{
-		if(!getWarpConfig().warps.contains(name))
-			getWarpConfig().warps.add(name);
-		getConfig().set(name + ".x", loc.getX());
-		getConfig().set(name + ".y", loc.getY());
-		getConfig().set(name + ".z", loc.getZ());
-		getConfig().set(name + ".yaw", loc.getYaw());
-		getConfig().set(name + ".pitch", loc.getPitch());
-		getConfig().set(name + ".world", loc.getWorld().getName());
-		getConfig().set(name + ".permission", Main.getInstance().getPermissionManager().getPermission("warppermission") + "." + name);
+		Warp w = new Warp(name, Main.getInstance().getPermissionManager().getPermission("warppermission"), loc);
+		if(!containsWarp(w.name))
+			getWarps().add(w);
 	}
 	
 	public void removeWarp(String name)
 	{
-		if(getWarpConfig().warps.contains(name))
-			getWarpConfig().warps.remove(name);
-		getConfig().set(name + ".x", null);
-		getConfig().set(name + ".y", null);
-		getConfig().set(name + ".z", null);
-		getConfig().set(name + ".yaw", null);
-		getConfig().set(name + ".pitch", null);
-		getConfig().set(name + ".world", null);
-		getConfig().set(name + ".permission", null);
-		getConfig().set(name, null);
+		if(containsWarp(name))
+			getWarps().remove(getWarp(name));
 	}
 	
-	public Location getWarp(String name)
+	public Location getWarpLocation(String name)
 	{
-		if(!this.containsWarp(name))
-			return null;
+		for(Warp w : getWarps())
+			if(w.name.equals(name))
+				return w.location;
+			
+		return null;
+	}
 	
-		World world = Bukkit.getWorld(Main.getInstance().getWarpConfig().getConfig().getString(name + ".world"));
-		int x = getConfig().getInt(name + ".x");
-		int y = getConfig().getInt(name + ".y");
-		int z = getConfig().getInt(name + ".z");
-		float yaw = (float) getConfig().getDouble(name + ".yaw");
-		float pitch = (float) getConfig().getDouble(name + ".pitch");
-		
-		
-		Location loc = new Location(world, x, y, z);
-		loc.setYaw(yaw);
-		loc.setPitch(pitch);
-		
-		return loc;
+	public Warp getWarp(String name)
+	{
+		for(Warp w : getWarps())
+			if(w.name.equals(name))
+				return w;
+		return null;
 	}
 	
 	public boolean WarpHasPermission(String name)
 	{
-		if(containsWarp(name))
-			return getConfig().contains(name + ".permission");
-		return false;
+		return getPermissionFromWarp(name) != null;
 	}
 	
 	public String getPermissionFromWarp(String name)
 	{
-		return getConfig().getString(name + ".permission");
+		for(Warp w : Main.getInstance().getWarpLoader().getWarps())
+			if(w.name.equals(name))
+				return w.permission;
+		return null;
 	}
 	
 	public boolean containsWarp(String name)
 	{
-		return getWarpConfig().warps.contains(name);
+		for(Warp w : Main.getInstance().getWarpLoader().getWarps())
+			if(w.name.equals(name))
+				return true;
+		return false;
 	}
 	
-	public List<String> getWarps()
+	public List<Warp> getWarps()
 	{
-		return getWarpConfig().warps;
+		return getWarpLoader().getWarps();
 	}
 	
 	private FileConfiguration getConfig()
@@ -89,5 +78,10 @@ public class WarpManager
 	private WarpConfig getWarpConfig()
 	{
 		return Main.getInstance().getWarpConfig();
+	}
+	
+	private WarpLoader getWarpLoader()
+	{
+		return Main.getInstance().getWarpLoader();
 	}
 }

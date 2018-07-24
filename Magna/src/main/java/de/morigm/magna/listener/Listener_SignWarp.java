@@ -40,13 +40,13 @@ public class Listener_SignWarp implements ListenerHelper
 								{
 									if(e.getPlayer().hasPermission(Main.getInstance().getWarpManager().getPermissionFromWarp(sign.getLine(1))))
 									{
-										Location loc = Main.getInstance().getWarpManager().getWarp(sign.getLine(1));
+										Location loc = Main.getInstance().getWarpManager().getWarpLocation(sign.getLine(1));
 										e.getPlayer().teleport(loc);
 									}
 								}
 								else
 								{
-									Location loc = Main.getInstance().getWarpManager().getWarp(sign.getLine(1));
+									Location loc = Main.getInstance().getWarpManager().getWarpLocation(sign.getLine(1));
 									e.getPlayer().teleport(loc);
 								}
 			}

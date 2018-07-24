@@ -34,7 +34,7 @@ public class GetWarp extends CommandHelper
 					String warpname = args[0];
 					if(Main.getInstance().getWarpManager().containsWarp(warpname))
 					{
-						Location loc = Main.getInstance().getWarpManager().getWarp(warpname);
+						Location loc = Main.getInstance().getWarpManager().getWarpLocation(warpname);
 						p.sendMessage(Chat.prefix + "X:" + loc.getBlockX() + " Y:" + loc.getBlockY() + " Z:" + loc.getBlockZ() + " " + translate("cmd.getwarp.world") + ":" + loc.getWorld().getName());
 					}
 					else

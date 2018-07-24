@@ -21,6 +21,7 @@ import de.morigm.magna.config.WarpConfig;
 import de.morigm.magna.loader.GroupLoader;
 import de.morigm.magna.loader.LanguageLoader;
 import de.morigm.magna.loader.PluginLoader;
+import de.morigm.magna.loader.WarpLoader;
 import de.morigm.magna.log.CommandLoger;
 import lombok.Getter;
 
@@ -47,6 +48,7 @@ public class Main extends JavaPlugin
 	@Getter private CommandLoger commandsLoger;
 
 	@Getter private GroupLoader groupLoader;
+	@Getter private WarpLoader warpLoader;
 	
 	@Getter private File languageFolder;
 	@Getter private File jar;
@@ -82,6 +84,8 @@ public class Main extends JavaPlugin
 		this.commandsLoger.load();
 		this.warpConfig = new WarpConfig();
 		this.warpConfig.load();
+		this.warpLoader = new WarpLoader();
+		this.warpLoader.load();
 		this.warpManager = new WarpManager();
 		this.memorieManager = new MemorieManager();
 		this.groupConfig = new GroupConfig();
@@ -101,6 +105,7 @@ public class Main extends JavaPlugin
 		this.playerConfig.save();
 		this.pluginConfig.save();
 		this.commandsLoger.save();
+		this.warpLoader.save();
 		this.warpConfig.save();
 		Chat.writeMessage(this.getLanguage().translate("plugin.stop"));
 	}
