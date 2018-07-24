@@ -2,14 +2,10 @@ package de.morigm.magna.api.manager;
 
 import java.util.List;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.World;
-import org.bukkit.configuration.file.FileConfiguration;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.warp.Warp;
-import de.morigm.magna.config.WarpConfig;
 import de.morigm.magna.loader.WarpLoader;
 
 public class WarpManager
@@ -68,16 +64,6 @@ public class WarpManager
 	public List<Warp> getWarps()
 	{
 		return getWarpLoader().getWarps();
-	}
-	
-	private FileConfiguration getConfig()
-	{
-		return Main.getInstance().getWarpConfig().getConfig();
-	}
-	
-	private WarpConfig getWarpConfig()
-	{
-		return Main.getInstance().getWarpConfig();
 	}
 	
 	private WarpLoader getWarpLoader()
