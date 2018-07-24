@@ -30,7 +30,6 @@ public class WarpLoader implements LoadHelper,SaveHelper
 	{
 		for(String w : Main.getInstance().getWarpConfig().warps)
 		{
-			System.out.println(w);
 			World world = Bukkit.getWorld(Main.getInstance().getWarpConfig().getConfig().getString(w + ".world"));
 			int x = getConfig().getInt(w + ".x");
 			int y = getConfig().getInt(w + ".y");
