@@ -32,6 +32,8 @@ public class SetWarp extends CommandHelper
 				if(args.length >= 1)
 				{
 					String warpname = args[0];
+					if(Main.getInstance().getWarpManager().containsWarp(warpname))
+						Main.getInstance().getWarpManager().removeWarp(warpname);
 					Main.getInstance().getWarpManager().setWarp(warpname, p.getLocation());
 					p.sendMessage(Chat.prefix + translate("cmd.setwarp.warp") + " " + warpname + " " + translate("cmd.setwarp.end"));
 				}
