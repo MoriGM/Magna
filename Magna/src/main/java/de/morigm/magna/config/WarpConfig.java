@@ -2,6 +2,7 @@ package de.morigm.magna.config;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.configuration.file.FileConfiguration;
@@ -17,7 +18,7 @@ public class WarpConfig implements ConfigHelper
 {
 
 	@Getter @Setter private FileConfiguration config;
-	public List<String> warps;
+	public List<String> warps = new ArrayList<>();
 
 	@Getter private File configFile = new File(Main.getInstance().getDataFolder(),"/warps.yml");
 
@@ -26,7 +27,10 @@ public class WarpConfig implements ConfigHelper
 	{
 		FileHelper.createFileIfNotExists(configFile);
 		this.config = YamlConfiguration.loadConfiguration(configFile);
-		this.warps = this.config.getStringList("warps");
+		if(this.config.isList("warps"))
+			this.config.set("warps", null);
+		for(String keys : this.config.getKeys(false))
+			this.warps.add(keys);
 	}
 	
 	@Override

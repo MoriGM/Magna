@@ -52,13 +52,10 @@ public class WarpLoader implements LoadHelper,SaveHelper
 	@Override
 	public void save()
 	{
-		
 		deleteConfig();
 		
-		List<String> wrps = new ArrayList<>();
 		for(Warp w : warps)
 		{
-			wrps.add(w.name);
 			getConfig().set(w.name + ".x", w.location.getX());
 			getConfig().set(w.name + ".y", w.location.getY());
 			getConfig().set(w.name + ".z", w.location.getZ());
@@ -67,8 +64,6 @@ public class WarpLoader implements LoadHelper,SaveHelper
 			getConfig().set(w.name + ".world", w.location.getWorld().getName());
 			getConfig().set(w.name + ".permission", Main.getInstance().getPermissionManager().getPermission("warppermission") + "." + w.name);
 		}
-		
-		getConfig().set("warps", wrps);
 		
 	}
 	
