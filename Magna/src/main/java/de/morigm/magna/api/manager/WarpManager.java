@@ -36,16 +36,6 @@ public class WarpManager
 		return null;
 	}
 	
-	public boolean WarpHasPermission(String name)
-	{
-		return getPermissionFromWarp(name) != null;
-	}
-	
-	public String getPermissionFromWarp(String name)
-	{
-		return containsWarp(name) ? getWarp(name).permission : null;
-	}
-	
 	public boolean containsWarp(String name)
 	{
 		return getWarp(name) != null;

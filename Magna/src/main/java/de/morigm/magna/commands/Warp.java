@@ -33,15 +33,7 @@ public class Warp extends CommandHelper
 					String warpname = args[0];
 					if(Main.getInstance().getWarpManager().containsWarp(warpname))
 					{
-						if(Main.getInstance().getWarpManager().WarpHasPermission(warpname))
-						{	
-							if(p.hasPermission(Main.getInstance().getWarpManager().getPermissionFromWarp(warpname)))
-							{
-								p.teleport(Main.getInstance().getWarpManager().getWarpLocation(warpname));
-								p.sendMessage(Chat.prefix + translate("cmd.warp") + " " + warpname);
-							}
-						}
-						else
+						if(p.hasPermission(Main.getInstance().getWarpManager().getWarp(warpname).permission))
 						{
 							p.teleport(Main.getInstance().getWarpManager().getWarpLocation(warpname));
 							p.sendMessage(Chat.prefix + translate("cmd.warp") + " " + warpname);

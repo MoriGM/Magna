@@ -36,15 +36,7 @@ public class Listener_SignWarp implements ListenerHelper
 					if(sign.getLine(1) != null && !sign.getLine(1).isEmpty())
 						if(sign.getLine(0).equals(ChatColor.GRAY + "[" + ChatColor.BLUE + "Warp" + ChatColor.GRAY +"]"))
 							if(Main.getInstance().getWarpManager().containsWarp(sign.getLine(1)))
-								if(Main.getInstance().getWarpManager().WarpHasPermission(sign.getLine(1)))
-								{
-									if(e.getPlayer().hasPermission(Main.getInstance().getWarpManager().getPermissionFromWarp(sign.getLine(1))))
-									{
-										Location loc = Main.getInstance().getWarpManager().getWarpLocation(sign.getLine(1));
-										e.getPlayer().teleport(loc);
-									}
-								}
-								else
+								if(e.getPlayer().hasPermission(Main.getInstance().getWarpManager().getWarp(sign.getLine(1)).permission))
 								{
 									Location loc = Main.getInstance().getWarpManager().getWarpLocation(sign.getLine(1));
 									e.getPlayer().teleport(loc);
