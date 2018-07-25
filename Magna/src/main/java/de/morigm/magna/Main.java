@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.manager.CommandSpyManager;
+import de.morigm.magna.api.manager.DeathBackManager;
 import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.GroupManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
@@ -14,10 +15,12 @@ import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.WarpManager;
 import de.morigm.magna.api.memorie.MemorieManager;
 import de.morigm.magna.chat.Chat;
+import de.morigm.magna.config.DeathBackConfig;
 import de.morigm.magna.config.GroupConfig;
 import de.morigm.magna.config.PlayerConfig;
 import de.morigm.magna.config.PluginConfig;
 import de.morigm.magna.config.WarpConfig;
+import de.morigm.magna.loader.DeathBackLoader;
 import de.morigm.magna.loader.GroupLoader;
 import de.morigm.magna.loader.LanguageLoader;
 import de.morigm.magna.loader.PluginLoader;
@@ -39,16 +42,19 @@ public class Main extends JavaPlugin
 	@Getter private WarpManager warpManager;
 	@Getter private MemorieManager memorieManager;
 	@Getter private GroupManager groupManager;
+	@Getter private DeathBackManager deathBackManager;
 	
 	@Getter private PlayerConfig playerConfig;
 	private PluginConfig pluginConfig;
 	@Getter private WarpConfig warpConfig;
 	@Getter private GroupConfig groupConfig;
+	@Getter private DeathBackConfig deathBackConfig;
 	
 	@Getter private CommandLoger commandsLoger;
 
 	@Getter private GroupLoader groupLoader;
 	@Getter private WarpLoader warpLoader;
+	@Getter private DeathBackLoader deathBackLoader;
 	
 	@Getter private File languageFolder;
 	@Getter private File jar;
@@ -93,6 +99,11 @@ public class Main extends JavaPlugin
 		this.groupConfig.load();
 		this.groupLoader.load();
 		this.groupManager = new GroupManager();
+		this.deathBackConfig = new DeathBackConfig();
+		this.deathBackConfig.load();
+		this.deathBackLoader = new DeathBackLoader();
+		this.deathBackLoader.load();
+		this.deathBackManager = new DeathBackManager();
 		if(Main.getInstance().getDefaultPluginConfig().warning && !Magna.isSupported())
 			Chat.writeMessage(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
 		Chat.writeMessage("Version: " + Chat.version);
@@ -107,6 +118,8 @@ public class Main extends JavaPlugin
 		this.commandsLoger.save();
 		this.warpLoader.save();
 		this.warpConfig.save();
+		this.deathBackLoader.save();
+		this.deathBackConfig.save();
 		Chat.writeMessage(this.getLanguage().translate("plugin.stop"));
 	}
 	

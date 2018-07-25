@@ -72,4 +72,6 @@ cmd.spawn.error= Es wurde noch kein Spawn gesetzt
 cmd.skull= Du hast den Spieler Kopf bekommen
 cmd.tpto= Teleportiert zu
 cmd.tphere= Spieler wurde zu dir Teleportiert
+cmd.deathback= Du wurdest zu deinem Letzten Todespunkt teleportiert
+cmd.deathback.error= Du bist nicht gestorben
 listener.mute= Du bist gemuted

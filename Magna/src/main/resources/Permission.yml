@@ -41,6 +41,7 @@ getuuid: magna.cmd.getuuid
 trash: magna.cmd.trash
 enderchest: magna.cmd.enderchest
 workbench: magna.cmd.workbench
+deathback: magna.cmd.deathback
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create

@@ -72,4 +72,6 @@ cmd.spawn.error= No Spawn is set
 cmd.skull= Item added to inventory
 cmd.tpto= Teleported to
 cmd.tphere= A Player was teleported to you
+cmd.deathback= Teleported to your Death Point
+cmd.deathback.error= You never died
 listener.mute= You are muted

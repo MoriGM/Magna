@@ -12,6 +12,7 @@ import de.morigm.magna.commands.GameModeInfo;
 import de.morigm.magna.commands.GetPos;
 import de.morigm.magna.commands.GetWarp;
 import de.morigm.magna.commands.GetWorld;
+import de.morigm.magna.commands.GoDeathBack;
 import de.morigm.magna.commands.GodMode;
 import de.morigm.magna.commands.Group_Exec;
 import de.morigm.magna.commands.Groups;
@@ -47,6 +48,7 @@ import de.morigm.magna.listener.Listener_CMDSPY;
 import de.morigm.magna.listener.Listener_ChatColor;
 import de.morigm.magna.listener.Listener_ColorSign;
 import de.morigm.magna.listener.Listener_CommandLog;
+import de.morigm.magna.listener.Listener_DeathBack;
 import de.morigm.magna.listener.Listener_GODMODE;
 import de.morigm.magna.listener.Listener_Muted;
 import de.morigm.magna.listener.Listener_SignWarp;
@@ -100,6 +102,7 @@ public class PluginLoader
 		new Trash().register("trash");
 		new OpenEnderChest().register("enderchest");
 		new OpenWorkbench().register("workbench");
+		new GoDeathBack().register("deathback");
 	}
 	
 	public void registerListener()
@@ -112,6 +115,7 @@ public class PluginLoader
 		new Listener_CommandLog().register();
 		new Listener_SignWarp().register();
 		new Listener_TrashSign().register();
+		new Listener_DeathBack().register();
 	}
 	
 }
