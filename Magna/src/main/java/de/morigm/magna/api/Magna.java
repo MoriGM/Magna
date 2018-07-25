@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.command.CommandUtil;
 import de.morigm.magna.api.manager.CommandSpyManager;
+import de.morigm.magna.api.manager.DeathBackManager;
 import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.GroupManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
@@ -51,6 +52,11 @@ public class Magna
 	public static PermissionManager getPermissionManager() 
 	{
 		return Main.getInstance().getPermissionManager();
+	}
+	
+	public static DeathBackManager getDeathBackManager()
+	{
+		return Main.getInstance().getDeathBackManager();
 	}
 	
 	public static String getServerVersion()

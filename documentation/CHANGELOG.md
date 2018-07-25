@@ -9,6 +9,7 @@
 Added Command trash to Magna
 Added Command enderchest to Magna
 Added Command workbench to Magna
+Added Command deathback to Magna
 
 ### Bug
 
