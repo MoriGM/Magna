@@ -16,7 +16,7 @@ warp: magna.cmd.warp.tp
 removewarp: magna.cmd.warp.remove
 warps: magna.cmd.warp.list
 kickall: magna.cmd.kickall
-memorie: magna.cmd.memorie
+memory: magna.cmd.memory
 chatclear: magna.cmd.chatclear
 allchatclear: magna.cmd.allchatclear
 magna-groups: magna.cmd.groups

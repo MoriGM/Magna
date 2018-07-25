@@ -22,7 +22,7 @@ import de.morigm.magna.commands.ItemHead;
 import de.morigm.magna.commands.KickAll;
 import de.morigm.magna.commands.Magna_Id;
 import de.morigm.magna.commands.Magna_List;
-import de.morigm.magna.commands.Memorie;
+import de.morigm.magna.commands.Memory;
 import de.morigm.magna.commands.Mute;
 import de.morigm.magna.commands.Night;
 import de.morigm.magna.commands.OpenEnderChest;
@@ -77,7 +77,7 @@ public class PluginLoader
 		new Warp().register("warp");
 		new Warps().register("warps");
 		new KickAll().register("kickall");
-		new Memorie().register("memorie");
+		new Memory().register("memory");
 		new ChatClear().register("chatclear");
 		new AllChatClear().register("allchatclear");
 		new Groups().register("magna-groups");

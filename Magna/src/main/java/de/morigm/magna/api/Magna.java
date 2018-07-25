@@ -11,7 +11,7 @@ import de.morigm.magna.api.manager.GroupManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.WarpManager;
-import de.morigm.magna.api.memorie.MemorieManager;
+import de.morigm.magna.api.memory.MemoryManager;
 
 public class Magna
 {
@@ -24,9 +24,9 @@ public class Magna
 		return Main.getInstance().getGroupManager();
 	}
 	
-	public static MemorieManager getMemorieManager() 
+	public static MemoryManager getMemoryManager() 
 	{
-		return Main.getInstance().getMemorieManager();
+		return Main.getInstance().getMemoryManager();
 	}
 	
 	public static WarpManager getWarpManager() 

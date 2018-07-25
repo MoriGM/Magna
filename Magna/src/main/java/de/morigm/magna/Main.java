@@ -13,7 +13,7 @@ import de.morigm.magna.api.manager.GroupManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.WarpManager;
-import de.morigm.magna.api.memorie.MemorieManager;
+import de.morigm.magna.api.memory.MemoryManager;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.config.DeathBackConfig;
 import de.morigm.magna.config.GroupConfig;
@@ -40,7 +40,7 @@ public class Main extends JavaPlugin
 	@Getter private GodModeManager godModeManager;
 	@Getter private CommandSpyManager commandSpyManager;
 	@Getter private WarpManager warpManager;
-	@Getter private MemorieManager memorieManager;
+	@Getter private MemoryManager memoryManager;
 	@Getter private GroupManager groupManager;
 	@Getter private DeathBackManager deathBackManager;
 	
@@ -93,7 +93,7 @@ public class Main extends JavaPlugin
 		this.warpLoader = new WarpLoader();
 		this.warpLoader.load();
 		this.warpManager = new WarpManager();
-		this.memorieManager = new MemorieManager();
+		this.memoryManager = new MemoryManager();
 		this.groupConfig = new GroupConfig();
 		this.groupLoader = new GroupLoader();
 		this.groupConfig.load();
