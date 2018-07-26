@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.command.CommandUtil;
+import de.morigm.magna.api.manager.AutoEditManager;
 import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.DeathBackManager;
 import de.morigm.magna.api.manager.GodModeManager;
@@ -57,6 +58,11 @@ public class Magna
 	public static DeathBackManager getDeathBackManager()
 	{
 		return Main.getInstance().getDeathBackManager();
+	}
+	
+	public static AutoEditManager getAutoEditManager()
+	{
+		return Main.getInstance().getAutoEditManager();
 	}
 	
 	public static String getServerVersion()
