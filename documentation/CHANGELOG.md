@@ -8,8 +8,8 @@ AutoEdit System to Magna
 
 #### AutoEdit
 
-[world] added to Magna
-[playercount] added to Magna
+* [world] added to Magna
+* [playercount] added to Magna
 
 #### Command
 
