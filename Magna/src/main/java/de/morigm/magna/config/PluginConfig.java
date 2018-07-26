@@ -78,7 +78,8 @@ public class PluginConfig implements ConfigHelper
 
 	public void save()
 	{
-		savespawn();
+		if(this.spawn != null)
+			savespawn();
 		getConfig().set("commandspyblocked", this.commandspyblocked);
 		getConfig().set("owncommandspy", this.owncommandspy);
 		getConfig().set("commandlog", this.commandlog);

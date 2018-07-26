@@ -31,6 +31,8 @@ NoFallDamage Added to Magna
 
 Fixed Command skull in Magna
 Fixed that you only can set a warp once
+testPermission Stackoverflow
+spawn save error
 
 ### Rebuild
 
