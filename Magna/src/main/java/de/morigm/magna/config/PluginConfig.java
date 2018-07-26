@@ -15,6 +15,7 @@ public class PluginConfig implements ConfigHelper
 	
 	public List<String> commandspyblocked;
 	public List<String> groups;
+	public List<String> nofalldamage;
 	public boolean owncommandspy;
 	public boolean commandlog;
 	public boolean chatclear;
@@ -25,12 +26,14 @@ public class PluginConfig implements ConfigHelper
 	private void adddefault()
 	{
 		getConfig().options().copyDefaults(true);
+		
 		getConfig().addDefault("owncommandspy", false);
 		getConfig().addDefault("commandlog", false);
 		getConfig().addDefault("chatclear", false);
-		getConfig().addDefault("commandspyblocked", new ArrayList<String>());
-		getConfig().addDefault("language", "en-en.yml");
 		getConfig().addDefault("warning", true);
+		getConfig().addDefault("commandspyblocked", new ArrayList<String>());
+		getConfig().addDefault("nofalldamage", new ArrayList<String>());
+		getConfig().addDefault("language", "en-en.yml");
 	}
 	
 	public void load()
@@ -43,6 +46,7 @@ public class PluginConfig implements ConfigHelper
 		this.warning = getConfig().getBoolean("warning");
 		this.groups = getConfig().getStringList("groups");
 		this.language = getConfig().getString("language");
+		this.nofalldamage = getConfig().getStringList("nofalldamage");
 		
 		loadSpawn();
 	}
@@ -78,6 +82,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().set("chatclear", this.chatclear);
 		getConfig().set("groups", this.groups);
 		getConfig().set("warning", this.warning);
+		getConfig().set("nofalldamage", this.nofalldamage);
 		Main.getInstance().saveConfig();
 	}
 	

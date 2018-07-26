@@ -51,6 +51,7 @@ import de.morigm.magna.listener.Listener_CommandLog;
 import de.morigm.magna.listener.Listener_DeathBack;
 import de.morigm.magna.listener.Listener_GODMODE;
 import de.morigm.magna.listener.Listener_Muted;
+import de.morigm.magna.listener.Listener_NoFallDamage;
 import de.morigm.magna.listener.Listener_SignWarp;
 import de.morigm.magna.listener.Listener_TrashSign;
 
@@ -116,6 +117,7 @@ public class PluginLoader
 		new Listener_SignWarp().register();
 		new Listener_TrashSign().register();
 		new Listener_DeathBack().register();
+		new Listener_NoFallDamage().register();
 	}
 	
 }
