@@ -10,6 +10,9 @@ AutoEdit System to Magna
 
 * [world] added to Magna
 * [playercount] added to Magna
+* [uuid] added to Magna
+* [playerworldcount] added to Magna
+* [motd] added to Magna
 
 #### Command
 
