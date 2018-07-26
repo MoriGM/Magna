@@ -6,6 +6,11 @@
 
 AutoEdit System to Magna
 
+#### AutoEdit
+
+[world] added to Magna
+[playercount] added to Magna
+
 #### Command
 
 Added Command trash to Magna
