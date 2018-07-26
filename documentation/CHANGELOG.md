@@ -11,6 +11,10 @@ Added Command enderchest to Magna
 Added Command workbench to Magna
 Added Command deathback to Magna
 
+#### Config
+
+NoFallDamage Added to Magna
+
 ### Bug
 
 Fixed Command skull in Magna
