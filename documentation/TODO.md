@@ -29,7 +29,6 @@
 
 # JUnit Test
 
-* Comamnd
 * Manager
 
 # Config
