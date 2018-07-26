@@ -44,6 +44,7 @@ import de.morigm.magna.commands.Trash;
 import de.morigm.magna.commands.Warp;
 import de.morigm.magna.commands.Warps;
 import de.morigm.magna.commands.getUUID;
+import de.morigm.magna.listener.Listener_AutoEdit;
 import de.morigm.magna.listener.Listener_CMDSPY;
 import de.morigm.magna.listener.Listener_ChatColor;
 import de.morigm.magna.listener.Listener_ColorSign;
@@ -118,6 +119,7 @@ public class PluginLoader
 		new Listener_TrashSign().register();
 		new Listener_DeathBack().register();
 		new Listener_NoFallDamage().register();
+		new Listener_AutoEdit().register();
 	}
 	
 }

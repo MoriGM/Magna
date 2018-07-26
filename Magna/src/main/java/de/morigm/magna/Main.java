@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.language.Language;
+import de.morigm.magna.api.manager.AutoEditManager;
 import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.DeathBackManager;
 import de.morigm.magna.api.manager.GodModeManager;
@@ -15,11 +16,14 @@ import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.WarpManager;
 import de.morigm.magna.api.memory.MemoryManager;
 import de.morigm.magna.chat.Chat;
+import de.morigm.magna.config.AutoEditConfig;
 import de.morigm.magna.config.DeathBackConfig;
 import de.morigm.magna.config.GroupConfig;
 import de.morigm.magna.config.PlayerConfig;
 import de.morigm.magna.config.PluginConfig;
 import de.morigm.magna.config.WarpConfig;
+import de.morigm.magna.edits.RegisterAutoEdits;
+import de.morigm.magna.loader.AutoEditLoader;
 import de.morigm.magna.loader.DeathBackLoader;
 import de.morigm.magna.loader.GroupLoader;
 import de.morigm.magna.loader.LanguageLoader;
@@ -43,18 +47,23 @@ public class Main extends JavaPlugin
 	@Getter private MemoryManager memoryManager;
 	@Getter private GroupManager groupManager;
 	@Getter private DeathBackManager deathBackManager;
+	@Getter private AutoEditManager autoEditManager;
+	
+	@Getter private RegisterAutoEdits registerAutoEdits;
 	
 	@Getter private PlayerConfig playerConfig;
 	private PluginConfig pluginConfig;
 	@Getter private WarpConfig warpConfig;
 	@Getter private GroupConfig groupConfig;
 	@Getter private DeathBackConfig deathBackConfig;
+	@Getter private AutoEditConfig autoEditConfig;
 	
 	@Getter private CommandLoger commandsLoger;
 
 	@Getter private GroupLoader groupLoader;
 	@Getter private WarpLoader warpLoader;
 	@Getter private DeathBackLoader deathBackLoader;
+	@Getter private AutoEditLoader autoEditLoader;
 	
 	@Getter private File languageFolder;
 	@Getter private File jar;
@@ -62,7 +71,7 @@ public class Main extends JavaPlugin
 	@Getter private LanguageLoader LanguageLoader;
 
 	@Getter private Language language;
-	
+
 
 	@Override
 	public void onEnable() 
@@ -104,6 +113,15 @@ public class Main extends JavaPlugin
 		this.deathBackLoader = new DeathBackLoader();
 		this.deathBackLoader.load();
 		this.deathBackManager = new DeathBackManager();
+		this.registerAutoEdits = new RegisterAutoEdits();
+		this.registerAutoEdits.registerServerStruct();
+		this.registerAutoEdits.registerPlayerStruct();
+		this.autoEditManager = new AutoEditManager();
+		this.autoEditConfig = new AutoEditConfig();
+		this.autoEditConfig.load();
+		this.autoEditLoader = new AutoEditLoader();
+		this.autoEditLoader.loadPlayerEdit();
+		this.autoEditLoader.loadServerEdit();
 		if(Main.getInstance().getDefaultPluginConfig().warning && !Magna.isSupported())
 			Chat.writeMessage(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
 		Chat.writeMessage("Version: " + Chat.version);

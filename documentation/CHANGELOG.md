@@ -4,6 +4,8 @@
 
 ### Add
 
+AutoEdit System to Magna
+
 #### Command
 
 Added Command trash to Magna
