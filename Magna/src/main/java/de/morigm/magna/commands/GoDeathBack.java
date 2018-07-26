@@ -34,10 +34,10 @@ public class GoDeathBack extends CommandHelper
 				{
 					DeathBack db = getDeathBackManager().getDeathBack(p);
 					p.teleport(db.location);
-					p.sendMessage(translate("cmd.deathback"));
+					p.sendMessage(Chat.prefix + translate("cmd.deathback"));
 				}
 				else
-					p.sendMessage(translate("cmd.deathback.error"));
+					p.sendMessage(Chat.prefix + translate("cmd.deathback.error"));
 			}
 			else
 				p.sendMessage(Chat.prefix + Chat.no_permission);
