@@ -5,6 +5,8 @@ import java.util.List;
 
 import de.morigm.magna.api.autoedit.AutoEditStruct;
 import de.morigm.magna.api.autoedit.PlayerAutoEditStruct;
+import de.morigm.magna.edits.player.AutoEdit_Item;
+import de.morigm.magna.edits.player.AutoEdit_ItemCount;
 import de.morigm.magna.edits.player.AutoEdit_PlayerName;
 import de.morigm.magna.edits.player.AutoEdit_PlayerUUID;
 import de.morigm.magna.edits.player.AutoEdit_WorldName;
@@ -31,6 +33,8 @@ public class RegisterAutoEdits
 		new AutoEdit_PlayerName().register();
 		new AutoEdit_PlayerUUID().register();
 		new AutoEdit_WorldPlayerCount().register();
+		new AutoEdit_Item().register();
+		new AutoEdit_ItemCount().register();
 	}
 
 }
