@@ -18,11 +18,11 @@ AutoEdit System to Magna
 
 #### Command
 
-Added Command trash to Magna
-Added Command enderchest to Magna
-Added Command workbench to Magna
-Added Command deathback to Magna
-Added Command censor to Magna
+* Added Command trash to Magna
+* Added Command enderchest to Magna
+* Added Command workbench to Magna
+* Added Command deathback to Magna
+* Added Command censor to Magna
 
 #### Config
 
