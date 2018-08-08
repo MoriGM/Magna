@@ -22,10 +22,15 @@ Added Command trash to Magna
 Added Command enderchest to Magna
 Added Command workbench to Magna
 Added Command deathback to Magna
+Added Command censor to Magna
 
 #### Config
 
 NoFallDamage Added to Magna
+
+#### System
+
+Added BlackList to Magna
 
 ### Bug
 
