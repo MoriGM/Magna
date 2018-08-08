@@ -21,6 +21,7 @@ public class PluginConfig implements ConfigHelper
 	public boolean chatclear;
 	public boolean warning;
 	public boolean autoedit;
+	public boolean blacklistperm;
 	public Location spawn;
 	public String language;
 
@@ -32,6 +33,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().addDefault("commandlog", false);
 		getConfig().addDefault("chatclear", false);
 		getConfig().addDefault("warning", true);
+		getConfig().addDefault("blacklistperm", false);
 		getConfig().addDefault("autoedit", true);
 		getConfig().addDefault("commandspyblocked", new ArrayList<String>());
 		getConfig().addDefault("nofalldamage", new ArrayList<String>());
@@ -50,6 +52,7 @@ public class PluginConfig implements ConfigHelper
 		this.language = getConfig().getString("language");
 		this.nofalldamage = getConfig().getStringList("nofalldamage");
 		this.autoedit = getConfig().getBoolean("autoedit");
+		this.blacklistperm = getConfig().getBoolean("blacklistperm");
 		
 		loadSpawn();
 	}
@@ -88,6 +91,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().set("warning", this.warning);
 		getConfig().set("nofalldamage", this.nofalldamage);
 		getConfig().set("autoedit", this.autoedit);
+		getConfig().set("blacklistperm", this.blacklistperm);
 		Main.getInstance().saveConfig();
 	}
 	

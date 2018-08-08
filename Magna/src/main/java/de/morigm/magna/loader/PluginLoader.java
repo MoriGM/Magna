@@ -4,6 +4,7 @@ import de.morigm.magna.commands.AllChatClear;
 import de.morigm.magna.commands.BanIps;
 import de.morigm.magna.commands.Bans;
 import de.morigm.magna.commands.Broadcast;
+import de.morigm.magna.commands.Censor;
 import de.morigm.magna.commands.ChatClear;
 import de.morigm.magna.commands.CommandSpy;
 import de.morigm.magna.commands.Day;
@@ -45,6 +46,7 @@ import de.morigm.magna.commands.Warp;
 import de.morigm.magna.commands.Warps;
 import de.morigm.magna.commands.getUUID;
 import de.morigm.magna.listener.Listener_AutoEdit;
+import de.morigm.magna.listener.Listener_BlackList;
 import de.morigm.magna.listener.Listener_CMDSPY;
 import de.morigm.magna.listener.Listener_ChatColor;
 import de.morigm.magna.listener.Listener_ColorSign;
@@ -105,6 +107,7 @@ public class PluginLoader
 		new OpenEnderChest().register("enderchest");
 		new OpenWorkbench().register("workbench");
 		new GoDeathBack().register("deathback");
+		new Censor().register("censor");
 	}
 	
 	public void registerListener()
@@ -120,6 +123,7 @@ public class PluginLoader
 		new Listener_DeathBack().register();
 		new Listener_NoFallDamage().register();
 		new Listener_AutoEdit().register();
+		new Listener_BlackList().register();
 	}
 	
 }

@@ -2,6 +2,7 @@ package de.morigm.magna.chat;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 
 import de.morigm.magna.Main;
 
@@ -20,6 +21,26 @@ public class Chat
 	public static void writeMessage(String text)
 	{
 		Bukkit.getConsoleSender().sendMessage(Chat.prefix + text);
+	}
+	
+	public static void noPermission(CommandSender com)
+	{
+		com.sendMessage(prefix + no_permission);
+	}
+	
+	public static void noConsole(CommandSender com)
+	{
+		com.sendMessage(prefix + no_console);
+	}
+	
+	public static void noPlayer(CommandSender com)
+	{
+		com.sendMessage(prefix + no_player);
+	}
+	
+	public static void noOnline(CommandSender com)
+	{
+		com.sendMessage(prefix + no_online);
 	}
 	
 }
