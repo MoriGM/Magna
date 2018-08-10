@@ -50,3 +50,5 @@ commands:
       workbench:
       deathback:
       censor:
+      gamemode:
+          aliases: gm

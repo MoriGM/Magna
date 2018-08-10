@@ -43,6 +43,7 @@ enderchest: magna.cmd.enderchest
 workbench: magna.cmd.workbench
 deathback: magna.cmd.deathback
 censor: magna.cmd.censor
+gamemode: magna.cmd.gamemode
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create

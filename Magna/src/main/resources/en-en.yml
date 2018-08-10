@@ -81,5 +81,7 @@ cmd.censor.add.error= This word already exists
 cmd.censor.remove= Word was removed
 cmd.censor.remove.error= Word doesn't exists
 cmd.censor.type= Types
+cmd.magna.gamemode= Your GameMode is now
+cmd.magna.gamemode.other= Player GameMode changed to
 listener.mute= You are muted
 listener.censor.warn= Hey! You're not allow to do that!

@@ -9,6 +9,7 @@ import de.morigm.magna.commands.ChatClear;
 import de.morigm.magna.commands.CommandSpy;
 import de.morigm.magna.commands.Day;
 import de.morigm.magna.commands.Fly;
+import de.morigm.magna.commands.GameMode;
 import de.morigm.magna.commands.GameModeInfo;
 import de.morigm.magna.commands.GetPos;
 import de.morigm.magna.commands.GetWarp;
@@ -108,6 +109,7 @@ public class PluginLoader
 		new OpenWorkbench().register("workbench");
 		new GoDeathBack().register("deathback");
 		new Censor().register("censor");
+		new GameMode().register("gamemode");
 	}
 	
 	public void registerListener()

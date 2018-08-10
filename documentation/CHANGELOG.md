@@ -1,10 +1,16 @@
 # CHANGLOG.md
 
-## 0.5.0
+## 0.6.0
 
 ### Add
 
-AutoEdit System to Magna
+#### Command
+
+* Added Command GameMode to Magna
+
+## 0.5.0
+
+### Add
 
 #### AutoEdit
 
@@ -31,6 +37,8 @@ NoFallDamage Added to Magna
 #### System
 
 Added BlackList to Magna
+
+AutoEdit System to Magna
 
 ### Bug
 
