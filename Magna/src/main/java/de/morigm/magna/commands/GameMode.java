@@ -53,7 +53,7 @@ public class GameMode extends CommandHelper
 							if(t == p)
 								p.sendMessage(Chat.prefix + translate("cmd.gamemode") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
 							else
-								t.sendMessage(Chat.prefix + translate("cmd.gamemode.other") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
+								p.sendMessage(Chat.prefix + translate("cmd.gamemode.other") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
 						}
 						else
 							p.sendMessage(Chat.prefix + translate("cmd.gamemode.error"));
