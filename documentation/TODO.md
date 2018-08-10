@@ -3,7 +3,6 @@
 * r
 * msg
 * version
-* damage
 * tpaccept
 * tpa
 * flyspeed

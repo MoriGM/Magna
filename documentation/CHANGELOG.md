@@ -8,6 +8,7 @@
 
 * Added Command GameMode to Magna
 * Added Command Pardon to Magna
+* Added Command Damage to Magna
 
 ## 0.5.0
 

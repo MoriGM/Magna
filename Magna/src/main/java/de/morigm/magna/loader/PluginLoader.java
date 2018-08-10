@@ -7,6 +7,7 @@ import de.morigm.magna.commands.Broadcast;
 import de.morigm.magna.commands.Censor;
 import de.morigm.magna.commands.ChatClear;
 import de.morigm.magna.commands.CommandSpy;
+import de.morigm.magna.commands.Damage;
 import de.morigm.magna.commands.Day;
 import de.morigm.magna.commands.Fly;
 import de.morigm.magna.commands.GameMode;
@@ -112,6 +113,7 @@ public class PluginLoader
 		new Censor().register("censor");
 		new GameMode().register("gamemode");
 		new Pardon().register("pardon");
+		new Damage().register("damage");
 	}
 	
 	public void registerListener()

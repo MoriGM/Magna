@@ -86,5 +86,7 @@ cmd.gamemode.other= GameMode vom Spieler gewechselt zu
 cmd.gamemode.error= Diesen GameMode gibt es nicht
 cmd.pardon= Du hast den Spieler entbannt
 cmd.pardon.other= Der Spieler ist nicht gebannt
+cmd.damage= Du hast den Spieler verletzt
+cmd.damage.noint= Das ist kein Zahl
 listener.mute= Du bist gemuted
 listener.censor.warn= Hey schreib das bitte nicht!

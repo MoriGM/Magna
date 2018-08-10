@@ -54,3 +54,4 @@ commands:
           aliases: gm
       pardon:
           aliases: unban
+      damage:

@@ -45,6 +45,7 @@ deathback: magna.cmd.deathback
 censor: magna.cmd.censor
 gamemode: magna.cmd.gamemode
 pardon: magna.cmd.pardon
+damage: magna.cmd.damage
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create
