@@ -52,3 +52,5 @@ commands:
       censor:
       gamemode:
           aliases: gm
+      pardon:
+          aliases: unban

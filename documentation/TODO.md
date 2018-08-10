@@ -11,7 +11,6 @@
 * sethome
 * home
 * delhome
-* unban
 
 # Rebuild
 

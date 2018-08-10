@@ -7,6 +7,7 @@
 #### Command
 
 * Added Command GameMode to Magna
+* Added Command Pardon to Magna
 
 ## 0.5.0
 

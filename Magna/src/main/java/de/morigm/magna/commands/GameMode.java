@@ -15,9 +15,9 @@ public class GameMode extends CommandHelper
 	{
 		util().registerCommandName(getCommand());
 		util().registerPermission("gamemode");
-		util().registerTranslation("cmd.magna.gamemode");
-		util().registerTranslation("cmd.magna.gamemode.other");		
-		util().registerTranslation("cmd.magna.gamemode.error");	
+		util().registerTranslation("cmd.gamemode");
+		util().registerTranslation("cmd.gamemode.other");		
+		util().registerTranslation("cmd.gamemode.error");	
 	}
 
 	@Override
@@ -51,12 +51,12 @@ public class GameMode extends CommandHelper
 						{
 							t.setGameMode(gamemode);
 							if(t == p)
-								p.sendMessage(Chat.prefix + translate("cmd.magna.gamemode") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
+								p.sendMessage(Chat.prefix + translate("cmd.gamemode") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
 							else
-								t.sendMessage(Chat.prefix + translate("cmd.magna.gamemode.other") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
+								t.sendMessage(Chat.prefix + translate("cmd.gamemode.other") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
 						}
 						else
-							p.sendMessage(Chat.prefix + translate("cmd.magna.gamemode.error"));
+							p.sendMessage(Chat.prefix + translate("cmd.gamemode.error"));
 					}
 					else
 						Chat.noOnline(p);

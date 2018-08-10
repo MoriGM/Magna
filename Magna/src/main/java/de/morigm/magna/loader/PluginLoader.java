@@ -30,6 +30,7 @@ import de.morigm.magna.commands.Night;
 import de.morigm.magna.commands.OpenEnderChest;
 import de.morigm.magna.commands.OpenWorkbench;
 import de.morigm.magna.commands.Ops;
+import de.morigm.magna.commands.Pardon;
 import de.morigm.magna.commands.ReloadConfig;
 import de.morigm.magna.commands.RemoveWarp;
 import de.morigm.magna.commands.Repair;
@@ -110,6 +111,7 @@ public class PluginLoader
 		new GoDeathBack().register("deathback");
 		new Censor().register("censor");
 		new GameMode().register("gamemode");
+		new Pardon().register("pardon");
 	}
 	
 	public void registerListener()
