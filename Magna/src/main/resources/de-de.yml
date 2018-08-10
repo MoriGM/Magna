@@ -83,5 +83,6 @@ cmd.censor.remove.error= Das Wort gibt es nicht
 cmd.censor.type= Typen
 cmd.magna.gamemode= Dein GameMode ist nun
 cmd.magna.gamemode.other= GameMode vom Spieler gewechselt zu
+cmd.magna.gamemode.error= Diesen GameMode gibt es nicht
 listener.mute= Du bist gemuted
 listener.censor.warn= Hey schreib das bitte nicht!

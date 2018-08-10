@@ -17,6 +17,7 @@ public class GameMode extends CommandHelper
 		util().registerPermission("gamemode");
 		util().registerTranslation("cmd.magna.gamemode");
 		util().registerTranslation("cmd.magna.gamemode.other");		
+		util().registerTranslation("cmd.magna.gamemode.error");	
 	}
 
 	@Override
@@ -35,20 +36,27 @@ public class GameMode extends CommandHelper
 						t = Bukkit.getPlayer(args[1]);
 					if(t != null)
 					{
+						org.bukkit.GameMode gamemode = null;
 						
 						if(gm.equalsIgnoreCase("creative") || gm.equalsIgnoreCase("1") || gm.equalsIgnoreCase("c"))
-							t.setGameMode(org.bukkit.GameMode.CREATIVE);
+							gamemode = org.bukkit.GameMode.CREATIVE;
 						if(gm.equalsIgnoreCase("survival") || gm.equalsIgnoreCase("0") || gm.equalsIgnoreCase("s"))
-							t.setGameMode(org.bukkit.GameMode.SURVIVAL);
+							gamemode = org.bukkit.GameMode.SURVIVAL;
 						if(gm.equalsIgnoreCase("adventure") || gm.equalsIgnoreCase("2") || gm.equalsIgnoreCase("a"))
-							t.setGameMode(org.bukkit.GameMode.ADVENTURE);
+							gamemode = org.bukkit.GameMode.ADVENTURE;
 						if(gm.equalsIgnoreCase("spectator") || gm.equalsIgnoreCase("3") || gm.equalsIgnoreCase("sp"))
-							t.setGameMode(org.bukkit.GameMode.SPECTATOR);
+							gamemode = org.bukkit.GameMode.SPECTATOR;
 						
-						if(t == p)
-							p.sendMessage(Chat.prefix + translate("cmd.magna.gamemode") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
+						if(gamemode != null)
+						{
+							t.setGameMode(gamemode);
+							if(t == p)
+								p.sendMessage(Chat.prefix + translate("cmd.magna.gamemode") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
+							else
+								t.sendMessage(Chat.prefix + translate("cmd.magna.gamemode.other") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
+						}
 						else
-							t.sendMessage(Chat.prefix + translate("cmd.magna.gamemode.other") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
+							p.sendMessage(Chat.prefix + translate("cmd.magna.gamemode.error"));
 					}
 					else
 						Chat.noOnline(p);
