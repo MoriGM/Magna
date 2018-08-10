@@ -23,7 +23,7 @@ public class IP extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("ip")))
+		if(testPermission(com, "ip"))
 		{
 			if(args.length >= 1)
 			{
@@ -31,13 +31,13 @@ public class IP extends CommandHelper
 				if(t != null)
 					com.sendMessage(Chat.prefix + translate("cmd.ip") + " " + t.getName() + " " + translate("cmd.ip.is") + " " + t.getAddress().getHostString());
 				else
-					com.sendMessage(Chat.prefix + Chat.no_player);
+					Chat.noOnline(com);
 			}
 			else
 				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <Player>");
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

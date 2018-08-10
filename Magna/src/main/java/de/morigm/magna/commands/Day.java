@@ -21,7 +21,7 @@ public class Day extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("day")))
+		if(testPermission(com, "day"))
 		{
 			if(com instanceof Player)
 			{
@@ -30,10 +30,10 @@ public class Day extends CommandHelper
 				p.sendMessage(Chat.prefix + translate("cmd.day"));
 			}
 			else
-				com.sendMessage(Chat.prefix + Chat.no_console);
+				Chat.noConsole(com);
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

@@ -26,16 +26,16 @@ public class SetSpawn extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("setspawn")))
+			if(testPermission(com, "setspawn"))
 			{
 				Main.getInstance().getDefaultPluginConfig().spawn = p.getLocation();
 				p.sendMessage(Chat.prefix + translate("cmd.setspawn"));
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 			
 		return false;
 	}

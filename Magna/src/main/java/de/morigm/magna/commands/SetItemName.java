@@ -27,7 +27,7 @@ public class SetItemName extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("setitemname")))
+			if(testPermission(p, "setitemname"))
 			{
 				if(args.length >= 1)
 				{
@@ -44,10 +44,10 @@ public class SetItemName extends CommandHelper
 					p.sendMessage(Chat.prefix + "/" + getCommand() + " <name>");
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

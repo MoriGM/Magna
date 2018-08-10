@@ -28,7 +28,7 @@ public class Fly extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player t = (Player) com;
-			if(com.hasPermission(getPermission("fly")))
+			if(testPermission(t, "fly"))
 			{
 				if(args.length >= 1)
 					t = Bukkit.getPlayer(args[0]);
@@ -38,13 +38,13 @@ public class Fly extends CommandHelper
 					com.sendMessage(Chat.prefix + (t.getAllowFlight() ?  (com == t ? translate("cmd.fly.you.on") : translate("cmd.fly.player.on")) : (com == t ? translate("cmd.fly.you.off") : translate("cmd.fly.player.off"))));
 				}
 				else
-					com.sendMessage(Chat.prefix + Chat.no_online);
+					Chat.noOnline(com);
 			}
 			else
-				com.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(com);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

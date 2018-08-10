@@ -40,10 +40,10 @@ public class GoDeathBack extends CommandHelper
 					p.sendMessage(Chat.prefix + translate("cmd.deathback.error"));
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 	

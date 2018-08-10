@@ -25,7 +25,7 @@ public class TpHere extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("tphere")))
+			if(testPermission(p, "tphere"))
 			{
 				if(args.length >= 1)
 				{
@@ -36,16 +36,16 @@ public class TpHere extends CommandHelper
 						p.sendMessage(Chat.prefix + translate("cmd.tphere"));
 					}
 					else
-						p.sendMessage(Chat.prefix + Chat.no_online);
+						Chat.noOnline(p);
 				}
 				else
 					p.sendMessage(Chat.prefix + getCommand() + " <Player>");
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

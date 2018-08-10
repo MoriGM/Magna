@@ -24,16 +24,16 @@ public class Trash extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("trash")))
+			if(testPermission(p, "trash"))
 			{
 				Inventory inv = Bukkit.createInventory(null, (9 * 6),(ChatColor.RED + "Trash"));
 				p.openInventory(inv);
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 	

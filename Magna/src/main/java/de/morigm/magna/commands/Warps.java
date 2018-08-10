@@ -25,7 +25,7 @@ public class Warps extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("warps")))
+			if(testPermission(p, "warps"))
 			{
 				String warps = "";
 				for(de.morigm.magna.api.warp.Warp w : Main.getInstance().getWarpManager().getWarps())
@@ -36,10 +36,10 @@ public class Warps extends CommandHelper
 				p.sendMessage(Chat.prefix + translate("cmd.warps") + ":" + warps);
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 }

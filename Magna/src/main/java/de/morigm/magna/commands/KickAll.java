@@ -27,7 +27,7 @@ public class KickAll extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("kickall")))
+		if(testPermission(com, "kickall"))
 		{
 			if(args.length >= 1)
 			{
@@ -52,7 +52,7 @@ public class KickAll extends CommandHelper
 			}
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

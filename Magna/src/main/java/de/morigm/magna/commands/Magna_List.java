@@ -30,7 +30,7 @@ public class Magna_List extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args)
 	{
-		if(com.hasPermission(getPermission("magna-list")))
+		if(testPermission(com, "magna-list"))
 		{
 			if(getGroupManager().getGroups().length >= 1)
 			{
@@ -61,13 +61,13 @@ public class Magna_List extends CommandHelper
 					}
 				}
 				else
-					com.sendMessage(Chat.prefix + Chat.no_player);
+					Chat.noPlayer(com);
 			}
 			else
 				com.sendMessage(Chat.prefix + Chat.no_group);
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

@@ -25,7 +25,7 @@ public class TpTo extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("tpto")))
+			if(testPermission(p, "tpto"))
 			{
 				if(args.length >= 1)
 				{
@@ -36,16 +36,16 @@ public class TpTo extends CommandHelper
 						p.sendMessage(Chat.prefix + translate("cmd.tpto") + " " + t.getName());
 					}
 					else
-						p.sendMessage(Chat.prefix + Chat.no_online);
+						Chat.noOnline(p);
 				}
 				else
-					p.sendMessage(Chat.prefix + getCommand() + " <Player>");
+					p.sendMessage(Chat.prefix + "/" + getCommand() + " <Player>");
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

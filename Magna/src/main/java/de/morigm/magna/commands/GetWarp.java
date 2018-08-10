@@ -27,7 +27,7 @@ public class GetWarp extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("getwarp")))
+			if(testPermission(p, "getwarp"))
 			{
 				if(args.length >= 1)
 				{
@@ -44,10 +44,10 @@ public class GetWarp extends CommandHelper
 					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 	

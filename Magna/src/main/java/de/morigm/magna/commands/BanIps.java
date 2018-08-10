@@ -23,7 +23,7 @@ public class BanIps extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("banips")))
+		if(testPermission(com, "banips"))
 		{
 			String bans = "";
 			BanList list = Bukkit.getBanList(Type.IP);

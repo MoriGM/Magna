@@ -23,7 +23,7 @@ public class AllChatClear extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("allchatclear")))
+		if(testPermission(com, "allchatclear"))
 		{
 			for(Player p : Bukkit.getOnlinePlayers())
 			{

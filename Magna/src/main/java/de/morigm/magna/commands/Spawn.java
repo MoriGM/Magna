@@ -38,10 +38,10 @@ public class Spawn extends CommandHelper
 					p.sendMessage(Chat.prefix + translate("cmd.spawn.error"));
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(com);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

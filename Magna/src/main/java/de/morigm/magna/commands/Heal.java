@@ -27,7 +27,7 @@ public class Heal extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player t = (Player) com;
-			if(com.hasPermission(getPermission("heal")))
+			if(testPermission(com, "heal"))
 			{
 				if(args.length >= 1)
 					t = Bukkit.getPlayer(args[0]); 
@@ -38,13 +38,13 @@ public class Heal extends CommandHelper
 					com.sendMessage(Chat.prefix + (t == ((Player) com) ? translate("cmd.heal.you") : translate("cmd.heal.player")));
 				}
 				else
-					com.sendMessage(Chat.prefix + Chat.no_online);
+					Chat.noOnline(com);
 			}
 			else
-				com.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(com);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

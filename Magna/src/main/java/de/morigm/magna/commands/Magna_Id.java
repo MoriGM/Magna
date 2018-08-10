@@ -25,7 +25,7 @@ public class Magna_Id extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("magna-id")))
+		if(testPermission(com, "magna-id"))
 		{
 			if(getGroupManager().getGroups().length >= 1)
 			{
@@ -43,7 +43,7 @@ public class Magna_Id extends CommandHelper
 							com.sendMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " " + translate("cmd.id.false"));
 					}
 					else
-						com.sendMessage(Chat.prefix + Chat.no_online);
+						Chat.noOnline(com);
 				}
 				else
 				{
@@ -59,7 +59,7 @@ public class Magna_Id extends CommandHelper
 								com.sendMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " " + translate("cmd.id.false"));
 						}
 						else
-							com.sendMessage(Chat.prefix + Chat.no_online);
+							Chat.noOnline(com);
 					}
 					else
 						Chat.writeMessage(getCommand() + " " + "<Player>");
@@ -69,7 +69,7 @@ public class Magna_Id extends CommandHelper
 				com.sendMessage(Chat.prefix + Chat.no_group);
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

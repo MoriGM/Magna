@@ -32,7 +32,7 @@ public class Mute extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("mute")))
+		if(testPermission(com, "mute"))
 		{
 			if(args.length == 1)
 			{
@@ -86,7 +86,7 @@ public class Mute extends CommandHelper
 							com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() + " <list>");
 					}
 					else
-						com.sendMessage(Chat.prefix + Chat.no_player);
+						Chat.noPlayer(com);
 				}
 				else
 				{
@@ -95,7 +95,7 @@ public class Mute extends CommandHelper
 			}
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

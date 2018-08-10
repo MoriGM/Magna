@@ -23,7 +23,7 @@ public class Broadcast extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("broadcast")))
+		if(testPermission(com, "broadcast"))
 		{
 			if(args.length >= 1)
 			{

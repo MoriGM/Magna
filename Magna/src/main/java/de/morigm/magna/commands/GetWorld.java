@@ -24,7 +24,7 @@ public class GetWorld extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("getworld")))
+			if(testPermission(p, "getworld"))
 			{
 				p.sendMessage(Chat.prefix + translate("cmd.getworld") + " " + p.getWorld().getName());
 			}
@@ -32,7 +32,7 @@ public class GetWorld extends CommandHelper
 				p.sendMessage(Chat.prefix + Chat.no_permission);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

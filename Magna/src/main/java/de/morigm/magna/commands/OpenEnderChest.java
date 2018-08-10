@@ -26,10 +26,10 @@ public class OpenEnderChest extends CommandHelper
 			if(p.hasPermission(getPermission("enderchest")))
 				p.openInventory(p.getEnderChest());
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

@@ -59,7 +59,7 @@ public class Memory extends CommandHelper
 			}
 		}
 		else
-			com.sendMessage(Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 	

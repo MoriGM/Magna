@@ -19,7 +19,7 @@ public class ChatClear extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("chatclear")))
+		if(testPermission(com, "chatclear"))
 		{
 			for(int i = 0;i < 100;i++)
 			{

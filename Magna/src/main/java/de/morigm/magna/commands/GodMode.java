@@ -29,7 +29,7 @@ public class GodMode extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("godmode")))
+			if(testPermission(p, "godmode"))
 			{
 				if(args.length >= 1)
 				{
@@ -40,7 +40,7 @@ public class GodMode extends CommandHelper
 						p.sendMessage(Chat.prefix + translate("cmd.godmode") + " " + (Main.getInstance().getGodModeManager().containsPlayer(t) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")) + " " + translate("cmd.godmode.for") + " " + t.getName());
 					}
 					else
-						p.sendMessage(Chat.prefix + Chat.no_online);
+						Chat.noOnline(p);
 						
 				}
 				else
@@ -50,7 +50,7 @@ public class GodMode extends CommandHelper
 				}
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
 		{
@@ -63,7 +63,7 @@ public class GodMode extends CommandHelper
 					Chat.writeMessage(translate("cmd.godmode") + " " + (Main.getInstance().getGodModeManager().containsPlayer(t) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")) + " " + translate("cmd.godmode.for") + " " + t.getName());
 				}
 				else
-					Chat.writeMessage(Chat.no_online);
+					Chat.noOnline(com);
 			}
 			else
 				Chat.writeMessage(getCommand() + " <Player>");

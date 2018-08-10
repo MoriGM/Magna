@@ -21,7 +21,7 @@ public class Ops extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("ops")))
+		if(testPermission(com, "ops"))
 		{
 			String ops = "";
 			for(OfflinePlayer of : Bukkit.getOperators())
@@ -30,7 +30,7 @@ public class Ops extends CommandHelper
 			com.sendMessage("Ops:" + ops);
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

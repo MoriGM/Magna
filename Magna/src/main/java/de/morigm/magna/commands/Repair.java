@@ -27,7 +27,7 @@ public class Repair extends CommandHelper
 		if(isPlayer(com))
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("repair")))
+			if(testPermission(p, "repair"))
 			{
 				if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
 				{
@@ -39,10 +39,10 @@ public class Repair extends CommandHelper
 					p.sendMessage(Chat.prefix + translate("cmd.repair.error"));
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

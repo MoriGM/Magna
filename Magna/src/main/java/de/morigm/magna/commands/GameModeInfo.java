@@ -22,7 +22,7 @@ public class GameModeInfo extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args)
 	{
-		if(com.hasPermission(getPermission("gamemodeinfo")))
+		if(testPermission(com, "gamemodeinfo"))
 		{
 			if(args.length >= 1)
 			{
@@ -30,13 +30,13 @@ public class GameModeInfo extends CommandHelper
 				if(t != null)
 					com.sendMessage(Chat.prefix + translate("cmd.gamemodeinfo") + ":" + t.getGameMode().name());
 				else
-					com.sendMessage(Chat.prefix + Chat.no_online);
+					Chat.noOnline(com);
 			}
 			else
 				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <Player>");
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

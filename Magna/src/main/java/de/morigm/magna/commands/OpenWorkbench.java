@@ -23,13 +23,13 @@ public class OpenWorkbench extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("workbench")))
+			if(testPermission(com, "workbench"))
 				p.openWorkbench(p.getLocation(), true);
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

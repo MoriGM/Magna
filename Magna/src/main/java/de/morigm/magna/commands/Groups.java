@@ -22,7 +22,7 @@ public class Groups extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("magna-groups")))
+		if(testPermission(com, "magna-groups"))
 		{
 			if(getGroupManager().getGroups().length >= 1)
 			{
@@ -36,7 +36,7 @@ public class Groups extends CommandHelper
 				com.sendMessage(Chat.prefix + Chat.no_group);
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

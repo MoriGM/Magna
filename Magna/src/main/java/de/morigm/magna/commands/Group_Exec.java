@@ -23,7 +23,7 @@ public class Group_Exec extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("magna-group-exec")))
+		if(testPermission(com, "magna-group-exec"))
 		{
 			if(getGroupManager().getGroups().length >= 1)
 			{
@@ -41,7 +41,7 @@ public class Group_Exec extends CommandHelper
 				com.sendMessage(Chat.prefix + Chat.no_group);
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

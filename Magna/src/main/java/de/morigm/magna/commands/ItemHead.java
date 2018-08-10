@@ -26,7 +26,7 @@ public class ItemHead extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("itemhead")))
+			if(testPermission(p, "itemhead"))
 			{
 				if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
 				{
@@ -37,10 +37,10 @@ public class ItemHead extends CommandHelper
 					p.sendMessage(Chat.prefix + translate("cmd.itemhead.no"));
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

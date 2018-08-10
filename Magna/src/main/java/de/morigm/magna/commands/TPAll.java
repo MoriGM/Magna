@@ -25,7 +25,7 @@ public class TPAll extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("tpall")))
+			if(testPermission(p, "tpall"))
 			{
 				for(Player t : Bukkit.getOnlinePlayers())
 					if(t != p)
@@ -33,10 +33,10 @@ public class TPAll extends CommandHelper
 				p.sendMessage(Chat.prefix + translate("cmd.tpall"));
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

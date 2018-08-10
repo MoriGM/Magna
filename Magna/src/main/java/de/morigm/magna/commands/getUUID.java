@@ -23,7 +23,7 @@ public class getUUID extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("getuuid")))
+		if(testPermission(com, "getuuid"))
 		{
 			if(args.length >= 1)
 			{
@@ -34,7 +34,7 @@ public class getUUID extends CommandHelper
 				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <name>");
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

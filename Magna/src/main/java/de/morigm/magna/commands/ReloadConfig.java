@@ -21,7 +21,7 @@ public class ReloadConfig extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com.hasPermission(getPermission("magna-reloadconfig")))
+		if(testPermission(com, "magna-reloadconfig"))
 		{
 			Main.getInstance().reloadConfig();
 			Main.getInstance().getDefaultPluginConfig().load();
@@ -33,7 +33,7 @@ public class ReloadConfig extends CommandHelper
 			com.sendMessage(Chat.prefix + translate("cmd.reloadconfig"));
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 
