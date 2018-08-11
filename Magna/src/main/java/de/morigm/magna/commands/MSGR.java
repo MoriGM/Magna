@@ -30,7 +30,7 @@ public class MSGR extends CommandHelper
 			Player p = (Player) com;
 			if(args.length >= 1)
 			{
-				String target = Main.getInstance().getMSGManager().getPlayer(p);
+				String target = Main.getInstance().getMSGManager().getLastMessagedPlayer(p);
 				if(target != null)
 				{
 					Player t = Bukkit.getPlayer(target);

@@ -22,7 +22,7 @@ public class MSGManager
 		MagnaStuff.getMsg().put(first.getName(), second.getName());
 	}
 	
-	public String getPlayer(Player p)
+	public String getLastMessagedPlayer(Player p)
 	{
 		for(Entry<String, String> e : MagnaStuff.getMsg().entrySet())
 		{

@@ -5,64 +5,86 @@ import org.bukkit.Bukkit;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.command.CommandUtil;
 import de.morigm.magna.api.manager.AutoEditManager;
+import de.morigm.magna.api.manager.BlackListManager;
 import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.DeathBackManager;
 import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.GroupManager;
+import de.morigm.magna.api.manager.MSGManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.WarpManager;
 import de.morigm.magna.api.memory.MemoryManager;
+import de.morigm.magna.api.settings.Settings;
+import lombok.Getter;
 
 public class Magna
 {
+	
+	static
+	{
+		Magna.commandutil = new CommandUtil();
+		Magna.settings = new Settings(Main.getInstance());
+	}
+	
 	private static String[] spigot_versions = {"v1_12_R1"};
 	private static CommandUtil commandutil;
+	@Getter private static Settings settings;
 	
 	
 	public static GroupManager getGroupManager()
 	{
-		return Main.getInstance().getGroupManager();
+		return getMain().getGroupManager();
 	}
 	
 	public static MemoryManager getMemoryManager() 
 	{
-		return Main.getInstance().getMemoryManager();
+		return getMain().getMemoryManager();
 	}
 	
 	public static WarpManager getWarpManager() 
 	{
-		return Main.getInstance().getWarpManager();
+		return getMain().getWarpManager();
 	}
 	
 	public static MutedPlayerManager getMutedPlayerManager()
 	{
-		return Main.getInstance().getMutedPlayerManager();
+		return getMain().getMutedPlayerManager();
 	}
 	
 	public static GodModeManager getGodModeManager()
 	{
-		return Main.getInstance().getGodModeManager();
+		return getMain().getGodModeManager();
 	}
 	
 	public static CommandSpyManager getCommandSpyManager() 
 	{
-		return Main.getInstance().getCommandSpyManager();
+		return getMain().getCommandSpyManager();
 	}
 	
 	public static PermissionManager getPermissionManager() 
 	{
-		return Main.getInstance().getPermissionManager();
+		return getMain().getPermissionManager();
 	}
 	
 	public static DeathBackManager getDeathBackManager()
 	{
-		return Main.getInstance().getDeathBackManager();
+		return getMain().getDeathBackManager();
 	}
 	
 	public static AutoEditManager getAutoEditManager()
 	{
-		return Main.getInstance().getAutoEditManager();
+		return getMain().getAutoEditManager();
+	}
+	
+	public static MSGManager getMSGManager()
+	{
+		return getMain().getMSGManager();
+	}
+	
+	public static BlackListManager getBlackListManager()
+	{
+		return getMain().getBlackListManager();
 	}
 	
 	public static String getServerVersion()
@@ -86,8 +108,12 @@ public class Magna
 	
 	public static CommandUtil getCommandUtil()
 	{
-		if(Magna.commandutil == null)
-			Magna.commandutil = new CommandUtil();
 		return Magna.commandutil;
 	}
+	
+	private static Main getMain()
+	{
+		return Main.getInstance();
+	}
+	
 }

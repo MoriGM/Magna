@@ -21,7 +21,7 @@ public class PlayerConfig implements ConfigHelper
 
 	public void loadFile()
 	{
-		FileConfiguration conf = YamlConfiguration.loadConfiguration(new File(Main.getInstance().getDataFolder(),"/players.yml"));
+		FileConfiguration conf = YamlConfiguration.loadConfiguration(new File(Main.getInstance().getDataFolder(),"players.yml"));
 		this.configuration = conf;
 	}
 	
