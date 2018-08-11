@@ -88,5 +88,7 @@ cmd.pardon= You unbanned the Player
 cmd.pardon.other= The Player is not banned
 cmd.damage= You hit the Player
 cmd.damage.noint= This is not a Number
+cmd.msgr.error= Nobody has writen with you
+cmd.msg.error= You cant talk with yourself
 listener.mute= You are muted
 listener.censor.warn= Hey! You're not allow to do that!

@@ -56,3 +56,6 @@ commands:
       pardon:
           aliases: unban
       damage:
+      msg:
+      msgr:
+          aliases: r

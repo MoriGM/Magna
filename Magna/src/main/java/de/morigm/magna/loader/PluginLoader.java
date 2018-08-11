@@ -23,6 +23,8 @@ import de.morigm.magna.commands.Heal;
 import de.morigm.magna.commands.IP;
 import de.morigm.magna.commands.ItemHead;
 import de.morigm.magna.commands.KickAll;
+import de.morigm.magna.commands.MSG;
+import de.morigm.magna.commands.MSGR;
 import de.morigm.magna.commands.Magna_Id;
 import de.morigm.magna.commands.Magna_List;
 import de.morigm.magna.commands.Memory;
@@ -114,6 +116,8 @@ public class PluginLoader
 		new GameMode().register("gamemode");
 		new Pardon().register("pardon");
 		new Damage().register("damage");
+		new MSG().register("msg");
+		new MSGR().register("msgr");
 	}
 	
 	public void registerListener()

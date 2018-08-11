@@ -12,6 +12,7 @@ import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.DeathBackManager;
 import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.GroupManager;
+import de.morigm.magna.api.manager.MSGManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.WarpManager;
@@ -52,6 +53,7 @@ public class Main extends JavaPlugin
 	@Getter private DeathBackManager deathBackManager;
 	@Getter private AutoEditManager autoEditManager;
 	@Getter private BlackListManager blackListManager;
+	@Getter private MSGManager MSGManager;
 	
 	@Getter private RegisterAutoEdits registerAutoEdits;
 	
@@ -137,6 +139,7 @@ public class Main extends JavaPlugin
 		this.blackListLoader = new BlackListLoader();
 		this.blackListLoader.load();
 		this.blackListManager = new BlackListManager();
+		this.MSGManager = new MSGManager();
 		if(Main.getInstance().getDefaultPluginConfig().warning && !Magna.isSupported())
 			Chat.writeMessage(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
 		Chat.writeMessage("Version: " + Chat.version);
