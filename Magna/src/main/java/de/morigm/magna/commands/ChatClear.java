@@ -27,7 +27,7 @@ public class ChatClear extends CommandHelper
 			}
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

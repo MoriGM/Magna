@@ -1,5 +1,7 @@
 package de.morigm.magna.commands;
 
+import static de.morigm.magna.api.Magna.getMutedPlayerManager;
+
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -9,7 +11,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -39,7 +40,7 @@ public class Mute extends CommandHelper
 				if(args[0].equalsIgnoreCase("list"))
 				{
 					String players = "";
-					for(String uuid : Main.getInstance().getPlayerConfig().muted)
+					for(String uuid : getMutedPlayerManager().getMutedUUIDS())
 					{
 						OfflinePlayer t = Bukkit.getPlayer(UUID.fromString(uuid));
 						players += t.getName() + " ";
@@ -58,9 +59,9 @@ public class Mute extends CommandHelper
 					{
 						if(args[0].equalsIgnoreCase("on"))
 						{
-							if(!Main.getInstance().getMutedPlayerManager().containsPlayer(t))
+							if(!getMutedPlayerManager().containsPlayer(t))
 							{
-								Main.getInstance().getMutedPlayerManager().addPlayer(t);
+								getMutedPlayerManager().addPlayer(t);
 								com.sendMessage(Chat.prefix + translate("cmd.mute.on"));
 							}
 							else
@@ -69,9 +70,9 @@ public class Mute extends CommandHelper
 						else
 						if(args[0].equalsIgnoreCase("off"))
 						{
-							if(Main.getInstance().getMutedPlayerManager().containsPlayer(t))
+							if(getMutedPlayerManager().containsPlayer(t))
 							{
-								Main.getInstance().getMutedPlayerManager().removePlayer(t);
+								getMutedPlayerManager().removePlayer(t);
 								com.sendMessage(Chat.prefix + translate("cmd.mute.off"));
 							}
 							else
@@ -80,7 +81,7 @@ public class Mute extends CommandHelper
 						else
 						if(args[0].equalsIgnoreCase("status"))
 						{
-							com.sendMessage(Chat.prefix + translate("cmd.mute.status") + " " + (!Main.getInstance().getMutedPlayerManager().containsPlayer(t) ? (translate("cmd.mute.status.not") + " " + ChatColor.GREEN) : ChatColor.RED.toString()) + "muted");
+							com.sendMessage(Chat.prefix + translate("cmd.mute.status") + " " + (!getMutedPlayerManager().containsPlayer(t) ? (translate("cmd.mute.status.not") + " " + ChatColor.GREEN) : ChatColor.RED.toString()) + "muted");
 						}
 						else
 							com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() + " <list>");

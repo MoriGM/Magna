@@ -29,7 +29,7 @@ public class GetWorld extends CommandHelper
 				p.sendMessage(Chat.prefix + translate("cmd.getworld") + " " + p.getWorld().getName());
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
 			Chat.noConsole(com);

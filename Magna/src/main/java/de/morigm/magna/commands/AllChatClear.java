@@ -5,7 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -29,7 +29,7 @@ public class AllChatClear extends CommandHelper
 			{
 				for(int i = 0;i < 100;i++)
 					p.sendMessage(" ");
-				if(Main.getInstance().getDefaultPluginConfig().chatclear)
+				if(Magna.getSettings().getShowChatClar())
 					p.sendMessage(Chat.prefix + translate("cmd.allchatclear") + " " + ((com instanceof Player) ? ((Player)com).getName() : "Sever"));
 			}
 		}

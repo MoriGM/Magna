@@ -1,12 +1,13 @@
 package de.morigm.magna.commands;
 
+import static de.morigm.magna.api.Magna.getMSGManager;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.StringHelper;
 import de.morigm.magna.chat.Chat;
@@ -35,7 +36,7 @@ public class MSG extends CommandHelper
 					if(t != p)
 					{
 						t.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + p.getName() + ChatColor.GRAY + " -> " + ChatColor.BLUE + t.getName() +  ChatColor.GRAY + "]" + ChatColor.RESET + " " + text);
-						Main.getInstance().getMSGManager().updateMSG(p, t);
+						getMSGManager().updateMSG(p, t);
 					}
 					else
 						p.sendMessage(Chat.prefix + translate("cmd.msg.error"));

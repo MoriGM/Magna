@@ -1,13 +1,13 @@
 package de.morigm.magna.commands;
 
+import static de.morigm.magna.api.Magna.getDeathBackManager;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
 import de.morigm.magna.api.deathback.DeathBack;
 import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.api.manager.DeathBackManager;
 import de.morigm.magna.chat.Chat;
 
 public class GoDeathBack extends CommandHelper 
@@ -46,12 +46,6 @@ public class GoDeathBack extends CommandHelper
 			Chat.noConsole(com);
 		return false;
 	}
-	
-	private DeathBackManager getDeathBackManager()
-	{
-		return Main.getInstance().getDeathBackManager();
-	}
-
 	
 
 }

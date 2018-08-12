@@ -5,7 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
+import static de.morigm.magna.api.Magna.getCommandSpyManager;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -30,14 +30,14 @@ public class CommandSpy extends CommandHelper
 			Player p = (Player) com;
 			if(testPermission(p, "cmdspy"))
 			{
-				Main.getInstance().getCommandSpyManager().togglePlayer(p);
-				p.sendMessage(Chat.prefix + translate("cmd.cmdspy") + " " + (Main.getInstance().getCommandSpyManager().containsPlayer(p) ? (ChatColor.GREEN + translate("cmd.cmdspy.on")) : (ChatColor.RED + translate("cmd.cmdspy.off"))));
+				getCommandSpyManager().togglePlayer(p);
+				p.sendMessage(Chat.prefix + translate("cmd.cmdspy") + " " + (getCommandSpyManager().containsPlayer(p) ? (ChatColor.GREEN + translate("cmd.cmdspy.on")) : (ChatColor.RED + translate("cmd.cmdspy.off"))));
 			}
 			else
-				p.sendMessage(Chat.prefix + Chat.no_permission);
+				Chat.noPermission(p);
 		}
 		else
-			Chat.writeMessage(Chat.no_console);
+			Chat.noConsole(com);
 		return false;
 	}
 

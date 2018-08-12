@@ -34,7 +34,7 @@ public class Broadcast extends CommandHelper
 				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <message>");
 		}
 		else
-			com.sendMessage(Chat.prefix + Chat.no_permission);
+			Chat.noPermission(com);
 		return false;
 	}
 

@@ -1,10 +1,11 @@
 package de.morigm.magna.commands;
 
+import static de.morigm.magna.api.Magna.getWarpManager;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -31,11 +32,11 @@ public class Warp extends CommandHelper
 				if(args.length >= 1)
 				{
 					String warpname = args[0];
-					if(Main.getInstance().getWarpManager().containsWarp(warpname))
+					if(getWarpManager().containsWarp(warpname))
 					{
-						if(p.hasPermission(Main.getInstance().getWarpManager().getWarp(warpname).permission))
+						if(p.hasPermission(getWarpManager().getWarp(warpname).permission))
 						{
-							p.teleport(Main.getInstance().getWarpManager().getWarpLocation(warpname));
+							p.teleport(getWarpManager().getWarpLocation(warpname));
 							p.sendMessage(Chat.prefix + translate("cmd.warp") + " " + warpname);
 						}
 					}

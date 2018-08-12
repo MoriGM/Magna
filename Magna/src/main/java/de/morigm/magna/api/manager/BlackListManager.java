@@ -42,7 +42,7 @@ public class BlackListManager
 	public BlackWord getBlackWordFromText(String text)
 	{
 		for(BlackWord bword : getBlackWords())
-			if(text.contains(bword.word))
+			if(text.toLowerCase().contains(bword.word.toLowerCase()))
 				return bword;
 		return null;
 	}

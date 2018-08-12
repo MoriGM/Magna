@@ -4,7 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -28,7 +28,7 @@ public class SetSpawn extends CommandHelper
 			Player p = (Player) com;
 			if(testPermission(com, "setspawn"))
 			{
-				Main.getInstance().getDefaultPluginConfig().spawn = p.getLocation();
+				Magna.getSettings().setSpawn(p.getLocation());
 				p.sendMessage(Chat.prefix + translate("cmd.setspawn"));
 			}
 			else

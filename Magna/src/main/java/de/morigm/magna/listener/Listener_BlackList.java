@@ -10,6 +10,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.helper.ListenerHelper;
 import de.morigm.magna.chat.Chat;
@@ -20,10 +21,10 @@ public class Listener_BlackList implements ListenerHelper
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e)
 	{
-		if(Main.getInstance().getBlackListManager().hasBlackWord(e.getMessage()))
+		if(Magna.getBlackListManager().hasBlackWord(e.getMessage()))
 		{
-			BlackWord bword = Main.getInstance().getBlackListManager().getBlackWordFromText(e.getMessage());
-			if(!e.getPlayer().hasPermission(bword.permission) || !Main.getInstance().getDefaultPluginConfig().blacklistperm)
+			BlackWord bword = Magna.getBlackListManager().getBlackWordFromText(e.getMessage());
+			if(!e.getPlayer().hasPermission(bword.permission) || !Magna.getSettings().getBlackListPermission())
 			{
 				switch(bword.type)
 				{
@@ -118,8 +119,8 @@ public class Listener_BlackList implements ListenerHelper
 			@Override
 			public void run() 
 			{
-				if(Main.getInstance().getGroupManager().isPlayerInGroup(e.getPlayer()))
-					for(Player t : Main.getInstance().getGroupManager().getPlayersByGroup(Main.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer())))
+				if(Magna.getGroupManager().isPlayerInGroup(e.getPlayer()))
+					for(Player t : Magna.getGroupManager().getPlayersByGroup(Main.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer())))
 						t.getPlayer().kickPlayer("Banned Word");
 			}
 		}.runTaskLater(Main.getInstance(), 1);
@@ -134,8 +135,8 @@ public class Listener_BlackList implements ListenerHelper
 			@Override
 			public void run() 
 			{
-				if(Main.getInstance().getGroupManager().isPlayerInGroup(e.getPlayer()))
-					for(Player t : Main.getInstance().getGroupManager().getPlayersByGroup(Main.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer())))
+				if(Magna.getGroupManager().isPlayerInGroup(e.getPlayer()))
+					for(Player t : Magna.getGroupManager().getPlayersByGroup(Main.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer())))
 						{
 							Bukkit.getBanList(Type.NAME).addBan(t.getName(), "You are not allowed to write this text", null, "Magna");
 							t.getPlayer().kickPlayer("Banned Word");
@@ -188,13 +189,14 @@ public class Listener_BlackList implements ListenerHelper
 
 	private void mute(AsyncPlayerChatEvent e) 
 	{
-		Main.getInstance().getMutedPlayerManager().addPlayer(e.getPlayer());
+		Magna.getMutedPlayerManager().addPlayer(e.getPlayer());
 		e.setCancelled(true);
 	}
 
 	private void warn(AsyncPlayerChatEvent e) 
 	{
 		e.getPlayer().sendMessage(Chat.prefix + translate("listener.censor.warn"));
+		e.setCancelled(true);
 	}
 
 	private void kick(AsyncPlayerChatEvent e) 

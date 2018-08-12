@@ -4,7 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
+import static de.morigm.magna.api.Magna.getBlackListManager;
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.censor.CensorType;
 import de.morigm.magna.api.helper.CommandHelper;
@@ -40,7 +40,7 @@ public class Censor extends CommandHelper
 					
 				if(args[0].equalsIgnoreCase("add"))
 				{
-					if(!Main.getInstance().getBlackListManager().containsBlackWord(word))
+					if(!getBlackListManager().containsBlackWord(word))
 					{
 						String permission = getPermission("blacklistword");
 						CensorType type = CensorType.NORMAL;
@@ -49,7 +49,7 @@ public class Censor extends CommandHelper
 						if(args.length >= 4)
 							type = CensorType.getType(args[3]);
 						BlackWord bword = new BlackWord(word, permission, type);
-						Main.getInstance().getBlackListManager().addBlackWord(bword);
+						getBlackListManager().addBlackWord(bword);
 						com.sendMessage(Chat.prefix + translate("cmd.censor.add"));
 					}
 					else
@@ -58,9 +58,9 @@ public class Censor extends CommandHelper
 				else
 				if(args[0].equalsIgnoreCase("remove"))
 				{
-					if(Main.getInstance().getBlackListManager().containsBlackWord(word))
+					if(getBlackListManager().containsBlackWord(word))
 					{
-						Main.getInstance().getBlackListManager().removeBlackWord(Main.getInstance().getBlackListManager().getBlackWord(word));
+						getBlackListManager().removeBlackWord(getBlackListManager().getBlackWord(word));
 						com.sendMessage(Chat.prefix + translate("cmd.censor.remove"));
 					}
 					else
@@ -75,7 +75,7 @@ public class Censor extends CommandHelper
 				if(args[0].equalsIgnoreCase("list"))
 				{
 					String words = "";
-					for(BlackWord bword : Main.getInstance().getBlackListManager().getBlackWords())
+					for(BlackWord bword : getBlackListManager().getBlackWords())
 							words += bword.word + ",";
 					if(!words.isEmpty())
 							words = words.substring(0,words.length() - 1);

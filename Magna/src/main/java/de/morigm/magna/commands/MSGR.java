@@ -6,7 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.StringHelper;
 import de.morigm.magna.chat.Chat;
@@ -30,7 +30,7 @@ public class MSGR extends CommandHelper
 			Player p = (Player) com;
 			if(args.length >= 1)
 			{
-				String target = Main.getInstance().getMSGManager().getLastMessagedPlayer(p);
+				String target = Magna.getMSGManager().getLastMessagedPlayer(p);
 				if(target != null)
 				{
 					Player t = Bukkit.getPlayer(target);

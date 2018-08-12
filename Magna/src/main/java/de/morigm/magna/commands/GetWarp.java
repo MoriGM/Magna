@@ -5,7 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -32,9 +32,9 @@ public class GetWarp extends CommandHelper
 				if(args.length >= 1)
 				{
 					String warpname = args[0];
-					if(Main.getInstance().getWarpManager().containsWarp(warpname))
+					if(Magna.getWarpManager().containsWarp(warpname))
 					{
-						Location loc = Main.getInstance().getWarpManager().getWarpLocation(warpname);
+						Location loc = Magna.getWarpManager().getWarpLocation(warpname);
 						p.sendMessage(Chat.prefix + "X:" + loc.getBlockX() + " Y:" + loc.getBlockY() + " Z:" + loc.getBlockZ() + " " + translate("cmd.getwarp.world") + ":" + loc.getWorld().getName());
 					}
 					else

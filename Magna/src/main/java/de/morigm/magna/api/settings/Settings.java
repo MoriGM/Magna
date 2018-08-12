@@ -59,6 +59,13 @@ public class Settings
 			return false;
 	}
 	
+	public boolean getShowChatClar()
+	{
+		if(this.config != null)
+			return config.chatclear;
+		return false;
+	}
+	
 	public Location getSpawn()
 	{
 		if(this.config != null)
@@ -96,6 +103,12 @@ public class Settings
 	{
 		if(this.config != null)
 			config.warning = state;
+	}
+	
+	public void setShowChatClear(boolean state)
+	{
+		if(this.config != null)
+			config.chatclear = state;
 	}
 	
 	public void setSpawn(Location spawn)

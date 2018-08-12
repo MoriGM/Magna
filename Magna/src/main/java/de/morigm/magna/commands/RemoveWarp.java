@@ -1,10 +1,11 @@
 package de.morigm.magna.commands;
 
+import static de.morigm.magna.api.Magna.getWarpManager;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -31,9 +32,9 @@ public class RemoveWarp extends CommandHelper
 				if(args.length >= 1)
 				{
 					String warpname = args[0];
-					if(Main.getInstance().getWarpManager().containsWarp(warpname))
+					if(getWarpManager().containsWarp(warpname))
 					{
-						Main.getInstance().getWarpManager().removeWarp(warpname);
+						getWarpManager().removeWarp(warpname);
 						p.sendMessage(Chat.prefix + translate("cmd.removewarp"));
 					}
 					else

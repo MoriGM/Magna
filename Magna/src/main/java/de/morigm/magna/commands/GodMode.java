@@ -5,7 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
+import static de.morigm.magna.api.Magna.getGodModeManager;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -36,8 +36,8 @@ public class GodMode extends CommandHelper
 					Player t = Bukkit.getPlayer(args[0]);
 					if(t != null)
 					{
-						Main.getInstance().getGodModeManager().togglePlayer(t);
-						p.sendMessage(Chat.prefix + translate("cmd.godmode") + " " + (Main.getInstance().getGodModeManager().containsPlayer(t) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")) + " " + translate("cmd.godmode.for") + " " + t.getName());
+						getGodModeManager().togglePlayer(t);
+						p.sendMessage(Chat.prefix + translate("cmd.godmode") + " " + (getGodModeManager().containsPlayer(t) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")) + " " + translate("cmd.godmode.for") + " " + t.getName());
 					}
 					else
 						Chat.noOnline(p);
@@ -45,8 +45,8 @@ public class GodMode extends CommandHelper
 				}
 				else
 				{
-					Main.getInstance().getGodModeManager().togglePlayer(p);
-					p.sendMessage(Chat.prefix + translate("cmd.godmode") + " " + (Main.getInstance().getGodModeManager().containsPlayer(p) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")));
+					getGodModeManager().togglePlayer(p);
+					p.sendMessage(Chat.prefix + translate("cmd.godmode") + " " + (getGodModeManager().containsPlayer(p) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")));
 				}
 			}
 			else
@@ -59,8 +59,8 @@ public class GodMode extends CommandHelper
 				Player t = Bukkit.getPlayer(args[0]);
 				if(t != null)
 				{
-					Main.getInstance().getGodModeManager().togglePlayer(t);
-					Chat.writeMessage(translate("cmd.godmode") + " " + (Main.getInstance().getGodModeManager().containsPlayer(t) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")) + " " + translate("cmd.godmode.for") + " " + t.getName());
+					getGodModeManager().togglePlayer(t);
+					Chat.writeMessage(translate("cmd.godmode") + " " + (getGodModeManager().containsPlayer(t) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")) + " " + translate("cmd.godmode.for") + " " + t.getName());
 				}
 				else
 					Chat.noOnline(com);
