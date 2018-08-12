@@ -13,23 +13,28 @@ import de.morigm.magna.api.manager.GroupManager;
 import de.morigm.magna.api.manager.MSGManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
+import de.morigm.magna.api.manager.RunnerManager;
 import de.morigm.magna.api.manager.WarpManager;
 import de.morigm.magna.api.memory.MemoryManager;
+import de.morigm.magna.api.settings.Folders;
 import de.morigm.magna.api.settings.Settings;
 import lombok.Getter;
 
 public class Magna
 {
 	
-	static
-	{
-		Magna.commandutil = new CommandUtil();
-		Magna.settings = new Settings(Main.getInstance());
-	}
-	
 	private static String[] spigot_versions = {"v1_12_R1"};
 	private static CommandUtil commandutil;
 	@Getter private static Settings settings;
+	@Getter private static Folders folders;
+	@Getter private static String name = "Magna"; 
+	
+	static
+	{
+		Magna.commandutil = new CommandUtil();
+		Magna.settings = new Settings(getMain());
+		Magna.folders = new Folders();
+	}
 	
 	
 	public static GroupManager getGroupManager()
@@ -85,6 +90,11 @@ public class Magna
 	public static BlackListManager getBlackListManager()
 	{
 		return getMain().getBlackListManager();
+	}
+	
+	public static RunnerManager getRunnerManager()
+	{
+		return getMain().getRunnerManager();
 	}
 	
 	public static String getServerVersion()

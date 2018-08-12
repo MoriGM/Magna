@@ -15,7 +15,12 @@ import com.google.gson.JsonElement;
 public class MojangApi 
 {
 	
-	protected static Gson gson = new GsonBuilder().create();
+	static
+	{
+		MojangApi.gson = new GsonBuilder().create();
+	}
+	
+	protected static Gson gson;
 	
 	protected static class PlayerProfile
 	{

@@ -1,15 +1,13 @@
 package de.morigm.magna.config;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.ConfigHelper;
-import de.morigm.magna.chat.Chat;
 
 public class PlayerConfig implements ConfigHelper
 {
@@ -21,7 +19,7 @@ public class PlayerConfig implements ConfigHelper
 
 	public void loadFile()
 	{
-		FileConfiguration conf = YamlConfiguration.loadConfiguration(new File(Main.getInstance().getDataFolder(),"players.yml"));
+		FileConfiguration conf = YamlConfiguration.loadConfiguration(Magna.getFolders().getPlayerFile());
 		this.configuration = conf;
 	}
 	
@@ -40,7 +38,7 @@ public class PlayerConfig implements ConfigHelper
 		this.configuration.set("cmdspy", this.cmdspy);
 		try 
 		{
-			this.configuration.save(new File("./plugins/" + Chat.name + "/players.yml"));
+			this.configuration.save(Magna.getFolders().getPlayerFile());
 		}
 		catch (IOException e) 
 		{

@@ -5,7 +5,7 @@ import java.io.File;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.ConfigHelper;
 import de.morigm.magna.api.helper.FileHelper;
 import lombok.SneakyThrows;
@@ -19,7 +19,7 @@ public class DeathBackConfig implements ConfigHelper
 	@Override
 	public void load() 
 	{
-		this.file = new File(Main.getInstance().getDataFolder(),"deathback.yml");
+		this.file = Magna.getFolders().getDeathBackFile();
 		FileHelper.createFileIfNotExists(file);
 		this.config = YamlConfiguration.loadConfiguration(file);
 	}

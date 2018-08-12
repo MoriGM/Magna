@@ -8,7 +8,7 @@ import java.util.List;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.ConfigHelper;
 import de.morigm.magna.api.helper.FileHelper;
 import lombok.Getter;
@@ -20,7 +20,7 @@ public class WarpConfig implements ConfigHelper
 	@Getter @Setter private FileConfiguration config;
 	public List<String> warps = new ArrayList<>();
 
-	@Getter private File configFile = new File(Main.getInstance().getDataFolder(),"/warps.yml");
+	@Getter private File configFile = Magna.getFolders().getWarpsFile();
 
 	@Override
 	public void load() 

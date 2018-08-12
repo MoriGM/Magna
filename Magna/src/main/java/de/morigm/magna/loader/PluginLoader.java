@@ -136,4 +136,8 @@ public class PluginLoader
 		new Listener_BlackList().register();
 	}
 	
+	public void registerRunners()
+	{
+	}
+	
 }

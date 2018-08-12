@@ -1,69 +1,113 @@
 package de.morigm.magna.api.settings;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Location;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.config.PluginConfig;
 
 public class Settings 
 {
 	
-	private Main main;
+	private PluginConfig config;
 
 	public Settings(Main main) 
 	{
-		this.main = main;
+		if(main != null)
+			this.config = main.getDefaultPluginConfig();
 	}
 	
 	public boolean getOwnCommandSpy()
 	{
-		return main.getDefaultPluginConfig().owncommandspy;
+		if(this.config != null)
+			return config.owncommandspy;
+		else
+			return false;
 	}
 	
 	public List<String> getCommandSpyBlocked()
 	{
-		return main.getDefaultPluginConfig().commandspyblocked;
+		if(this.config != null)
+			return config.commandspyblocked;
+		else
+			return new ArrayList<>();
 	}
 	
 	public List<String> getNoFallDamageWorlds()
 	{
-		return main.getDefaultPluginConfig().nofalldamage;
+		if(this.config != null)
+			return config.nofalldamage;
+		else
+			return new ArrayList<>();
 	}
 	
 	public boolean getBlackListPermission()
 	{
-		return main.getDefaultPluginConfig().blacklistperm;
+		if(this.config != null)
+			return config.blacklistperm;
+		else
+			return false;
 	}
 	
 	public boolean getWarning()
 	{
-		return main.getDefaultPluginConfig().warning;
+		if(this.config != null)
+			return config.warning;
+		else
+			return false;
 	}
 	
 	public Location getSpawn()
 	{
-		return main.getDefaultPluginConfig().spawn;
+		if(this.config != null)
+			return config.spawn;
+		return new Location(null, 0, 0, 0);
+	}
+	
+	public String getLanguage()
+	{
+		if(this.config != null)
+			return config.language;
+		return "en-en.yml";
+	}
+	
+	public int getAFKTimer()
+	{
+		if(this.config != null)
+			return config.afkTimer;
+		return 5;
 	}
 	
 	public void setOwnCommandSpy(boolean state)
 	{
-		main.getDefaultPluginConfig().owncommandspy = state;
+		if(this.config != null)
+			config.owncommandspy = state;
 	}
 	
 	public void setBlackListPermission(boolean state)
 	{
-		main.getDefaultPluginConfig().blacklistperm = state;
+		if(this.config != null)
+			config.blacklistperm = state;
 	}
 	
 	public void setWarning(boolean state)
 	{
-		main.getDefaultPluginConfig().warning = state;
+		if(this.config != null)
+			config.warning = state;
 	}
 	
 	public void setSpawn(Location spawn)
 	{
-		main.getDefaultPluginConfig().spawn = spawn;
+		if(this.config != null)
+			config.spawn = spawn;
+	}
+	
+	public void setAFKTimer(int i)
+	{
+		if(this.config != null)
+			config.afkTimer = i;
 	}
 
 }

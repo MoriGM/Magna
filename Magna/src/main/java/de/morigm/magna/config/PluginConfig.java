@@ -24,6 +24,7 @@ public class PluginConfig implements ConfigHelper
 	public boolean blacklistperm;
 	public Location spawn;
 	public String language;
+	public int afkTimer;
 
 	private void adddefault()
 	{
@@ -38,6 +39,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().addDefault("commandspyblocked", new ArrayList<String>());
 		getConfig().addDefault("nofalldamage", new ArrayList<String>());
 		getConfig().addDefault("language", "en-en.yml");
+		getConfig().addDefault("afk-timer", 5);
 	}
 	
 	public void load()
@@ -53,6 +55,7 @@ public class PluginConfig implements ConfigHelper
 		this.nofalldamage = getConfig().getStringList("nofalldamage");
 		this.autoedit = getConfig().getBoolean("autoedit");
 		this.blacklistperm = getConfig().getBoolean("blacklistperm");
+		this.afkTimer = getConfig().getInt("afk-timer");
 		
 		loadSpawn();
 	}
@@ -92,6 +95,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().set("nofalldamage", this.nofalldamage);
 		getConfig().set("autoedit", this.autoedit);
 		getConfig().set("blacklistperm", this.blacklistperm);
+		getConfig().set("afk-timer", this.afkTimer);
 		Main.getInstance().saveConfig();
 	}
 	

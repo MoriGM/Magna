@@ -7,7 +7,7 @@ import java.util.List;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.ConfigHelper;
 import de.morigm.magna.api.helper.FileHelper;
 import lombok.Getter;
@@ -23,7 +23,7 @@ public class BlackListConfig implements ConfigHelper
 	@Override
 	public void load()
 	{
-		File file = new File(Main.getInstance().getDataFolder(),"blacklist.yml");
+		File file = Magna.getFolders().getBlackListFile();
 		FileHelper.createFileIfNotExists(file);
 		FileConfiguration config = YamlConfiguration.loadConfiguration(file);
 		this.file = file;

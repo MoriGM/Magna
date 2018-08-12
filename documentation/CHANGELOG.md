@@ -12,6 +12,15 @@
 * Added Command MSG to Magna
 * Added Command MSGR to Magna
 
+#### System
+
+* Added Runner System
+* Added MSG System
+
+### Rebuild
+
+* Magna Api
+
 ## 0.5.0
 
 ### Add

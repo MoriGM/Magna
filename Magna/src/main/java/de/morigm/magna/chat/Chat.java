@@ -5,12 +5,13 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 
 public class Chat 
 {
 
-	public static final String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Magna" + ChatColor.DARK_GRAY +  "] " + ChatColor.WHITE;
-	public static final String name = Main.getInstance().getDescription().getName();
+	public static final String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + Magna.getName() + ChatColor.DARK_GRAY +  "] " + ChatColor.WHITE;
+	public static final String name = Magna.getName();
 	public static final String version = Main.getInstance().getDescription().getVersion();
 	public static final String no_console = Main.getInstance().getLanguage().translate("chat.no-console");
 	public static final String no_player = Main.getInstance().getLanguage().translate("chat.no-player");
