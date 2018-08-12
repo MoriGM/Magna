@@ -15,9 +15,11 @@ public class AFKStuff
 	{
 		last_player_position = new HashMap<>();
 		afkPlayers = new ArrayList<>();
+		last_player_time = new HashMap<>();
 	}
 	
 	public static final Map<Player,Location> last_player_position;
 	public static final List<Player> afkPlayers;
+	public static final Map<Player,Long> last_player_time;
 
 }

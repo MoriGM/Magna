@@ -14,8 +14,9 @@
 
 #### System
 
-* Added Runner System
-* Added MSG System
+* Added Runner System to Magna
+* Added MSG System to Magna
+* Added AFK System to Magna
 
 ### Rebuild
 

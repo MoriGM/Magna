@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.language.Language;
+import de.morigm.magna.api.manager.AFKManager;
 import de.morigm.magna.api.manager.AutoEditManager;
 import de.morigm.magna.api.manager.BlackListManager;
 import de.morigm.magna.api.manager.CommandSpyManager;
@@ -56,6 +57,7 @@ public class Main extends JavaPlugin
 	@Getter private BlackListManager blackListManager;
 	@Getter private MSGManager MSGManager;
 	@Getter private RunnerManager runnerManager;
+	@Getter private AFKManager AFKManager;
 	
 	@Getter private RegisterAutoEdits registerAutoEdits;
 	
@@ -139,6 +141,8 @@ public class Main extends JavaPlugin
 		this.MSGManager = new MSGManager();
 		this.runnerManager = new RunnerManager();
 		this.pluginLoader.registerRunners();
+		this.pluginLoader.startRunners();
+		this.AFKManager = new AFKManager();
 		if(Main.getInstance().getDefaultPluginConfig().warning && !Magna.isSupported())
 			Chat.writeMessage(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
 		Chat.writeMessage("Version: " + Chat.version);

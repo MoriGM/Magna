@@ -3,9 +3,10 @@ package de.morigm.magna.api.runner;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import de.morigm.magna.api.Magna;
+import de.morigm.magna.api.helper.TranslationHelper;
 import lombok.Getter;
 
-public abstract class Runner
+public abstract class Runner implements TranslationHelper
 {
 	
 	@Getter private String name;

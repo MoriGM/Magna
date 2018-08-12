@@ -59,3 +59,4 @@ commands:
       msg:
       msgr:
           aliases: r
+      afk:

@@ -4,6 +4,8 @@ import org.bukkit.Bukkit;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.command.CommandUtil;
+import de.morigm.magna.api.language.Language;
+import de.morigm.magna.api.manager.AFKManager;
 import de.morigm.magna.api.manager.AutoEditManager;
 import de.morigm.magna.api.manager.BlackListManager;
 import de.morigm.magna.api.manager.CommandSpyManager;
@@ -95,6 +97,16 @@ public class Magna
 	public static RunnerManager getRunnerManager()
 	{
 		return getMain().getRunnerManager();
+	}
+	
+	public static AFKManager getAFKManager()
+	{
+		return getMain().getAFKManager();
+	}
+	
+	public static Language getLanguage()
+	{
+		return getMain().getLanguage();
 	}
 	
 	public static String getServerVersion()

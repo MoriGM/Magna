@@ -86,6 +86,12 @@ public class Settings
 			return config.afkTimer;
 		return 5;
 	}
+	public boolean getShowAfk()
+	{
+		if(this.config != null)
+			return config.showafk;
+		return false;
+	}
 	
 	public void setOwnCommandSpy(boolean state)
 	{
@@ -109,6 +115,12 @@ public class Settings
 	{
 		if(this.config != null)
 			config.chatclear = state;
+	}
+	
+	public void setShowAfk(boolean state)
+	{
+		if(this.config != null)
+			config.showafk = state;
 	}
 	
 	public void setSpawn(Location spawn)

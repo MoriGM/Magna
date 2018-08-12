@@ -92,3 +92,5 @@ cmd.msgr.error= Niemand hat mit dir geschrieben
 cmd.msg.error= Du kannst nicht mit dir selber reden
 listener.mute= Du bist gemuted
 listener.censor.warn= Hey schreib das bitte nicht!
+afk.show.on= ist nun AFK!
+afk.show.off= ist nun nicht mehr AFK!

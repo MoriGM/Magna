@@ -1,5 +1,7 @@
 package de.morigm.magna.loader;
 
+import de.morigm.magna.api.Magna;
+import de.morigm.magna.commands.AFK;
 import de.morigm.magna.commands.AllChatClear;
 import de.morigm.magna.commands.BanIps;
 import de.morigm.magna.commands.Bans;
@@ -50,6 +52,7 @@ import de.morigm.magna.commands.Trash;
 import de.morigm.magna.commands.Warp;
 import de.morigm.magna.commands.Warps;
 import de.morigm.magna.commands.getUUID;
+import de.morigm.magna.listener.Listener_AFK;
 import de.morigm.magna.listener.Listener_AutoEdit;
 import de.morigm.magna.listener.Listener_BlackList;
 import de.morigm.magna.listener.Listener_CMDSPY;
@@ -62,6 +65,7 @@ import de.morigm.magna.listener.Listener_Muted;
 import de.morigm.magna.listener.Listener_NoFallDamage;
 import de.morigm.magna.listener.Listener_SignWarp;
 import de.morigm.magna.listener.Listener_TrashSign;
+import de.morigm.magna.runner.AfkTestRunner;
 
 public class PluginLoader 
 {
@@ -118,6 +122,7 @@ public class PluginLoader
 		new Damage().register("damage");
 		new MSG().register("msg");
 		new MSGR().register("msgr");
+		new AFK().register("afk");
 	}
 	
 	public void registerListener()
@@ -134,10 +139,17 @@ public class PluginLoader
 		new Listener_NoFallDamage().register();
 		new Listener_AutoEdit().register();
 		new Listener_BlackList().register();
+		new Listener_AFK().register();
 	}
 	
 	public void registerRunners()
 	{
+		new AfkTestRunner().register("AfkTestRunner");
+	}
+	
+	public void startRunners()
+	{
+		Magna.getRunnerManager().startRunnerTimmer("AfkTestRunner", 20*10L);
 	}
 	
 }
