@@ -8,7 +8,7 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
 
-public class Listener_NoFallDamage implements ListenerHelper
+public class Listener_NoFallDamage extends ListenerHelper
 {
 	@EventHandler
 	public void on(EntityDamageEvent e)

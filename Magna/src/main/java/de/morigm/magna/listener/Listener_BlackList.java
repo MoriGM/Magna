@@ -12,10 +12,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.censor.BlackWord;
+import de.morigm.magna.api.events.PlayerWriteBlockedWordEvent;
 import de.morigm.magna.api.helper.ListenerHelper;
 import de.morigm.magna.chat.Chat;
 
-public class Listener_BlackList implements ListenerHelper 
+public class Listener_BlackList extends ListenerHelper 
 {
 	
 	@EventHandler
@@ -24,6 +25,7 @@ public class Listener_BlackList implements ListenerHelper
 		if(Magna.getBlackListManager().hasBlackWord(e.getMessage()))
 		{
 			BlackWord bword = Magna.getBlackListManager().getBlackWordFromText(e.getMessage());
+			Bukkit.getPluginManager().callEvent(new PlayerWriteBlockedWordEvent(e.getPlayer(), bword.word, bword.type));
 			if(!e.getPlayer().hasPermission(bword.permission) || !Magna.getSettings().getBlackListPermission())
 			{
 				switch(bword.type)

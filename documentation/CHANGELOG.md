@@ -11,12 +11,19 @@
 * Added Command Damage to Magna
 * Added Command MSG to Magna
 * Added Command MSGR to Magna
+* Added Command afk to Magna
+* Added Command isafk to Magna
+* Added Command home to Magna
+* Added Command homes to Magna
+* Added Command sethome to Magna
+* Added Command deletehome to Magna
 
 #### System
 
 * Added Runner System to Magna
 * Added MSG System to Magna
 * Added AFK System to Magna
+* Added Home System to Magna
 
 ### Rebuild
 
@@ -57,8 +64,11 @@ AutoEdit System to Magna
 ### Bug
 
 Fixed Command skull in Magna
+
 Fixed that you only can set a warp once
+
 testPermission Stackoverflow
+
 spawn save error
 
 ### Rebuild

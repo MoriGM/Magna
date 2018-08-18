@@ -5,7 +5,7 @@ import org.bukkit.event.block.SignChangeEvent;
 
 import de.morigm.magna.api.helper.ListenerHelper;
 
-public class Listener_ColorSign implements ListenerHelper
+public class Listener_ColorSign extends ListenerHelper
 {
 	@EventHandler 
 	public void on(SignChangeEvent e)

@@ -10,10 +10,11 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import de.morigm.magna.api.helper.ListenerHelper;
 
-public class Listener_AFK implements ListenerHelper
+public class Listener_AFK extends ListenerHelper
 {
 
 	@EventHandler
@@ -120,5 +121,15 @@ public class Listener_AFK implements ListenerHelper
 		}
 	}
 	
+	@EventHandler
+	public void on(PlayerQuitEvent e)
+	{
+		if(getAFKManager().containsLocation(e.getPlayer()))
+			getAFKManager().getLastPlayerTimes().remove(e.getPlayer());
+		if(getAFKManager().containsLocation(e.getPlayer()))
+			getAFKManager().getLastPlayerPositions().remove(e.getPlayer());
+		if(getAFKManager().isAfk(e.getPlayer()))
+			getAFKManager().removePlayerFromAFKMode(e.getPlayer());
+	}
 	
 }

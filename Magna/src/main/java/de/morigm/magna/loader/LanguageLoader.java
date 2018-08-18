@@ -15,6 +15,7 @@ import java.util.Map.Entry;
 import org.apache.commons.io.IOUtils;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.LoadHelper;
 
 public class LanguageLoader implements LoadHelper
@@ -99,8 +100,8 @@ public class LanguageLoader implements LoadHelper
 	
 	public void check()
 	{
-		File de = new File(Main.getInstance().getLanguageFolder(), "de-de.yml");
-		File en = new File(Main.getInstance().getLanguageFolder(), "en-en.yml");
+		File de = new File(Magna.getFolders().getLanguageFolder(), "de-de.yml");
+		File en = new File(Magna.getFolders().getLanguageFolder(), "en-en.yml");
 		
 		if(!de.exists())
 			installDe(de);
@@ -112,17 +113,17 @@ public class LanguageLoader implements LoadHelper
 		if(en.lastModified() < Main.getInstance().getJar().lastModified())
 			update(en,"en-en.yml");
 		
-		File language = new File(Main.getInstance().getLanguageFolder(),Main.getInstance().getDefaultPluginConfig().language);
+		File language = Magna.getFolders().getLanguageFile();
 		if(language.exists())
 			this.language = language;
 		else
-			this.language = new File(Main.getInstance().getLanguageFolder(),"en-en.yml");
+			this.language = new File(Magna.getFolders().getLanguageFolder(),"en-en.yml");
 	}
 	
 	public void load()
 	{
-		if(!Main.getInstance().getLanguageFolder().exists())
-			Main.getInstance().getLanguageFolder().mkdirs();
+		if(!Magna.getFolders().getLanguageFolder().exists())
+			Magna.getFolders().getLanguageFolder().mkdirs();
 		check();
 	}
 	

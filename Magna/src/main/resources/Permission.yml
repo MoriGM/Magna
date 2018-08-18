@@ -46,6 +46,11 @@ censor: magna.cmd.censor
 gamemode: magna.cmd.gamemode
 pardon: magna.cmd.pardon
 damage: magna.cmd.damage
+isafk: magna.cmd.isafk
+sethome: magna.cmd.sethome
+homes: magna.cmd.homes
+deletehome: magna.cmd.deletehome
+home: magna.cmd.home
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create
@@ -55,3 +60,4 @@ trashsign: magna.trashsign.use
 teamchat-see: magna.teamchat.see
 warppermission: magna.warp
 blacklistword: magna.blackword
+homesize: magna.home.size

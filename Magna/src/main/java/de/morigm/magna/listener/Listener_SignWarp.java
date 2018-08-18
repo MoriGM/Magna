@@ -12,7 +12,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
 
-public class Listener_SignWarp implements ListenerHelper
+public class Listener_SignWarp extends ListenerHelper
 {
 	@EventHandler
 	public void on(SignChangeEvent e)

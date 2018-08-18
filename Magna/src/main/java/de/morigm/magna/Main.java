@@ -13,6 +13,7 @@ import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.DeathBackManager;
 import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.GroupManager;
+import de.morigm.magna.api.manager.HomeManager;
 import de.morigm.magna.api.manager.MSGManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
@@ -24,6 +25,7 @@ import de.morigm.magna.config.AutoEditConfig;
 import de.morigm.magna.config.BlackListConfig;
 import de.morigm.magna.config.DeathBackConfig;
 import de.morigm.magna.config.GroupConfig;
+import de.morigm.magna.config.HomeConfig;
 import de.morigm.magna.config.PlayerConfig;
 import de.morigm.magna.config.PluginConfig;
 import de.morigm.magna.config.WarpConfig;
@@ -32,6 +34,7 @@ import de.morigm.magna.loader.AutoEditLoader;
 import de.morigm.magna.loader.BlackListLoader;
 import de.morigm.magna.loader.DeathBackLoader;
 import de.morigm.magna.loader.GroupLoader;
+import de.morigm.magna.loader.HomeLoader;
 import de.morigm.magna.loader.LanguageLoader;
 import de.morigm.magna.loader.PluginLoader;
 import de.morigm.magna.loader.WarpLoader;
@@ -58,6 +61,7 @@ public class Main extends JavaPlugin
 	@Getter private MSGManager MSGManager;
 	@Getter private RunnerManager runnerManager;
 	@Getter private AFKManager AFKManager;
+	@Getter private HomeManager homeManager;
 	
 	@Getter private RegisterAutoEdits registerAutoEdits;
 	
@@ -68,6 +72,7 @@ public class Main extends JavaPlugin
 	@Getter private DeathBackConfig deathBackConfig;
 	@Getter private AutoEditConfig autoEditConfig;
 	@Getter private BlackListConfig blackListConfig;
+	@Getter private HomeConfig homeConfig;
 	
 	@Getter private CommandLoger commandsLoger;
 
@@ -76,8 +81,8 @@ public class Main extends JavaPlugin
 	@Getter private DeathBackLoader deathBackLoader;
 	@Getter private AutoEditLoader autoEditLoader;
 	@Getter private BlackListLoader blackListLoader;
+	@Getter private HomeLoader homeLoader;
 	
-	@Getter private File languageFolder;
 	@Getter private File jar;
 			
 	@Getter private LanguageLoader LanguageLoader;
@@ -88,15 +93,14 @@ public class Main extends JavaPlugin
 	public void onEnable() 
 	{
 		Main.instance = this;
-		this.languageFolder = new File(getDataFolder(),"languages");
 		this.pluginConfig = new PluginConfig();
 		this.pluginConfig.load();
 		this.jar = this.getFile();
 		this.LanguageLoader = new LanguageLoader();
 		this.LanguageLoader.load();
-		this.language = new Language();
+		this.language = new Language(Magna.getFolders().getLanguageFile());
 		this.language.load();
-		this.permissionManager = new PermissionManager();
+		this.permissionManager = new PermissionManager(this.getResource("Permission.yml"));
 		this.permissionManager.load();
 		this.pluginLoader = new PluginLoader();
 		this.pluginLoader.registerCommands();
@@ -143,7 +147,12 @@ public class Main extends JavaPlugin
 		this.pluginLoader.registerRunners();
 		this.pluginLoader.startRunners();
 		this.AFKManager = new AFKManager();
-		if(Main.getInstance().getDefaultPluginConfig().warning && !Magna.isSupported())
+		this.homeConfig = new HomeConfig();
+		this.homeConfig.load();
+		this.homeLoader = new HomeLoader();
+		this.homeLoader.load();
+		this.homeManager = new HomeManager();
+		if(Magna.getSettings().getWarning() && !Magna.isSupported())
 			Chat.writeMessage(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage(this.getLanguage().translate("plugin.start"));
@@ -161,6 +170,8 @@ public class Main extends JavaPlugin
 		this.deathBackConfig.save();
 		this.blackListLoader.save();
 		this.blackListConfig.save();
+		this.homeLoader.save();
+		this.homeConfig.save();
 		Chat.writeMessage(this.getLanguage().translate("plugin.stop"));
 	}
 	

@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.api.helper.StringHelper;
 import de.morigm.magna.chat.Chat;
 
 public class GameMode extends CommandHelper
@@ -51,9 +52,9 @@ public class GameMode extends CommandHelper
 						{
 							t.setGameMode(gamemode);
 							if(t == p)
-								p.sendMessage(Chat.prefix + translate("cmd.gamemode") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
+								p.sendMessage(Chat.prefix + translate("cmd.gamemode") + " " + StringHelper.toFirstUpAndRemainderLower(t.getGameMode().toString()));
 							else
-								p.sendMessage(Chat.prefix + translate("cmd.gamemode.other") + " " + Chat.toFirstUpAndRemainderLower(t.getGameMode().toString()));
+								p.sendMessage(Chat.prefix + translate("cmd.gamemode.other") + " " + StringHelper.toFirstUpAndRemainderLower(t.getGameMode().toString()));
 						}
 						else
 							p.sendMessage(Chat.prefix + translate("cmd.gamemode.error"));

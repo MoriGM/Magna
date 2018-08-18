@@ -1,11 +1,11 @@
 package de.morigm.magna.chat;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
+import de.morigm.magna.api.chat.ChatColor;
 
 public class Chat 
 {
@@ -42,13 +42,6 @@ public class Chat
 	public static void noOnline(CommandSender com)
 	{
 		com.sendMessage(prefix + no_online);
-	}
-	
-	public static String toFirstUpAndRemainderLower(String text)
-	{
-		String up = text.toUpperCase();
-		String lower = text.toLowerCase();
-		return up.substring(0, 1) + lower.substring(1);
 	}
 	
 }

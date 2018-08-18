@@ -12,7 +12,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
 
-public class Listener_GODMODE implements ListenerHelper
+public class Listener_GODMODE extends ListenerHelper
 {
 	@EventHandler
 	public void on(PlayerInteractEvent e)

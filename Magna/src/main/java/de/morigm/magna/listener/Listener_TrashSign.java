@@ -12,7 +12,7 @@ import org.bukkit.inventory.Inventory;
 
 import de.morigm.magna.api.helper.ListenerHelper;
 
-public class Listener_TrashSign implements ListenerHelper
+public class Listener_TrashSign extends ListenerHelper
 {
 	
 	@EventHandler

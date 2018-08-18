@@ -12,6 +12,7 @@ import de.morigm.magna.api.manager.CommandSpyManager;
 import de.morigm.magna.api.manager.DeathBackManager;
 import de.morigm.magna.api.manager.GodModeManager;
 import de.morigm.magna.api.manager.GroupManager;
+import de.morigm.magna.api.manager.HomeManager;
 import de.morigm.magna.api.manager.MSGManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
@@ -102,6 +103,11 @@ public class Magna
 	public static AFKManager getAFKManager()
 	{
 		return getMain().getAFKManager();
+	}
+	
+	public static HomeManager getHomeManager()
+	{
+		return getMain().getHomeManager();
 	}
 	
 	public static Language getLanguage()

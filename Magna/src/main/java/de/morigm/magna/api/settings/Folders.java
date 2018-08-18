@@ -4,19 +4,19 @@ import java.io.File;
 
 import de.morigm.magna.api.Magna;
 import lombok.Getter;
-import lombok.Setter;
 
 public class Folders 
 {
 	
-	@Getter @Setter private File languageFile;
-	@Getter @Setter private File autoEditFile;
-	@Getter @Setter private File playerAutoEditFile;
-	@Getter @Setter private File blackListFile;
-	@Getter @Setter private File deathBackFile;
-	@Getter @Setter private File groupsFile;
-	@Getter @Setter private File playerFile;
-	@Getter @Setter private File warpsFile;
+	@Getter private File languageFile;
+	@Getter private File autoEditFile;
+	@Getter private File playerAutoEditFile;
+	@Getter private File blackListFile;
+	@Getter private File deathBackFile;
+	@Getter private File groupsFile;
+	@Getter private File playerFile;
+	@Getter private File warpsFile;
+	@Getter private File homeFile;
 	@Getter private File pluginFolder;
 	@Getter private File dataFolder;
 	@Getter private File languageFolder;
@@ -35,7 +35,8 @@ public class Folders
 		this.deathBackFile = new File(this.dataFolder,"deathback.yml");
 		this.groupsFile = new File(this.dataFolder,"groups.yml");
 		this.playerFile = new File(this.dataFolder,"players.yml");
-		this.warpsFile = new File(this.dataFolder,"/warps.yml");
+		this.warpsFile = new File(this.dataFolder,"warps.yml");
+		this.homeFile = new File(this.dataFolder,"homes.yml");
 	}
 	
 }

@@ -21,5 +21,12 @@ public class StringHelper
 		return tmp;
 	}
 	
+	public static String toFirstUpAndRemainderLower(String text)
+	{
+		String up = text.toUpperCase();
+		String lower = text.toLowerCase();
+		return up.substring(0, 1) + lower.substring(1);
+	}
+	
 	
 }

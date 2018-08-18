@@ -60,3 +60,9 @@ commands:
       msgr:
           aliases: r
       afk:
+      isafk:
+      sethome:
+      homes:
+      deletehome:
+            aliases: delhome
+      home:

@@ -6,7 +6,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
 
-public class Listener_AutoEdit implements ListenerHelper 
+public class Listener_AutoEdit extends ListenerHelper 
 {
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e)

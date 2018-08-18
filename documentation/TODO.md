@@ -37,4 +37,8 @@
 
 # Extra Plugin
 
-* ChatCopyLog
+* Magna-World
+* Magna-SpezialItems
+* Magna-ChatCopyLog
+* Magna-CharFormat
+* Magna-WorldPortals

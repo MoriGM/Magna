@@ -11,6 +11,7 @@ import de.morigm.magna.commands.ChatClear;
 import de.morigm.magna.commands.CommandSpy;
 import de.morigm.magna.commands.Damage;
 import de.morigm.magna.commands.Day;
+import de.morigm.magna.commands.DeleteHome;
 import de.morigm.magna.commands.Fly;
 import de.morigm.magna.commands.GameMode;
 import de.morigm.magna.commands.GameModeInfo;
@@ -22,7 +23,10 @@ import de.morigm.magna.commands.GodMode;
 import de.morigm.magna.commands.Group_Exec;
 import de.morigm.magna.commands.Groups;
 import de.morigm.magna.commands.Heal;
+import de.morigm.magna.commands.Home;
+import de.morigm.magna.commands.Homes;
 import de.morigm.magna.commands.IP;
+import de.morigm.magna.commands.IsAFK;
 import de.morigm.magna.commands.ItemHead;
 import de.morigm.magna.commands.KickAll;
 import de.morigm.magna.commands.MSG;
@@ -39,6 +43,7 @@ import de.morigm.magna.commands.Pardon;
 import de.morigm.magna.commands.ReloadConfig;
 import de.morigm.magna.commands.RemoveWarp;
 import de.morigm.magna.commands.Repair;
+import de.morigm.magna.commands.SetHome;
 import de.morigm.magna.commands.SetItemName;
 import de.morigm.magna.commands.SetSpawn;
 import de.morigm.magna.commands.SetWarp;
@@ -123,6 +128,11 @@ public class PluginLoader
 		new MSG().register("msg");
 		new MSGR().register("msgr");
 		new AFK().register("afk");
+		new IsAFK().register("isafk");
+		new SetHome().register("sethome");
+		new Homes().register("homes");
+		new DeleteHome().register("deletehome");
+		new Home().register("home");
 	}
 	
 	public void registerListener()

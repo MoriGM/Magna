@@ -10,7 +10,7 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
 import de.morigm.magna.chat.Chat;
 
-public class Listener_CMDSPY implements ListenerHelper
+public class Listener_CMDSPY extends ListenerHelper
 {
 	@EventHandler
 	public void on(PlayerCommandPreprocessEvent e)

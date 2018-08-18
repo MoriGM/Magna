@@ -9,6 +9,7 @@ import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.api.helper.FileConfigHelper;
 import de.morigm.magna.api.helper.LoadHelper;
 import de.morigm.magna.api.helper.SaveHelper;
 import de.morigm.magna.api.warp.Warp;
@@ -49,7 +50,7 @@ public class WarpLoader implements LoadHelper,SaveHelper
 	@Override
 	public void save()
 	{
-		deleteConfig();
+		FileConfigHelper.deleteConfig(getConfig());
 		
 		for(Warp w : warps)
 		{
@@ -62,12 +63,6 @@ public class WarpLoader implements LoadHelper,SaveHelper
 			getConfig().set(w.name + ".permission", Main.getInstance().getPermissionManager().getPermission("warppermission") + "." + w.name);
 		}
 		
-	}
-	
-	public void deleteConfig()
-	{
-		for(String key : getConfig().getKeys(true))
-			getConfig().set(key, null);
 	}
 	
 	private FileConfiguration getConfig()

@@ -7,7 +7,7 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
 import de.morigm.magna.chat.Chat;
 
-public class Listener_Muted implements ListenerHelper
+public class Listener_Muted extends ListenerHelper
 {
 
 	@EventHandler

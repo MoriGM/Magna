@@ -10,6 +10,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.deathback.DeathBack;
+import de.morigm.magna.api.helper.FileConfigHelper;
 import de.morigm.magna.api.helper.LoadHelper;
 import de.morigm.magna.api.helper.SaveHelper;
 import lombok.Getter;
@@ -47,7 +48,7 @@ public class DeathBackLoader implements LoadHelper,SaveHelper
 	public void save() 
 	{
 	
-		deleteConfig();
+		FileConfigHelper.deleteConfig(getConfig());
 		
 		for(DeathBack db : getDeathBacks())
 		{
@@ -59,12 +60,6 @@ public class DeathBackLoader implements LoadHelper,SaveHelper
 			getConfig().set(db.uuid + ".world", db.location.getWorld().getName());
 		}
 		
-	}
-	
-	public void deleteConfig()
-	{
-		for(String key : getConfig().getKeys(true))
-			getConfig().set(key, null);
 	}
 	
 	private FileConfiguration getConfig()
