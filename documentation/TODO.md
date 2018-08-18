@@ -1,25 +1,18 @@
 # Commands
 
-* r
-* msg
 * version
 * tpaccept
 * tpa
 * flyspeed
 * speed
-* sethome
-* home
-* delhome
 
 # Rebuild
 
-* CommandHelper
 * Listener Class Names
 * Repair
 
 # Class
 
-* User
 * ItemHelper
 * PlayerWriteBlockedWordEvent
 
