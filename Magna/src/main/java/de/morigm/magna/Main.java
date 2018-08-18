@@ -153,7 +153,7 @@ public class Main extends JavaPlugin
 		this.homeLoader.load();
 		this.homeManager = new HomeManager();
 		if(Magna.getSettings().getWarning() && !Magna.isSupported())
-			Chat.writeMessage(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
+			Chat.writeError(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage(this.getLanguage().translate("plugin.start"));
 	}

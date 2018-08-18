@@ -24,6 +24,11 @@ public class Chat
 		Bukkit.getConsoleSender().sendMessage(Chat.prefix + text);
 	}
 	
+	public static void writeError(String text)
+	{
+		Bukkit.getConsoleSender().sendMessage(Chat.prefix + ChatColor.RED + text);
+	}
+	
 	public static void noPermission(CommandSender com)
 	{
 		com.sendMessage(prefix + no_permission);
