@@ -23,6 +23,11 @@ public abstract class CommandHelper implements CommandExecutor, PermissionHelper
 		this.register(cmd_name, Main.getInstance() != null ? Magna.getLanguage() : null);
 	}
 	
+	public void register(String cmd_name, JavaPlugin javaPlugin)
+	{
+		this.register(cmd_name, Main.getInstance() != null ? Magna.getLanguage() : null, Main.getInstance() != null ? Magna.getPermissionManager() : null, javaPlugin);
+	}
+	
 	public void register(String cmd_name, Language language)
 	{
 		this.register(cmd_name, language, Main.getInstance() != null ? Magna.getPermissionManager() : null, Main.getInstance());

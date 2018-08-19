@@ -20,6 +20,11 @@ public class ListenerHelper implements Listener, PermissionHelper, TranslationHe
 		this.register(Main.getInstance() != null ? Magna.getLanguage() : null, Main.getInstance() != null ? Magna.getPermissionManager() : null, Main.getInstance());
 	}
 	
+	public void register(JavaPlugin javaplugin)
+	{
+		this.register(Main.getInstance() != null ? Magna.getLanguage() : null, Main.getInstance() != null ? Magna.getPermissionManager() : null, javaplugin);
+	}
+	
 	public void register(Language language)
 	{
 		this.register(language, Main.getInstance() != null ? Magna.getPermissionManager() : null,Main.getInstance());

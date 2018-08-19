@@ -1,6 +1,6 @@
 package de.morigm.magna.api.convert;
 
-public class Convert 
+public class Convert
 {
 	
 	public static boolean isInteger(String s)
