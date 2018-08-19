@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import de.morigm.magna.api.helper.StringHelper;
 
-public class StrinHelperTester
+public class StrinHelperTest
 {
 	
 	@Test
