@@ -29,6 +29,7 @@ public class RunnerManager
 				{
 					r.load(RunnerType.NOW, this);
 					r.run();
+					r.close();
 				}
 			}.runTask(Main.getInstance());
 		}
@@ -47,6 +48,7 @@ public class RunnerManager
 				{
 					r.load(RunnerType.LATER, this);
 					r.run();
+					r.close();
 				}
 			}.runTaskLater(Main.getInstance(), ticklater);
 		}
@@ -89,6 +91,12 @@ public class RunnerManager
 		Runner r = getRunner(name);
 		if(r != null)
 			RunnerStuff.runners.remove(r);
+	}
+	
+	public void stopRunner(String name)
+	{
+		if(containsRunner(name) && getRunner(name).isRunning())
+			getRunner(name).cancel();
 	}
 	
 }

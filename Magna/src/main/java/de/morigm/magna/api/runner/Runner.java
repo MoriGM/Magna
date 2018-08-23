@@ -60,8 +60,18 @@ public abstract class Runner implements TranslationHelper, PermissionHelper
 	public void cancel()
 	{
 		this.bukkitRunnable.cancel();
+		close();
+	}
+	
+	public void close()
+	{
 		this.type = RunnerType.UNLOAD;
 		this.removeBukkitRunnable();
+	}
+	
+	public boolean isRunning()
+	{
+		return this.bukkitRunnable != null;
 	}
 
 	public void removeBukkitRunnable()
