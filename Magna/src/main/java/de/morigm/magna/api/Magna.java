@@ -1,6 +1,7 @@
 package de.morigm.magna.api;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.command.CommandUtil;
@@ -21,6 +22,7 @@ import de.morigm.magna.api.manager.WarpManager;
 import de.morigm.magna.api.memory.MemoryManager;
 import de.morigm.magna.api.settings.Folders;
 import de.morigm.magna.api.settings.Settings;
+import de.morigm.magna.api.user.User;
 import lombok.Getter;
 
 public class Magna
@@ -30,7 +32,7 @@ public class Magna
 	private static CommandUtil commandutil;
 	@Getter private static Settings settings;
 	@Getter private static Folders folders;
-	@Getter private static String name = "Magna"; 
+	@Getter private final static String name = "Magna"; 
 	
 	static
 	{
@@ -137,6 +139,16 @@ public class Magna
 	public static CommandUtil getCommandUtil()
 	{
 		return Magna.commandutil;
+	}
+	
+	public static User getUser(Player p)
+	{
+		return getUser(p, getPermissionManager());
+	}
+	
+	public static User getUser(Player p,PermissionManager manager)
+	{
+		return new User(p, manager);
 	}
 	
 	private static Main getMain()

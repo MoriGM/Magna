@@ -4,6 +4,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.runner.Runner;
+import de.morigm.magna.api.runner.RunnerType;
 import de.morigm.magna.stuff.RunnerStuff;
 
 public class RunnerManager
@@ -26,7 +27,7 @@ public class RunnerManager
 				@Override
 				public void run() 
 				{
-					r.setBukkitRunnable(this);
+					r.load(RunnerType.NOW, this);
 					r.run();
 				}
 			}.runTask(Main.getInstance());
@@ -44,7 +45,7 @@ public class RunnerManager
 				@Override
 				public void run() 
 				{
-					r.setBukkitRunnable(this);
+					r.load(RunnerType.LATER, this);
 					r.run();
 				}
 			}.runTaskLater(Main.getInstance(), ticklater);
@@ -62,7 +63,7 @@ public class RunnerManager
 				@Override
 				public void run() 
 				{
-					r.setBukkitRunnable(this);
+					r.load(RunnerType.TIMER, this);
 					r.run();
 				}
 			}.runTaskTimer(Main.getInstance(), 0, ticktimer);

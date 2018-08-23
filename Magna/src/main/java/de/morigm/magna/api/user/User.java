@@ -1,10 +1,16 @@
 package de.morigm.magna.api.user;
 
+import static de.morigm.magna.api.Magna.getAFKManager;
+import static de.morigm.magna.api.Magna.getCommandSpyManager;
+import static de.morigm.magna.api.Magna.getGodModeManager;
+import static de.morigm.magna.api.Magna.getMutedPlayerManager;
+
 import java.util.UUID;
 
+import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.manager.PermissionManager;
 import lombok.Getter;
 
@@ -26,17 +32,22 @@ public class User
 		
 		public boolean isAfk()
 		{
-			return Magna.getAFKManager().isAfk(player);
+			return getAFKManager().isAfk(this.player);
 		}
 		
 		public boolean isMuted()
 		{
-			return Magna.getMutedPlayerManager().containsPlayer(player);
+			return getMutedPlayerManager().containsPlayer(this.player);
 		}
 		
 		public boolean isCommandSpying()
 		{
-			return Magna.getCommandSpyManager().containsPlayer(player);
+			return getCommandSpyManager().containsPlayer(this.player);
+		}
+		
+		public boolean isGodMode()
+		{
+			return getGodModeManager().containsPlayer(this.player);
 		}
 		
 		public boolean hasPermission(String Permission)
@@ -57,25 +68,43 @@ public class User
 		public void setAfk(boolean state)
 		{
 			if(state)
-				Magna.getAFKManager().addPlayerToAFKMode(player);
+				getAFKManager().addPlayerToAFKMode(player);
 			else
-				Magna.getAFKManager().removePlayerFromAFKMode(player);
+				getAFKManager().removePlayerFromAFKMode(player);
 		}
 		
 		public void setMuted(boolean state)
 		{
 			if(state)
-				Magna.getMutedPlayerManager().addPlayer(player);
+				getMutedPlayerManager().addPlayer(player);
 			else
-				Magna.getMutedPlayerManager().removePlayer(player);
+				getMutedPlayerManager().removePlayer(player);
 		}
 		
 		public void setCMDSPY(boolean state)
 		{
 			if(state)
-				Magna.getCommandSpyManager().addPlayer(player);
+				getCommandSpyManager().addPlayer(player);
 			else
-				Magna.getCommandSpyManager().removePlayer(player);
+				getCommandSpyManager().removePlayer(player);
+		}
+		
+		public void setGodMode(boolean state)
+		{
+			if(state)
+				getGodModeManager().addPlayer(player);
+			else
+				getGodModeManager().removePlayer(player);
+		}
+		
+		public void tp(Entity e)
+		{
+			this.tp(e.getLocation());
+		}
+		
+		public void tp(Location loc)
+		{
+			this.player.teleport(loc);
 		}
 		
 }

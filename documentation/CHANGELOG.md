@@ -25,6 +25,10 @@
 * Added AFK System to Magna
 * Added Home System to Magna
 
+#### Classes
+
+User
+
 ### Rebuild
 
 * Magna Api

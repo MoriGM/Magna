@@ -1,5 +1,6 @@
 package de.morigm.magna.api.runner;
 
+import org.bukkit.command.CommandSender;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import de.morigm.magna.Main;
@@ -16,7 +17,8 @@ public abstract class Runner implements TranslationHelper, PermissionHelper
 	@Getter private String name;
 	private BukkitRunnable bukkitRunnable;
 	private Language language;
-	private PermissionManager manager;
+	private PermissionManager permission;
+	@Getter private RunnerType type;
 	
 	public abstract void run();
 	
@@ -39,24 +41,29 @@ public abstract class Runner implements TranslationHelper, PermissionHelper
 	public void register(String name,Language language,PermissionManager manager)
 	{
 		this.name = name;
-		if(this.language != null)
+		if(language != null)
 			this.language = language;
-		if(this.manager != null)
-			this.manager = manager;
+		if(permission != null)
+			this.permission = manager;
 		Magna.getRunnerManager().registerRunner(this);
 	}
+	
+	public void load(RunnerType type,BukkitRunnable bukkitRunnable) 
+	{
+		this.type = type;
+		this.bukkitRunnable = bukkitRunnable;
+		init();
+	}
+	
+	public void init() {}
 
 	public void cancel()
 	{
 		this.bukkitRunnable.cancel();
+		this.type = RunnerType.UNLOAD;
 		this.removeBukkitRunnable();
 	}
 
-	public void setBukkitRunnable(BukkitRunnable bukkitRunnable) 
-	{
-		this.bukkitRunnable = bukkitRunnable;
-	}
-	
 	public void removeBukkitRunnable()
 	{
 		this.bukkitRunnable = null;
@@ -71,7 +78,13 @@ public abstract class Runner implements TranslationHelper, PermissionHelper
 	@Override
 	public String getPermission(String Permission) 
 	{
-		return this.manager.getPermission(Permission);
+		return this.permission.getPermission(Permission);
+	}
+	
+	@Override
+	public boolean testPermission(CommandSender p, String permission) 
+	{
+		return p.hasPermission(this.getPermission(permission));
 	}
 	
 }
