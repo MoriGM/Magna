@@ -61,3 +61,5 @@ teamchat-see: magna.teamchat.see
 warppermission: magna.warp
 blacklistword: magna.blackword
 homesize: magna.home.size
+signcreate: magna.sign
+signclick: magna.sign.click

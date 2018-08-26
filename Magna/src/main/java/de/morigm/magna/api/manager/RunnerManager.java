@@ -72,6 +72,24 @@ public class RunnerManager
 		}
 	}
 	
+	public void startRunnerTimmer(String name,Long ticktimer,Long when)
+	{
+		final Runner r = getRunner(name);
+		
+		if(r != null)
+		{
+			new BukkitRunnable()
+			{
+				@Override
+				public void run() 
+				{
+					r.load(RunnerType.TIMER, this);
+					r.run();
+				}
+			}.runTaskTimer(Main.getInstance(), when, ticktimer);
+		}
+	}
+	
 	
 	public Runner getRunner(String runner)
 	{

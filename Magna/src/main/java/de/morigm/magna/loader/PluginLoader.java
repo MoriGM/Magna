@@ -68,9 +68,10 @@ import de.morigm.magna.listener.Listener_DeathBack;
 import de.morigm.magna.listener.Listener_GODMODE;
 import de.morigm.magna.listener.Listener_Muted;
 import de.morigm.magna.listener.Listener_NoFallDamage;
-import de.morigm.magna.listener.Listener_SignWarp;
+import de.morigm.magna.listener.Listener_Sign;
 import de.morigm.magna.listener.Listener_TrashSign;
 import de.morigm.magna.runner.AfkTestRunner;
+import de.morigm.magna.sign.WarpSign;
 
 public class PluginLoader 
 {
@@ -143,18 +144,23 @@ public class PluginLoader
 		new Listener_ChatColor().register();
 		new Listener_ColorSign().register();
 		new Listener_CommandLog().register();
-		new Listener_SignWarp().register();
 		new Listener_TrashSign().register();
 		new Listener_DeathBack().register();
 		new Listener_NoFallDamage().register();
 		new Listener_AutoEdit().register();
 		new Listener_BlackList().register();
 		new Listener_AFK().register();
+		new Listener_Sign().register();
 	}
 	
 	public void registerRunners()
 	{
 		new AfkTestRunner().register("AfkTestRunner");
+	}
+	
+	public void registerSignListener()
+	{
+		new WarpSign().register("Warp");
 	}
 	
 	public void startRunners()

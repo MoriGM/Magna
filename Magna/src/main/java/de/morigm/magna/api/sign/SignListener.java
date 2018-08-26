@@ -1,7 +1,9 @@
-package de.morigm.magna.api.runner;
+package de.morigm.magna.api.sign;
 
+import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
 import org.bukkit.command.CommandSender;
-import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.entity.Player;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
@@ -11,17 +13,15 @@ import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.manager.PermissionManager;
 import lombok.Getter;
 
-public abstract class Runner implements TranslationHelper, PermissionHelper
+public abstract class SignListener implements TranslationHelper, PermissionHelper
 {
 	
 	@Getter private String name;
-	private BukkitRunnable bukkitRunnable;
-	private Language language;
 	private PermissionManager permission;
-	@Getter private RunnerType type;
+	private Language language;
 	
-	public abstract void run();
-	public void init() {}
+	public abstract boolean onCreate(String[] lines,Player p,Block sign);
+	public abstract void onClick(Sign sign,Player player);
 	
 	
 	public void register(String name)
@@ -44,38 +44,9 @@ public abstract class Runner implements TranslationHelper, PermissionHelper
 		this.name = name;
 		if(language != null)
 			this.language = language;
-		if(permission != null)
+		if(manager != null)
 			this.permission = manager;
-		Magna.getRunnerManager().registerRunner(this);
-	}
-	
-	public void load(RunnerType type,BukkitRunnable bukkitRunnable) 
-	{
-		this.type = type;
-		this.bukkitRunnable = bukkitRunnable;
-		init();
-	}
-	
-	public void cancel()
-	{
-		this.bukkitRunnable.cancel();
-		close();
-	}
-	
-	public void close()
-	{
-		this.type = RunnerType.UNLOAD;
-		this.removeBukkitRunnable();
-	}
-	
-	public boolean isRunning()
-	{
-		return this.bukkitRunnable != null;
-	}
-
-	public void removeBukkitRunnable()
-	{
-		this.bukkitRunnable = null;
+		Magna.getSignManager().registerSign(this);
 	}
 	
 	@Override
@@ -95,5 +66,5 @@ public abstract class Runner implements TranslationHelper, PermissionHelper
 	{
 		return p.hasPermission(this.getPermission(permission));
 	}
-	
+
 }

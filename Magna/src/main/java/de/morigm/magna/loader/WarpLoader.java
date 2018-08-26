@@ -1,5 +1,7 @@
 package de.morigm.magna.loader;
 
+import static de.morigm.magna.api.helper.FileConfigHelper.deleteConfig;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,6 @@ import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.FileConfigHelper;
 import de.morigm.magna.api.helper.LoadHelper;
 import de.morigm.magna.api.helper.SaveHelper;
 import de.morigm.magna.api.warp.Warp;
@@ -50,7 +51,7 @@ public class WarpLoader implements LoadHelper,SaveHelper
 	@Override
 	public void save()
 	{
-		FileConfigHelper.deleteConfig(getConfig());
+		deleteConfig(getConfig());
 		
 		for(Warp w : warps)
 		{

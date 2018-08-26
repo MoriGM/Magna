@@ -18,6 +18,7 @@ import de.morigm.magna.api.manager.MSGManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.RunnerManager;
+import de.morigm.magna.api.manager.SignManager;
 import de.morigm.magna.api.manager.WarpManager;
 import de.morigm.magna.api.memory.MemoryManager;
 import de.morigm.magna.api.settings.Folders;
@@ -110,6 +111,11 @@ public class Magna
 	public static HomeManager getHomeManager()
 	{
 		return getMain().getHomeManager();
+	}
+	
+	public static SignManager getSignManager()
+	{
+		return getMain().getSignManager();
 	}
 	
 	public static Language getLanguage()

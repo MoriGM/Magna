@@ -24,6 +24,7 @@
 * Added MSG System to Magna
 * Added AFK System to Magna
 * Added Home System to Magna
+* Added Sign System to Magna
 
 #### Classes
 

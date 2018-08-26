@@ -30,7 +30,8 @@ public class Groups extends CommandHelper
 				String groups = "";
 				for(Group group : getGroupManager().getGroups())
 					groups += ChatColor.GREEN + group.name + ChatColor.RESET + " ";
-				groups = groups.substring(0,groups.length() - 1);
+				if(groups.length() >= 2)
+					groups = groups.substring(0,groups.length() - 1);
 				com.sendMessage(Chat.prefix + translate("cmd.groups") + ":" + groups);
 			}
 			else

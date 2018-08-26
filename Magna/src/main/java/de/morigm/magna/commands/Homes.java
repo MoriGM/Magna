@@ -31,10 +31,7 @@ public class Homes extends CommandHelper
 			{
 				String homes = "";
 				for(Home h : getHomeManager().getPlayerHomes(p))
-					if(homes.isEmpty())
-						homes += h.name;
-					else
-						homes += "," + h.name;
+					homes += homes.isEmpty() ? h.name : "," + h.name;
 				p.sendMessage(Chat.prefix + "Homes:" + homes);
 			}
 			else
