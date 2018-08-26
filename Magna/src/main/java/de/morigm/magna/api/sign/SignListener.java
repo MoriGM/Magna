@@ -20,7 +20,7 @@ public abstract class SignListener implements TranslationHelper, PermissionHelpe
 	private PermissionManager permission;
 	private Language language;
 	
-	public abstract boolean onCreate(String[] lines,Player p,Block sign);
+	public abstract boolean onCreate(String[] lines,Player player,Block sign);
 	public abstract void onClick(Sign sign,Player player);
 	
 	
