@@ -2,8 +2,10 @@ package de.morigm.magna.api.helper;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.Inventory;
 
 public class FileConfigHelper 
 {
@@ -36,6 +38,34 @@ public class FileConfigHelper
 	{
 		for(String key : config.getKeys(true))
 			config.set(key, null);
+	}
+	
+	public static void saveInventory(FileConfiguration config, Inventory inv, String pos)
+	{
+		config.set(pos + ".size", inv.getSize());
+		if(inv.getName() != null && !inv.getName().isEmpty())
+			config.set(pos + ".name", inv.getName());
+		for(int i = 0;i < inv.getSize();i++)
+			if(inv.getItem(i) != null && !inv.getItem(i).getType().equals(Material.AIR))
+				config.set(pos + "." + i, inv.getItem(i));
+	}
+	
+	public static Inventory getInventory(FileConfiguration config, String pos)
+	{
+		if(config.contains(pos + ".size"))
+		{
+			Inventory inv;
+			if(config.contains(pos + ".name"))
+				inv = Bukkit.createInventory(null, config.getInt(pos + ".size"), config.getString(pos + ".name"));
+			else
+				inv = Bukkit.createInventory(null, config.getInt(pos + ".size"));
+			for(int i = 0; i < config.getInt(pos + ".size");i++)
+				if(config.contains(pos + "." + i) && config.isItemStack(pos + "." + i))
+					inv.setItem(i, config.getItemStack(pos + "." + i));
+			return inv;
+		}
+		else
+			return null;
 	}
 
 }
