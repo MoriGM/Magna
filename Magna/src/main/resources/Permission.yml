@@ -51,6 +51,7 @@ sethome: magna.cmd.sethome
 homes: magna.cmd.homes
 deletehome: magna.cmd.deletehome
 home: magna.cmd.home
+onlybreak: magna.cmd.onlybreak
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create

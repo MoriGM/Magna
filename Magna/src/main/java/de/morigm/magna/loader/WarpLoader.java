@@ -1,7 +1,5 @@
 package de.morigm.magna.loader;
 
-import static de.morigm.magna.api.helper.FileConfigHelper.deleteConfig;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +62,12 @@ public class WarpLoader implements LoadHelper,SaveHelper
 			getConfig().set(w.name + ".permission", Main.getInstance().getPermissionManager().getPermission("warppermission") + "." + w.name);
 		}
 		
+	}
+	
+	public void deleteConfig(FileConfiguration config)
+	{
+		for(String key : config.getKeys(true))
+			config.set(key, null);
 	}
 	
 	private FileConfiguration getConfig()

@@ -36,6 +36,7 @@ import de.morigm.magna.commands.Magna_List;
 import de.morigm.magna.commands.Memory;
 import de.morigm.magna.commands.Mute;
 import de.morigm.magna.commands.Night;
+import de.morigm.magna.commands.OnlyBreak;
 import de.morigm.magna.commands.OpenEnderChest;
 import de.morigm.magna.commands.OpenWorkbench;
 import de.morigm.magna.commands.Ops;
@@ -68,6 +69,7 @@ import de.morigm.magna.listener.Listener_DeathBack;
 import de.morigm.magna.listener.Listener_GODMODE;
 import de.morigm.magna.listener.Listener_Muted;
 import de.morigm.magna.listener.Listener_NoFallDamage;
+import de.morigm.magna.listener.Listener_OnlyBreak;
 import de.morigm.magna.listener.Listener_Sign;
 import de.morigm.magna.runner.AfkTestRunner;
 import de.morigm.magna.sign.TrashSign;
@@ -134,6 +136,7 @@ public class PluginLoader
 		new Homes().register("homes");
 		new DeleteHome().register("deletehome");
 		new Home().register("home");
+		new OnlyBreak().register("onlybreak");
 	}
 	
 	public void registerListener()
@@ -150,6 +153,7 @@ public class PluginLoader
 		new Listener_BlackList().register();
 		new Listener_AFK().register();
 		new Listener_Sign().register();
+		new Listener_OnlyBreak().register();
 	}
 	
 	public void registerRunners()

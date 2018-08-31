@@ -8,7 +8,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.censor.CensorType;
-import de.morigm.magna.api.helper.FileConfigHelper;
 import de.morigm.magna.api.helper.LoadHelper;
 import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.helper.SaveHelper;
@@ -35,13 +34,19 @@ public class BlackListLoader implements LoadHelper,SaveHelper,PermissionHelper
 	@Override
 	public void save() 
 	{
-		FileConfigHelper.deleteConfig(getConfig());
+		deleteConfig(getConfig());
 		
 		for(BlackWord word : getBlackWords())
 		{
 			getConfig().set(word.word + ".permission", word.permission);
 			getConfig().set(word.word + ".type", word.type.name());
 		}
+	}
+	
+	public void deleteConfig(FileConfiguration config)
+	{
+		for(String key : config.getKeys(true))
+			config.set(key, null);
 	}
 	
 	private FileConfiguration getConfig()

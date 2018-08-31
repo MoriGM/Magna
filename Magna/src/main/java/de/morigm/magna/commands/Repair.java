@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.api.helper.ItemHelper;
 import de.morigm.magna.chat.Chat;
 
 public class Repair extends CommandHelper
@@ -29,7 +30,7 @@ public class Repair extends CommandHelper
 			Player p = (Player) com;
 			if(testPermission(p, "repair"))
 			{
-				if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
+				if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR) && ItemHelper.isRepairable(p.getInventory().getItemInMainHand()))
 				{
 					ItemStack item = p.getInventory().getItemInMainHand();
 					item.setDurability((short)0);

@@ -44,7 +44,7 @@ public class HomeLoader implements LoadHelper,SaveHelper
 	@Override
 	public void save() 
 	{
-		FileConfigHelper.deleteConfig(getConfig());
+		deleteConfig(getConfig());
 		
 		for(UUID uuid : player_home_map.keySet())
 		{
@@ -52,6 +52,12 @@ public class HomeLoader implements LoadHelper,SaveHelper
 			for(Home home : homes)
 				FileConfigHelper.setLocation(getConfig(), uuid.toString() + "." + home.name, home.location);
 		}
+	}
+	
+	public static void deleteConfig(FileConfiguration config)
+	{
+		for(String key : config.getKeys(true))
+			config.set(key, null);
 	}
 	
 	public FileConfiguration getConfig()

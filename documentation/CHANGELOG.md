@@ -17,6 +17,7 @@
 * Added Command homes to Magna
 * Added Command sethome to Magna
 * Added Command deletehome to Magna
+* Added Command onlybreak to Magna
 
 #### System
 

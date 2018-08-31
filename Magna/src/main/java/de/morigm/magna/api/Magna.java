@@ -16,6 +16,7 @@ import de.morigm.magna.api.manager.GroupManager;
 import de.morigm.magna.api.manager.HomeManager;
 import de.morigm.magna.api.manager.MSGManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
+import de.morigm.magna.api.manager.OnlyBreakManager;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.RunnerManager;
 import de.morigm.magna.api.manager.SignManager;
@@ -116,6 +117,11 @@ public class Magna
 	public static SignManager getSignManager()
 	{
 		return getMain().getSignManager();
+	}
+	
+	public static OnlyBreakManager getOnlyBreakManager()
+	{
+		return getMain().getOnlyBreakManager();
 	}
 	
 	public static Language getLanguage()

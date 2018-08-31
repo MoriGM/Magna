@@ -16,6 +16,7 @@ import de.morigm.magna.api.manager.GroupManager;
 import de.morigm.magna.api.manager.HomeManager;
 import de.morigm.magna.api.manager.MSGManager;
 import de.morigm.magna.api.manager.MutedPlayerManager;
+import de.morigm.magna.api.manager.OnlyBreakManager;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.manager.RunnerManager;
 import de.morigm.magna.api.manager.SignManager;
@@ -64,6 +65,7 @@ public class Main extends JavaPlugin
 	@Getter private AFKManager AFKManager;
 	@Getter private HomeManager homeManager;
 	@Getter private SignManager signManager;
+	@Getter private OnlyBreakManager onlyBreakManager;
 	
 	@Getter private RegisterAutoEdits registerAutoEdits;
 	
@@ -156,6 +158,7 @@ public class Main extends JavaPlugin
 		this.homeManager = new HomeManager();
 		this.signManager = new SignManager();
 		this.pluginLoader.registerSignListener();
+		this.onlyBreakManager = new OnlyBreakManager();
 		if(Magna.getSettings().getWarning() && !Magna.isSupported())
 			Chat.writeError(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
 		Chat.writeMessage("Version: " + Chat.version);

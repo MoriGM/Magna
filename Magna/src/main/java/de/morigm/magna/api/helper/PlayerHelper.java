@@ -10,5 +10,10 @@ public class PlayerHelper
 	{
 		return sender instanceof Player;
 	}
+	
+	public static Player toPlayer(CommandSender sender)
+	{
+		return (Player) sender;
+	}
 
 }
