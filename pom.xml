@@ -11,6 +11,7 @@
 
 	<modules>
 		<module>Magna</module>
+		<module>Magna-World</module>
 	</modules>
 	
 </project>

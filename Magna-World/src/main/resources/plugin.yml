@@ -1,0 +1,7 @@
+name: Magna-World
+version: 0.6.0
+author: MoriGM
+
+main: de.morigm.magnaworld.Main
+
+commands:

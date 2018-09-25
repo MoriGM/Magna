@@ -29,7 +29,6 @@
 
 # Extra Plugin
 
-* Magna-World
 * Magna-SpezialItems
 * Magna-ChatCopyLog
 * Magna-CharFormat
