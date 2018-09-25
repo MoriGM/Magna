@@ -9,16 +9,15 @@ import org.bukkit.World.Environment;
 import org.bukkit.WorldCreator;
 import org.bukkit.WorldType;
 
-import com.sun.istack.internal.NotNull;
-
 import de.morigm.magnaworld.api.world.WorldStruct;
+import lombok.NonNull;
 
 public class MagnaWorld 
 {
 	
 	private static List<WorldStruct> worlds = new ArrayList<>();
 	
-	public static void registerWorld(@NotNull WorldStruct world,@NotNull WorldType type,@NotNull Environment ev)
+	public static void registerWorld(@NonNull WorldStruct world,@NonNull WorldType type,@NonNull Environment ev)
 	{
 		if(!containsWorld(world) && !containsWorld(world.getName()))
 		{
@@ -33,7 +32,7 @@ public class MagnaWorld
 		}
 	}
 	
-	public static void loadWorld(@NotNull WorldStruct world)
+	public static void loadWorld(@NonNull WorldStruct world)
 	{
 		if(!containsWorld(world) && !containsWorld(world.getName()))
 		{
