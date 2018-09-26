@@ -93,6 +93,13 @@ public class Settings
 		return false;
 	}
 	
+	public boolean getDebug()
+	{
+		if(this.config != null)
+			return config.debug;
+		return false;
+	}
+	
 	public void setOwnCommandSpy(boolean state)
 	{
 		if(this.config != null)

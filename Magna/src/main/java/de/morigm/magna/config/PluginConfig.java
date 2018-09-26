@@ -26,6 +26,7 @@ public class PluginConfig implements ConfigHelper
 	public Location spawn;
 	public String language;
 	public int afkTimer;
+	public boolean debug;
 
 	private void adddefault()
 	{
@@ -59,6 +60,10 @@ public class PluginConfig implements ConfigHelper
 		this.blacklistperm = getConfig().getBoolean("blacklistperm");
 		this.afkTimer = getConfig().getInt("afk-timer");
 		this.showafk = getConfig().getBoolean("showafk");
+		if(getConfig().contains("debug"))
+			this.debug = getConfig().getBoolean("debug");
+		else
+			this.debug = true;
 		
 		loadSpawn();
 	}

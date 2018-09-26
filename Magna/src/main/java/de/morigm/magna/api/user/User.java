@@ -4,6 +4,7 @@ import static de.morigm.magna.api.Magna.getAFKManager;
 import static de.morigm.magna.api.Magna.getCommandSpyManager;
 import static de.morigm.magna.api.Magna.getGodModeManager;
 import static de.morigm.magna.api.Magna.getMutedPlayerManager;
+import static de.morigm.magna.api.Magna.getOnlyBreakManager;
 
 import java.util.UUID;
 
@@ -11,7 +12,9 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
+import de.morigm.magna.api.gui.Gui;
 import de.morigm.magna.api.manager.PermissionManager;
+import de.morigm.magna.stuff.MagnaStuff;
 import lombok.Getter;
 
 public class User 
@@ -55,6 +58,11 @@ public class User
 			return player.hasPermission(permission.getPermission(Permission));
 		}
 		
+		public boolean hasOnlyBreak()
+		{
+			return getOnlyBreakManager().containsPlayer(player);
+		}
+		
 		public UUID getUUID()
 		{
 			return player.getUniqueId();
@@ -89,6 +97,14 @@ public class User
 				getCommandSpyManager().removePlayer(player);
 		}
 		
+		public void setOnlyBreak(boolean state)
+		{
+			if(state)
+				getOnlyBreakManager().addPlayer(player);
+			else
+				getOnlyBreakManager().removePlayer(player);
+		}
+		
 		public void setGodMode(boolean state)
 		{
 			if(state)
@@ -107,4 +123,34 @@ public class User
 			this.player.teleport(loc);
 		}
 		
+		
+		public void openGui(Gui gui)
+		{
+			if(getGui() != null)
+				closeGui();
+			if(!gui.getPermission().isEmpty())
+				if(!player.hasPermission(gui.getPermission()))
+					return;
+			gui.load();
+			gui.createGUI(player);
+			getPlayer().openInventory(gui.getInventory());
+			MagnaStuff.getGuis().put(player, gui);
+		}
+		
+		public Gui getGui()
+		{
+			if(MagnaStuff.getGuis().containsKey(player))
+				return MagnaStuff.getGuis().get(player);
+			else
+				return null;
+		}
+		
+		public void closeGui()
+		{
+			if(getGui() != null)
+			{
+				player.closeInventory();
+				MagnaStuff.getGuis().remove(player);
+			}
+		}
 }

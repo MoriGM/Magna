@@ -12,7 +12,6 @@
 
 # Class
 
-* ItemHelper
 * PlayerWriteBlockedWordEvent
 
 # Listener

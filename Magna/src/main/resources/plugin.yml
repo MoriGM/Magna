@@ -67,3 +67,4 @@ commands:
             aliases: delhome
       home:
       onlybreak:
+      magna-version:

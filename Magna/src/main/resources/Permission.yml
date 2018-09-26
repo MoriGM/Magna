@@ -51,6 +51,7 @@ sethome: magna.cmd.sethome
 homes: magna.cmd.homes
 deletehome: magna.cmd.deletehome
 home: magna.cmd.home
+version: magna.cmd.version
 onlybreak: magna.cmd.onlybreak
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
@@ -64,3 +65,6 @@ blacklistword: magna.blackword
 homesize: magna.home.size
 signcreate: magna.sign
 signclick: magna.sign.click
+debug: magna.debug
+debug.version: magna.debug.version
+debug.owncommandspy: magna.debug.owncommandspy

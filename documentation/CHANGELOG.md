@@ -18,6 +18,7 @@
 * Added Command sethome to Magna
 * Added Command deletehome to Magna
 * Added Command onlybreak to Magna
+* Added Command version to Magna
 
 #### System
 
@@ -26,6 +27,7 @@
 * Added AFK System to Magna
 * Added Home System to Magna
 * Added Sign System to Magna
+* Added Gui System to Magna
 
 #### Classes
 

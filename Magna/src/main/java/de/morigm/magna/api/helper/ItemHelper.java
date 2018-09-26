@@ -2,6 +2,7 @@ package de.morigm.magna.api.helper;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class ItemHelper 
 {
@@ -46,6 +47,11 @@ public class ItemHelper
 		return equalsType(item, Material.ELYTRA);
 	}
 	
+	public static boolean isLiquid(ItemStack item)
+	{
+		return equalsType(item, Material.WATER) || equalsType(item, Material.LAVA) || equalsType(item, Material.STATIONARY_WATER) || equalsType(item, Material.STATIONARY_LAVA);
+	}
+	
 	public static boolean isArmor(ItemStack item)
 	{
 		return isElytra(item) || isLeggings(item) || isBoots(item) || isHelmet(item) || isChectPlate(item);
@@ -54,6 +60,25 @@ public class ItemHelper
 	public static boolean isRepairable(ItemStack item)
 	{
 		return isSword(item) || isArmor(item);
+	}
+	
+	
+	public static ItemStack getItem(ItemStack item,String text)
+	{
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(text);
+		item.setItemMeta(meta);
+		return item;
+	}
+	
+	public static ItemStack getItem(Material m,String text)
+	{
+		return getItem(new ItemStack(m), text);
+	}
+	
+	public static ItemStack getItem(Material m,short b,String text)
+	{
+		return getItem(new ItemStack(m, 1, b), text);
 	}
 	
 }

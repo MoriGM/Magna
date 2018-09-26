@@ -55,6 +55,7 @@ import de.morigm.magna.commands.TeamChat;
 import de.morigm.magna.commands.TpHere;
 import de.morigm.magna.commands.TpTo;
 import de.morigm.magna.commands.Trash;
+import de.morigm.magna.commands.Version;
 import de.morigm.magna.commands.Warp;
 import de.morigm.magna.commands.Warps;
 import de.morigm.magna.commands.getUUID;
@@ -67,6 +68,7 @@ import de.morigm.magna.listener.Listener_ColorSign;
 import de.morigm.magna.listener.Listener_CommandLog;
 import de.morigm.magna.listener.Listener_DeathBack;
 import de.morigm.magna.listener.Listener_GODMODE;
+import de.morigm.magna.listener.Listener_Gui;
 import de.morigm.magna.listener.Listener_Muted;
 import de.morigm.magna.listener.Listener_NoFallDamage;
 import de.morigm.magna.listener.Listener_OnlyBreak;
@@ -137,6 +139,7 @@ public class PluginLoader
 		new DeleteHome().register("deletehome");
 		new Home().register("home");
 		new OnlyBreak().register("onlybreak");
+		new Version().register("magna-version");
 	}
 	
 	public void registerListener()
@@ -154,6 +157,7 @@ public class PluginLoader
 		new Listener_AFK().register();
 		new Listener_Sign().register();
 		new Listener_OnlyBreak().register();
+		new Listener_Gui().register();
 	}
 	
 	public void registerRunners()
