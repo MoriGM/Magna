@@ -6,6 +6,7 @@ import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magna.api.gui.Gui;
 import de.morigm.magna.api.gui.GuiButton;
+import de.morigm.magna.api.gui.GuiSwitchButton;
 import de.morigm.magna.api.helper.ItemHelper;
 import de.morigm.magna.chat.Chat;
 
@@ -19,7 +20,7 @@ public class DebugGui extends Gui
 		setSize(9);
 		setPermission(getPermission("debug"));
 		addButton(new GuiButton(ItemHelper.getItem(Material.WOOL, "Version"), 1));
-		addButton(new GuiButton(ItemHelper.getItem(Material.WOOL,(Magna.getSettings().getOwnCommandSpy() ? ChatColor.GREEN : ChatColor.RED) + "OwnCommandSpy"), 2));
+		addButton(new GuiSwitchButton(Material.WOOL, "OwnCommandSpy", 2, Magna.getSettings().getOwnCommandSpy()));
 	}
 
 	@Override
