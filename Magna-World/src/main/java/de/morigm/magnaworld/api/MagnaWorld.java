@@ -45,12 +45,12 @@ public class MagnaWorld
 	
 	public static List<WorldStruct> getWorlds()
 	{
-		return worlds;
+		return MagnaWorld.worlds;
 	}
 	
 	public static WorldStruct getWorld(String world)
 	{
-		for(WorldStruct w : worlds)
+		for(WorldStruct w : getWorlds())
 			if(w.getName().equals(world))
 				return w;
 		return null;
@@ -58,12 +58,17 @@ public class MagnaWorld
 	
 	public static boolean containsWorld(WorldStruct world)
 	{
-		return worlds.contains(world);
+		return getWorlds().contains(world);
 	}
 	
 	public static boolean containsWorld(String world)
 	{
 		return getWorld(world) != null;
+	}
+
+	public static String getName() 
+	{
+		return "MagnaWorld";
 	}
 	
 }

@@ -8,6 +8,7 @@ import de.morigm.magna.api.gui.Gui;
 import de.morigm.magna.api.gui.GuiButton;
 import de.morigm.magna.api.gui.GuiSwitchButton;
 import de.morigm.magna.api.helper.ItemHelper;
+import de.morigm.magna.api.helper.ListHelper;
 import de.morigm.magna.chat.Chat;
 
 public class DebugGui extends Gui 
@@ -21,6 +22,9 @@ public class DebugGui extends Gui
 		setPermission(getPermission("debug"));
 		addButton(new GuiButton(ItemHelper.getItem(Material.WOOL, "Version"), 1));
 		addButton(new GuiSwitchButton(Material.WOOL, "OwnCommandSpy", 2, Magna.getSettings().getOwnCommandSpy()));
+		addButton(new GuiButton(ItemHelper.getItem(Material.WOOL, "AfkTimer"), 3));
+		addButton(new GuiButton(ItemHelper.getItem(Material.WOOL, "Language"), 4));
+		addButton(new GuiSwitchButton(Material.WOOL, "ShowChatClear", 5, Magna.getSettings().getShowChatClear()));
 	}
 
 	@Override
@@ -30,7 +34,13 @@ public class DebugGui extends Gui
 			getPlayer().sendMessage(Chat.prefix + "Version:" + Chat.version);
 		if(button.getId() == 2 && testPermission(getPlayer(), "debug.owncommandspy"))
 			Magna.getSettings().setOwnCommandSpy(!Magna.getSettings().getOwnCommandSpy());
-		if(button.getId() >= 2)
+		if(button.getId() == 3 && testPermission(getPlayer(), "debug.afktimer"))
+			getPlayer().sendMessage(Chat.prefix + "AfkTimer:" + Magna.getSettings().getAFKTimer());
+		if(button.getId() == 4 && testPermission(getPlayer(), "debug.language"))
+			getPlayer().sendMessage(Chat.prefix + "Language:" + Magna.getSettings().getLanguage());
+		if(button.getId() == 5 && testPermission(getPlayer(), "debug.chatclear"))
+				Magna.getSettings().setShowChatClear(!Magna.getSettings().getShowChatClear());
+		if(ListHelper.isInArray(button.getId(), 2, 5))
 			Magna.getUser(getPlayer()).openGui(new DebugGui());
 	}
 

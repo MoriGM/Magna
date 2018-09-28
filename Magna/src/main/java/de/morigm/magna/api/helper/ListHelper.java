@@ -33,5 +33,14 @@ public class ListHelper
 	{
 		return new ArrayList<T>();
 	}
+	
+	@SafeVarargs
+	public static <T> boolean isInArray(T in,T ... ts)
+	{
+		for(T t : ts)
+			if(t.equals(in))
+				return true;
+		return false;
+	}
 
 }

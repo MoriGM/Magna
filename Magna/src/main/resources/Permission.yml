@@ -68,3 +68,7 @@ signclick: magna.sign.click
 debug: magna.debug
 debug.version: magna.debug.version
 debug.owncommandspy: magna.debug.owncommandspy
+debug.afktimer: magna.debug.afktimer
+debug.language: magna.debug.language
+debug.chatclear: magna.debug.chatclear
+debug.debug: magna.debug.debug

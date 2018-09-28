@@ -59,7 +59,7 @@ public class Settings
 			return false;
 	}
 	
-	public boolean getShowChatClar()
+	public boolean getShowChatClear()
 	{
 		if(this.config != null)
 			return config.chatclear;

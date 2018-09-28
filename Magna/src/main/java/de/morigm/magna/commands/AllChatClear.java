@@ -29,7 +29,7 @@ public class AllChatClear extends CommandHelper
 			{
 				for(int i = 0;i < 100;i++)
 					p.sendMessage(" ");
-				if(Magna.getSettings().getShowChatClar())
+				if(Magna.getSettings().getShowChatClear())
 					p.sendMessage(Chat.prefix + translate("cmd.allchatclear") + " " + ((com instanceof Player) ? ((Player)com).getName() : "Sever"));
 			}
 		}
