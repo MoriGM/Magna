@@ -30,5 +30,15 @@ public class ListHelperTest
 		List<String> list2 = ListHelper.createList("Hi","Bye","Toast","Butter","Tea");
 		assertTrue(ListHelper.isSame(list1, list2));
 	}
+	
+	@Test
+	public void testSplit()
+	{
+		String[] arr1 = {"Hi","Bye","Toast","Butter","Tea"};
+		List<String> list = ListHelper.split(arr1, 2);
+		assertEquals(list.get(0), "Toast");
+		assertEquals(list.get(1), "Butter");
+		assertEquals(list.get(2), "Tea");
+	}
 
 }

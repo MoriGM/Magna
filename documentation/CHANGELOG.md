@@ -36,6 +36,11 @@ User
 ### Rebuild
 
 * Magna Api
+* Magna Language Api
+
+### Bugfix 
+
+* Afk Command doesn't workded right
 
 ## 0.5.0
 

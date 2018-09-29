@@ -1,7 +1,15 @@
 package de.morigm.magna.api.helper;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import org.apache.commons.io.IOUtils;
+
+import lombok.SneakyThrows;
 
 public class FileHelper
 {
@@ -41,6 +49,38 @@ public class FileHelper
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	@SneakyThrows
+	public static void copy(File in,File out)
+	{
+		FileInputStream ins = new FileInputStream(in);
+		FileOutputStream outs = new FileOutputStream(out);
+		copyFile(ins, outs);
+		ins.close();
+		outs.close();
+	}
+	
+	@SneakyThrows
+	public static void copy(InputStream in,File out)
+	{
+		FileOutputStream outs = new FileOutputStream(out);
+		copyFile(in, outs);
+		outs.close();
+	}
+	
+	@SneakyThrows
+	public static void copy(File in,OutputStream out)
+	{
+		FileInputStream ins = new FileInputStream(in);
+		copyFile(ins, out);
+		ins.close();
+	}
+	
+	@SneakyThrows
+	public static void copyFile(InputStream in,OutputStream out)
+	{
+		IOUtils.copy(in, out);
 	}
 	
 }

@@ -42,5 +42,16 @@ public class ListHelper
 				return true;
 		return false;
 	}
+	
+	public static <T> List<T> split(T[] t,int i)
+	{
+		List<T> list = new ArrayList<>();
+		if(i > t.length)
+			return list;
+		for(int x = i;x < t.length;x++)
+			list.add(t[x]);
+		return list;
+		
+	}
 
 }

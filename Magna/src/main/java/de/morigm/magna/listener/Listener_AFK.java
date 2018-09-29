@@ -103,7 +103,7 @@ public class Listener_AFK extends ListenerHelper
 	@EventHandler
 	public void testIfNotAFK(PlayerCommandPreprocessEvent e)
 	{
-		if(getAFKManager().isAfk(e.getPlayer()))
+		if(getAFKManager().isAfk(e.getPlayer()) && !e.getMessage().startsWith("/afk"))
 		{
 			getAFKManager().removePlayerFromAFKMode(e.getPlayer());
 			getAFKManager().setTimeAndLocation(e.getPlayer(), e.getPlayer().getLocation(), System.currentTimeMillis());
