@@ -13,6 +13,7 @@ import de.morigm.magna.commands.Damage;
 import de.morigm.magna.commands.Day;
 import de.morigm.magna.commands.DeleteHome;
 import de.morigm.magna.commands.Fly;
+import de.morigm.magna.commands.FlySpeed;
 import de.morigm.magna.commands.GameMode;
 import de.morigm.magna.commands.GameModeInfo;
 import de.morigm.magna.commands.GetPos;
@@ -142,6 +143,7 @@ public class PluginLoader
 		new OnlyBreak().register("onlybreak");
 		new Version().register("magna-version");
 		new Speed().register("speed");
+		new FlySpeed().register("flyspeed");
 	}
 	
 	public void registerListener()

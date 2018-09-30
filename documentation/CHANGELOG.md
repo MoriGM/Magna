@@ -20,6 +20,7 @@
 * Added Command onlybreak to Magna
 * Added Command version to Magna
 * Added Command speed to Magna
+* Added Command flyspeed to Magna
 
 #### System
 

@@ -2,7 +2,6 @@
 
 * tpaccept
 * tpa
-* flyspeed
 
 # Rebuild
 
