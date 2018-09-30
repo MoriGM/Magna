@@ -14,10 +14,8 @@ public class LanguageLoader implements LoadHelper
 	private File language;
 	private String[] languageFiles = {"de-de.yml", "en-en.yml"};
 
-	
 	public void check()
 	{	
-		
 		for(String languageFile : languageFiles)
 		{
 			File file = new File(Magna.getFolders().getLanguageFolder(), languageFile);
@@ -26,7 +24,6 @@ public class LanguageLoader implements LoadHelper
 			
 			if(file.lastModified() < Main.getInstance().getJar().lastModified())
 				LanguageFileHelper.addNewText(Main.getInstance().getResource(languageFile), file);
-			
 		}
 		
 		File language = Magna.getFolders().getLanguageFile();

@@ -53,6 +53,7 @@ deletehome: magna.cmd.deletehome
 home: magna.cmd.home
 version: magna.cmd.version
 onlybreak: magna.cmd.onlybreak
+speed: magna.cmd.speed
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create

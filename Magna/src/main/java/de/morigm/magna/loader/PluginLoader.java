@@ -50,6 +50,7 @@ import de.morigm.magna.commands.SetSpawn;
 import de.morigm.magna.commands.SetWarp;
 import de.morigm.magna.commands.Skull;
 import de.morigm.magna.commands.Spawn;
+import de.morigm.magna.commands.Speed;
 import de.morigm.magna.commands.TPAll;
 import de.morigm.magna.commands.TeamChat;
 import de.morigm.magna.commands.TpHere;
@@ -140,6 +141,7 @@ public class PluginLoader
 		new Home().register("home");
 		new OnlyBreak().register("onlybreak");
 		new Version().register("magna-version");
+		new Speed().register("speed");
 	}
 	
 	public void registerListener()

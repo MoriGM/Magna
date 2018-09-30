@@ -1,10 +1,8 @@
 # Commands
 
-* version
 * tpaccept
 * tpa
 * flyspeed
-* speed
 
 # Rebuild
 

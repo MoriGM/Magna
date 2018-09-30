@@ -19,6 +19,7 @@
 * Added Command deletehome to Magna
 * Added Command onlybreak to Magna
 * Added Command version to Magna
+* Added Command speed to Magna
 
 #### System
 

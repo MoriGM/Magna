@@ -18,6 +18,7 @@ public class Chat
 	public static final String no_permission = Main.getInstance().getLanguage().translate("chat.no-permission");
 	public static final String no_online = Main.getInstance().getLanguage().translate("chat.no-online");
 	public static final String no_group = Main.getInstance().getLanguage().translate("chat.no-group");
+	public static final String no_int = Main.getInstance().getLanguage().translate("chat.no-int");
 	
 	public static void writeMessage(String text)
 	{
@@ -47,6 +48,11 @@ public class Chat
 	public static void noOnline(CommandSender com)
 	{
 		com.sendMessage(prefix + no_online);
+	}
+	
+	public static void noInt(CommandSender com)
+	{
+		com.sendMessage(prefix + no_int);
 	}
 	
 }
