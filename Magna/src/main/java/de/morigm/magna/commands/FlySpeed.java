@@ -10,7 +10,8 @@ import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
 
-public class FlySpeed extends CommandHelper {
+public class FlySpeed extends CommandHelper 
+{
 
 	@Override
 	public void registerUtils() 
