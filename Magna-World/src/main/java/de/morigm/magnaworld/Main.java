@@ -8,6 +8,7 @@ import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magnaworld.loader.LanguageLoader;
 import de.morigm.magnaworld.loader.PluginLoader;
+import de.morigm.magnaworld.loader.WorldLoader;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,7 @@ public class Main extends JavaPlugin
 	@Getter private PermissionManager permission;
 	@Getter private File LanguageFolder;
 	@Getter private LanguageLoader languageLoader;
+	@Getter private WorldLoader WorldLoader;
 
 	@Override
 	public void onEnable() 
@@ -34,6 +36,7 @@ public class Main extends JavaPlugin
 		this.WorldFolder.mkdirs();
 		this.LanguageFolder.mkdirs();
 		
+		(this.WorldLoader = new WorldLoader()).load();
 		(this.permission = new PermissionManager(getResource("Permission.yml"))).load();
 		(this.languageLoader = new LanguageLoader()).load();
 		this.WorldPluginLoader = new PluginLoader();
@@ -45,5 +48,6 @@ public class Main extends JavaPlugin
 	@Override
 	public void onDisable() 
 	{
+		this.WorldLoader.save();
 	}
 }

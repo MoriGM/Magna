@@ -1,2 +1,4 @@
 cmd.mwcreate= Welt wurde erstellt
 cmd.mwcreate.error= Diese Welt gibt es schon
+cmd.mwtp= Teleportiert zur World Spawn
+cmd.mwtp.error= Diese Welt gibt es nicht
