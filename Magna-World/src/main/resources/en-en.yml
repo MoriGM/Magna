@@ -1,0 +1,2 @@
+cmd.mwcreate= World was created
+cmd.mwcreate.error= World already exists

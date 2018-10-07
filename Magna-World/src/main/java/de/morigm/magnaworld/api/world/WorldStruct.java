@@ -18,7 +18,7 @@ public class WorldStruct
 		this.name = name;
 	}
 	
-	public WorldStruct(String name,long seed)
+	public WorldStruct(String name,Long seed)
 	{
 		this(name);
 		this.seed = seed;

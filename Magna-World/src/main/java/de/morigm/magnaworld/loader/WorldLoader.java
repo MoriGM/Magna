@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import de.morigm.magna.api.helper.LoadHelper;
 import de.morigm.magnaworld.Main;
+import de.morigm.magnaworld.api.MagnaWorld;
 import de.morigm.magnaworld.api.world.WorldStruct;
 
 public class WorldLoader implements LoadHelper
@@ -22,6 +23,7 @@ public class WorldLoader implements LoadHelper
 				continue;
 			String name = config.getString("name");
 			WorldStruct ws = new WorldStruct(name);
+			MagnaWorld.loadWorld(ws);
 		}
 	}
 

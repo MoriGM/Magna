@@ -21,6 +21,7 @@
 * Added Command version to Magna
 * Added Command speed to Magna
 * Added Command flyspeed to Magna
+* Added Command mwcreate to Magna-World
 
 #### System
 
