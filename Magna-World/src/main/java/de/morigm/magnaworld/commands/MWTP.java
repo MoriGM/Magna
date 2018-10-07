@@ -36,13 +36,13 @@ public class MWTP extends CommandHelper
 					if(w != null)
 					{
 						p.teleport(w.getSpawnLocation());
-						p.sendMessage(Chat.prefix + translate("cmd.mwtp"));
+						p.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwtp"));
 					}
 					else
-						p.sendMessage(Chat.prefix + translate("cmd.mwtp.error"));
+						p.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwtp.error"));
 				}
 				else
-					p.sendMessage(Chat.prefix + translate("/" + getCommand() + " <name>"));
+					p.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("/" + getCommand() + " <name>"));
 			}
 			else
 				Chat.noPermission(sender);

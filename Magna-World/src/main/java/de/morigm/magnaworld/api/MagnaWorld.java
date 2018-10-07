@@ -65,6 +65,12 @@ public class MagnaWorld
 	{
 		return getWorld(world) != null;
 	}
+	
+	public static void removeWorld(String name)
+	{
+		if(containsWorld(name))
+			getWorlds().remove(getWorld(name));
+	}
 
 	public static String getName() 
 	{

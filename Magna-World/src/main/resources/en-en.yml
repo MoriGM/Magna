@@ -2,3 +2,5 @@ cmd.mwcreate= World was created
 cmd.mwcreate.error= World already exists
 cmd.mwtp= Teleported to World Spawn
 cmd.mwtp.error= World doesn't exists
+cmd.mwdelete= World was deleted
+cmd.mwdelete.error= World doesn't exists

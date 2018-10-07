@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
@@ -81,6 +83,34 @@ public class FileHelper
 	public static void copyFile(InputStream in,OutputStream out)
 	{
 		IOUtils.copy(in, out);
+	}
+	
+	public static void getFiles(List<File> files,File folder)
+	{
+		for(File f : folder.listFiles())
+			if(f.isDirectory())
+				getFiles(files, f);
+			else
+			{
+				files.add(f);
+			}
+				
+		files.add(folder);
+	}
+	
+	public static void delete(List<File> files)
+	{
+		List<File> folders = new ArrayList<>();
+		for(File f : files)
+			if(f.exists())
+				if(f.isDirectory())
+					folders.add(f);
+				else
+					f.delete();
+		
+		for(File f : folders)
+			if(f.exists())
+				f.delete();
 	}
 	
 }
