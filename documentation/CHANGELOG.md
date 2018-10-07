@@ -24,6 +24,7 @@
 * Added Command mwcreate to Magna-World
 * Added Command mwtp to Magna-World
 * Added Command mwdelete to Magna-World
+* Added Command mwlist to Magna-World
 
 #### System
 
