@@ -66,8 +66,8 @@ public class HomeManager implements PermissionHelper
 	public int maxPlayerHomes(Player player)
 	{
 		if(player.hasPermission(getPermission("homesize") + "." + maxHomes))
-			return 50;
-		for(int i = 1;i < 50;i++)
+			return maxHomes;
+		for(int i = 1;i < maxHomes;i++)
 			if(player.hasPermission(getPermission("homesize") + "." + i))
 				return i;
 		return 0;

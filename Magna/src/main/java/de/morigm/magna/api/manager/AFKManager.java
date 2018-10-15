@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.TranslationHelper;
+import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.stuff.AFKStuff;
 
@@ -56,7 +57,7 @@ public class AFKManager implements TranslationHelper
 		{
 			getAFKPlayers().add(p);
 			if(Magna.getSettings().getShowAfk())
-				Bukkit.broadcastMessage(Chat.prefix + p.getName() + " " + translate("afk.show.on"));
+				Bukkit.broadcastMessage(Chat.prefix + translate("afk.show.on",new TextStruct("%player%", p.getName())));
 		}
 	}
 	
@@ -66,7 +67,7 @@ public class AFKManager implements TranslationHelper
 		{
 			getAFKPlayers().remove(p);
 			if(Magna.getSettings().getShowAfk())
-				Bukkit.broadcastMessage(Chat.prefix + p.getName() + " " + translate("afk.show.off"));
+				Bukkit.broadcastMessage(Chat.prefix + translate("afk.show.off",new TextStruct("%player%", p.getName())));
 		}
 	}
 	

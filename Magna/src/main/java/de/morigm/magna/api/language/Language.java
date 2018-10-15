@@ -19,10 +19,16 @@ public class Language implements LoadHelper
 		this.languageFile = file;
 	}
 	
-	public String translate(String text)
+	public String translate(String text, TextStruct ... structs)
 	{
 		if(prop.containsKey(text))
-			return prop.getProperty(text);
+		{
+			String translate = prop.getProperty(text);
+			if(structs.length >= 1)
+				for(TextStruct struct : structs)
+					translate = translate.replace(struct.getOld(), struct.getNew());
+			return translate;
+		}
 		return text;
 	}
 

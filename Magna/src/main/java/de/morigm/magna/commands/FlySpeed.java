@@ -55,7 +55,7 @@ public class FlySpeed extends CommandHelper
 						Chat.noInt(p);
 				}
 				else
-					p.sendMessage(getCommand() + " <speed> [Player]");
+					p.sendMessage(Chat.prefix + Slash(sender) +  getCommand() + " <speed> [Player]");
 			else
 				Chat.noPermission(p);
 		}

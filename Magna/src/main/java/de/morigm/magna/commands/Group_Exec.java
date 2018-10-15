@@ -36,7 +36,7 @@ public class Group_Exec extends CommandHelper
 					com.sendMessage(Chat.prefix + translate("cmd.group-exec"));
 				}
 				else
-					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <Group> <Command>");
+					com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Group> <Command>");
 			}
 			else
 				com.sendMessage(Chat.prefix + Chat.no_group);

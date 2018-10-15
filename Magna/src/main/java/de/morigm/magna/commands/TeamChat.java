@@ -36,7 +36,7 @@ public class TeamChat extends CommandHelper
 						t.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE +  "TeamChat" + ChatColor.GRAY + "]" + ChatColor.RESET +  "<" + (com instanceof Player ? ((Player) com).getName() : "SERVER") + ">" + s);
 			}
 			else
-				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <Text>");
+				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Text>");
 		}
 		else
 			Chat.noPermission(com);

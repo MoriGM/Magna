@@ -8,6 +8,7 @@ import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.helper.TranslationHelper;
 import de.morigm.magna.api.language.Language;
+import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
 import lombok.Getter;
 
@@ -79,9 +80,9 @@ public abstract class Runner implements TranslationHelper, PermissionHelper
 	}
 	
 	@Override
-	public String translate(String text) 
+	public String translate(String text, TextStruct ... structs) 
 	{
-		return language.translate(text);
+		return language.translate(text, structs);
 	}
 	
 	@Override

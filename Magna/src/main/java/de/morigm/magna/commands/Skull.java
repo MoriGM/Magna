@@ -44,7 +44,7 @@ public class Skull extends CommandHelper
 					p.sendMessage(Chat.prefix + translate("cmd.skull"));
 				}
 				else
-					p.sendMessage(Chat.prefix + getCommand() + " <SkullOwner>");
+					p.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <SkullOwner>");
 			}
 			else
 				Chat.noPermission(p);

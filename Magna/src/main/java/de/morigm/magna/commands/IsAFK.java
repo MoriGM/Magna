@@ -40,7 +40,7 @@ public class IsAFK extends CommandHelper
 					Chat.noOnline(com);
 			}
 			else
-				com.sendMessage(Chat.prefix + "" + getCommand() + " <Player>");
+				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
 		}
 		else
 			Chat.noPermission(com);

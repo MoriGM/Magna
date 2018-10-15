@@ -39,7 +39,7 @@ public class TpTo extends CommandHelper
 						Chat.noOnline(p);
 				}
 				else
-					p.sendMessage(Chat.prefix + "/" + getCommand() + " <Player>");
+					p.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
 			}
 			else
 				Chat.noPermission(p);

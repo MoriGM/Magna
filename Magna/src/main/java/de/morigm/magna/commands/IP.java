@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.chat.Chat;
 
 public class IP extends CommandHelper
@@ -17,7 +18,6 @@ public class IP extends CommandHelper
 		util().registerCommandName(getCommand());
 		util().registerPermission("ip");
 		util().registerTranslation("cmd.ip");
-		util().registerTranslation("cmd.ip.is");
 	}
 
 	@Override
@@ -29,12 +29,12 @@ public class IP extends CommandHelper
 			{
 				Player t = Bukkit.getPlayer(args[0]);
 				if(t != null)
-					com.sendMessage(Chat.prefix + translate("cmd.ip") + " " + t.getName() + " " + translate("cmd.ip.is") + " " + t.getAddress().getHostString());
+					com.sendMessage(Chat.prefix + translate("cmd.ip",new TextStruct("%player%", t.getName()),new TextStruct("%ip%",t.getAddress().getHostString())));
 				else
 					Chat.noOnline(com);
 			}
 			else
-				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <Player>");
+				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
 		}
 		else
 			Chat.noPermission(com);

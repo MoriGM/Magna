@@ -44,7 +44,7 @@ public class Warp extends CommandHelper
 						p.sendMessage(Chat.prefix + translate("cmd.warp.error"));
 				}
 				else
-					p.sendMessage(Chat.prefix + "/" + getCommand() + " <warp>");
+					p.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <warp>");
 			}
 			else
 				Chat.noPermission(com);

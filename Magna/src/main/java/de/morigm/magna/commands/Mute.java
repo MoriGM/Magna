@@ -48,7 +48,7 @@ public class Mute extends CommandHelper
 					com.sendMessage(Chat.prefix + translate("cmd.mute.list") + ": " + players);
 				}
 				else
-					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() + " <list>");
+					com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() + " <list>");
 			}
 			else
 			{
@@ -84,14 +84,14 @@ public class Mute extends CommandHelper
 							com.sendMessage(Chat.prefix + translate("cmd.mute.status") + " " + (!getMutedPlayerManager().containsPlayer(t) ? (translate("cmd.mute.status.not") + " " + ChatColor.GREEN) : ChatColor.RED.toString()) + "muted");
 						}
 						else
-							com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() + " <list>");
+							com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + Slash(com) + getCommand() + " <list>");
 					}
 					else
 						Chat.noPlayer(com);
 				}
 				else
 				{
-					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + (com instanceof Player ? "/" : "") + getCommand() +  " <list>");
+					com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <on,off,status> <player> " + translate("cmd.mute.or") + " " + Slash(com) + getCommand() +  " <list>");
 				}
 			}
 		}

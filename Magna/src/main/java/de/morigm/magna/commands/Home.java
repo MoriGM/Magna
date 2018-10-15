@@ -43,7 +43,7 @@ public class Home extends CommandHelper
 						p.sendMessage(Chat.prefix + translate("cmd.home.exists"));
 				}
 				else
-					p.sendMessage(Chat.prefix + "/" + getCommand() + " <home>");
+					p.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <home>");
 			}
 			else
 				Chat.noPermission(p);

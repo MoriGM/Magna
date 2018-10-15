@@ -45,7 +45,7 @@ public class Damage extends CommandHelper
 				}
 			}
 			else
-				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <Player> <Damage>");
+				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player> <Damage>");
 		}
 		else
 			Chat.noPermission(com);

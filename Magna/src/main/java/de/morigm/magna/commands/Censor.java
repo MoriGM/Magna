@@ -1,10 +1,10 @@
 package de.morigm.magna.commands;
 
+import static de.morigm.magna.api.Magna.getBlackListManager;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
-import static de.morigm.magna.api.Magna.getBlackListManager;
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.censor.CensorType;
 import de.morigm.magna.api.helper.CommandHelper;
@@ -67,7 +67,7 @@ public class Censor extends CommandHelper
 						com.sendMessage(Chat.prefix + translate("cmd.censor.remove.error"));
 				}
 				else
-					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + (com instanceof Player ? "/" : "") + getCommand() + " <list,types>");
+					com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
 			}
 			else
 			if(args.length >= 1)
@@ -85,10 +85,10 @@ public class Censor extends CommandHelper
 				if(args[0].equalsIgnoreCase("types"))
 					com.sendMessage(Chat.prefix + translate("cmd.censor.type") + ":" + getTypes());
 				else
-					com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + (com instanceof Player ? "/" : "") + getCommand() + " <list,types>");
+					com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
 			}
 			else
-				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + (com instanceof Player ? "/" : "") + getCommand() + " <list,types>");
+				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
 		}
 		else
 			Chat.noPermission(com);

@@ -2,7 +2,6 @@ package de.morigm.magna.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.mojang.MojangApi;
@@ -31,7 +30,7 @@ public class getUUID extends CommandHelper
 				com.sendMessage(Chat.prefix + "UUID:" + MojangApi.getPlayerUUID(name));
 			}
 			else
-				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <name>");
+				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <name>");
 		}
 		else
 			Chat.noPermission(com);

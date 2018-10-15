@@ -4,7 +4,6 @@ import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
@@ -39,7 +38,7 @@ public class Pardon extends CommandHelper
 					com.sendMessage(Chat.prefix + translate("cmd.pardon.error"));
 			}
 			else
-				com.sendMessage(Chat.prefix + (com instanceof Player ? "/" : "") + getCommand() + " <Player>");
+				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
 		}
 		else
 			Chat.noPermission(com);

@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.language.Language;
+import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
 
 public class ListenerHelper implements Listener, PermissionHelper, TranslationHelper
@@ -45,9 +46,9 @@ public class ListenerHelper implements Listener, PermissionHelper, TranslationHe
 	}
 	
 	@Override
-	public String translate(String text) 
+	public String translate(String text, TextStruct ... structs) 
 	{
-		return language.translate(text);
+		return language.translate(text, structs);
 	}
 	
 	@Override

@@ -9,6 +9,7 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.command.CommandUtil;
 import de.morigm.magna.api.language.Language;
+import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
 
 public abstract class CommandHelper implements CommandExecutor, PermissionHelper, TranslationHelper
@@ -71,9 +72,9 @@ public abstract class CommandHelper implements CommandExecutor, PermissionHelper
 	}
 	
 	@Override
-	public String translate(String text) 
+	public String translate(String text, TextStruct ... structs) 
 	{
-		return language.translate(text);
+		return language.translate(text, structs);
 	}
 	
 	@Override
@@ -83,5 +84,10 @@ public abstract class CommandHelper implements CommandExecutor, PermissionHelper
 	}
 	
 	public abstract void registerUtils();
+	
+	public String Slash(CommandSender sender)
+	{
+		return (sender instanceof Player ? "/" : "");
+	}
 	
 }
