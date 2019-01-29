@@ -20,10 +20,10 @@ public class OpenWorkbench extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(com, "workbench"))
+			if (testPermission(com, "workbench"))
 				p.openWorkbench(p.getLocation(), true);
 			else
 				Chat.noPermission(p);

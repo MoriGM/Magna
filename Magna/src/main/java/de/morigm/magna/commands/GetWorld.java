@@ -21,10 +21,10 @@ public class GetWorld extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "getworld"))
+			if (testPermission(p, "getworld"))
 			{
 				p.sendMessage(Chat.prefix + translate("cmd.getworld") + " " + p.getWorld().getName());
 			}

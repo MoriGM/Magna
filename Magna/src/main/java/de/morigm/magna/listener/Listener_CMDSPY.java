@@ -15,14 +15,14 @@ public class Listener_CMDSPY extends ListenerHelper
 	@EventHandler
 	public void on(PlayerCommandPreprocessEvent e)
 	{
-		for(Player p : Bukkit.getOnlinePlayers())
+		for (Player p : Bukkit.getOnlinePlayers())
 		{
-			if(Main.getInstance().getCommandSpyManager().containsPlayer(p))
-				if(!Main.getInstance().getDefaultPluginConfig().commandspyblocked.contains(e.getMessage().split(" ")[0]))
+			if (Main.getInstance().getCommandSpyManager().containsPlayer(p))
+				if (!Main.getInstance().getDefaultPluginConfig().commandspyblocked.contains(e.getMessage().split(" ")[0]))
 				{
-					if(!Main.getInstance().getDefaultPluginConfig().owncommandspy)
+					if (!Main.getInstance().getDefaultPluginConfig().owncommandspy)
 					{
-						if(!p.equals(e.getPlayer()))
+						if (!p.equals(e.getPlayer()))
 							p.sendMessage(Chat.prefix + ChatColor.GRAY + "<" + ChatColor.GREEN + e.getPlayer().getName() + ChatColor.GRAY + ">" + ChatColor.WHITE + e.getMessage());
 					}
 					else

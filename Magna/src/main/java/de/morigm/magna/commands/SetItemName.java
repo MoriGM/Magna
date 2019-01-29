@@ -24,14 +24,14 @@ public class SetItemName extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "setitemname"))
+			if (testPermission(p, "setitemname"))
 			{
-				if(args.length >= 1)
+				if (args.length >= 1)
 				{
-					if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
+					if (p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
 					{
 						ItemMeta meta = p.getInventory().getItemInMainHand().getItemMeta();
 						meta.setDisplayName(args[0]);

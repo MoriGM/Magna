@@ -28,7 +28,7 @@ public class ListenerHelper implements Listener, PermissionHelper, TranslationHe
 	
 	public void register(Language language)
 	{
-		this.register(language, Main.getInstance() != null ? Magna.getPermissionManager() : null,Main.getInstance());
+		this.register(language, Main.getInstance() != null ? Magna.getPermissionManager() : null, Main.getInstance());
 	}
 	
 	public void register(PermissionManager permission)
@@ -38,9 +38,9 @@ public class ListenerHelper implements Listener, PermissionHelper, TranslationHe
 	
 	public void register(Language language, PermissionManager permission, JavaPlugin javaplugin)
 	{
-		if(language != null)
+		if (language != null)
 			this.language = language;
-		if(permission != null)
+		if (permission != null)
 			this.permission = permission;
 		Bukkit.getPluginManager().registerEvents(this, javaplugin);
 	}

@@ -23,12 +23,12 @@ public class IP extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "ip"))
+		if (testPermission(com, "ip"))
 		{
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				Player t = Bukkit.getPlayer(args[0]);
-				if(t != null)
+				if (t != null)
 					com.sendMessage(Chat.prefix + translate("cmd.ip",new TextStruct("%player%", t.getName()),new TextStruct("%ip%",t.getAddress().getHostString())));
 				else
 					Chat.noOnline(com);

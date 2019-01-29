@@ -10,9 +10,9 @@ public class Listener_ColorSign extends ListenerHelper
 	@EventHandler 
 	public void on(SignChangeEvent e)
 	{
-		if(e.getPlayer().hasPermission(getPermission("colorsign")))
+		if (e.getPlayer().hasPermission(getPermission("colorsign")))
 		{
-			for(int i = 0;i < 4;i++)
+			for (int i = 0;i < 4;i++)
 				e.setLine(i, e.getLine(i).replaceAll("&", "§"));
 		}
 	}

@@ -5,7 +5,7 @@ import org.bukkit.Location;
 public class DeathBack 
 {
 	
-	public DeathBack(String uuid,Location location) 
+	public DeathBack(String uuid, Location location) 
 	{
 		this.uuid = uuid;
 		this.location = location;

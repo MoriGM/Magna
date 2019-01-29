@@ -13,9 +13,9 @@ public class Listener_NoFallDamage extends ListenerHelper
 	@EventHandler
 	public void on(EntityDamageEvent e)
 	{
-		if(e.getEntity() instanceof Player)
-			if(e.getCause().equals(DamageCause.FALL))
-				if(Main.getInstance().getDefaultPluginConfig().nofalldamage.contains(e.getEntity().getWorld().getName()))
+		if (e.getEntity() instanceof Player)
+			if (e.getCause().equals(DamageCause.FALL))
+				if (Main.getInstance().getDefaultPluginConfig().nofalldamage.contains(e.getEntity().getWorld().getName()))
 					e.setCancelled(true);
 	}
 }

@@ -13,7 +13,7 @@ public class Listener_Muted extends ListenerHelper
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e)
 	{
-		if(Main.getInstance().getMutedPlayerManager().containsPlayer(e.getPlayer()))
+		if (Main.getInstance().getMutedPlayerManager().containsPlayer(e.getPlayer()))
 		{
 			e.getPlayer().sendMessage(Chat.prefix + translate("listener.mute"));
 			e.setCancelled(true);

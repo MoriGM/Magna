@@ -159,7 +159,7 @@ public class Main extends JavaPlugin
 		this.signManager = new SignManager();
 		this.pluginLoader.registerSignListener();
 		this.onlyBreakManager = new OnlyBreakManager();
-		if(Magna.getSettings().getWarning() && !Magna.isSupported())
+		if (Magna.getSettings().getWarning() && !Magna.isSupported())
 			Chat.writeError(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage(this.getLanguage().translate("plugin.start"));

@@ -11,13 +11,13 @@ public class OnlyBreakManager
 	
 	public void addPlayer(Player p)
 	{
-		if(!containsPlayer(p))
+		if (!containsPlayer(p))
 			getOnlyBreakPlayers().add(p);
 	}
 	
 	public void removePlayer(Player p)
 	{
-		if(containsPlayer(p))
+		if (containsPlayer(p))
 			getOnlyBreakPlayers().remove(p);
 	}
 	

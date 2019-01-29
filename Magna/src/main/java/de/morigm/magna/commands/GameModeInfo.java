@@ -22,12 +22,12 @@ public class GameModeInfo extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args)
 	{
-		if(testPermission(com, "gamemodeinfo"))
+		if (testPermission(com, "gamemodeinfo"))
 		{
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				Player t = Bukkit.getPlayer(args[0]);
-				if(t != null)
+				if (t != null)
 					com.sendMessage(Chat.prefix + translate("cmd.gamemodeinfo") + ":" + t.getGameMode().name());
 				else
 					Chat.noOnline(com);

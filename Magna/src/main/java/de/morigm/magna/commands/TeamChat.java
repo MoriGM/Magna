@@ -23,16 +23,16 @@ public class TeamChat extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "teamchat"))
+		if (testPermission(com, "teamchat"))
 		{
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				String s = "";
-				for(String arg : args)
+				for (String arg : args)
 					s += arg + " ";
 				s = s.trim();
-				for(Player t : Bukkit.getOnlinePlayers())
-					if(testPermission(t, "teamchat-see"))
+				for (Player t : Bukkit.getOnlinePlayers())
+					if (testPermission(t, "teamchat-see"))
 						t.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE +  "TeamChat" + ChatColor.GRAY + "]" + ChatColor.RESET +  "<" + (com instanceof Player ? ((Player) com).getName() : "SERVER") + ">" + s);
 			}
 			else

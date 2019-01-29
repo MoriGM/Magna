@@ -12,7 +12,7 @@ public class RunnerManager
 
 	public void registerRunner(Runner runner)
 	{
-		if(!this.containsRunner(runner.getName()))
+		if (!this.containsRunner(runner.getName()))
 			RunnerStuff.runners.add(runner);
 	}
 	
@@ -20,7 +20,7 @@ public class RunnerManager
 	{
 		final Runner r = getRunner(name);
 		
-		if(r != null)
+		if (r != null)
 		{
 			new BukkitRunnable()
 			{
@@ -35,11 +35,11 @@ public class RunnerManager
 		}
 	}
 	
-	public void startRunnerLater(String name,Long ticklater)
+	public void startRunnerLater(String name, Long ticklater)
 	{
 		final Runner r = getRunner(name);
 		
-		if(r != null)
+		if (r != null)
 		{
 			new BukkitRunnable()
 			{
@@ -54,11 +54,11 @@ public class RunnerManager
 		}
 	}
 	
-	public void startRunnerTimmer(String name,Long ticktimer)
+	public void startRunnerTimmer(String name, Long ticktimer)
 	{
 		final Runner r = getRunner(name);
 		
-		if(r != null)
+		if (r != null)
 		{
 			new BukkitRunnable()
 			{
@@ -72,11 +72,11 @@ public class RunnerManager
 		}
 	}
 	
-	public void startRunnerTimmer(String name,Long ticktimer,Long when)
+	public void startRunnerTimmer(String name, Long ticktimer, Long when)
 	{
 		final Runner r = getRunner(name);
 		
-		if(r != null)
+		if (r != null)
 		{
 			new BukkitRunnable()
 			{
@@ -93,8 +93,8 @@ public class RunnerManager
 	
 	public Runner getRunner(String runner)
 	{
-		for(Runner r : RunnerStuff.runners)
-			if(r.getName().equals(runner))
+		for (Runner r : RunnerStuff.runners)
+			if (r.getName().equals(runner))
 				return r;
 		return null;
 	}
@@ -107,13 +107,13 @@ public class RunnerManager
 	public void deleteRunner(String name)
 	{
 		Runner r = getRunner(name);
-		if(r != null)
+		if (r != null)
 			RunnerStuff.runners.remove(r);
 	}
 	
 	public void stopRunner(String name)
 	{
-		if(containsRunner(name) && getRunner(name).isRunning())
+		if (containsRunner(name) && getRunner(name).isRunning())
 			getRunner(name).cancel();
 	}
 	

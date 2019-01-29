@@ -20,7 +20,7 @@ public class AFK extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
 			Magna.getAFKManager().togglePlayerToAFKMode(p);

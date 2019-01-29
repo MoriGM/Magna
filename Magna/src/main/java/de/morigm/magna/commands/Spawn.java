@@ -24,12 +24,12 @@ public class Spawn extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("spawn")))
+			if (p.hasPermission(getPermission("spawn")))
 			{
-				if(Main.getInstance().getDefaultPluginConfig().spawn != null)
+				if (Main.getInstance().getDefaultPluginConfig().spawn != null)
 				{
 					p.teleport(Main.getInstance().getDefaultPluginConfig().spawn);
 					p.sendMessage(Chat.prefix + translate("cmd.spawn"));

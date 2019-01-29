@@ -13,9 +13,7 @@ public class PlayerConfig implements ConfigHelper
 {
 	
 	private FileConfiguration configuration;
-	public List<String> muted;
-	public List<String> godmode;
-	public List<String> cmdspy;
+	public List<String> muted, godmode, cmdspy;
 
 	public void loadFile()
 	{

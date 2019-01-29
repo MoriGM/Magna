@@ -24,14 +24,14 @@ public class Heal extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player t = (Player) com;
-			if(testPermission(com, "heal"))
+			if (testPermission(com, "heal"))
 			{
-				if(args.length >= 1)
+				if (args.length >= 1)
 					t = Bukkit.getPlayer(args[0]); 
-				if(t != null)
+				if (t != null)
 				{
 					t.setHealth(t.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
 					t.setFoodLevel(20);

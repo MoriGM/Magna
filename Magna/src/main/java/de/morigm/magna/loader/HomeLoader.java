@@ -23,7 +23,7 @@ public class HomeLoader implements LoadHelper,SaveHelper
 	@Override
 	public void load() 
 	{
-		for(String s : getConfig().getKeys(true))
+		for (String s : getConfig().getKeys(true))
 		{
 			String[] args = s.replace('.', ',').split(",");
 			if(args.length == 2)
@@ -31,7 +31,7 @@ public class HomeLoader implements LoadHelper,SaveHelper
 				UUID uuid = UUID.fromString(args[0]);
 				String name = args[1];
 				Location loc = FileConfigHelper.getLocation(getConfig(), uuid.toString() + "." + name);
-				if(!player_home_map.containsKey(uuid))
+				if (!player_home_map.containsKey(uuid))
 					player_home_map.put(uuid, new ArrayList<Home>());
 				List<Home> homes = player_home_map.get(uuid);
 				homes.add(new Home(name, loc));
@@ -46,17 +46,17 @@ public class HomeLoader implements LoadHelper,SaveHelper
 	{
 		deleteConfig(getConfig());
 		
-		for(UUID uuid : player_home_map.keySet())
+		for (UUID uuid : player_home_map.keySet())
 		{
 			List<Home> homes = player_home_map.get(uuid);
-			for(Home home : homes)
+			for (Home home : homes)
 				FileConfigHelper.setLocation(getConfig(), uuid.toString() + "." + home.name, home.location);
 		}
 	}
 	
 	public static void deleteConfig(FileConfiguration config)
 	{
-		for(String key : config.getKeys(true))
+		for (String key : config.getKeys(true))
 			config.set(key, null);
 	}
 	

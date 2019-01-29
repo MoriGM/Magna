@@ -27,16 +27,16 @@ public class SetHome extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(PlayerHelper.isPlayer(com))
+		if (PlayerHelper.isPlayer(com))
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "sethome"))
+			if (testPermission(p, "sethome"))
 			{
-				if(args.length >= 1)
+				if (args.length >= 1)
 				{
 					String name = args[0];
 					Location loc = p.getLocation();
-					if(getHomeManager().maxPlayerHomes(p) > getHomeManager().getPlayerHomes(p).size())
+					if (getHomeManager().maxPlayerHomes(p) > getHomeManager().getPlayerHomes(p).size())
 					{
 						Home home = new Home(name, loc);
 						getHomeManager().setHome(p, home);

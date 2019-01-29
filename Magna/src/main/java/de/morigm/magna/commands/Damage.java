@@ -23,15 +23,15 @@ public class Damage extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "damage"))
+		if (testPermission(com, "damage"))
 		{
-			if(args.length >= 2)
+			if (args.length >= 2)
 			{
 				try 
 				{
 					int d = Integer.valueOf(args[1]);
 					Player t = Bukkit.getPlayer(args[0]);
-					if(t != null)
+					if (t != null)
 					{
 						t.damage(d);
 						com.sendMessage(Chat.prefix + translate("cmd.damage"));

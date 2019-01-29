@@ -6,9 +6,9 @@ import de.morigm.magna.api.language.TextStruct;
 public interface TranslationHelper
 {
 
-	public default String translate(String text,TextStruct ... structs)
+	public default String translate(String text, TextStruct ... structs)
 	{
-		return Magna.getLanguage().translate(text,structs);
+		return Magna.getLanguage().translate(text, structs);
 	}
 	
 }

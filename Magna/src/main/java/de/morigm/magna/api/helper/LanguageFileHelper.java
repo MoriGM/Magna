@@ -13,17 +13,17 @@ import lombok.SneakyThrows;
 public class LanguageFileHelper 
 {
 	@SneakyThrows
-	public static void addNewText(InputStream in,File out)
+	public static void addNewText(InputStream in, File out)
 	{
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 		Properties outProp = new Properties();
 		outProp.load(new FileReader(out));
-		while(reader.ready())
+		while (reader.ready())
 		{
 			String[] sarr = reader.readLine().split("=");
-			if(sarr.length >= 2)
+			if (sarr.length >= 2)
 			{
-				if(!outProp.containsKey(sarr[0]))
+				if (!outProp.containsKey(sarr[0]))
 					outProp.setProperty(sarr[0], StringHelper.StringArrayToString(sarr, " ", 1).trim());
 			}
 		}

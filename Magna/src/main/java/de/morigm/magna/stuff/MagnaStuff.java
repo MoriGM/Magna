@@ -16,10 +16,11 @@ public class MagnaStuff
 	{
 		msg = new HashMap<>();
 		onlybreaks = new ArrayList<>();
+		guis = new HashMap<>();
 	}
 	
 	
 	@Getter private static Map<String,String> msg;
 	@Getter private static List<Player> onlybreaks;
-	@Getter private static Map<Player,Gui> guis = new HashMap<>();
+	@Getter private static Map<Player,Gui> guis;
 }

@@ -29,7 +29,7 @@ public class BlackListConfig implements ConfigHelper
 		this.file = file;
 		this.config = config;
 		
-		for(String key : getConfig().getKeys(false))
+		for (String key : getConfig().getKeys(false))
 			blackwords.add(key);
 	}
 

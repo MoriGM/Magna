@@ -16,11 +16,11 @@ public class CommandLoger implements LogerHelper
 	@Override
 	public void load() 
 	{
-		if(!Main.getInstance().getDefaultPluginConfig().commandlog)
+		if (!Main.getInstance().getDefaultPluginConfig().commandlog)
 			return;
 		LocalDateTime local = LocalDateTime.now();
 		File dir = new File("./server-log/command/");
-		if(!dir.exists())
+		if (!dir.exists())
 			dir.mkdirs();
 		try 
 		{
@@ -35,7 +35,7 @@ public class CommandLoger implements LogerHelper
 	@Override
 	public void save() 
 	{
-		if(!Main.getInstance().getDefaultPluginConfig().commandlog)
+		if (!Main.getInstance().getDefaultPluginConfig().commandlog)
 			return;
 		log.save();
 	}

@@ -19,18 +19,18 @@ public class HomeManager implements PermissionHelper
 	
 	public List<Home> getPlayerHomes(Player player)
 	{
-		if(getAllHomes().containsKey(player.getUniqueId()))
+		if (getAllHomes().containsKey(player.getUniqueId()))
 			return getAllHomes().get(player.getUniqueId());
 		else
 			return new ArrayList<>();
 	}
 	
-	public void setHome(Player player,Home home)
+	public void setHome(Player player, Home home)
 	{
-		if(hasHome(player, home.name))
+		if (hasHome(player, home.name))
 			removeHome(player, home.name);
 		
-		if(!hasHome(player, home.name) && getPlayerHomes(player).size() < maxPlayerHomes(player))
+		if (!hasHome(player, home.name) && getPlayerHomes(player).size() < maxPlayerHomes(player))
 		{
 			List<Home> homes = getPlayerHomes(player);
 			homes.add(home);
@@ -38,9 +38,9 @@ public class HomeManager implements PermissionHelper
 		}
 	}
 	
-	public void removeHome(Player player,String name)
+	public void removeHome(Player player, String name)
 	{
-		if(hasHome(player, name))
+		if (hasHome(player, name))
 		{
 			List<Home> homes = getPlayerHomes(player);
 			homes.remove(getHome(player, name));
@@ -49,10 +49,10 @@ public class HomeManager implements PermissionHelper
 	}
 	
 	
-	public Home getHome(Player player,String name)
+	public Home getHome(Player player, String name)
 	{
-		for(Home home : getPlayerHomes(player))
-			if(home.name.equals(name))
+		for (Home home : getPlayerHomes(player))
+			if (home.name.equals(name))
 				return home;
 		return null;
 	}
@@ -65,10 +65,10 @@ public class HomeManager implements PermissionHelper
 	
 	public int maxPlayerHomes(Player player)
 	{
-		if(player.hasPermission(getPermission("homesize") + "." + maxHomes))
+		if (player.hasPermission(getPermission("homesize") + "." + maxHomes))
 			return maxHomes;
-		for(int i = 1;i < maxHomes;i++)
-			if(player.hasPermission(getPermission("homesize") + "." + i))
+		for (int i = 1;i < maxHomes;i++)
+			if (player.hasPermission(getPermission("homesize") + "." + i))
 				return i;
 		return 0;
 	}

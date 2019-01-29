@@ -25,12 +25,12 @@ public class GoDeathBack extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "deathback"))
+			if (testPermission(p, "deathback"))
 			{
-				if(getDeathBackManager().hasDeathBack(p))
+				if (getDeathBackManager().hasDeathBack(p))
 				{
 					DeathBack db = getDeathBackManager().getDeathBack(p);
 					p.teleport(db.location);

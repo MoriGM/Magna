@@ -16,7 +16,7 @@ public class PlayerWriteBlockedWordEvent extends Event
 	@Getter private String word;
 	@Getter private CensorType censorType;
 	
-	public PlayerWriteBlockedWordEvent(Player p,String word,CensorType type) 
+	public PlayerWriteBlockedWordEvent(Player p, String word, CensorType type) 
 	{
 		this.player = p;
 		this.word = word;

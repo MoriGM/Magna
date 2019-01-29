@@ -8,12 +8,11 @@ public class GuiButton
 {
 	
 	@Getter private final ItemStack item;
-	@Getter private final int id;
-	@Getter private final int slot;
+	@Getter private final int id, slot;
 
-	public GuiButton(ItemStack item,int id)
+	public GuiButton(ItemStack item, int id)
 	{
-		this(item,id,-1);
+		this(item, id, -1);
 	}
 
 	public GuiButton(ItemStack item, int id, int slot) 

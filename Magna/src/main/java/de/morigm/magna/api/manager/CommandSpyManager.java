@@ -9,13 +9,13 @@ public class CommandSpyManager
 
 	public void addPlayer(Player p)
 	{
-		if(!Main.getInstance().getPlayerConfig().cmdspy.contains(p.getUniqueId().toString()))
+		if (!Main.getInstance().getPlayerConfig().cmdspy.contains(p.getUniqueId().toString()))
 			Main.getInstance().getPlayerConfig().cmdspy.add(p.getUniqueId().toString());
 	}
 	
 	public void removePlayer(Player p)
 	{
-		if(Main.getInstance().getPlayerConfig().cmdspy.contains(p.getUniqueId().toString()))
+		if (Main.getInstance().getPlayerConfig().cmdspy.contains(p.getUniqueId().toString()))
 			Main.getInstance().getPlayerConfig().cmdspy.remove(p.getUniqueId().toString());
 	}
 	
@@ -26,7 +26,7 @@ public class CommandSpyManager
 	
 	public void togglePlayer(Player p)
 	{
-		if(this.containsPlayer(p))
+		if (this.containsPlayer(p))
 			this.removePlayer(p);
 		else
 			this.addPlayer(p);

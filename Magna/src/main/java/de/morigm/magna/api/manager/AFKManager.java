@@ -16,18 +16,18 @@ import de.morigm.magna.stuff.AFKStuff;
 public class AFKManager implements TranslationHelper
 {
 	
-	public void setTimeAndLocation(Player p,Location l,long time)
+	public void setTimeAndLocation(Player p, Location l, long time)
 	{
 		getLastPlayerPositions().put(p, l);
 		getLastPlayerTimes().put(p, time);
 	}
 	
-	public void setLocation(Player p,Location l)
+	public void setLocation(Player p, Location l)
 	{
 		getLastPlayerPositions().put(p, l);
 	}
 	
-	public void setTime(Player p,long time)
+	public void setTime(Player p, long time)
 	{
 		getLastPlayerTimes().put(p, time);
 	}
@@ -53,27 +53,27 @@ public class AFKManager implements TranslationHelper
 	
 	public void addPlayerToAFKMode(Player p)
 	{
-		if(!getAFKPlayers().contains(p))
+		if (!getAFKPlayers().contains(p))
 		{
 			getAFKPlayers().add(p);
-			if(Magna.getSettings().getShowAfk())
-				Bukkit.broadcastMessage(Chat.prefix + translate("afk.show.on",new TextStruct("%player%", p.getName())));
+			if (Magna.getSettings().getShowAfk())
+				Bukkit.broadcastMessage(Chat.prefix + translate("afk.show.on", new TextStruct("%player%", p.getName())));
 		}
 	}
 	
 	public void removePlayerFromAFKMode(Player p)
 	{
-		if(getAFKPlayers().contains(p))
+		if (getAFKPlayers().contains(p))
 		{
 			getAFKPlayers().remove(p);
-			if(Magna.getSettings().getShowAfk())
-				Bukkit.broadcastMessage(Chat.prefix + translate("afk.show.off",new TextStruct("%player%", p.getName())));
+			if (Magna.getSettings().getShowAfk())
+				Bukkit.broadcastMessage(Chat.prefix + translate("afk.show.off", new TextStruct("%player%", p.getName())));
 		}
 	}
 	
 	public void togglePlayerToAFKMode(Player p)
 	{
-		if(isAfk(p))
+		if (isAfk(p))
 			removePlayerFromAFKMode(p);
 		else
 			addPlayerToAFKMode(p);

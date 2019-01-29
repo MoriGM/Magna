@@ -24,31 +24,31 @@ public class GameMode extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "gamemode"))
+			if (testPermission(p, "gamemode"))
 			{
 				if(args.length >= 1)
 				{
 					String gm = args[0].toLowerCase();
 					Player t = p;
-					if(args.length >= 2)
+					if (args.length >= 2)
 						t = Bukkit.getPlayer(args[1]);
-					if(t != null)
+					if (t != null)
 					{
 						org.bukkit.GameMode gamemode = null;
 						
-						if(gm.equalsIgnoreCase("creative") || gm.equalsIgnoreCase("1") || gm.equalsIgnoreCase("c"))
+						if (gm.equalsIgnoreCase("creative") || gm.equalsIgnoreCase("1") || gm.equalsIgnoreCase("c"))
 							gamemode = org.bukkit.GameMode.CREATIVE;
-						if(gm.equalsIgnoreCase("survival") || gm.equalsIgnoreCase("0") || gm.equalsIgnoreCase("s"))
+						if (gm.equalsIgnoreCase("survival") || gm.equalsIgnoreCase("0") || gm.equalsIgnoreCase("s"))
 							gamemode = org.bukkit.GameMode.SURVIVAL;
-						if(gm.equalsIgnoreCase("adventure") || gm.equalsIgnoreCase("2") || gm.equalsIgnoreCase("a"))
+						if (gm.equalsIgnoreCase("adventure") || gm.equalsIgnoreCase("2") || gm.equalsIgnoreCase("a"))
 							gamemode = org.bukkit.GameMode.ADVENTURE;
-						if(gm.equalsIgnoreCase("spectator") || gm.equalsIgnoreCase("3") || gm.equalsIgnoreCase("sp"))
+						if (gm.equalsIgnoreCase("spectator") || gm.equalsIgnoreCase("3") || gm.equalsIgnoreCase("sp"))
 							gamemode = org.bukkit.GameMode.SPECTATOR;
 						
-						if(gamemode != null)
+						if (gamemode != null)
 						{
 							t.setGameMode(gamemode);
 							if(t == p)

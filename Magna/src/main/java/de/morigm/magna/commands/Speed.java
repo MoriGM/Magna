@@ -29,21 +29,21 @@ public class Speed extends CommandHelper
 		if(PlayerHelper.isPlayer(sender))
 		{
 			Player p = (Player) sender;
-			if(testPermission(p, "speed"))
-				if(args.length >= 1)
+			if (testPermission(p, "speed"))
+				if (args.length >= 1)
 				{
-					if(Convert.isInteger(args[0]))
+					if (Convert.isInteger(args[0]))
 					{
 						float f = Float.valueOf(args[0]) / 10;
 						
-						if(Integer.valueOf(args[0]) > 10 || Integer.valueOf(args[0]) < 0)
+						if (Integer.valueOf(args[0]) > 10 || Integer.valueOf(args[0]) < 0)
 						{
 							p.sendMessage(Chat.prefix + translate("cmd.speed.error"));
 							return false;
 						}
 						
 						Player t = args.length >= 2 ? Bukkit.getPlayer(args[1]) : p;
-						if(t != null)
+						if (t != null)
 						{
 							t.setWalkSpeed(f);
 							p.sendMessage(Chat.prefix + (t == p ? translate("cmd.speed.you") : translate("cmd.speed.player") + " " + args[1]));

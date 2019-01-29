@@ -23,14 +23,14 @@ public class Warps extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "warps"))
+			if (testPermission(p, "warps"))
 			{
 				String warps = "";
-				for(de.morigm.magna.api.warp.Warp w : getWarpManager().getWarps())
-					if(warps.isEmpty())
+				for (de.morigm.magna.api.warp.Warp w : getWarpManager().getWarps())
+					if (warps.isEmpty())
 						warps += w.name;
 					else
 						warps += "," + w.name;

@@ -26,24 +26,24 @@ public class FlySpeed extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
 	{
-		if(PlayerHelper.isPlayer(sender))
+		if (PlayerHelper.isPlayer(sender))
 		{
 			Player p = (Player) sender;
-			if(testPermission(p, "flyspeed"))
-				if(args.length >= 1)
+			if (testPermission(p, "flyspeed"))
+				if (args.length >= 1)
 				{
-					if(Convert.isInteger(args[0]))
+					if (Convert.isInteger(args[0]))
 					{
 						float f = Float.valueOf(args[0]) / 10;
 						
-						if(Integer.valueOf(args[0]) > 10 || Integer.valueOf(args[0]) < 0)
+						if (Integer.valueOf(args[0]) > 10 || Integer.valueOf(args[0]) < 0)
 						{
 							p.sendMessage(Chat.prefix + translate("cmd.flyspeed.error"));
 							return false;
 						}
 						
 						Player t = args.length >= 2 ? Bukkit.getPlayer(args[1]) : p;
-						if(t != null)
+						if (t != null)
 						{
 							t.setFlySpeed(f);
 							p.sendMessage(Chat.prefix + (t == p ? translate("cmd.flyspeed.you") : translate("cmd.flyspeed.player") + " " + args[1]));

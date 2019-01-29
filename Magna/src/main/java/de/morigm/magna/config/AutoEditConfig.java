@@ -14,9 +14,8 @@ public class AutoEditConfig implements LoadHelper
 {
 
 	@Getter private FileConfiguration config;
-	private File file;
+	private File file, filePlayer;
 	@Getter private FileConfiguration configPlayer;
-	private File filePlayer;
 	
 	@Override
 	public void load() 

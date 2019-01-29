@@ -20,12 +20,12 @@ public class Listener_Sign extends ListenerHelper
 	@EventHandler
 	public void on(SignChangeEvent e)
 	{
-		if(e.getLines()[0] != null && !e.getLines()[0].isEmpty() && e.getLines()[0].startsWith("[") && e.getLines()[0].endsWith("]") && e.getLines()[0].length() >= 3)
+		if (e.getLines()[0] != null && !e.getLines()[0].isEmpty() && e.getLines()[0].startsWith("[") && e.getLines()[0].endsWith("]") && e.getLines()[0].length() >= 3)
 		{
 			String name = e.getLines()[0].substring(1, (e.getLines()[0].length() - 1));
 			SignListener sl = Magna.getSignManager().getSignListener(name);
-			if(sl != null)
-				if(e.getPlayer().hasPermission(getPermission("signcreate") + "." + name))
+			if (sl != null)
+				if (e.getPlayer().hasPermission(getPermission("signcreate") + "." + name))
 				{
 					boolean b = sl.onCreate(e.getLines(), e.getPlayer(), e.getBlock());
 					if(b)
@@ -37,15 +37,15 @@ public class Listener_Sign extends ListenerHelper
 	@EventHandler
 	public void on(PlayerInteractEvent e)
 	{
-		if(e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
-			if(e.getClickedBlock().getState() instanceof Sign)
+		if (e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
+			if (e.getClickedBlock().getState() instanceof Sign)
 			{
 				Sign sign = (Sign) e.getClickedBlock().getState();
-				if(sign.getLine(0).startsWith(prefix) && sign.getLine(0).endsWith(suffix) && sign.getLine(0).length() >= (prefix.length() + suffix.length() + 1))
+				if (sign.getLine(0).startsWith(prefix) && sign.getLine(0).endsWith(suffix) && sign.getLine(0).length() >= (prefix.length() + suffix.length() + 1))
 				{
 					String name = sign.getLine(0).substring(prefix.length(), (sign.getLine(0).length() - suffix.length()));
 					SignListener sl = Magna.getSignManager().getSignListener(name);
-					if(sl != null && e.getPlayer().hasPermission(getPermission("signclick") + "." + name))
+					if (sl != null && e.getPlayer().hasPermission(getPermission("signclick") + "." + name))
 						sl.onClick(sign, e.getPlayer());
 				}
 			}

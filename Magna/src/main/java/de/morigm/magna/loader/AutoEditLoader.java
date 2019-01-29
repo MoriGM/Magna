@@ -18,7 +18,7 @@ public class AutoEditLoader
 	
 	public void loadPlayerEdit()
 	{
-		for(String key : getAutoEditConfig().getConfigPlayer().getKeys(true))
+		for (String key : getAutoEditConfig().getConfigPlayer().getKeys(true))
 		{
 			String[] kys = key.replace(".","\",\"").split("\",\"");
 			if(kys.length == 2)
@@ -34,7 +34,7 @@ public class AutoEditLoader
 	
 	public void loadServerEdit()
 	{
-		for(String key : getAutoEditConfig().getConfig().getKeys(false))
+		for (String key : getAutoEditConfig().getConfig().getKeys(false))
 		{
 			String name = "[" + key + "]";
 			String edit = getAutoEditConfig().getConfig().getString(key);

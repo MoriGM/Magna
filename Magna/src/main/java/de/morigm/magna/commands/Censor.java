@@ -31,22 +31,22 @@ public class Censor extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args)
 	{
-		if(testPermission(com, "censor"))
+		if (testPermission(com, "censor"))
 		{
-			if(args.length >= 2)
+			if (args.length >= 2)
 			{
 				String word = args[1];
 				
 					
-				if(args[0].equalsIgnoreCase("add"))
+				if (args[0].equalsIgnoreCase("add"))
 				{
-					if(!getBlackListManager().containsBlackWord(word))
+					if (!getBlackListManager().containsBlackWord(word))
 					{
 						String permission = getPermission("blacklistword");
 						CensorType type = CensorType.NORMAL;
-						if(args.length >= 3)
+						if (args.length >= 3)
 							permission = args[2];
-						if(args.length >= 4)
+						if (args.length >= 4)
 							type = CensorType.getType(args[3]);
 						BlackWord bword = new BlackWord(word, permission, type);
 						getBlackListManager().addBlackWord(bword);
@@ -56,9 +56,9 @@ public class Censor extends CommandHelper
 						com.sendMessage(Chat.prefix + translate("cmd.censor.add.error"));
 				}
 				else
-				if(args[0].equalsIgnoreCase("remove"))
+				if (args[0].equalsIgnoreCase("remove"))
 				{
-					if(getBlackListManager().containsBlackWord(word))
+					if (getBlackListManager().containsBlackWord(word))
 					{
 						getBlackListManager().removeBlackWord(getBlackListManager().getBlackWord(word));
 						com.sendMessage(Chat.prefix + translate("cmd.censor.remove"));
@@ -70,7 +70,7 @@ public class Censor extends CommandHelper
 					com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
 			}
 			else
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				if(args[0].equalsIgnoreCase("list"))
 				{
@@ -82,7 +82,7 @@ public class Censor extends CommandHelper
 					com.sendMessage(Chat.prefix + translate("cmd.censor.words") + ":" + words);
 				}
 				else
-				if(args[0].equalsIgnoreCase("types"))
+				if (args[0].equalsIgnoreCase("types"))
 					com.sendMessage(Chat.prefix + translate("cmd.censor.type") + ":" + getTypes());
 				else
 					com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
@@ -98,9 +98,9 @@ public class Censor extends CommandHelper
 	public String getTypes()
 	{
 		String types = "";
-		for(CensorType type : CensorType.values())
+		for (CensorType type : CensorType.values())
 			types += type.name() + ",";
-		if(!types.isEmpty())
+		if (!types.isEmpty())
 			types.substring(0, types.length() - 1);
 		return types;
 	}

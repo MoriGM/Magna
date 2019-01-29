@@ -10,7 +10,7 @@ public class Listener_ChatColor extends ListenerHelper
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e)
 	{
-		if(e.getPlayer().hasPermission(getPermission("chatcolor")))
+		if (e.getPlayer().hasPermission(getPermission("chatcolor")))
 			e.setMessage(e.getMessage().replaceAll("&", "§"));
 	}
 	

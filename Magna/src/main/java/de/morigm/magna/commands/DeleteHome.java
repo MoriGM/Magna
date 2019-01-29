@@ -25,15 +25,15 @@ public class DeleteHome extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(PlayerHelper.isPlayer(com))
+		if (PlayerHelper.isPlayer(com))
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "deletehome"))
+			if (testPermission(p, "deletehome"))
 			{
 				if(args.length >= 1)
 				{
 					String name = args[0];
-					if(getHomeManager().hasHome(p, name))
+					if (getHomeManager().hasHome(p, name))
 					{
 						getHomeManager().removeHome(p, name);
 						p.sendMessage(Chat.prefix + translate("cmd.deletehome"));

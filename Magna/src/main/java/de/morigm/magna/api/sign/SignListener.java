@@ -21,8 +21,8 @@ public abstract class SignListener implements TranslationHelper, PermissionHelpe
 	private PermissionManager permission;
 	private Language language;
 	
-	public abstract boolean onCreate(String[] lines,Player player,Block sign);
-	public abstract void onClick(Sign sign,Player player);
+	public abstract boolean onCreate(String[] lines, Player player, Block sign);
+	public abstract void onClick(Sign sign, Player player);
 	
 	
 	public void register(String name)
@@ -32,7 +32,7 @@ public abstract class SignListener implements TranslationHelper, PermissionHelpe
 	
 	public void register(String name, Language language)
 	{
-		register(name,language,Main.getInstance() != null ? Magna.getPermissionManager() : null);
+		register(name,language, Main.getInstance() != null ? Magna.getPermissionManager() : null);
 	}
 	
 	public void register(String name, PermissionManager manager)
@@ -40,13 +40,11 @@ public abstract class SignListener implements TranslationHelper, PermissionHelpe
 		register(name, Main.getInstance() != null ? Magna.getLanguage(): null, manager);
 	}
 	
-	public void register(String name,Language language,PermissionManager manager)
+	public void register(String name, Language language, PermissionManager manager)
 	{
 		this.name = name;
-		if(language != null)
-			this.language = language;
-		if(manager != null)
-			this.permission = manager;
+		if(language != null)	this.language = language;
+		if(manager != null)		this.permission = manager;
 		Magna.getSignManager().registerSign(this);
 	}
 	

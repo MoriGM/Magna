@@ -23,11 +23,11 @@ public class Bans extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "bans"))
+		if (testPermission(com, "bans"))
 		{
 			String bans = "";
 			BanList list = Bukkit.getBanList(Type.NAME);
-			for(BanEntry ban : list.getBanEntries())
+			for (BanEntry ban : list.getBanEntries())
 				bans += ban.getTarget() + " ";
 			com.sendMessage("Bans:" + bans);
 		}

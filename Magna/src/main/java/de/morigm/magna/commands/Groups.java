@@ -23,14 +23,14 @@ public class Groups extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "magna-groups"))
+		if (testPermission(com, "magna-groups"))
 		{
-			if(getGroupManager().getGroups().length >= 1)
+			if (getGroupManager().getGroups().length >= 1)
 			{
 				String groups = "";
-				for(Group group : getGroupManager().getGroups())
+				for (Group group : getGroupManager().getGroups())
 					groups += ChatColor.GREEN + group.name + ChatColor.RESET + " ";
-				if(groups.length() >= 2)
+				if (groups.length() >= 2)
 					groups = groups.substring(0,groups.length() - 1);
 				com.sendMessage(Chat.prefix + translate("cmd.groups") + ":" + groups);
 			}

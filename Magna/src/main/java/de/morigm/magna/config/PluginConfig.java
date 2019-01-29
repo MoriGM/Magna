@@ -60,7 +60,7 @@ public class PluginConfig implements ConfigHelper
 		this.blacklistperm = getConfig().getBoolean("blacklistperm");
 		this.afkTimer = getConfig().getInt("afk-timer");
 		this.showafk = getConfig().getBoolean("showafk");
-		if(getConfig().contains("debug"))
+		if (getConfig().contains("debug"))
 			this.debug = getConfig().getBoolean("debug");
 		else
 			this.debug = true;
@@ -72,7 +72,7 @@ public class PluginConfig implements ConfigHelper
 
 	private void loadSpawn() 
 	{
-		if(getConfig().contains("spawn.x") && getConfig().contains("spawn.y") && getConfig().contains("spawn.z") && 
+		if (getConfig().contains("spawn.x") && getConfig().contains("spawn.y") && getConfig().contains("spawn.z") && 
 				getConfig().contains("spawn.yaw") && getConfig().contains("spawn.pitch") && getConfig().contains("spawn.world"))
 		{
 			float pitch = (float) getConfig().getDouble("spawn.pitch");
@@ -92,7 +92,7 @@ public class PluginConfig implements ConfigHelper
 
 	public void save()
 	{
-		if(this.spawn != null)
+		if (this.spawn != null)
 			savespawn();
 		getConfig().set("commandspyblocked", this.commandspyblocked);
 		getConfig().set("owncommandspy", this.owncommandspy);

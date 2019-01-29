@@ -21,10 +21,10 @@ public class Trash extends CommandHelper
 	
 	public boolean onCommand(CommandSender com,Command cmd,String label,String[] args)
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "trash"))
+			if (testPermission(p, "trash"))
 			{
 				Inventory inv = Bukkit.createInventory(null, (9 * 6),(ChatColor.RED + "Trash"));
 				p.openInventory(inv);

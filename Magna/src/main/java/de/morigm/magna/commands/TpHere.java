@@ -22,15 +22,15 @@ public class TpHere extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "tphere"))
+			if (testPermission(p, "tphere"))
 			{
-				if(args.length >= 1)
+				if (args.length >= 1)
 				{
 					Player t = Bukkit.getPlayer(args[0]);
-					if(t != null)
+					if (t != null)
 					{
 						t.teleport(p);
 						p.sendMessage(Chat.prefix + translate("cmd.tphere"));

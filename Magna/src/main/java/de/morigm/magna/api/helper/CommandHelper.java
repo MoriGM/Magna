@@ -44,14 +44,14 @@ public abstract class CommandHelper implements CommandExecutor, PermissionHelper
 		this.register(cmd_name, language, permission, Main.getInstance());
 	}
 	
-	public void register(String cmd_name,Language language, PermissionManager permission,JavaPlugin javaPlugin)
+	public void register(String cmd_name, Language language, PermissionManager permission, JavaPlugin javaPlugin)
 	{
 		name = cmd_name;
-		if(javaPlugin != null)
+		if (javaPlugin != null)
 			javaPlugin.getCommand(cmd_name).setExecutor(this);
-		if(language != null)
+		if (language != null)
 			this.language = language;
-		if(permission != null)
+		if (permission != null)
 			this.permission = permission;
 		registerUtils();
 	}

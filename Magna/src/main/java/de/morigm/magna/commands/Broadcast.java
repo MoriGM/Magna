@@ -22,9 +22,9 @@ public class Broadcast extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
 	{
-		if(testPermission(com, "broadcast"))
+		if (testPermission(com, "broadcast"))
 		{
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				String s = StringHelper.StringArrayToString(args, " ").replace('&', ChatColor.COLOR_CHAR);
 				Bukkit.broadcastMessage(s);

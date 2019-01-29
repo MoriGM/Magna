@@ -3,19 +3,19 @@ package de.morigm.magna.api.helper;
 public class StringHelper 
 {
 
-	public static String StringArrayToString(String[] arr,String split)
+	public static String StringArrayToString(String[] arr, String split)
 	{
 		String tmp = "";
-		for(String s : arr)
+		for (String s : arr)
 			tmp += s + split;
 		tmp = tmp.substring(0, (tmp.length() - split.length()));
 		return tmp;
 	}
 	
-	public static String StringArrayToString(String[] arr,String split,int count)
+	public static String StringArrayToString(String[] arr, String split, int count)
 	{
 		String tmp = "";
-		for(int i = count;i < arr.length;i++)
+		for (int i = count;i < arr.length;i++)
 			tmp += arr[i] + split;
 		tmp = tmp.substring(0, (tmp.length() - split.length()));
 		return tmp;

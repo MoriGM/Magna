@@ -20,10 +20,10 @@ public class OpenEnderChest extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(p.hasPermission(getPermission("enderchest")))
+			if (p.hasPermission(getPermission("enderchest")))
 				p.openInventory(p.getEnderChest());
 			else
 				Chat.noPermission(p);

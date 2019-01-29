@@ -24,12 +24,12 @@ public class Pardon extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "pardon"))
+		if (testPermission(com, "pardon"))
 		{
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				String t = args[0];
-				if(Bukkit.getBanList(Type.NAME).isBanned(t))
+				if (Bukkit.getBanList(Type.NAME).isBanned(t))
 				{
 					Bukkit.getBanList(Type.NAME).pardon(t);
 					com.sendMessage(Chat.prefix + translate("cmd.pardon"));

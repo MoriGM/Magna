@@ -22,7 +22,7 @@ public class BlackListLoader implements LoadHelper,SaveHelper,PermissionHelper
 	@Override
 	public void load() 
 	{
-		for(String word : getBlackListConfig().getBlackwords())
+		for (String word : getBlackListConfig().getBlackwords())
 		{
 			String permission = getConfig().contains(word + ".permission") ? getConfig().getString(word + ".permission") : getPermission("blacklistword");
 			CensorType type = getConfig().contains(word + ".type") ? CensorType.getType(getConfig().getString(word + ".type")) : CensorType.NORMAL;
@@ -36,7 +36,7 @@ public class BlackListLoader implements LoadHelper,SaveHelper,PermissionHelper
 	{
 		deleteConfig(getConfig());
 		
-		for(BlackWord word : getBlackWords())
+		for (BlackWord word : getBlackWords())
 		{
 			getConfig().set(word.word + ".permission", word.permission);
 			getConfig().set(word.word + ".type", word.type.name());
@@ -45,7 +45,7 @@ public class BlackListLoader implements LoadHelper,SaveHelper,PermissionHelper
 	
 	public void deleteConfig(FileConfiguration config)
 	{
-		for(String key : config.getKeys(true))
+		for (String key : config.getKeys(true))
 			config.set(key, null);
 	}
 	

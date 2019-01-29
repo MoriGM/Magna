@@ -26,14 +26,14 @@ public class Fly extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player t = (Player) com;
-			if(testPermission(t, "fly"))
+			if (testPermission(t, "fly"))
 			{
-				if(args.length >= 1)
+				if (args.length >= 1)
 					t = Bukkit.getPlayer(args[0]);
-				if(t != null)
+				if (t != null)
 				{
 					t.setAllowFlight(!t.getAllowFlight());
 					com.sendMessage(Chat.prefix + (t.getAllowFlight() ? ChatColor.GREEN + (com == t ? translate("cmd.fly.you.on") : translate("cmd.fly.player.on")) : ChatColor.RED + (com == t ? translate("cmd.fly.you.off") : translate("cmd.fly.player.off"))));

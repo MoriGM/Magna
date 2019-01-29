@@ -23,12 +23,12 @@ public class ItemHead extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "itemhead"))
+			if (testPermission(p, "itemhead"))
 			{
-				if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
+				if (p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
 				{
 					p.getInventory().setHelmet(p.getInventory().getItemInMainHand());
 					p.sendMessage(Chat.prefix + translate("cmd.itemhead"));

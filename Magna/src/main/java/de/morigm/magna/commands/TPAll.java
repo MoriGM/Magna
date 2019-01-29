@@ -25,10 +25,10 @@ public class TPAll extends CommandHelper
 		if(com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "tpall"))
+			if (testPermission(p, "tpall"))
 			{
-				for(Player t : Bukkit.getOnlinePlayers())
-					if(t != p)
+				for (Player t : Bukkit.getOnlinePlayers())
+					if (t != p)
 						t.teleport(p);
 				p.sendMessage(Chat.prefix + translate("cmd.tpall"));
 			}

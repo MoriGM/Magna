@@ -22,13 +22,13 @@ public class Version extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) 
 	{
-		if(PlayerHelper.isPlayer(sender) && !testPermission(sender, "version"))
+		if (PlayerHelper.isPlayer(sender) && !testPermission(sender, "version"))
 		{
 			Chat.noPermission(sender);
 			return false;
 		}
-		if(args.length >= 1 && PlayerHelper.isPlayer(sender))
-			if(args[0].equalsIgnoreCase("debug") && Magna.getSettings().getDebug())
+		if (args.length >= 1 && PlayerHelper.isPlayer(sender))
+			if (args[0].equalsIgnoreCase("debug") && Magna.getSettings().getDebug())
 			{
 				DebugGui gui = new DebugGui();
 				Magna.getUser(PlayerHelper.toPlayer(sender)).openGui(gui);

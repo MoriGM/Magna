@@ -24,14 +24,14 @@ public class IsAFK extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "isafk"))
+		if (testPermission(com, "isafk"))
 		{
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				Player t = Bukkit.getPlayer(args[0]);
-				if(t != null)
+				if (t != null)
 				{	
-					if(Magna.getAFKManager().isAfk(t))
+					if (Magna.getAFKManager().isAfk(t))
 						com.sendMessage(Chat.prefix + translate("cmd.isafk.on"));
 					else
 						com.sendMessage(Chat.prefix + translate("cmd.isafk.off"));

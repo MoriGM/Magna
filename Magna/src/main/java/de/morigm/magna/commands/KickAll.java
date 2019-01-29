@@ -28,17 +28,17 @@ public class KickAll extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "kickall"))
+		if (testPermission(com, "kickall"))
 		{
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				Group group = getGroupManager().getGroup(args[0]);
-				if(group != null)
+				if (group != null)
 				{
 					List<Player> players = getGroupManager().getPlayersByGroup(group);
-					for(Player t : players)
+					for (Player t : players)
 						t.kickPlayer("");
-					if(!(com instanceof Player))
+					if (!(com instanceof Player))
 						Chat.writeMessage(translate("cmd.kickall.group"));
 				}
 				else
@@ -46,9 +46,9 @@ public class KickAll extends CommandHelper
 			}
 			else
 			{
-				for(Player t : Bukkit.getOnlinePlayers())
+				for (Player t : Bukkit.getOnlinePlayers())
 					t.kickPlayer("");
-				if(!(com instanceof Player))
+				if (!(com instanceof Player))
 					Chat.writeMessage(translate("cmd.kickall"));
 			}
 		}

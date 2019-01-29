@@ -24,15 +24,15 @@ public class GetWarp extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "getwarp"))
+			if (testPermission(p, "getwarp"))
 			{
-				if(args.length >= 1)
+				if (args.length >= 1)
 				{
 					String warpname = args[0];
-					if(Magna.getWarpManager().containsWarp(warpname))
+					if (Magna.getWarpManager().containsWarp(warpname))
 					{
 						Location loc = Magna.getWarpManager().getWarpLocation(warpname);
 						p.sendMessage(Chat.prefix + "X:" + loc.getBlockX() + " Y:" + loc.getBlockY() + " Z:" + loc.getBlockZ() + " " + translate("cmd.getwarp.world") + ":" + loc.getWorld().getName());

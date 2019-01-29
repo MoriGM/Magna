@@ -10,13 +10,13 @@ public class MutedPlayerManager
 {
 	public void addPlayer(Player p)
 	{
-		if(!containsPlayer(p))
+		if (!containsPlayer(p))
 			getMutedUUIDS().add(p.getUniqueId().toString());
 	}
 	
 	public void removePlayer(Player p)
 	{
-		if(containsPlayer(p))
+		if (containsPlayer(p))
 			getMutedUUIDS().remove(p.getUniqueId().toString());
 	}
 	
@@ -27,7 +27,7 @@ public class MutedPlayerManager
 	
 	public void togglePlayer(Player p)
 	{
-		if(this.containsPlayer(p))
+		if (this.containsPlayer(p))
 			this.removePlayer(p);
 		else
 			this.addPlayer(p);

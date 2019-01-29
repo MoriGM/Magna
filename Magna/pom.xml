@@ -4,7 +4,7 @@
 
   <groupId>de.morigm</groupId>
   <artifactId>Magna</artifactId>
-  <version>0.6.0</version>
+  <version>0.7.0</version>
   <packaging>jar</packaging>
 
   <name>Magna</name>
@@ -41,7 +41,7 @@
     <dependency>
         <groupId>org.spigotmc</groupId>
         <artifactId>spigot-api</artifactId>
-     	<version>1.12.2-R0.1-SNAPSHOT</version>
+     	<version>1.13.2-R0.1-SNAPSHOT</version>
         <scope>provided</scope>
     </dependency>
     <dependency>

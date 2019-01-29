@@ -23,7 +23,7 @@ public class DeathBackLoader implements LoadHelper,SaveHelper
 	@Override
 	public void load() 
 	{
-		for(String key : getConfig().getKeys(false))
+		for (String key : getConfig().getKeys(false))
 		{
 			String uuid = key;
 			World world = Bukkit.getWorld(Main.getInstance().getDeathBackConfig().getConfig().getString(key + ".world"));
@@ -49,7 +49,7 @@ public class DeathBackLoader implements LoadHelper,SaveHelper
 	
 		deleteConfig(getConfig());
 		
-		for(DeathBack db : getDeathBacks())
+		for (DeathBack db : getDeathBacks())
 		{
 			getConfig().set(db.uuid + ".x", db.location.getX());
 			getConfig().set(db.uuid + ".y", db.location.getY());

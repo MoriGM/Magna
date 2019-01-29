@@ -5,6 +5,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.ItemHelper;
@@ -25,15 +27,18 @@ public class Repair extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(isPlayer(com))
+		if (isPlayer(com))
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "repair"))
+			if (testPermission(p, "repair"))
 			{
-				if(p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR) && ItemHelper.isRepairable(p.getInventory().getItemInMainHand()))
+				if (p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR) && ItemHelper.isRepairable(p.getInventory().getItemInMainHand()))
 				{
 					ItemStack item = p.getInventory().getItemInMainHand();
-					item.setDurability((short)0);
+					ItemMeta meta = item.getItemMeta();
+					if (meta instanceof Damageable)
+						((Damageable) meta).setDamage(0);
+					item.setItemMeta(meta);
 					p.sendMessage(Chat.prefix + translate("cmd.repair"));
 				}
 				else

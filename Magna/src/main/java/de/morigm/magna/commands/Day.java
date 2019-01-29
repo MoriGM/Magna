@@ -21,9 +21,9 @@ public class Day extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
 	{
-		if(testPermission(com, "day"))
+		if (testPermission(com, "day"))
 		{
-			if(com instanceof Player)
+			if (com instanceof Player)
 			{
 				Player p = (Player) com;
 				p.getWorld().setTime(1600);

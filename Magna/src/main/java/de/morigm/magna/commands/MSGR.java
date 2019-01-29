@@ -25,16 +25,16 @@ public class MSGR extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				String target = Magna.getMSGManager().getLastMessagedPlayer(p);
-				if(target != null)
+				if (target != null)
 				{
 					Player t = Bukkit.getPlayer(target);
-					if(t != null)
+					if (t != null)
 					{
 						String text = StringHelper.StringArrayToString(args, " ").replace('&', '§');
 						t.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + p.getName() + ChatColor.GRAY + " -> " + ChatColor.BLUE + t.getName() +  ChatColor.GRAY + "]" + ChatColor.RESET + " " + text);

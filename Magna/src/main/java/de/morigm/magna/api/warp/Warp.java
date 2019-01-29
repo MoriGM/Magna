@@ -5,6 +5,9 @@ import org.bukkit.Location;
 public class Warp 
 {
 	
+	public String name,permission;
+	public Location location;
+	
 	public Warp(String name,String Permission,Location location) 
 	{
 		this.name = name;
@@ -12,7 +15,4 @@ public class Warp
 		this.location = location;
 	}
 	
-	public String name,permission;
-	public Location location;
-
 }

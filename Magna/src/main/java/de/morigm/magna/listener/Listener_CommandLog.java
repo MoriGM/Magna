@@ -11,7 +11,7 @@ public class Listener_CommandLog extends ListenerHelper
 	@EventHandler
 	public void on(PlayerCommandPreprocessEvent e)
 	{
-		if(Main.getInstance().getDefaultPluginConfig().commandlog)
+		if (Main.getInstance().getDefaultPluginConfig().commandlog)
 			Main.getInstance().getCommandsLoger().addLine("<" + e.getPlayer().getName() + ">" + e.getMessage());
 	}
 }

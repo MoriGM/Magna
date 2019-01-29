@@ -14,15 +14,15 @@ public class AfkTestRunner extends Runner
 	@Override
 	public void run() 
 	{
-		for(Player t : Bukkit.getOnlinePlayers())
+		for (Player t : Bukkit.getOnlinePlayers())
 		{
-			if(!getAFKManager().containsLocation(t))
+			if (!getAFKManager().containsLocation(t))
 				getAFKManager().setLocation(t, t.getLocation());
-			if(!getAFKManager().containsTime(t))
+			if (!getAFKManager().containsTime(t))
 				getAFKManager().setTime(t, System.currentTimeMillis());
-			if(getAFKManager().containsTime(t))
+			if (getAFKManager().containsTime(t))
 			{
-				if((System.currentTimeMillis() - getAFKManager().getTime(t)) >= (Magna.getSettings().getAFKTimer() * 60 * 1000))
+				if ((System.currentTimeMillis() - getAFKManager().getTime(t)) >= (Magna.getSettings().getAFKTimer() * 60 * 1000))
 					getAFKManager().addPlayerToAFKMode(t);
 			}
 		}

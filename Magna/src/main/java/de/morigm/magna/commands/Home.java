@@ -25,15 +25,15 @@ public class Home extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args)
 	{
-		if(PlayerHelper.isPlayer(com))
+		if (PlayerHelper.isPlayer(com))
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "home"))
+			if (testPermission(p, "home"))
 			{
-				if(args.length >= 1)
+				if (args.length >= 1)
 				{
 					String name = args[0];
-					if(getHomeManager().hasHome(p, name))
+					if (getHomeManager().hasHome(p, name))
 					{
 						de.morigm.magna.api.home.Home home = getHomeManager().getHome(p, name);
 						p.teleport(home.location);

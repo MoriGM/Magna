@@ -10,13 +10,13 @@ public class BlackListManager
 
 	public void addBlackWord(BlackWord bword)
 	{
-		if(!containsBlackWord(bword.word))
+		if (!containsBlackWord(bword.word))
 			getBlackWords().add(bword);
 	}
 	
 	public void removeBlackWord(BlackWord bword)
 	{
-		if(containsBlackWord(bword.word))
+		if (containsBlackWord(bword.word))
 			getBlackWords().remove(bword);
 	}
 	
@@ -28,8 +28,8 @@ public class BlackListManager
 	
 	public BlackWord getBlackWord(String word)
 	{
-		for(BlackWord bword : getBlackWords())
-			if(bword.word.equals(word))
+		for (BlackWord bword : getBlackWords())
+			if (bword.word.equals(word))
 				return bword;
 		return null;
 	}
@@ -41,8 +41,8 @@ public class BlackListManager
 	
 	public BlackWord getBlackWordFromText(String text)
 	{
-		for(BlackWord bword : getBlackWords())
-			if(text.toLowerCase().contains(bword.word.toLowerCase()))
+		for (BlackWord bword : getBlackWords())
+			if (text.toLowerCase().contains(bword.word.toLowerCase()))
 				return bword;
 		return null;
 	}

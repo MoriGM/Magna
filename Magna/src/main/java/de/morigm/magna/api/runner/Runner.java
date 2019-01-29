@@ -27,12 +27,12 @@ public abstract class Runner implements TranslationHelper, PermissionHelper
 	
 	public void register(String name)
 	{
-		register(name, Main.getInstance() != null ? Magna.getLanguage() : null,Main.getInstance() != null ? Magna.getPermissionManager() : null);
+		register(name, Main.getInstance() != null ? Magna.getLanguage() : null, Main.getInstance() != null ? Magna.getPermissionManager() : null);
 	}
 	
 	public void register(String name, Language language)
 	{
-		register(name,language,Main.getInstance() != null ? Magna.getPermissionManager() : null);
+		register(name,language, Main.getInstance() != null ? Magna.getPermissionManager() : null);
 	}
 	
 	public void register(String name, PermissionManager manager)
@@ -40,12 +40,12 @@ public abstract class Runner implements TranslationHelper, PermissionHelper
 		register(name, Main.getInstance() != null ? Magna.getLanguage(): null, manager);
 	}
 	
-	public void register(String name,Language language,PermissionManager manager)
+	public void register(String name, Language language, PermissionManager manager)
 	{
 		this.name = name;
-		if(language != null)
+		if (language != null)
 			this.language = language;
-		if(permission != null)
+		if (permission != null)
 			this.permission = manager;
 		Magna.getRunnerManager().registerRunner(this);
 	}

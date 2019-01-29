@@ -10,13 +10,13 @@ public class GodModeManager
 {
 	public void addPlayer(Player p)
 	{
-		if(!getPlayers().contains(p.getUniqueId().toString()))
+		if (!getPlayers().contains(p.getUniqueId().toString()))
 			getPlayers().add(p.getUniqueId().toString());
 	}
 	
 	public void removePlayer(Player p)
 	{
-		if(getPlayers().contains(p.getUniqueId().toString()))
+		if (getPlayers().contains(p.getUniqueId().toString()))
 			getPlayers().remove(p.getUniqueId().toString());
 	}
 	
@@ -27,7 +27,7 @@ public class GodModeManager
 	
 	public void togglePlayer(Player p)
 	{
-		if(this.containsPlayer(p))
+		if (this.containsPlayer(p))
 			this.removePlayer(p);
 		else
 			this.addPlayer(p);

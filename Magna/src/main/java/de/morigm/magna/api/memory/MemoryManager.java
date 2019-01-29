@@ -5,7 +5,10 @@ public class MemoryManager
 
 	public static enum MemoryType
 	{
-		BYTE(1),GIGABYTE(1024 * 1024 * 1024),MEGABYTE(1024 * 1024),KILOBYTE(1024);
+		BYTE (1), 
+		GIGABYTE (1024 * 1024 * 1024),
+		MEGABYTE (1024 * 1024),
+		KILOBYTE (1024);
 		
 		private int size;
 

@@ -22,11 +22,11 @@ public class Listener_BlackList extends ListenerHelper
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e)
 	{
-		if(Magna.getBlackListManager().hasBlackWord(e.getMessage()))
+		if (Magna.getBlackListManager().hasBlackWord(e.getMessage()))
 		{
 			BlackWord bword = Magna.getBlackListManager().getBlackWordFromText(e.getMessage());
 			Bukkit.getPluginManager().callEvent(new PlayerWriteBlockedWordEvent(e.getPlayer(), bword.word, bword.type));
-			if(!e.getPlayer().hasPermission(bword.permission) || !Magna.getSettings().getBlackListPermission())
+			if (!e.getPlayer().hasPermission(bword.permission) || !Magna.getSettings().getBlackListPermission())
 			{
 				switch(bword.type)
 				{

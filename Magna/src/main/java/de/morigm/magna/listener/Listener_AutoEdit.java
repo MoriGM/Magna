@@ -11,7 +11,7 @@ public class Listener_AutoEdit extends ListenerHelper
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e)
 	{
-		if(Main.getInstance().getDefaultPluginConfig().autoedit)
+		if (Main.getInstance().getDefaultPluginConfig().autoedit)
 			e.setMessage(Main.getInstance().getAutoEditManager().getChangesFromEdit(e.getMessage(), e.getPlayer()));
 	}
 }

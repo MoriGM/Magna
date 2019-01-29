@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.inventory.InventoryView;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.gui.Gui;
@@ -16,27 +17,28 @@ public class Listener_Gui extends ListenerHelper
 	@EventHandler
 	public void on(InventoryClickEvent e)
 	{
-		if(e.getWhoClicked() instanceof Player)
+		if(e.getWhoClicked() instanceof Player && e.getInventory() instanceof InventoryView)
 		{
 			Player p = (Player) e.getWhoClicked();
 			Gui gui;
-			if((gui = Magna.getUser(p).getGui()) != null)
+			InventoryView invv = (InventoryView) e.getInventory();
+			if ((gui = Magna.getUser(p).getGui()) != null)
 			{
-				if(!gui.getName().isEmpty())
-					if(!e.getInventory().getTitle().equals(gui.getName()))
+				if (!gui.getName().isEmpty())
+					if(!invv.getTitle().equals(gui.getName()))
 						return;
-				if(gui.getSize() != e.getInventory().getSize())
+				if (gui.getSize() != e.getInventory().getSize())
 					return;
-				if(!gui.getInventory().getHolder().equals(e.getInventory().getHolder()))
+				if (!gui.getInventory().getHolder().equals(e.getInventory().getHolder()))
 					return;
 				
 				e.setCancelled(true);
 				
-				if(e.getRawSlot() != e.getSlot())
+				if (e.getRawSlot() != e.getSlot())
 					return;
 				
-				if(!gui.getPermission().isEmpty())
-					if(!p.hasPermission(gui.getPermission()))
+				if (!gui.getPermission().isEmpty())
+					if (!p.hasPermission(gui.getPermission()))
 						return;
 				
 				gui.registerClick(e.getSlot());
@@ -48,18 +50,20 @@ public class Listener_Gui extends ListenerHelper
 	@EventHandler
 	public void on(InventoryCloseEvent e)
 	{
-		if(e.getPlayer() instanceof Player)
+		if (e.getPlayer() instanceof Player && e.getInventory() instanceof InventoryView)
 		{
 			Player p = (Player) e.getPlayer();
 			Gui gui;
-			if((gui = Magna.getUser(p).getGui()) != null)
+
+			InventoryView invv = (InventoryView) e.getInventory();
+			if ((gui = Magna.getUser(p).getGui()) != null)
 			{
-				if(!gui.getName().isEmpty())
-					if(!e.getInventory().getTitle().equals(gui.getName()))
+				if (!gui.getName().isEmpty())
+					if (!invv.getTitle().equals(gui.getName()))
 						return;
-				if(gui.getSize() != e.getInventory().getSize())
+				if (gui.getSize() != e.getInventory().getSize())
 					return;
-				if(!gui.getInventory().getHolder().equals(e.getInventory().getHolder()))
+				if (!gui.getInventory().getHolder().equals(e.getInventory().getHolder()))
 					return;
 				MagnaStuff.getGuis().remove(e.getPlayer());
 			}

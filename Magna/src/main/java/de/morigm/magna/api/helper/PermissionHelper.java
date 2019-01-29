@@ -12,7 +12,7 @@ public interface PermissionHelper
 		return getPermissionManager().getPermission(Permission);
 	}
 	
-	public default boolean testPermission(CommandSender p,String permission)
+	public default boolean testPermission(CommandSender p, String permission)
 	{
 		return p.hasPermission(getPermission(permission));
 	}

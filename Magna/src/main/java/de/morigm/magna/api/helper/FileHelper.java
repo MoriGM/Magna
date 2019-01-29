@@ -54,7 +54,7 @@ public class FileHelper
 	}
 	
 	@SneakyThrows
-	public static void copy(File in,File out)
+	public static void copy(File in, File out)
 	{
 		FileInputStream ins = new FileInputStream(in);
 		FileOutputStream outs = new FileOutputStream(out);
@@ -64,7 +64,7 @@ public class FileHelper
 	}
 	
 	@SneakyThrows
-	public static void copy(InputStream in,File out)
+	public static void copy(InputStream in, File out)
 	{
 		FileOutputStream outs = new FileOutputStream(out);
 		copyFile(in, outs);
@@ -72,7 +72,7 @@ public class FileHelper
 	}
 	
 	@SneakyThrows
-	public static void copy(File in,OutputStream out)
+	public static void copy(File in, OutputStream out)
 	{
 		FileInputStream ins = new FileInputStream(in);
 		copyFile(ins, out);
@@ -80,15 +80,15 @@ public class FileHelper
 	}
 	
 	@SneakyThrows
-	public static void copyFile(InputStream in,OutputStream out)
+	public static void copyFile(InputStream in, OutputStream out)
 	{
 		IOUtils.copy(in, out);
 	}
 	
-	public static void getFiles(List<File> files,File folder)
+	public static void getFiles(List<File> files, File folder)
 	{
-		for(File f : folder.listFiles())
-			if(f.isDirectory())
+		for (File f : folder.listFiles())
+			if (f.isDirectory())
 				getFiles(files, f);
 			else
 			{
@@ -101,15 +101,15 @@ public class FileHelper
 	public static void delete(List<File> files)
 	{
 		List<File> folders = new ArrayList<>();
-		for(File f : files)
-			if(f.exists())
-				if(f.isDirectory())
+		for (File f : files)
+			if (f.exists())
+				if (f.isDirectory())
 					folders.add(f);
 				else
 					f.delete();
 		
-		for(File f : folders)
-			if(f.exists())
+		for (File f : folders)
+			if (f.exists())
 				f.delete();
 	}
 	

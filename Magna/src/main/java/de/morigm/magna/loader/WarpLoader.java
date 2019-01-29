@@ -27,7 +27,7 @@ public class WarpLoader implements LoadHelper,SaveHelper
 	@Override
 	public void load() 
 	{
-		for(String w : Main.getInstance().getWarpConfig().warps)
+		for (String w : Main.getInstance().getWarpConfig().warps)
 		{
 			World world = Bukkit.getWorld(Main.getInstance().getWarpConfig().getConfig().getString(w + ".world"));
 			int x = getConfig().getInt(w + ".x");
@@ -51,7 +51,7 @@ public class WarpLoader implements LoadHelper,SaveHelper
 	{
 		deleteConfig(getConfig());
 		
-		for(Warp w : warps)
+		for (Warp w : warps)
 		{
 			getConfig().set(w.name + ".x", w.location.getX());
 			getConfig().set(w.name + ".y", w.location.getY());
@@ -66,7 +66,7 @@ public class WarpLoader implements LoadHelper,SaveHelper
 	
 	public void deleteConfig(FileConfiguration config)
 	{
-		for(String key : config.getKeys(true))
+		for (String key : config.getKeys(true))
 			config.set(key, null);
 	}
 	

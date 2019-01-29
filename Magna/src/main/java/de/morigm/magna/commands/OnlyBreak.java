@@ -25,13 +25,13 @@ public class OnlyBreak extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(PlayerHelper.isPlayer(com))
+		if (PlayerHelper.isPlayer(com))
 		{
-			if(testPermission(com, "onlybreak"))
+			if (testPermission(com, "onlybreak"))
 			{
 				Player p = (Player) com;
 				getOnlyBreakManager().togglePlayer(p);
-				if(getOnlyBreakManager().containsPlayer(p))
+				if (getOnlyBreakManager().containsPlayer(p))
 					p.sendMessage(Chat.prefix + translate("cmd.onlybreak.on"));
 				else
 					p.sendMessage(Chat.prefix + translate("cmd.onlybreak.off"));

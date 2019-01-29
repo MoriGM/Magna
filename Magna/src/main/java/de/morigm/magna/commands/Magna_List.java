@@ -31,20 +31,20 @@ public class Magna_List extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args)
 	{
-		if(testPermission(com, "magna-list"))
+		if (testPermission(com, "magna-list"))
 		{
-			if(getGroupManager().getGroups().length >= 1)
+			if (getGroupManager().getGroups().length >= 1)
 			{
-				if(Bukkit.getOnlinePlayers().size() >= 1)
+				if (Bukkit.getOnlinePlayers().size() >= 1)
 				{
-					if(args.length >= 1)
+					if (args.length >= 1)
 					{
 						Group group = getGroupManager().getGroup(args[0]);
-						if(group != null)
+						if (group != null)
 						{
 							List<Player> players = getGroupManager().getPlayersByGroup(group);
 							String groups = "";
-							for(Player t : players)
+							for (Player t : players)
 								groups += ChatColor.GREEN + t.getName() + ChatColor.RESET + " ";
 							com.sendMessage(Chat.prefix + translate("cmd.list.player") + ":" + groups);
 						}
@@ -55,7 +55,7 @@ public class Magna_List extends CommandHelper
 					{
 						Map<Player,Group> map = getGroupManager().getOnlinePlayerWithGroup();
 						String group = "";
-						for(Entry<Player,Group> entry : map.entrySet())
+						for (Entry<Player,Group> entry : map.entrySet())
 							group += "(" + entry.getKey().getName() + " : " + (entry.getValue() != null ? entry.getValue().name : translate("cmd.list.group.no")) + "),";
 						group = group.substring(0,group.length() - 1);
 						com.sendMessage(Chat.prefix + group);

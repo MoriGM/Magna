@@ -24,16 +24,16 @@ public class MSG extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(args.length >= 2)
+			if (args.length >= 2)
 			{
 				Player t = Bukkit.getPlayer(args[0]);
 				String text = StringHelper.StringArrayToString(args, " ", 1).replace('&', '§');
-				if(t != null)
+				if (t != null)
 				{
-					if(t != p)
+					if (t != p)
 					{
 						t.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + p.getName() + ChatColor.GRAY + " -> " + ChatColor.BLUE + t.getName() +  ChatColor.GRAY + "]" + ChatColor.RESET + " " + text);
 						getMSGManager().updateMSG(p, t);

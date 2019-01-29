@@ -17,19 +17,19 @@ public class Listener_GODMODE extends ListenerHelper
 	@EventHandler
 	public void on(PlayerInteractEvent e)
 	{
-		if(Main.getInstance().getGodModeManager().containsPlayer(e.getPlayer()))
-			if(e.getAction().equals(Action.LEFT_CLICK_BLOCK) && e.getClickedBlock() != null)
-				if(!e.getClickedBlock().getType().equals(Material.BEDROCK))
+		if (Main.getInstance().getGodModeManager().containsPlayer(e.getPlayer()))
+			if (e.getAction().equals(Action.LEFT_CLICK_BLOCK) && e.getClickedBlock() != null)
+				if (!e.getClickedBlock().getType().equals(Material.BEDROCK))
 					e.getClickedBlock().breakNaturally();
 	}
 	
 	@EventHandler
 	public void on(EntityDamageEvent e)
 	{
-		if(e.getEntity() instanceof Player)
+		if (e.getEntity() instanceof Player)
 		{
 			Player p = (Player) e.getEntity();
-			if(Main.getInstance().getGodModeManager().containsPlayer(p))
+			if (Main.getInstance().getGodModeManager().containsPlayer(p))
 				e.setCancelled(true);
 		}
 	}
@@ -37,10 +37,10 @@ public class Listener_GODMODE extends ListenerHelper
 	@EventHandler
 	public void on(EntityDamageByEntityEvent e)
 	{
-		if(e.getDamager() instanceof Player)
+		if (e.getDamager() instanceof Player)
 		{
 			Player p = (Player) e.getDamager();
-			if(Main.getInstance().getGodModeManager().containsPlayer(p))
+			if (Main.getInstance().getGodModeManager().containsPlayer(p))
 				e.setDamage(10000000D);
 		}
 	}
@@ -51,7 +51,7 @@ public class Listener_GODMODE extends ListenerHelper
 		if(e.getEntity() instanceof Player)
 		{
 			Player p = (Player) e.getEntity();
-			if(Main.getInstance().getGodModeManager().containsPlayer(p))
+			if (Main.getInstance().getGodModeManager().containsPlayer(p))
 				e.setCancelled(true);
 		}
 	}

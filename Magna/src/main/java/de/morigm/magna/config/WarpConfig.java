@@ -27,9 +27,9 @@ public class WarpConfig implements ConfigHelper
 	{
 		FileHelper.createFileIfNotExists(configFile);
 		this.config = YamlConfiguration.loadConfiguration(configFile);
-		if(this.config.isList("warps"))
+		if (this.config.isList("warps"))
 			this.config.set("warps", null);
-		for(String keys : this.config.getKeys(false))
+		for (String keys : this.config.getKeys(false))
 			this.warps.add(keys);
 	}
 	

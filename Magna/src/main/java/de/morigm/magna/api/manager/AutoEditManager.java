@@ -16,11 +16,11 @@ public class AutoEditManager
 	public String getChangesFromEdit(String text)
 	{
 		String edittext = text;
-		if(text.contains("[") && text.contains("]"))
+		if (text.contains("[") && text.contains("]"))
 		{
-			for(CustomAutoEditStruct s : getCustomAutoEditStructs())
+			for (CustomAutoEditStruct s : getCustomAutoEditStructs())
 				edittext = edittext.replace(s.name, s.edit);
-			for(AutoEditStruct s : getAutoEditStructs())
+			for (AutoEditStruct s : getAutoEditStructs())
 				edittext = edittext.replace(s.getName(), s.getEdit());
 		}
 		return edittext;
@@ -29,19 +29,19 @@ public class AutoEditManager
 	public String getChangesFromEdit(String text,Player p)
 	{
 		String edittext = text;
-		if(text.contains("[") && text.contains("]"))
+		if (text.contains("[") && text.contains("]"))
 		{
-			for(CumstomPlayerAutoEditStruct s : getCustomPlayerAutoEditStructs())
-				if(s.uuid.equals(p.getUniqueId().toString()))
+			for (CumstomPlayerAutoEditStruct s : getCustomPlayerAutoEditStructs())
+				if (s.uuid.equals(p.getUniqueId().toString()))
 					edittext = edittext.replace(s.name, s.edit);
 			
-			for(CustomAutoEditStruct s : getCustomAutoEditStructs())
+			for (CustomAutoEditStruct s : getCustomAutoEditStructs())
 				edittext = edittext.replace(s.name, s.edit);
 			
-			for(PlayerAutoEditStruct s : getPlayerAutoEditStructs())
+			for (PlayerAutoEditStruct s : getPlayerAutoEditStructs())
 				edittext = edittext.replace(s.getName(), s.getEdit(p));
 			
-			for(AutoEditStruct s : getAutoEditStructs())
+			for (AutoEditStruct s : getAutoEditStructs())
 				edittext = edittext.replace(s.getName(), s.getEdit());
 		}
 		return edittext;

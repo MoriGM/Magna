@@ -24,15 +24,15 @@ public class SetWarp extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "setwarp"))
+			if (testPermission(p, "setwarp"))
 			{
-				if(args.length >= 1)
+				if (args.length >= 1)
 				{
 					String warpname = args[0];
-					if(Main.getInstance().getWarpManager().containsWarp(warpname))
+					if (Main.getInstance().getWarpManager().containsWarp(warpname))
 						Main.getInstance().getWarpManager().removeWarp(warpname);
 					Main.getInstance().getWarpManager().setWarp(warpname, p.getLocation());
 					p.sendMessage(Chat.prefix + translate("cmd.setwarp.warp") + " " + warpname + " " + translate("cmd.setwarp.end"));

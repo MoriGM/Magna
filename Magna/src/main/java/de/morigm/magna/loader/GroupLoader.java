@@ -17,20 +17,20 @@ public class GroupLoader implements LoadHelper
 	{
 		List<Group> list = new ArrayList<>();
 		Group[] groups = new Group[Main.getInstance().getDefaultPluginConfig().groups.size()];
-		for(String group : Main.getInstance().getDefaultPluginConfig().groups)
+		for (String group : Main.getInstance().getDefaultPluginConfig().groups)
 		{
 			String name = Main.getInstance().getGroupConfig().getConfig().getString(group + "." + "name");
 			String permission = Main.getInstance().getGroupConfig().getConfig().getString(group + "." + "permission");
 			int id = Main.getInstance().getGroupConfig().getConfig().getInt(group + "." + "id");
 			list.add(new Group(name, permission, id));
 		}
-		if(list.size() >= 1)
+		if (list.size() >= 1)
 		{
 			List<Group> end = new ArrayList<>();
-			for(int i = 0;i < list.size();i++)
+			for (int i = 0;i < list.size();i++)
 			{
 				Group g = new Group("Buddy", "Buddy", Integer.MAX_VALUE);
-				for(Group group : list)
+				for (Group group : list)
 					if(g.id > group.id && !end.contains(group))
 						g = group;
 				end.add(g);

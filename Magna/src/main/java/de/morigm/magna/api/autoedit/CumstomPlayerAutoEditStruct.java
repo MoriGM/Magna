@@ -3,7 +3,7 @@ package de.morigm.magna.api.autoedit;
 public class CumstomPlayerAutoEditStruct 
 {
 	
-	public CumstomPlayerAutoEditStruct(String name,String edit,String uuid) 
+	public CumstomPlayerAutoEditStruct(String name, String edit, String uuid) 
 	{
 		this.name = name;
 		this.edit = edit;

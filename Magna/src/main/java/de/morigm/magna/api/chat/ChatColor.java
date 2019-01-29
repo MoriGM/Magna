@@ -34,7 +34,7 @@ public enum ChatColor
 	{
 		this.color_char = c;
 		this.color_name = color_code;
-		this.to_string = new String(new char[]{code_char,color_char});
+		this.to_string = new String(new char[]{code_char, color_char});
 	}
 
 	public String getColorName() 

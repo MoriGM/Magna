@@ -10,16 +10,16 @@ import de.morigm.magna.loader.WarpLoader;
 
 public class WarpManager
 {
-	public void setWarp(String name,Location loc)
+	public void setWarp(String name, Location loc)
 	{
 		Warp w = new Warp(name, Main.getInstance().getPermissionManager().getPermission("warppermission"), loc);
-		if(!containsWarp(w.name))
+		if (!containsWarp(w.name))
 			getWarps().add(w);
 	}
 	
 	public void removeWarp(String name)
 	{
-		if(containsWarp(name))
+		if (containsWarp(name))
 			getWarps().remove(getWarp(name));
 	}
 	
@@ -30,8 +30,8 @@ public class WarpManager
 	
 	public Warp getWarp(String name)
 	{
-		for(Warp w : getWarps())
-			if(w.name.equals(name))
+		for (Warp w : getWarps())
+			if (w.name.equals(name))
 				return w;
 		return null;
 	}

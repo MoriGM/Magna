@@ -18,8 +18,7 @@ import lombok.Setter;
 public abstract class Gui implements PermissionHelper
 {
 
-	@Getter @Setter private String name = "";
-	@Getter @Setter private String permission = "";
+	@Getter @Setter private String name = "", permission = "";
 	@Getter private int size = 9 * 3;
 	
 	@Getter private Player player;
@@ -51,9 +50,9 @@ public abstract class Gui implements PermissionHelper
 	
 	public void addButton(GuiButton button)
 	{
-		for(GuiButton b : getGuiButtons())
-			if(b.getSlot() >= 0)
-				if(button.getId() == b.getId())
+		for (GuiButton b : getGuiButtons())
+			if (b.getSlot() >= 0)
+				if (button.getId() == b.getId())
 					return;
 		
 		getGuiButtons().add(button);
@@ -62,18 +61,18 @@ public abstract class Gui implements PermissionHelper
 	public void createGUI(@NonNull Player player)
 	{
 		this.player = player;
-		if(this.getName().isEmpty())
+		if (this.getName().isEmpty())
 			this.inventory = Bukkit.createInventory(player, size);
 		else
 			this.inventory = Bukkit.createInventory(player, size, name);
-		for(GuiButton button : getGuiButtons())
-			if(button.getSlot() >= 0)
+		for (GuiButton button : getGuiButtons())
+			if (button.getSlot() >= 0)
 				this.inventory.setItem(button.getSlot(), button.getItem());
-		for(GuiButton button : getGuiButtons().toArray(new GuiButton[getGuiButtons().size()]))
-			if(button.getSlot() == -1)
+		for (GuiButton button : getGuiButtons().toArray(new GuiButton[getGuiButtons().size()]))
+			if (button.getSlot() == -1)
 			{
 				int slot = this.inventory.firstEmpty();
-				GuiButton gb = new GuiButton(button.getItem(), button.getId(),slot);
+				GuiButton gb = new GuiButton(button.getItem(), button.getId(), slot);
 				getGuiButtons().remove(button);
 				getGuiButtons().add(gb);
 				this.inventory.setItem(slot, gb.getItem());
@@ -82,8 +81,8 @@ public abstract class Gui implements PermissionHelper
 	
 	public void registerClick(int slot)
 	{
-		for(GuiButton button : getGuiButtons())
-			if(button.getSlot() == slot)
+		for (GuiButton button : getGuiButtons())
+			if (button.getSlot() == slot)
 			{
 				this.onClick(button);
 				return;

@@ -21,10 +21,10 @@ public class Ops extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "ops"))
+		if (testPermission(com, "ops"))
 		{
 			String ops = "";
-			for(OfflinePlayer of : Bukkit.getOperators())
+			for (OfflinePlayer of : Bukkit.getOperators())
 				ops += of.getName() + ",";
 			ops = ops.substring(0, ops.length() - 1);
 			com.sendMessage("Ops:" + ops);

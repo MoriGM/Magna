@@ -21,11 +21,11 @@ public class ReloadConfig extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "magna-reloadconfig"))
+		if (testPermission(com, "magna-reloadconfig"))
 		{
 			Main.getInstance().reloadConfig();
 			Main.getInstance().getDefaultPluginConfig().load();
-			if(Main.getInstance().getDefaultPluginConfig().groups.size() >= 1)
+			if (Main.getInstance().getDefaultPluginConfig().groups.size() >= 1)
 			{
 				Main.getInstance().getGroupConfig().load();
 				Main.getInstance().getGroupLoader().load();

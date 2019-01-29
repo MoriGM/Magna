@@ -33,14 +33,14 @@ public class Mute extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
 	{
-		if(testPermission(com, "mute"))
+		if (testPermission(com, "mute"))
 		{
-			if(args.length == 1)
+			if (args.length == 1)
 			{
-				if(args[0].equalsIgnoreCase("list"))
+				if (args[0].equalsIgnoreCase("list"))
 				{
 					String players = "";
-					for(String uuid : getMutedPlayerManager().getMutedUUIDS())
+					for (String uuid : getMutedPlayerManager().getMutedUUIDS())
 					{
 						OfflinePlayer t = Bukkit.getPlayer(UUID.fromString(uuid));
 						players += t.getName() + " ";
@@ -52,14 +52,14 @@ public class Mute extends CommandHelper
 			}
 			else
 			{
-				if(args.length >= 2)
+				if (args.length >= 2)
 				{
 					Player t = Bukkit.getPlayer(args[1]);
-					if(t != null)
+					if (t != null)
 					{
-						if(args[0].equalsIgnoreCase("on"))
+						if (args[0].equalsIgnoreCase("on"))
 						{
-							if(!getMutedPlayerManager().containsPlayer(t))
+							if (!getMutedPlayerManager().containsPlayer(t))
 							{
 								getMutedPlayerManager().addPlayer(t);
 								com.sendMessage(Chat.prefix + translate("cmd.mute.on"));
@@ -68,9 +68,9 @@ public class Mute extends CommandHelper
 								com.sendMessage(Chat.prefix + translate("cmd.mute.on.error"));
 						}
 						else
-						if(args[0].equalsIgnoreCase("off"))
+						if (args[0].equalsIgnoreCase("off"))
 						{
-							if(getMutedPlayerManager().containsPlayer(t))
+							if (getMutedPlayerManager().containsPlayer(t))
 							{
 								getMutedPlayerManager().removePlayer(t);
 								com.sendMessage(Chat.prefix + translate("cmd.mute.off"));
@@ -79,7 +79,7 @@ public class Mute extends CommandHelper
 								com.sendMessage(Chat.prefix + translate("cmd.mute.off.error"));
 						}
 						else
-						if(args[0].equalsIgnoreCase("status"))
+						if (args[0].equalsIgnoreCase("status"))
 						{
 							com.sendMessage(Chat.prefix + translate("cmd.mute.status") + " " + (!getMutedPlayerManager().containsPlayer(t) ? (translate("cmd.mute.status.not") + " " + ChatColor.GREEN) : ChatColor.RED.toString()) + "muted");
 						}

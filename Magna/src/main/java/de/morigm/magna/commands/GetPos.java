@@ -22,14 +22,14 @@ public class GetPos extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(com, "getpos"))
-				if(args.length >= 1)
+			if (testPermission(com, "getpos"))
+				if (args.length >= 1)
 				{
 					Player t = Bukkit.getPlayer(args[0]);
-					if(t != null)
+					if (t != null)
 						p.sendMessage(Chat.prefix + "X:" +  t.getLocation().getBlockX() + " Y:" + t.getLocation().getBlockY() + " Z:" + t.getLocation().getBlockZ() + " " + translate("cmd.getpos.world") + ":" + t.getLocation().getWorld().getName());
 					else
 						p.sendMessage(Chat.prefix + Chat.no_online);

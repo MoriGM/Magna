@@ -24,15 +24,15 @@ public class RemoveWarp extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "removewarp"))
+			if (testPermission(p, "removewarp"))
 			{
-				if(args.length >= 1)
+				if (args.length >= 1)
 				{
 					String warpname = args[0];
-					if(getWarpManager().containsWarp(warpname))
+					if (getWarpManager().containsWarp(warpname))
 					{
 						getWarpManager().removeWarp(warpname);
 						p.sendMessage(Chat.prefix + translate("cmd.removewarp"));

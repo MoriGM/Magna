@@ -23,10 +23,10 @@ public class SetSpawn extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(com, "setspawn"))
+			if (testPermission(com, "setspawn"))
 			{
 				Magna.getSettings().setSpawn(p.getLocation());
 				p.sendMessage(Chat.prefix + translate("cmd.setspawn"));

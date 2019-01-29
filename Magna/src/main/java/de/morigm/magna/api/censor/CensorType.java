@@ -18,16 +18,16 @@ public enum CensorType
 	
 	public static boolean isType(String s)
 	{
-		for(CensorType t : values())
-			if(t.name().equals(s.toUpperCase()))
+		for (CensorType t : values())
+			if (t.name().equals(s.toUpperCase()))
 				return true;
 		return false;
 	}
 	
 	public static CensorType getType(String s)
 	{
-		for(CensorType t : values())
-			if(t.name().equals(s.toUpperCase()))
+		for (CensorType t : values())
+			if (t.name().equals(s.toUpperCase()))
 				return t;
 		return CensorType.NORMAL;
 	}

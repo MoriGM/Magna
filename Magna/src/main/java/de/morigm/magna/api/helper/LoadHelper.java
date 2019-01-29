@@ -4,4 +4,5 @@ public interface LoadHelper
 {
 
 	public void load();
+	
 }

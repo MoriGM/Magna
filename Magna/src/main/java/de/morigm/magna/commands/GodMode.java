@@ -26,15 +26,15 @@ public class GodMode extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
 	{
-		if(com instanceof Player)
+		if (com instanceof Player)
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "godmode"))
+			if (testPermission(p, "godmode"))
 			{
-				if(args.length >= 1)
+				if (args.length >= 1)
 				{
 					Player t = Bukkit.getPlayer(args[0]);
-					if(t != null)
+					if (t != null)
 					{
 						getGodModeManager().togglePlayer(t);
 						p.sendMessage(Chat.prefix + translate("cmd.godmode") + " " + (getGodModeManager().containsPlayer(t) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")) + " " + translate("cmd.godmode.for") + " " + t.getName());
@@ -54,10 +54,10 @@ public class GodMode extends CommandHelper
 		}
 		else
 		{
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				Player t = Bukkit.getPlayer(args[0]);
-				if(t != null)
+				if (t != null)
 				{
 					getGodModeManager().togglePlayer(t);
 					Chat.writeMessage(translate("cmd.godmode") + " " + (getGodModeManager().containsPlayer(t) ? translate("cmd.godmode.on") : translate("cmd.godmode.off")) + " " + translate("cmd.godmode.for") + " " + t.getName());

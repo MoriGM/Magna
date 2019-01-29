@@ -22,9 +22,9 @@ public class getUUID extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(testPermission(com, "getuuid"))
+		if (testPermission(com, "getuuid"))
 		{
-			if(args.length >= 1)
+			if (args.length >= 1)
 			{
 				String name = args[0];
 				com.sendMessage(Chat.prefix + "UUID:" + MojangApi.getPlayerUUID(name));

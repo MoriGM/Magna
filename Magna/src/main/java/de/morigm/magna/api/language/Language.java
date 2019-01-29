@@ -21,11 +21,11 @@ public class Language implements LoadHelper
 	
 	public String translate(String text, TextStruct ... structs)
 	{
-		if(prop.containsKey(text))
+		if (prop.containsKey(text))
 		{
 			String translate = prop.getProperty(text);
-			if(structs.length >= 1)
-				for(TextStruct struct : structs)
+			if (structs.length >= 1)
+				for (TextStruct struct : structs)
 					translate = translate.replace(struct.getOld(), struct.getNew());
 			return translate;
 		}
@@ -40,7 +40,10 @@ public class Language implements LoadHelper
 		{
 			prop.load(new FileInputStream(this.languageFile));
 		}
-		catch (IOException e) {e.printStackTrace();}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 }

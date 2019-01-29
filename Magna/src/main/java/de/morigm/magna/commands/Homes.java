@@ -24,13 +24,13 @@ public class Homes extends CommandHelper
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
 	{
-		if(PlayerHelper.isPlayer(com))
+		if (PlayerHelper.isPlayer(com))
 		{
 			Player p = (Player) com;
-			if(testPermission(p, "homes"))
+			if (testPermission(p, "homes"))
 			{
 				String homes = "";
-				for(Home h : getHomeManager().getPlayerHomes(p))
+				for (Home h : getHomeManager().getPlayerHomes(p))
 					homes += homes.isEmpty() ? h.name : "," + h.name;
 				p.sendMessage(Chat.prefix + "Homes:" + homes);
 			}
