@@ -83,19 +83,15 @@ NoFallDamage Added to Magna
 
 #### System
 
-Added BlackList to Magna
-
-AutoEdit System to Magna
+Added BlackList to Magna  
+AutoEdit System to Magna  
 
 ### Bug
 
-Fixed Command skull in Magna
-
-Fixed that you only can set a warp once
-
-testPermission Stackoverflow
-
-spawn save error
+Fixed Command skull in Magna  
+Fixed that you only can set a warp once  
+testPermission Stackoverflow  
+spawn save error  
 
 ### Rebuild
 
@@ -107,39 +103,28 @@ Warp System
 
 #### Command
 
-Added Command Skull to Magna
-
-Added Command TpTo to Magna
-
-Added Command TpHere to Magna
-
-Added Command getuuid to Magna
-
+Added Command Skull to Magna  
+Added Command TpTo to Magna  
+Added Command TpHere to Magna  
+Added Command getuuid to Magna  
 
 #### Listener
 
 Trash Sign
 
 #### Class
-CommandUtil
-
-CommandsHelper Function add registerUtils
-
-Junit System
-
-CommandTest
-
-PluginSetTest
-
-PermissionTest
+CommandUtil  
+CommandsHelper Function add registerUtils  
+Junit System  
+CommandTest  
+PluginSetTest  
+PermissionTest  
 
 ### Change
 
-Warp System
-
-Added Command BanIps to PluginLoader
-
-GNU GPL 3 to GNU GPL 2
+Warp System  
+Added Command BanIps to PluginLoader  
+GNU GPL 3 to GNU GPL 2  
 
 ### Fixed
 
@@ -149,27 +134,17 @@ Added cmd.warp and cmd.warp.error to German Translation
 
 ### Add
 
-Command BanIps
-
-Command Bans
-
-Command Ops
-
-Command Repair
-
-Command day
-
-Command night
-
-Command broadcast
-
-Command gamemodeinfo
-
-Mute Listener to Language System
-
-FileHelper Class
-
-Warning System
+Command BanIps  
+Command Bans  
+Command Ops  
+Command Repair  
+Command day  
+Command night  
+Command broadcast  
+Command gamemodeinfo  
+Mute Listener to Language System  
+FileHelper Class  
+Warning System  
 
 ## Change
 
@@ -187,15 +162,11 @@ Added Language System
 
 ### Bugfix
 
-Command setitemname
-
-Command itemhead
-
-Command magna-group-exec
-
-Command manga-list
-
-Class CommandLoger
+Command setitemname  
+Command itemhead  
+Command magna-group-exec  
+Command manga-list  
+Class CommandLoger  
 
 ### Typo
 
@@ -205,78 +176,48 @@ Command heal
 
 ### Added Commands
 
-teamchat
-
-setspawn
-
-spawn
+teamchat  
+setspawn  
+spawn  
 
 ## 0.0.0
 
 ### Added Commands
 
-fly
-
-godmode
-
-mute
-
-heal
-
-getworld
-
-setitemname
-
-ip
-
-tpall
-
-itemhead
-
-cmdspy
-
-magna-reloadconfig
-
-getpos
-
-setwarp
-
-getwarp
-
-warp
-
-removewarp
-
-warps
-
-kickall
-
-memorie
-
-chatclear
-
-allchatclear
-
-magna-groups
-
-magna-id
-
-magna-list
-
-magna-group-exec
+fly  
+godmode  
+mute  
+heal  
+getworld  
+setitemname  
+ip  
+tpall  
+itemhead  
+cmdspy  
+magna-reloadconfig  
+getpos  
+setwarp  
+getwarp  
+warp  
+removewarp  
+warps  
+kickall  
+memorie  
+chatclear  
+allchatclear  
+magna-groups  
+magna-id  
+magna-list  
+magna-group-exec  
 
 ### Added Listener
 
-Added ChatColor
-
-Added SignColor
+Added ChatColor  
+Added SignColor  
 
 ### Managers
 
-GroupManger
-
-WarpManager
-
-PermissionManager
-
-MuteManager
+GroupManger  
+WarpManager  
+PermissionManager  
+MuteManager  
