@@ -2,3 +2,4 @@ mwcreate: magnaworld.cmd.mwcreate
 mwtp: magnaworld.cmd.mwtp
 mwdelete: magnaworld.cmd.mwdelete
 mwlist: magnaworld.cmd.mwlist
+mwimport: magnaworld.cmd.mwimport

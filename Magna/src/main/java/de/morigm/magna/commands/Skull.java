@@ -36,7 +36,7 @@ public class Skull extends CommandHelper
 				if (args.length >= 1)
 				{
 					String owner = args[0];
-					ItemStack item = new ItemStack(Material.SKELETON_SKULL);
+					ItemStack item = new ItemStack(Material.PLAYER_HEAD);
 					SkullMeta meta = (SkullMeta) item.getItemMeta();
 					meta.setOwningPlayer(Bukkit.getOfflinePlayer(MojangApi.getPlayerUUID(owner)));
 					item.setItemMeta(meta);

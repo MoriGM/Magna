@@ -1,6 +1,7 @@
 name: Magna
-version: 0.6.0
+version: 0.8.0
 author: MoriGM
+api-version: 1.14
 
 main: de.morigm.magna.Main
 

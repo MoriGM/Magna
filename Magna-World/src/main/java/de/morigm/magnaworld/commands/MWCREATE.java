@@ -7,7 +7,6 @@ import org.bukkit.command.CommandSender;
 
 import de.morigm.magna.api.convert.Convert;
 import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
 import de.morigm.magnaworld.api.world.WorldStruct;
@@ -47,7 +46,7 @@ public class MWCREATE extends CommandHelper
 					sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwcreate.error"));
 			}
 			else
-				sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + ((PlayerHelper.isPlayer(sender) ? "/" : "")) + getCommand() + " <name> <NORMAL,NETHER,THE_END> <NORMAL,FLAT,LARGE_BIOMES,AMPLIFIED,CUSTOMIZED> [seed]");
+				sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + Slash(sender) + getCommand() + " <name> <NORMAL,NETHER,THE_END> <NORMAL,FLAT,LARGE_BIOMES,AMPLIFIED,CUSTOMIZED> [seed]");
 		}
 		else
 			Chat.noPermission(sender);

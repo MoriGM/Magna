@@ -1,5 +1,12 @@
 # CHANGLOG.md
 
+## 0.8.0
+
+#### Changes
+
+* Skiped 0.7.0
+* Changed Minecraft Version from 1.12.2 to 1.14.4
+
 ## 0.6.0
 
 ### Add

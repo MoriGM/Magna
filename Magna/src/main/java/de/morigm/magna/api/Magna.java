@@ -30,7 +30,7 @@ import lombok.Getter;
 public class Magna
 {
 	
-	private static String[] spigot_versions = {"v1_13_R1"};
+	private static String[] spigot_versions = {"v1_14_R1"};
 	private static CommandUtil commandutil;
 	@Getter private static Settings settings;
 	@Getter private static Folders folders;

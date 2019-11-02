@@ -9,8 +9,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
-
 import lombok.SneakyThrows;
 
 public class FileHelper
@@ -82,7 +80,11 @@ public class FileHelper
 	@SneakyThrows
 	public static void copyFile(InputStream in, OutputStream out)
 	{
-		IOUtils.copy(in, out);
+		int readlen = 0;
+		byte[] bt = new byte[1024];
+		
+		while ((readlen = in.read(bt)) >= 0)
+			out.write(bt, 0, readlen);
 	}
 	
 	public static void getFiles(List<File> files, File folder)

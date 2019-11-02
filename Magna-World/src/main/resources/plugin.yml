@@ -1,5 +1,5 @@
 name: Magna-World
-version: 0.6.0
+version: 0.8.0
 author: MoriGM
 
 depend: [Magna]
@@ -11,3 +11,4 @@ commands:
       mwtp:
       mwdelete:
       mwlist:
+      mwimport:

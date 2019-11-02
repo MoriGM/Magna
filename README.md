@@ -31,7 +31,7 @@ mvn install
 
 ### Tested Operating System
 
-* Linux Debian 8
+* Linux Ubuntu 18.04
 * Windows 10
 
 ### Tested Architecture
@@ -40,7 +40,7 @@ mvn install
 
 ### Tested Spigot Server Version
 
-* Spigot 1.12.2 git-Spigot-642f6d2-6103339
+* Spigot 1.14.4 git-Spigot-56f8471-7554e08
 
 ## Built With
 

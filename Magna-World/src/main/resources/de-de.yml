@@ -4,3 +4,6 @@ cmd.mwtp= Teleportiert zur World Spawn
 cmd.mwtp.error= Diese Welt gibt es nicht
 cmd.mwdelete= Welt wurde gelöscht
 cmd.mwdelete.error= Diese Welt gibt es nicht
+cmd.mwimport= Welt wurde importiert
+cmd.mwimport.error= Diese Welt gibt es schon
+cmd.mwimport.missing= Diesen Ordner gibt es nicht

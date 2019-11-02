@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.InventoryView;
 
 import de.morigm.magna.api.Magna;
@@ -17,15 +18,14 @@ public class Listener_Gui extends ListenerHelper
 	@EventHandler
 	public void on(InventoryClickEvent e)
 	{
-		if(e.getWhoClicked() instanceof Player && e.getInventory() instanceof InventoryView)
+		if(e.getWhoClicked() instanceof Player && e.getInventory().getType() == InventoryType.CHEST)
 		{
 			Player p = (Player) e.getWhoClicked();
 			Gui gui;
-			InventoryView invv = (InventoryView) e.getInventory();
 			if ((gui = Magna.getUser(p).getGui()) != null)
 			{
 				if (!gui.getName().isEmpty())
-					if(!invv.getTitle().equals(gui.getName()))
+					if(!e.getView().getTitle().equals(gui.getName()))
 						return;
 				if (gui.getSize() != e.getInventory().getSize())
 					return;
@@ -36,7 +36,7 @@ public class Listener_Gui extends ListenerHelper
 				
 				if (e.getRawSlot() != e.getSlot())
 					return;
-				
+			
 				if (!gui.getPermission().isEmpty())
 					if (!p.hasPermission(gui.getPermission()))
 						return;

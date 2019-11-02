@@ -13,8 +13,7 @@ public class WorldStruct
 
 	public WorldStruct(String name)
 	{
-		if(name.startsWith(".."))
-			throw new NullPointerException();
+		if(name.contains("..")) throw new NullPointerException("Name is not allowed");
 		this.name = name;
 	}
 	
@@ -26,8 +25,7 @@ public class WorldStruct
 	
 	public void load(World world)
 	{
-		if(this.world != null)
-			throw new RuntimeException("Allready loaded");
+		if(this.world != null) throw new RuntimeException("Allready loaded");
 		this.world = world;
 		this.seed = world.getSeed();
 	}
