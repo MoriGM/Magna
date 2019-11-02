@@ -11,7 +11,7 @@ A Minecraft Server Manager Tool
 
 Java JDK 8
 
-Spigot Server 1.12.2
+Spigot Server 1.14.4
 
 ## Authors
 
