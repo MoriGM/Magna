@@ -20,9 +20,9 @@ import lombok.Getter;
 public class User 
 {
 		@Getter private Player player;
-		private PermissionManager permission;
+		private PermissionManager[] permission;
 
-		public User(Player p, PermissionManager permission) 
+		public User(Player p, PermissionManager ... permission) 
 		{
 			this.player = p;
 			this.permission = permission;
@@ -55,7 +55,9 @@ public class User
 		
 		public boolean hasPermission(String Permission)
 		{
-			return player.hasPermission(permission.getPermission(Permission));
+			for (PermissionManager perm : permission)
+			if (perm.hasPermission(Permission)) return player.hasPermission(perm.getPermission(Permission));
+			return false;
 		}
 		
 		public boolean hasOnlyBreak()
@@ -75,42 +77,32 @@ public class User
 		
 		public void setAfk(boolean state)
 		{
-			if (state)
-				getAFKManager().addPlayerToAFKMode(player);
-			else
-				getAFKManager().removePlayerFromAFKMode(player);
+			if (state) getAFKManager().addPlayerToAFKMode(player);
+			else getAFKManager().removePlayerFromAFKMode(player);
 		}
 		
 		public void setMuted(boolean state)
 		{
-			if (state)
-				getMutedPlayerManager().addPlayer(player);
-			else
-				getMutedPlayerManager().removePlayer(player);
+			if (state) getMutedPlayerManager().addPlayer(player);
+			else getMutedPlayerManager().removePlayer(player);
 		}
 		
 		public void setCMDSPY(boolean state)
 		{
-			if (state)
-				getCommandSpyManager().addPlayer(player);
-			else
-				getCommandSpyManager().removePlayer(player);
+			if (state) getCommandSpyManager().addPlayer(player);
+			else getCommandSpyManager().removePlayer(player);
 		}
 		
 		public void setOnlyBreak(boolean state)
 		{
-			if (state)
-				getOnlyBreakManager().addPlayer(player);
-			else
-				getOnlyBreakManager().removePlayer(player);
+			if (state) getOnlyBreakManager().addPlayer(player);
+			else getOnlyBreakManager().removePlayer(player);
 		}
 		
 		public void setGodMode(boolean state)
 		{
-			if(state)
-				getGodModeManager().addPlayer(player);
-			else
-				getGodModeManager().removePlayer(player);
+			if(state) getGodModeManager().addPlayer(player);
+			else getGodModeManager().removePlayer(player);
 		}
 		
 		public void tp(Entity e)
@@ -126,11 +118,8 @@ public class User
 		
 		public void openGui(Gui gui)
 		{
-			if (getGui() != null)
-				closeGui();
-			if (!gui.getPermission().isEmpty())
-				if (!player.hasPermission(gui.getPermission()))
-					return;
+			if (getGui() != null) closeGui();
+			if (!gui.getPermission().isEmpty() && !player.hasPermission(gui.getPermission())) return;
 			gui.load();
 			gui.createGUI(player);
 			getPlayer().openInventory(gui.getInventory());
@@ -139,10 +128,8 @@ public class User
 		
 		public Gui getGui()
 		{
-			if (MagnaStuff.getGuis().containsKey(player))
-				return MagnaStuff.getGuis().get(player);
-			else
-				return null;
+			if (MagnaStuff.getGuis().containsKey(player)) return MagnaStuff.getGuis().get(player);
+			else return null;
 		}
 		
 		public void closeGui()

@@ -31,4 +31,9 @@ public class PermissionManager
 	{
 		return configuration.getString(Permission);
 	}
+
+	public boolean hasPermission(String permission) 
+	{
+		return configuration.contains(permission);
+	}
 }

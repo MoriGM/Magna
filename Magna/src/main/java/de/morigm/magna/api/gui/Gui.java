@@ -50,10 +50,10 @@ public abstract class Gui implements PermissionHelper
 	
 	public void addButton(GuiButton button)
 	{
+		if (button.getSlot() > this.getSize()) return;
+		
 		for (GuiButton b : getGuiButtons())
-			if (b.getSlot() >= 0)
-				if (button.getId() == b.getId())
-					return;
+			if (b.getSlot() >= 0 && button.getId() == b.getId()) return;
 		
 		getGuiButtons().add(button);
 	}
