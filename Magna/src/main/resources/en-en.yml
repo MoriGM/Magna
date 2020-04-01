@@ -1,5 +1,5 @@
-plugin.start= Plugin is started
-plugin.stop= Plugin is stopped
+plugin.start= Plugin was started
+plugin.stop= Plugin was stopped
 plugin.warning.supported= This Version is not Supported
 chat.no-permission= You have no Permission to perform that
 chat.no-console= You must be a Player
@@ -109,4 +109,4 @@ cmd.flyspeed.error= Only a number between 0 and 10
 listener.mute= You are muted
 listener.censor.warn= Hey! You're not allow to do that!
 afk.show.on= %player% is now AFK!
-afk.show.off= %player% is not AFK anymore!
+afk.show.off= %player% is no longer afk!
