@@ -2,7 +2,7 @@ name: Magna-World
 version: 0.8.0
 author: MoriGM
 
-depend: [Magna]
+loadbefore: [Magna]
 
 main: de.morigm.magnaworld.Main
 

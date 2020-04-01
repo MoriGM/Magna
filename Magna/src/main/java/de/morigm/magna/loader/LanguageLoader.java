@@ -7,11 +7,12 @@ import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.FileHelper;
 import de.morigm.magna.api.helper.LanguageFileHelper;
 import de.morigm.magna.api.helper.LoadHelper;
+import lombok.Getter;
 
 public class LanguageLoader implements LoadHelper
 {
 	
-	private File language;
+	@Getter private File language;
 	private String[] languageFiles = {"de-de.yml", "en-en.yml"};
 
 	public void check()
@@ -38,10 +39,5 @@ public class LanguageLoader implements LoadHelper
 		if (!Magna.getFolders().getLanguageFolder().exists())
 			Magna.getFolders().getLanguageFolder().mkdirs();
 		check();
-	}
-	
-	public File getLanguage() 
-	{
-		return language;
 	}
 }

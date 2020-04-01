@@ -9,6 +9,7 @@ import de.morigm.magna.api.convert.Convert;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
+import de.morigm.magnaworld.api.helper.EnumHelper;
 import de.morigm.magnaworld.api.world.WorldStruct;
 
 public class MWCREATE extends CommandHelper 
@@ -28,16 +29,15 @@ public class MWCREATE extends CommandHelper
 	{
 		if(testPermission(sender,"mwcreate"))
 		{
-			if(args.length >= 3)
+			if(args.length >= 3 && EnumHelper.isEnvironment(args[1]) && EnumHelper.isWorldType(args[2]))
 			{
 				String name = args[0];
 				if(!MagnaWorld.containsWorld(name))
 				{
-					WorldType type = WorldType.valueOf(args[1]);
-					Environment ev = Environment.valueOf(args[2]);
+					WorldType type = WorldType.valueOf(args[2]);
+					Environment ev = Environment.valueOf(args[1]);
 					Long seed = null;
-					if(args.length >= 4 && Convert.isInteger(args[3]))
-						seed = Long.valueOf(args[3]);
+					if(args.length >= 4 && Convert.isInteger(args[3])) seed = Long.valueOf(args[3]);
 					WorldStruct ws = new WorldStruct(name, seed);
 					MagnaWorld.registerWorld(ws, type, ev);
 					sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwcreate"));
