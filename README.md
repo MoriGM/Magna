@@ -9,8 +9,8 @@ A Minecraft Server Manager Tool
 
 ## Prerequisites
 
-Java JDK 8  
-Spigot Server 1.14.4  
+* Java JDK 8  
+* Spigot Server 1.15.2 
 
 ## Authors
 
@@ -39,7 +39,7 @@ mvn install
 
 ### Tested Spigot Server Version
 
-* Spigot 1.14.4 git-Spigot-56f8471-7554e08
+* Spigot 1.15.2 git-Spigot-6de3d4b-796eb15
 
 ## Built With
 
