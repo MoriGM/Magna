@@ -1,9 +1,9 @@
 cmd.mwcreate= World was created
 cmd.mwcreate.error= World already exists
 cmd.mwtp= Teleported to World Spawn
-cmd.mwtp.error= World doesn't exists
+cmd.mwtp.error= World doesn't exist
 cmd.mwdelete= World was deleted
-cmd.mwdelete.error= World doesn't exists
-cmd.mwimport= World is imported
+cmd.mwdelete.error= World doesn't exist
+cmd.mwimport= World was imported
 cmd.mwimport.error= World is already imported
-cmd.mwimport.missing= This Folder is not existing
+cmd.mwimport.missing= This Folder does not exist
