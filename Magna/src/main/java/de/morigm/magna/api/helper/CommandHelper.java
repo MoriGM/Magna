@@ -1,5 +1,6 @@
 package de.morigm.magna.api.helper;
 
+import de.morigm.magna.chat.Chat;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -34,12 +35,12 @@ public abstract class CommandHelper implements CommandExecutor, PermissionHelper
 		this.register(cmd_name, language, Main.getInstance() != null ? Magna.getPermissionManager() : null, Main.getInstance());
 	}
 	
-	public void register (String cmd_name, PermissionManager permission)
+	public void register(String cmd_name, PermissionManager permission)
 	{
-		this.register(cmd_name, Main.getInstance() != null ? Magna.getLanguage() : null, Magna.getPermissionManager(), Main.getInstance());
+		this.register(cmd_name, Main.getInstance() != null ? Magna.getLanguage() : null, permission, Main.getInstance());
 	}
 	
-	public void register (String cmd_name, Language language, PermissionManager permission)
+	public void register(String cmd_name, Language language, PermissionManager permission)
 	{
 		this.register(cmd_name, language, permission, Main.getInstance());
 	}
@@ -66,7 +67,7 @@ public abstract class CommandHelper implements CommandExecutor, PermissionHelper
 		return com instanceof Player;
 	}
 	
-	public CommandUtil util()
+	public CommandUtil Util()
 	{
 		return Magna.getCommandUtil();
 	}
@@ -89,5 +90,12 @@ public abstract class CommandHelper implements CommandExecutor, PermissionHelper
 	{
 		return (sender instanceof Player ? "/" : "");
 	}
-	
+
+	public void SendMessage(CommandSender sender, String msg) {
+		sender.sendMessage(Chat.prefix + msg);
+	}
+
+	public void SendMessageTranslate(CommandSender sender, String msg, TextStruct ... structs) {
+		sender.sendMessage(Chat.prefix + translate(msg, structs));
+	}
 }
