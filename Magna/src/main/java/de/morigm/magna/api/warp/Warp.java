@@ -5,7 +5,7 @@ import org.bukkit.Location;
 public class Warp 
 {
 	
-	public String name,permission;
+	public String name, permission;
 	public Location location;
 	
 	public Warp(String name,String Permission,Location location) 
