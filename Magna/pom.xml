@@ -4,7 +4,7 @@
 
   <groupId>de.morigm</groupId>
   <artifactId>Magna</artifactId>
-  <version>0.9.0</version>
+  <version>0.10.0</version>
   <packaging>jar</packaging>
 
   <name>Magna</name>
@@ -56,5 +56,10 @@
     	<artifactId>mysql-connector-java</artifactId>
     	<version>8.0.25</version>
 	</dependency>
+      <dependency>
+          <groupId>org.jetbrains</groupId>
+          <artifactId>annotations-java5</artifactId>
+          <version>22.0.0</version>
+      </dependency>
   </dependencies>
 </project>

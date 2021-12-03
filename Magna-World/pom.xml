@@ -4,7 +4,7 @@
 
   <groupId>de.morigm</groupId>
   <artifactId>Magna-World</artifactId>
-  <version>0.9.0</version>
+  <version>0.10.0</version>
   <packaging>jar</packaging>
 
   <name>Magna-World</name>

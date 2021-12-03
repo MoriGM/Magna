@@ -8,32 +8,29 @@ import org.bukkit.entity.Player;
 
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
+import org.jetbrains.annotations.NotNull;
 
-public class Warps extends CommandHelper
-{
+public class Warps extends CommandHelper {
 	
 	@Override
-	public void registerUtils() 
-	{
+	public void registerUtils() 	{
 		util().registerCommandName(getCommand());
 		util().registerPermission("warps");
 		util().registerTranslation("cmd.warps");
 	}
 	
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (com instanceof Player)
+	public boolean onCommand(@NotNull CommandSender com, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) 	{
+		if (com instanceof Player p)
 		{
-			Player p = (Player) com;
 			if (testPermission(p, "warps"))
 			{
-				String warps = "";
+				StringBuilder warps = new StringBuilder();
 				for (de.morigm.magna.api.warp.Warp w : getWarpManager().getWarps())
-					if (warps.isEmpty())
-						warps += w.name;
+					if (warps.length() == 0)
+						warps.append(w.name);
 					else
-						warps += "," + w.name;
+						warps.append(",").append(w.name);
 				p.sendMessage(Chat.prefix + translate("cmd.warps") + ":" + warps);
 			}
 			else
