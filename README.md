@@ -9,8 +9,8 @@ A Minecraft Server Manager Tool
 
 ## Prerequisites
 
-* Java JDK 8  
-* Spigot Server 1.16.1
+* Java JDK 17
+* Spigot Server 1.18
 
 ## Authors
 
@@ -30,7 +30,8 @@ mvn install
 
 ### Tested Operating System
 
-* Linux Ubuntu 18.04
+* Linux Ubuntu 20.04
+* Debian 10
 * Windows 10
 
 ### Tested Architecture
@@ -39,14 +40,13 @@ mvn install
 
 ### Tested Spigot Server Version
 
-* Spigot 1.16.1 git-Spigot-9639cf7-8fb6585
+* Spigot 1.18
 
 ## Built With
 
 * [Eclipse](https://www.eclipse.org) - The IDE used
 * [Git](https://git-scm.com) - Used Versioning Programm
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Used Windows Java Compiler
-* [OpenJDK 8](http://openjdk.java.net/projects/jdk8/) - Used Linux Java Compiler
+* [OpenJDK 17](http://openjdk.java.net/projects/jdk17/) - Used Linux Java Compiler
 * [Spigot](https://www.spigotmc.org) - Used Minecraft Server
 * [Maven](https://maven.apache.org) - Building Tool
 
