@@ -9,9 +9,8 @@ git:
     depth: 1
     submodules: false
 jdk:
-- oraclejdk14
-- openjdk11
-- oraclejdk13
+- oraclejdk17
+- openjdk17
 sudo: false
 branches:
     only:
