@@ -2,6 +2,7 @@ package de.morigm.magna.commands;
 
 import static de.morigm.magna.api.Magna.getWarpManager;
 
+import de.morigm.magna.api.warp.Warp;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -26,7 +27,7 @@ public class CMDWarps extends CommandHelper {
 			if (testPermission(p, "warps"))
 			{
 				StringBuilder warps = new StringBuilder();
-				for (de.morigm.magna.api.warp.Warp w : getWarpManager().getWarps())
+				for (Warp w : getWarpManager().getWarps())
 					if (warps.length() == 0)
 						warps.append(w.name);
 					else
