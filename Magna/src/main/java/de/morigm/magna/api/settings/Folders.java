@@ -8,20 +8,21 @@ import lombok.Getter;
 public class Folders 
 {
 	
-	@Getter private File	languageFile,
-	 						autoEditFile,
-	 						playerAutoEditFile,
-	 						blackListFile,
-	 						deathBackFile,
-	 						groupsFile,
-	 						playerFile,
-	 						warpsFile,
-	 						homeFile,
-	 						pluginFolder,
-	 						dataFolder,
-	 						languageFolder;
-	
-	
+	@Getter private final File
+								languageFile,
+								autoEditFile,
+								playerAutoEditFile,
+								blackListFile,
+								deathBackFile,
+								groupsFile,
+								playerFile,
+								warpsFile,
+								homeFile,
+								pluginFolder,
+								dataFolder,
+								languageFolder,
+								waypointFolder;
+
 
 	public Folders() 
 	{
@@ -37,6 +38,7 @@ public class Folders
 		this.playerFile = new File(this.dataFolder, "players.yml");
 		this.warpsFile = new File(this.dataFolder, "warps.yml");
 		this.homeFile = new File(this.dataFolder, "homes.yml");
+		this.waypointFolder = new File(this.dataFolder, "waypoint.yml");
 	}
 	
 }

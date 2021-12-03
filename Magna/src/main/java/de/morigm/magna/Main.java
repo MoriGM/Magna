@@ -2,44 +2,16 @@ package de.morigm.magna;
 
 import java.io.File;
 
+import de.morigm.magna.api.manager.*;
+import de.morigm.magna.config.*;
+import de.morigm.magna.loader.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.language.Language;
-import de.morigm.magna.api.manager.AFKManager;
-import de.morigm.magna.api.manager.AutoEditManager;
-import de.morigm.magna.api.manager.BlackListManager;
-import de.morigm.magna.api.manager.CommandSpyManager;
-import de.morigm.magna.api.manager.DeathBackManager;
-import de.morigm.magna.api.manager.GodModeManager;
-import de.morigm.magna.api.manager.GroupManager;
-import de.morigm.magna.api.manager.HomeManager;
-import de.morigm.magna.api.manager.MSGManager;
-import de.morigm.magna.api.manager.MutedPlayerManager;
-import de.morigm.magna.api.manager.OnlyBreakManager;
-import de.morigm.magna.api.manager.PermissionManager;
-import de.morigm.magna.api.manager.RunnerManager;
-import de.morigm.magna.api.manager.SignManager;
-import de.morigm.magna.api.manager.WarpManager;
 import de.morigm.magna.api.memory.MemoryManager;
 import de.morigm.magna.chat.Chat;
-import de.morigm.magna.config.AutoEditConfig;
-import de.morigm.magna.config.BlackListConfig;
-import de.morigm.magna.config.DeathBackConfig;
-import de.morigm.magna.config.GroupConfig;
-import de.morigm.magna.config.HomeConfig;
-import de.morigm.magna.config.PlayerConfig;
-import de.morigm.magna.config.PluginConfig;
-import de.morigm.magna.config.WarpConfig;
 import de.morigm.magna.edits.RegisterAutoEdits;
-import de.morigm.magna.loader.AutoEditLoader;
-import de.morigm.magna.loader.BlackListLoader;
-import de.morigm.magna.loader.DeathBackLoader;
-import de.morigm.magna.loader.GroupLoader;
-import de.morigm.magna.loader.HomeLoader;
-import de.morigm.magna.loader.LanguageLoader;
-import de.morigm.magna.loader.PluginLoader;
-import de.morigm.magna.loader.WarpLoader;
 import de.morigm.magna.log.CommandLoger;
 import lombok.Getter;
 
@@ -47,9 +19,9 @@ public class Main extends JavaPlugin
 {
 
 	@Getter private static Main instance;
-	
+
 	private PluginLoader pluginLoader;
-	
+
 	@Getter private PermissionManager permissionManager;
 	@Getter private MutedPlayerManager mutedPlayerManager;
 	@Getter private GodModeManager godModeManager;
@@ -66,12 +38,14 @@ public class Main extends JavaPlugin
 	@Getter private HomeManager homeManager;
 	@Getter private SignManager signManager;
 	@Getter private OnlyBreakManager onlyBreakManager;
-	
+	@Getter private WayPointManager wayPointManager;
+
 	@Getter private RegisterAutoEdits registerAutoEdits;
 	
 	@Getter private PlayerConfig playerConfig;
 	private PluginConfig pluginConfig;
 	@Getter private WarpConfig warpConfig;
+	@Getter private WayPointConfig waypointConfig;
 	@Getter private GroupConfig groupConfig;
 	@Getter private DeathBackConfig deathBackConfig;
 	@Getter private AutoEditConfig autoEditConfig;
@@ -82,6 +56,7 @@ public class Main extends JavaPlugin
 
 	@Getter private GroupLoader groupLoader;
 	@Getter private WarpLoader warpLoader;
+	@Getter private WayPointLoader wayPointLoader;
 	@Getter private DeathBackLoader deathBackLoader;
 	@Getter private AutoEditLoader autoEditLoader;
 	@Getter private BlackListLoader blackListLoader;
@@ -118,8 +93,12 @@ public class Main extends JavaPlugin
 		this.commandsLoger.load();
 		this.warpConfig = new WarpConfig();
 		this.warpConfig.load();
+		this.waypointConfig = new WayPointConfig();
+		this.waypointConfig.load();
 		this.warpLoader = new WarpLoader();
 		this.warpLoader.load();
+		this.wayPointLoader = new WayPointLoader();
+		this.wayPointLoader.load();
 		this.warpManager = new WarpManager();
 		this.memoryManager = new MemoryManager();
 		this.groupConfig = new GroupConfig();
@@ -159,8 +138,10 @@ public class Main extends JavaPlugin
 		this.signManager = new SignManager();
 		this.pluginLoader.registerSignListener();
 		this.onlyBreakManager = new OnlyBreakManager();
-		if (Magna.getSettings().getWarning() && !Magna.isSupported())
+		this.wayPointManager = new WayPointManager();
+		if (Magna.getSettings().getWarning() && !Magna.isSupported()) {
 			Chat.writeError(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
+		}
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage(this.getLanguage().translate("plugin.start"));
 	}
@@ -172,6 +153,7 @@ public class Main extends JavaPlugin
 		this.pluginConfig.save();
 		this.commandsLoger.save();
 		this.warpLoader.save();
+		this.wayPointLoader.save();
 		this.warpConfig.save();
 		this.deathBackLoader.save();
 		this.deathBackConfig.save();
@@ -179,6 +161,7 @@ public class Main extends JavaPlugin
 		this.blackListConfig.save();
 		this.homeLoader.save();
 		this.homeConfig.save();
+		this.waypointConfig.save();
 		Chat.writeMessage(this.getLanguage().translate("plugin.stop"));
 	}
 	

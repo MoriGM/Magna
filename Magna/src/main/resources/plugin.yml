@@ -1,7 +1,7 @@
 name: Magna
-version: 0.9.0
+version: 0.10.0
 author: MoriGM
-api-version: 1.16
+api-version: 1.18
 
 main: de.morigm.magna.Main
 
@@ -71,3 +71,4 @@ commands:
       magna-version:
       speed:
       flyspeed:
+      waypoint:

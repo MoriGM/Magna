@@ -55,6 +55,7 @@ version: magna.cmd.version
 onlybreak: magna.cmd.onlybreak
 speed: magna.cmd.speed
 flyspeed: magna.cmd.flyspeed
+waypoint: magna.cmd.waypoint
 chatcolor: magna.event.chatcolor
 colorsign: magna.event.colorsign
 createwarpsign: magna.event.warpsign.create

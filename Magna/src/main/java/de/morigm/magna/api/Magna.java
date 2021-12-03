@@ -1,26 +1,12 @@
 package de.morigm.magna.api;
 
+import de.morigm.magna.api.manager.*;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.command.CommandUtil;
 import de.morigm.magna.api.language.Language;
-import de.morigm.magna.api.manager.AFKManager;
-import de.morigm.magna.api.manager.AutoEditManager;
-import de.morigm.magna.api.manager.BlackListManager;
-import de.morigm.magna.api.manager.CommandSpyManager;
-import de.morigm.magna.api.manager.DeathBackManager;
-import de.morigm.magna.api.manager.GodModeManager;
-import de.morigm.magna.api.manager.GroupManager;
-import de.morigm.magna.api.manager.HomeManager;
-import de.morigm.magna.api.manager.MSGManager;
-import de.morigm.magna.api.manager.MutedPlayerManager;
-import de.morigm.magna.api.manager.OnlyBreakManager;
-import de.morigm.magna.api.manager.PermissionManager;
-import de.morigm.magna.api.manager.RunnerManager;
-import de.morigm.magna.api.manager.SignManager;
-import de.morigm.magna.api.manager.WarpManager;
 import de.morigm.magna.api.memory.MemoryManager;
 import de.morigm.magna.api.settings.Folders;
 import de.morigm.magna.api.settings.Settings;
@@ -30,7 +16,7 @@ import lombok.Getter;
 public class Magna
 {
 	
-	private static String[] spigot_versions = {"v1_15_R1"};
+	private static final String[] spigot_versions = {"v1_18_R1"};
 	private static CommandUtil commandutil;
 	@Getter private static Settings settings;
 	@Getter private static Folders folders;
@@ -123,16 +109,19 @@ public class Magna
 	{
 		return getMain().getOnlyBreakManager();
 	}
-	
+
+	public static WayPointManager GetWayPointManager()
+	{
+		return getMain().getWayPointManager();
+	}
+
 	public static Language getLanguage()
 	{
 		return getMain().getLanguage();
 	}
 	
-	public static String getServerVersion()
-	{
-		String version = Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
-		return version;
+	public static String getServerVersion() {
+		return Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
 	}
 	
 	public static String[] getSupportedVersions()
