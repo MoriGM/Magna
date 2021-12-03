@@ -17,7 +17,7 @@ import lombok.Getter;
 public class WarpLoader implements LoadHelper,SaveHelper
 {
 
-	@Getter private List<Warp> warps;
+	@Getter private final List<Warp> warps;
 	
 	public WarpLoader() 
 	{
