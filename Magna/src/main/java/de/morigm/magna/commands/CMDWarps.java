@@ -9,7 +9,6 @@ import org.bukkit.entity.Player;
 
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
-import org.jetbrains.annotations.NotNull;
 
 public class CMDWarps extends CommandHelper {
 
@@ -21,8 +20,7 @@ public class CMDWarps extends CommandHelper {
 	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender com, @NotNull Command cmd, @NotNull String label,
-			@NotNull String[] args) {
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
 		if (com instanceof Player p) {
 			if (testPermission(p, "warps")) {
 				StringBuilder warps = new StringBuilder();

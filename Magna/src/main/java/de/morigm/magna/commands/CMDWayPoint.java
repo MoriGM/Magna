@@ -8,7 +8,6 @@ import de.morigm.magna.chat.Chat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 
@@ -25,8 +24,7 @@ public class CMDWayPoint extends CommandHelper {
 	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String s,
-			@NotNull String[] args) {
+	public boolean onCommand(CommandSender com, Command command, String s, String[] args) {
 		if (!isPlayer(com)) {
 			Chat.noConsole(com);
 			return false;
