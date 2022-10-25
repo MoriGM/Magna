@@ -11,97 +11,78 @@ import java.util.List;
 
 import lombok.SneakyThrows;
 
-public class FileHelper
-{
-	
-	public static void createFileIfNotExists(String file)
-	{
+public class FileHelper {
+
+	public static void createFileIfNotExists(String file) {
 		createFileIfNotExists(new File(file));
 	}
-	
-	public static void createFileIfNotExists(File file)
-	{
-		if(!file.exists())
-		{
-			try 
-			{
+
+	public static void createFileIfNotExists(File file) {
+		if (!file.exists()) {
+			try {
 				file.createNewFile();
-			}
-			catch (IOException e) 
-			{
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
-	public static void createFile(String file)
-	{
+
+	public static void createFile(String file) {
 		createFile(new File(file));
 	}
-	
-	public static void createFile(File file)
-	{
-		try 
-		{
+
+	public static void createFile(File file) {
+		try {
 			file.createNewFile();
-		} 
-		catch (IOException e) 
-		{
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@SneakyThrows
-	public static void copy(File in, File out)
-	{
+	public static void copy(File in, File out) {
 		FileInputStream ins = new FileInputStream(in);
 		FileOutputStream outs = new FileOutputStream(out);
 		copyFile(ins, outs);
 		ins.close();
 		outs.close();
 	}
-	
+
 	@SneakyThrows
-	public static void copy(InputStream in, File out)
-	{
+	public static void copy(InputStream in, File out) {
 		FileOutputStream outs = new FileOutputStream(out);
 		copyFile(in, outs);
 		outs.close();
 	}
-	
+
 	@SneakyThrows
-	public static void copy(File in, OutputStream out)
-	{
+	public static void copy(File in, OutputStream out) {
 		FileInputStream ins = new FileInputStream(in);
 		copyFile(ins, out);
 		ins.close();
 	}
-	
+
 	@SneakyThrows
-	public static void copyFile(InputStream in, OutputStream out)
-	{
+	public static void copyFile(InputStream in, OutputStream out) {
 		int readlen = 0;
 		byte[] bt = new byte[1024];
-		
+
 		while ((readlen = in.read(bt)) >= 0)
 			out.write(bt, 0, readlen);
 	}
-	
-	public static void getFiles(List<File> files, File folder)
-	{
+
+	public static void getFiles(List<File> files, File folder) {
 		for (File f : folder.listFiles())
 			if (f.isDirectory())
 				getFiles(files, f);
-			else
-			{
+			else {
 				files.add(f);
 			}
-				
+
 		files.add(folder);
 	}
-	
-	public static void delete(List<File> files)
-	{
+
+	public static void delete(List<File> files) {
 		List<File> folders = new ArrayList<>();
 		for (File f : files)
 			if (f.exists())
@@ -109,10 +90,10 @@ public class FileHelper
 					folders.add(f);
 				else
 					f.delete();
-		
+
 		for (File f : folders)
 			if (f.exists())
 				f.delete();
 	}
-	
+
 }

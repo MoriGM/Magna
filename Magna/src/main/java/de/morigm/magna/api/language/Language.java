@@ -8,21 +8,18 @@ import java.util.Properties;
 import de.morigm.magna.api.helper.LoadHelper;
 import lombok.Getter;
 
-public class Language implements LoadHelper
-{
-	
+public class Language implements LoadHelper {
+
 	private Properties prop;
-	@Getter private File languageFile;
-	
-	public Language(File file) 
-	{
+	@Getter
+	private File languageFile;
+
+	public Language(File file) {
 		this.languageFile = file;
 	}
-	
-	public String translate(String text, TextStruct ... structs)
-	{
-		if (prop.containsKey(text))
-		{
+
+	public String translate(String text, TextStruct... structs) {
+		if (prop.containsKey(text)) {
 			String translate = prop.getProperty(text);
 			if (structs.length >= 1)
 				for (TextStruct struct : structs)
@@ -33,15 +30,11 @@ public class Language implements LoadHelper
 	}
 
 	@Override
-	public void load() 
-	{
+	public void load() {
 		prop = new Properties();
-		try 
-		{
+		try {
 			prop.load(new FileInputStream(this.languageFile));
-		}
-		catch (IOException e)
-		{
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

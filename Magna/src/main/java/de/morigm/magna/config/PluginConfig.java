@@ -10,9 +10,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ConfigHelper;
 
-public class PluginConfig implements ConfigHelper
-{
-	
+public class PluginConfig implements ConfigHelper {
+
 	public List<String> commandspyblocked;
 	public List<String> groups;
 	public List<String> nofalldamage;
@@ -28,10 +27,9 @@ public class PluginConfig implements ConfigHelper
 	public int afkTimer;
 	public boolean debug;
 
-	private void adddefault()
-	{
+	private void adddefault() {
 		getConfig().options().copyDefaults(true);
-		
+
 		getConfig().addDefault("owncommandspy", false);
 		getConfig().addDefault("commandlog", false);
 		getConfig().addDefault("chatclear", false);
@@ -44,9 +42,8 @@ public class PluginConfig implements ConfigHelper
 		getConfig().addDefault("language", "en-en.yml");
 		getConfig().addDefault("afk-timer", 5);
 	}
-	
-	public void load()
-	{
+
+	public void load() {
 		this.adddefault();
 		this.commandspyblocked = getConfig().getStringList("commandspyblocked");
 		this.owncommandspy = getConfig().getBoolean("owncommandspy");
@@ -64,34 +61,30 @@ public class PluginConfig implements ConfigHelper
 			this.debug = getConfig().getBoolean("debug");
 		else
 			this.debug = true;
-		
+
 		loadSpawn();
 	}
-	
-	
 
-	private void loadSpawn() 
-	{
-		if (getConfig().contains("spawn.x") && getConfig().contains("spawn.y") && getConfig().contains("spawn.z") && 
-				getConfig().contains("spawn.yaw") && getConfig().contains("spawn.pitch") && getConfig().contains("spawn.world"))
-		{
+	private void loadSpawn() {
+		if (getConfig().contains("spawn.x") && getConfig().contains("spawn.y") && getConfig().contains("spawn.z")
+				&& getConfig().contains("spawn.yaw") && getConfig().contains("spawn.pitch")
+				&& getConfig().contains("spawn.world")) {
 			float pitch = (float) getConfig().getDouble("spawn.pitch");
 			float yaw = (float) getConfig().getDouble("spawn.yaw");
 			int x = getConfig().getInt("spawn.x");
 			int y = getConfig().getInt("spawn.y");
 			int z = getConfig().getInt("spawn.z");
 			String world = getConfig().getString("spawn.world");
-			
+
 			Location loc = new Location(Bukkit.getWorld(world), x, y, z);
 			loc.setYaw(yaw);
 			loc.setPitch(pitch);
-			
+
 			this.spawn = loc;
 		}
 	}
 
-	public void save()
-	{
+	public void save() {
 		if (this.spawn != null)
 			savespawn();
 		getConfig().set("commandspyblocked", this.commandspyblocked);
@@ -104,12 +97,11 @@ public class PluginConfig implements ConfigHelper
 		getConfig().set("autoedit", this.autoedit);
 		getConfig().set("blacklistperm", this.blacklistperm);
 		getConfig().set("afk-timer", this.afkTimer);
-		getConfig().set("showafk",this.showafk);
+		getConfig().set("showafk", this.showafk);
 		Main.getInstance().saveConfig();
 	}
-	
-	private void savespawn() 
-	{
+
+	private void savespawn() {
 		getConfig().set("spawn.x", this.spawn.getBlockX());
 		getConfig().set("spawn.y", this.spawn.getBlockY());
 		getConfig().set("spawn.z", this.spawn.getBlockZ());
@@ -118,8 +110,7 @@ public class PluginConfig implements ConfigHelper
 		getConfig().set("spawn.world", this.spawn.getWorld().getName());
 	}
 
-	public FileConfiguration getConfig()
-	{
+	public FileConfiguration getConfig() {
 		return Main.getInstance().getConfig();
 	}
 

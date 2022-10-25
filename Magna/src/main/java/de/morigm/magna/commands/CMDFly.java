@@ -9,42 +9,37 @@ import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDFly extends CommandHelper
-{
-	
+public class CMDFly extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("fly");
-		Util().registerTranslation("cmd.fly.you.on");
-		Util().registerTranslation("cmd.fly.player.on");
-		Util().registerTranslation("cmd.fly.you.off");
-		Util().registerTranslation("cmd.fly.player.off");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("fly");
+		util().registerTranslation("cmd.fly.you.on");
+		util().registerTranslation("cmd.fly.player.on");
+		util().registerTranslation("cmd.fly.you.off");
+		util().registerTranslation("cmd.fly.player.off");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command command, String label, String[] args) 
-	{
-		if (com instanceof Player)
-		{
+	public boolean onCommand(CommandSender com, Command command, String label, String[] args) {
+		if (com instanceof Player) {
 			Player t = (Player) com;
-			if (testPermission(t, "fly"))
-			{
+			if (testPermission(t, "fly")) {
 				if (args.length >= 1)
 					t = Bukkit.getPlayer(args[0]);
-				if (t != null)
-				{
+				if (t != null) {
 					t.setAllowFlight(!t.getAllowFlight());
-					com.sendMessage(Chat.prefix + (t.getAllowFlight() ? ChatColor.GREEN + (com == t ? translate("cmd.fly.you.on") : translate("cmd.fly.player.on")) : ChatColor.RED + (com == t ? translate("cmd.fly.you.off") : translate("cmd.fly.player.off"))));
-				}
-				else
+					com.sendMessage(Chat.prefix + (t.getAllowFlight()
+							? ChatColor.GREEN
+									+ (com == t ? translate("cmd.fly.you.on") : translate("cmd.fly.player.on"))
+							: ChatColor.RED
+									+ (com == t ? translate("cmd.fly.you.off") : translate("cmd.fly.player.off"))));
+				} else
 					Chat.noOnline(com);
-			}
-			else
+			} else
 				Chat.noPermission(com);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}

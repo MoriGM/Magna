@@ -9,30 +9,27 @@ import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.ConfigHelper;
 import de.morigm.magna.api.helper.FileHelper;
 
-public class GroupConfig implements ConfigHelper
-{
+public class GroupConfig implements ConfigHelper {
 
 	private File file;
 	private FileConfiguration config;
 
 	@Override
-	public void load() 
-	{
+	public void load() {
 		this.file = Magna.getFolders().getGroupsFile();
 		FileHelper.createFileIfNotExists(file);
 		this.config = YamlConfiguration.loadConfiguration(file);
 	}
 
 	@Override
-	public void save() {}
-	
-	public FileConfiguration getConfig() 
-	{
+	public void save() {
+	}
+
+	public FileConfiguration getConfig() {
 		return config;
 	}
-	
-	public File getFile() 
-	{
+
+	public File getFile() {
 		return file;
 	}
 

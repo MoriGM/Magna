@@ -7,28 +7,23 @@ import org.bukkit.entity.Player;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDOpenEnderChest extends CommandHelper
-{
+public class CMDOpenEnderChest extends CommandHelper {
 
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("enderchest");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("enderchest");
 	}
-	
+
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (com instanceof Player)
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (com instanceof Player) {
 			Player p = (Player) com;
 			if (p.hasPermission(getPermission("enderchest")))
 				p.openInventory(p.getEnderChest());
 			else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}

@@ -8,39 +8,29 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDSpawn extends CommandHelper
-{
-	
-	
+public class CMDSpawn extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("spawn");
-		Util().registerTranslation("cmd.spawn");
-		Util().registerTranslation("cmd.spawn.error");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("spawn");
+		util().registerTranslation("cmd.spawn");
+		util().registerTranslation("cmd.spawn.error");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (com instanceof Player)
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (com instanceof Player) {
 			Player p = (Player) com;
-			if (p.hasPermission(getPermission("spawn")))
-			{
-				if (Main.getInstance().getDefaultPluginConfig().spawn != null)
-				{
+			if (p.hasPermission(getPermission("spawn"))) {
+				if (Main.getInstance().getDefaultPluginConfig().spawn != null) {
 					p.teleport(Main.getInstance().getDefaultPluginConfig().spawn);
 					p.sendMessage(Chat.prefix + translate("cmd.spawn"));
-				}
-				else
+				} else
 					p.sendMessage(Chat.prefix + translate("cmd.spawn.error"));
-			}
-			else
+			} else
 				Chat.noPermission(com);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}

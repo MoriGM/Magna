@@ -14,55 +14,51 @@ import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
 import lombok.Getter;
 
-public abstract class SignListener implements TranslationHelper, PermissionHelper
-{
-	
-	@Getter private String name;
+public abstract class SignListener implements TranslationHelper, PermissionHelper {
+
+	@Getter
+	private String name;
 	private PermissionManager permission;
 	private Language language;
-	
+
 	public abstract boolean onCreate(String[] lines, Player player, Block sign);
+
 	public abstract void onClick(Sign sign, Player player);
-	
-	
-	public void register(String name)
-	{
-		register(name, Main.getInstance() != null ? Magna.getLanguage() : null,Main.getInstance() != null ? Magna.getPermissionManager() : null);
+
+	public void register(String name) {
+		register(name, Main.getInstance() != null ? Magna.getLanguage() : null,
+				Main.getInstance() != null ? Magna.getPermissionManager() : null);
 	}
-	
-	public void register(String name, Language language)
-	{
-		register(name,language, Main.getInstance() != null ? Magna.getPermissionManager() : null);
+
+	public void register(String name, Language language) {
+		register(name, language, Main.getInstance() != null ? Magna.getPermissionManager() : null);
 	}
-	
-	public void register(String name, PermissionManager manager)
-	{
-		register(name, Main.getInstance() != null ? Magna.getLanguage(): null, manager);
+
+	public void register(String name, PermissionManager manager) {
+		register(name, Main.getInstance() != null ? Magna.getLanguage() : null, manager);
 	}
-	
-	public void register(String name, Language language, PermissionManager manager)
-	{
+
+	public void register(String name, Language language, PermissionManager manager) {
 		this.name = name;
-		if(language != null)	this.language = language;
-		if(manager != null)		this.permission = manager;
+		if (language != null)
+			this.language = language;
+		if (manager != null)
+			this.permission = manager;
 		Magna.getSignManager().registerSign(this);
 	}
-	
+
 	@Override
-	public String translate(String text, TextStruct ... structs) 
-	{
+	public String translate(String text, TextStruct... structs) {
 		return language.translate(text, structs);
 	}
-	
+
 	@Override
-	public String getPermission(String Permission) 
-	{
+	public String getPermission(String Permission) {
 		return this.permission.getPermission(Permission);
 	}
-	
+
 	@Override
-	public boolean testPermission(CommandSender p, String permission) 
-	{
+	public boolean testPermission(CommandSender p, String permission) {
 		return p.hasPermission(this.getPermission(permission));
 	}
 

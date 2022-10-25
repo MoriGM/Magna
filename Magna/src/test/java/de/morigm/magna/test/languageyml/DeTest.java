@@ -11,32 +11,27 @@ import org.junit.Test;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.loader.PluginLoader;
 
-public class DeTest 
-{
-	public class CommandLoader extends PluginLoader
-	{
-		private boolean isactive = false; 
-		
+public class DeTest {
+	public class CommandLoader extends PluginLoader {
+		private boolean isactive = false;
+
 		@Override
-		public void registerCommands() 
-		{
-			if(!isactive)
+		public void registerCommands() {
+			if (!isactive)
 				super.registerCommands();
 			isactive = true;
 		}
 	}
-	
+
 	@Test
-	public void testDeYml() throws IOException
-	{
+	public void testDeYml() throws IOException {
 		System.out.println("Test De YML");
 		CommandLoader loader = new CommandLoader();
 		loader.registerCommands();
 		List<String> translations = Magna.getCommandUtil().getTranslations();
 		Properties prop = new Properties();
 		prop.load(ClassLoader.getSystemResourceAsStream("de-de.yml"));
-		for(String s : translations)
-		{
+		for (String s : translations) {
 			System.out.println("Test German Translation: " + s);
 			assertTrue(prop.containsKey(s));
 		}

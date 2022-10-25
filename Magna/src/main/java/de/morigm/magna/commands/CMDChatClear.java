@@ -6,21 +6,18 @@ import org.bukkit.command.CommandSender;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDChatClear extends CommandHelper
-{
-	
+public class CMDChatClear extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("chatclear");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("chatclear");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
 		if (testPermission(com, "chatclear"))
-			for(int i = 0;i < 100;i++)
+			for (int i = 0; i < 100; i++)
 				com.sendMessage(" ");
 		else
 			Chat.noPermission(com);

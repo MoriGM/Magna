@@ -4,18 +4,15 @@ import org.bukkit.Bukkit;
 
 import de.morigm.magna.api.autoedit.AutoEditStruct;
 
-public class AutoEdit_PlayerCount implements AutoEditStruct
-{
+public class AutoEdit_PlayerCount implements AutoEditStruct {
 
 	@Override
-	public String getName() 
-	{
+	public String getName() {
 		return "[playercount]";
 	}
 
 	@Override
-	public String getEdit() 
-	{
+	public String getEdit() {
 		return String.valueOf(Bukkit.getOnlinePlayers().size());
 	}
 

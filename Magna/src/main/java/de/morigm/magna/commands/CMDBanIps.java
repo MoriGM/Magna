@@ -10,28 +10,23 @@ import org.bukkit.command.CommandSender;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDBanIps extends CommandHelper
-{
-	
+public class CMDBanIps extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("banips");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("banips");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (testPermission(com, "banips"))
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (testPermission(com, "banips")) {
 			String bans = "";
 			BanList list = Bukkit.getBanList(Type.IP);
 			for (BanEntry ban : list.getBanEntries())
 				bans += ban.getTarget() + " ";
 			com.sendMessage("BanIps:" + bans);
-		}
-		else
+		} else
 			com.sendMessage(Chat.prefix + Chat.no_permission);
 		return false;
 	}

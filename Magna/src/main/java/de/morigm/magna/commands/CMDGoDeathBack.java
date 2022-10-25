@@ -10,42 +10,32 @@ import de.morigm.magna.api.deathback.DeathBack;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDGoDeathBack extends CommandHelper
-{
-	
+public class CMDGoDeathBack extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("deathback");
-		Util().registerTranslation("cmd.deathback");
-		Util().registerTranslation("cmd.deathback.error");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("deathback");
+		util().registerTranslation("cmd.deathback");
+		util().registerTranslation("cmd.deathback.error");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (com instanceof Player)
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (com instanceof Player) {
 			Player p = (Player) com;
-			if (testPermission(p, "deathback"))
-			{
-				if (getDeathBackManager().hasDeathBack(p))
-				{
+			if (testPermission(p, "deathback")) {
+				if (getDeathBackManager().hasDeathBack(p)) {
 					DeathBack db = getDeathBackManager().getDeathBack(p);
 					p.teleport(db.location);
 					p.sendMessage(Chat.prefix + translate("cmd.deathback"));
-				}
-				else
+				} else
 					p.sendMessage(Chat.prefix + translate("cmd.deathback.error"));
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}
-	
 
 }

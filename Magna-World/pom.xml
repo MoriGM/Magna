@@ -30,7 +30,7 @@
   	<dependency>
   		<groupId>de.morigm</groupId>
   		<artifactId>Magna</artifactId>
-  		<version>0.9.0</version>
+  		<version>0.10.0</version>
   	</dependency>
   	<dependency>
         <groupId>net.md-5</groupId>
@@ -55,11 +55,6 @@
     	<version>1.18.22</version>
     	<scope>provided</scope>
 		<optional>true</optional>
-	</dependency>
-	<dependency>
-    	<groupId>mysql</groupId>
-    	<artifactId>mysql-connector-java</artifactId>
-    	<version>8.0.25</version>
 	</dependency>
   </dependencies>
 </project>

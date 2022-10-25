@@ -8,38 +8,30 @@ import org.bukkit.entity.Player;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDItemHead extends CommandHelper
-{
-	
+public class CMDItemHead extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("itemhead");
-		Util().registerTranslation("cmd.itemhead");
-		Util().registerTranslation("cmd.itemhead.no");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("itemhead");
+		util().registerTranslation("cmd.itemhead");
+		util().registerTranslation("cmd.itemhead.no");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (com instanceof Player)
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (com instanceof Player) {
 			Player p = (Player) com;
-			if (testPermission(p, "itemhead"))
-			{
-				if (p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
-				{
+			if (testPermission(p, "itemhead")) {
+				if (p.getInventory().getItemInMainHand() != null
+						&& !p.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
 					p.getInventory().setHelmet(p.getInventory().getItemInMainHand());
 					p.sendMessage(Chat.prefix + translate("cmd.itemhead"));
-				}
-				else
+				} else
 					p.sendMessage(Chat.prefix + translate("cmd.itemhead.no"));
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}

@@ -9,34 +9,28 @@ import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.chat.Chat;
 
-public class CMDIP extends CommandHelper
-{
-	
+public class CMDIP extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("ip");
-		Util().registerTranslation("cmd.ip");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("ip");
+		util().registerTranslation("cmd.ip");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (testPermission(com, "ip"))
-		{
-			if (args.length >= 1)
-			{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (testPermission(com, "ip")) {
+			if (args.length >= 1) {
 				Player t = Bukkit.getPlayer(args[0]);
 				if (t != null)
-					com.sendMessage(Chat.prefix + translate("cmd.ip",new TextStruct("%player%", t.getName()),new TextStruct("%ip%",t.getAddress().getHostString())));
+					com.sendMessage(Chat.prefix + translate("cmd.ip", new TextStruct("%player%", t.getName()),
+							new TextStruct("%ip%", t.getAddress().getHostString())));
 				else
 					Chat.noOnline(com);
-			}
-			else
+			} else
 				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
-		}
-		else
+		} else
 			Chat.noPermission(com);
 		return false;
 	}

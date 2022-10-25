@@ -4,18 +4,15 @@ import org.bukkit.Bukkit;
 
 import de.morigm.magna.api.autoedit.AutoEditStruct;
 
-public class AutoEdit_Motd implements AutoEditStruct
-{
+public class AutoEdit_Motd implements AutoEditStruct {
 
 	@Override
-	public String getName() 
-	{
+	public String getName() {
 		return "[motd]";
 	}
 
 	@Override
-	public String getEdit()
-	{
+	public String getEdit() {
 		return Bukkit.getMotd();
 	}
 

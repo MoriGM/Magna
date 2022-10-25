@@ -15,62 +15,98 @@ import de.morigm.magna.edits.RegisterAutoEdits;
 import de.morigm.magna.log.CommandLoger;
 import lombok.Getter;
 
-public class Main extends JavaPlugin
-{
+public class Main extends JavaPlugin {
 
-	@Getter private static Main instance;
+	@Getter
+	private static Main instance;
 
 	private PluginLoader pluginLoader;
 
-	@Getter private PermissionManager permissionManager;
-	@Getter private MutedPlayerManager mutedPlayerManager;
-	@Getter private GodModeManager godModeManager;
-	@Getter private CommandSpyManager commandSpyManager;
-	@Getter private WarpManager warpManager;
-	@Getter private MemoryManager memoryManager;
-	@Getter private GroupManager groupManager;
-	@Getter private DeathBackManager deathBackManager;
-	@Getter private AutoEditManager autoEditManager;
-	@Getter private BlackListManager blackListManager;
-	@Getter private MSGManager MSGManager;
-	@Getter private RunnerManager runnerManager;
-	@Getter private AFKManager AFKManager;
-	@Getter private HomeManager homeManager;
-	@Getter private SignManager signManager;
-	@Getter private OnlyBreakManager onlyBreakManager;
-	@Getter private WayPointManager wayPointManager;
+	@Getter
+	private PermissionManager permissionManager;
+	@Getter
+	private MutedPlayerManager mutedPlayerManager;
+	@Getter
+	private GodModeManager godModeManager;
+	@Getter
+	private CommandSpyManager commandSpyManager;
+	@Getter
+	private WarpManager warpManager;
+	@Getter
+	private MemoryManager memoryManager;
+	@Getter
+	private GroupManager groupManager;
+	@Getter
+	private DeathBackManager deathBackManager;
+	@Getter
+	private AutoEditManager autoEditManager;
+	@Getter
+	private BlackListManager blackListManager;
+	@Getter
+	private MSGManager MSGManager;
+	@Getter
+	private RunnerManager runnerManager;
+	@Getter
+	private AFKManager AFKManager;
+	@Getter
+	private HomeManager homeManager;
+	@Getter
+	private SignManager signManager;
+	@Getter
+	private OnlyBreakManager onlyBreakManager;
+	@Getter
+	private WayPointManager wayPointManager;
 
-	@Getter private RegisterAutoEdits registerAutoEdits;
-	
-	@Getter private PlayerConfig playerConfig;
+	@Getter
+	private RegisterAutoEdits registerAutoEdits;
+
+	@Getter
+	private PlayerConfig playerConfig;
 	private PluginConfig pluginConfig;
-	@Getter private WarpConfig warpConfig;
-	@Getter private WayPointConfig waypointConfig;
-	@Getter private GroupConfig groupConfig;
-	@Getter private DeathBackConfig deathBackConfig;
-	@Getter private AutoEditConfig autoEditConfig;
-	@Getter private BlackListConfig blackListConfig;
-	@Getter private HomeConfig homeConfig;
-	
-	@Getter private CommandLoger commandsLoger;
+	@Getter
+	private WarpConfig warpConfig;
+	@Getter
+	private WayPointConfig waypointConfig;
+	@Getter
+	private GroupConfig groupConfig;
+	@Getter
+	private DeathBackConfig deathBackConfig;
+	@Getter
+	private AutoEditConfig autoEditConfig;
+	@Getter
+	private BlackListConfig blackListConfig;
+	@Getter
+	private HomeConfig homeConfig;
 
-	@Getter private GroupLoader groupLoader;
-	@Getter private WarpLoader warpLoader;
-	@Getter private WayPointLoader wayPointLoader;
-	@Getter private DeathBackLoader deathBackLoader;
-	@Getter private AutoEditLoader autoEditLoader;
-	@Getter private BlackListLoader blackListLoader;
-	@Getter private HomeLoader homeLoader;
-	
-	@Getter private File jar;
-			
-	@Getter private LanguageLoader LanguageLoader;
+	@Getter
+	private CommandLoger commandsLoger;
 
-	@Getter private Language language;
+	@Getter
+	private GroupLoader groupLoader;
+	@Getter
+	private WarpLoader warpLoader;
+	@Getter
+	private WayPointLoader wayPointLoader;
+	@Getter
+	private DeathBackLoader deathBackLoader;
+	@Getter
+	private AutoEditLoader autoEditLoader;
+	@Getter
+	private BlackListLoader blackListLoader;
+	@Getter
+	private HomeLoader homeLoader;
+
+	@Getter
+	private File jar;
+
+	@Getter
+	private LanguageLoader LanguageLoader;
+
+	@Getter
+	private Language language;
 
 	@Override
-	public void onEnable() 
-	{
+	public void onEnable() {
 		Main.instance = this;
 		this.pluginConfig = new PluginConfig();
 		this.pluginConfig.load();
@@ -87,7 +123,7 @@ public class Main extends JavaPlugin
 		this.playerConfig = new PlayerConfig();
 		this.playerConfig.load();
 		this.mutedPlayerManager = new MutedPlayerManager();
-		this.godModeManager = new  GodModeManager();
+		this.godModeManager = new GodModeManager();
 		this.commandSpyManager = new CommandSpyManager();
 		this.commandsLoger = new CommandLoger();
 		this.commandsLoger.load();
@@ -145,10 +181,9 @@ public class Main extends JavaPlugin
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage(this.getLanguage().translate("plugin.start"));
 	}
-	
+
 	@Override
-	public void onDisable() 
-	{
+	public void onDisable() {
 		this.playerConfig.save();
 		this.pluginConfig.save();
 		this.commandsLoger.save();
@@ -164,9 +199,8 @@ public class Main extends JavaPlugin
 		this.waypointConfig.save();
 		Chat.writeMessage(this.getLanguage().translate("plugin.stop"));
 	}
-	
-	public PluginConfig getDefaultPluginConfig() 
-	{
+
+	public PluginConfig getDefaultPluginConfig() {
 		return pluginConfig;
 	}
 }

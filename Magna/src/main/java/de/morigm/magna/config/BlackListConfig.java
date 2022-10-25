@@ -13,30 +13,30 @@ import de.morigm.magna.api.helper.FileHelper;
 import lombok.Getter;
 import lombok.SneakyThrows;
 
-public class BlackListConfig implements ConfigHelper
-{
+public class BlackListConfig implements ConfigHelper {
 
-	@Getter private File file;
-	@Getter private FileConfiguration config;
-	@Getter private List<String> blackwords = new ArrayList<>();
+	@Getter
+	private File file;
+	@Getter
+	private FileConfiguration config;
+	@Getter
+	private List<String> blackwords = new ArrayList<>();
 
 	@Override
-	public void load()
-	{
+	public void load() {
 		File file = Magna.getFolders().getBlackListFile();
 		FileHelper.createFileIfNotExists(file);
 		FileConfiguration config = YamlConfiguration.loadConfiguration(file);
 		this.file = file;
 		this.config = config;
-		
+
 		for (String key : getConfig().getKeys(false))
 			blackwords.add(key);
 	}
 
 	@SneakyThrows
 	@Override
-	public void save()
-	{
+	public void save() {
 		this.config.save(getFile());
 	}
 

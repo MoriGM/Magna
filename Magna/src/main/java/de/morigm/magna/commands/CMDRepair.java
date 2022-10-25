@@ -12,42 +12,35 @@ import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.ItemHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDRepair extends CommandHelper
-{
-	
+public class CMDRepair extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("repair");
-		Util().registerTranslation("cmd.repair");
-		Util().registerTranslation("cmd.repair.error");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("repair");
+		util().registerTranslation("cmd.repair");
+		util().registerTranslation("cmd.repair.error");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (isPlayer(com))
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (isPlayer(com)) {
 			Player p = (Player) com;
-			if (testPermission(p, "repair"))
-			{
-				if (p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR) && ItemHelper.isRepairable(p.getInventory().getItemInMainHand()))
-				{
+			if (testPermission(p, "repair")) {
+				if (p.getInventory().getItemInMainHand() != null
+						&& !p.getInventory().getItemInMainHand().getType().equals(Material.AIR)
+						&& ItemHelper.isRepairable(p.getInventory().getItemInMainHand())) {
 					ItemStack item = p.getInventory().getItemInMainHand();
 					ItemMeta meta = item.getItemMeta();
 					if (meta instanceof Damageable)
 						((Damageable) meta).setDamage(0);
 					item.setItemMeta(meta);
 					p.sendMessage(Chat.prefix + translate("cmd.repair"));
-				}
-				else
+				} else
 					p.sendMessage(Chat.prefix + translate("cmd.repair.error"));
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}

@@ -13,28 +13,22 @@ import de.morigm.magna.api.mojang.MojangApi;
 import de.morigm.magna.chat.Chat;
 import lombok.SneakyThrows;
 
-public class CMDSkull extends CommandHelper
-{
+public class CMDSkull extends CommandHelper {
 
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("skull");
-		Util().registerTranslation("cmd.skull");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("skull");
+		util().registerTranslation("cmd.skull");
 	}
-	
+
 	@SneakyThrows
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if(com instanceof Player)
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (com instanceof Player) {
 			Player p = (Player) com;
-			if (p.hasPermission(getPermission("skull")))
-			{
-				if (args.length >= 1)
-				{
+			if (p.hasPermission(getPermission("skull"))) {
+				if (args.length >= 1) {
 					String owner = args[0];
 					ItemStack item = new ItemStack(Material.PLAYER_HEAD);
 					SkullMeta meta = (SkullMeta) item.getItemMeta();
@@ -42,18 +36,13 @@ public class CMDSkull extends CommandHelper
 					item.setItemMeta(meta);
 					p.getInventory().addItem(item);
 					p.sendMessage(Chat.prefix + translate("cmd.skull"));
-				}
-				else
+				} else
 					p.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <SkullOwner>");
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}
-
-	
 
 }

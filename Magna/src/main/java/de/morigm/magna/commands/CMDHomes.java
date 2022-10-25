@@ -11,37 +11,28 @@ import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.api.home.Home;
 import de.morigm.magna.chat.Chat;
 
-public class CMDHomes extends CommandHelper
-{
+public class CMDHomes extends CommandHelper {
 
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("homes");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("homes");
 	}
-	
+
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (PlayerHelper.isPlayer(com))
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (PlayerHelper.isPlayer(com)) {
 			Player p = (Player) com;
-			if (testPermission(p, "homes"))
-			{
+			if (testPermission(p, "homes")) {
 				String homes = "";
 				for (Home h : getHomeManager().getPlayerHomes(p))
 					homes += homes.isEmpty() ? h.name : "," + h.name;
 				p.sendMessage(Chat.prefix + "Homes:" + homes);
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}
-
-	
 
 }

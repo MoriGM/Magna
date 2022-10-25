@@ -10,28 +10,23 @@ import org.bukkit.command.CommandSender;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDBans extends CommandHelper
-{
-	
+public class CMDBans extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("bans");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("bans");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (testPermission(com, "bans"))
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (testPermission(com, "bans")) {
 			String bans = "";
 			BanList list = Bukkit.getBanList(Type.NAME);
 			for (BanEntry ban : list.getBanEntries())
 				bans += ban.getTarget() + " ";
 			com.sendMessage("Bans:" + bans);
-		}
-		else
+		} else
 			com.sendMessage(Chat.prefix + Chat.no_permission);
 		return false;
 	}

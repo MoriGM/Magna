@@ -5,27 +5,13 @@ import java.io.File;
 import de.morigm.magna.api.Magna;
 import lombok.Getter;
 
-public class Folders 
-{
-	
-	@Getter private final File
-								languageFile,
-								autoEditFile,
-								playerAutoEditFile,
-								blackListFile,
-								deathBackFile,
-								groupsFile,
-								playerFile,
-								warpsFile,
-								homeFile,
-								pluginFolder,
-								dataFolder,
-								languageFolder,
-								waypointFolder;
+public class Folders {
 
+	@Getter
+	private final File languageFile, autoEditFile, playerAutoEditFile, blackListFile, deathBackFile, groupsFile,
+			playerFile, warpsFile, homeFile, pluginFolder, dataFolder, languageFolder, waypointFolder;
 
-	public Folders() 
-	{
+	public Folders() {
 		this.pluginFolder = new File("plugins");
 		this.dataFolder = new File(this.pluginFolder, Magna.getName());
 		this.languageFolder = new File(dataFolder, "languages");
@@ -40,5 +26,5 @@ public class Folders
 		this.homeFile = new File(this.dataFolder, "homes.yml");
 		this.waypointFolder = new File(this.dataFolder, "waypoint.yml");
 	}
-	
+
 }

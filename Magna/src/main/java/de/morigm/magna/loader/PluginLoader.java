@@ -20,11 +20,9 @@ import de.morigm.magna.runner.AfkTestRunner;
 import de.morigm.magna.sign.TrashSign;
 import de.morigm.magna.sign.WarpSign;
 
-public class PluginLoader 
-{
+public class PluginLoader {
 
-	public void registerCommands()
-	{
+	public void registerCommands() {
 		new CMDFly().register("fly");
 		new CMDGodMode().register("godmode");
 		new CMDMute().register("mute");
@@ -87,9 +85,8 @@ public class PluginLoader
 		new CMDFlySpeed().register("flyspeed");
 		new CMDWayPoint().register("waypoint");
 	}
-	
-	public void registerListener()
-	{
+
+	public void registerListener() {
 		new Listener_GODMODE().register();
 		new Listener_Muted().register();
 		new Listener_CMDSPY().register();
@@ -105,21 +102,18 @@ public class PluginLoader
 		new Listener_OnlyBreak().register();
 		new Listener_Gui().register();
 	}
-	
-	public void registerRunners()
-	{
+
+	public void registerRunners() {
 		new AfkTestRunner().register("AfkTestRunner");
 	}
-	
-	public void registerSignListener()
-	{
+
+	public void registerSignListener() {
 		new WarpSign().register("Warp");
 		new TrashSign().register("Trash");
 	}
-	
-	public void startRunners()
-	{
-		Magna.getRunnerManager().startRunnerTimmer("AfkTestRunner", 20*10L);
+
+	public void startRunners() {
+		Magna.getRunnerManager().startRunnerTimmer("AfkTestRunner", 20 * 10L);
 	}
-	
+
 }

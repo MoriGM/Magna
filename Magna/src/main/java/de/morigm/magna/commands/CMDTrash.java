@@ -10,31 +10,24 @@ import org.bukkit.inventory.Inventory;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDTrash extends CommandHelper
-{
+public class CMDTrash extends CommandHelper {
 
-	public void registerUtils()
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("trash");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("trash");
 	}
-	
-	public boolean onCommand(CommandSender com,Command cmd,String label,String[] args)
-	{
-		if (com instanceof Player)
-		{
+
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (com instanceof Player) {
 			Player p = (Player) com;
-			if (testPermission(p, "trash"))
-			{
-				Inventory inv = Bukkit.createInventory(null, (9 * 6),(ChatColor.RED + "Trash"));
+			if (testPermission(p, "trash")) {
+				Inventory inv = Bukkit.createInventory(null, (9 * 6), (ChatColor.RED + "Trash"));
 				p.openInventory(inv);
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}
-	
+
 }

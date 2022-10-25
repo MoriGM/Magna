@@ -12,57 +12,49 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
-public class MojangApi 
-{
-	
-	static
-	{
+public class MojangApi {
+
+	static {
 		MojangApi.gson = new GsonBuilder().create();
 	}
-	
+
 	protected static Gson gson;
-	
-	protected static class PlayerProfile
-	{
-		public String name,id;
+
+	protected static class PlayerProfile {
+		String name, id;
 	}
-	
-	public static class PlayerName
-	{
+
+	public static class PlayerSession {
+		String id;
 		String name;
-		long changedToAt;
 	}
-	
-	public static class ServerStatus
-	{
-		public static enum StatusColor
-		{
-			GREEN,
-			YELLOW,
+
+	public static class ServerStatus {
+		public static enum StatusColor {
+			GREEN, 
+			YELLOW, 
 			RED;
 		}
-		
-		public StatusColor 	minecraft_net,
-							session_minecraft_net,
-							account_mojang_com,
+
+		public StatusColor 	minecraft_net, 
+							session_minecraft_net, 
+							account_mojang_com, 
 							authserver_mojang_com,
-							sessionserver_mojang_com,
-							api_mojang_com,
-							textures_minecraft_net,
+							sessionserver_mojang_com, 
+							api_mojang_com, 
+							textures_minecraft_net, 
 							mojang_com;
 	}
-	
-	public static UUID MojangUUIDtoRealUUID(String s)
-	{
+
+	public static UUID MojangUUIDtoRealUUID(String s) {
 		String suuid = "";
-		suuid = s.substring(0, 8) + "-" + s.substring(8, 12) + "-"  + s.substring(12, 16) + "-" + s.substring(16, 20) + "-" + s.substring(20, s.length());
+		suuid = s.substring(0, 8) + "-" + s.substring(8, 12) + "-" + s.substring(12, 16) + "-" + s.substring(16, 20)
+				+ "-" + s.substring(20, s.length());
 		UUID uuid = UUID.fromString(suuid);
 		return uuid;
 	}
-	
 
-	public static UUID getPlayerUUID(String playername) throws IOException
-	{
+	public static UUID getPlayerUUID(String playername) throws IOException {
 		URL url = new URL("https://api.mojang.com/users/profiles/minecraft/" + playername);
 		HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 		PlayerProfile profile = gson.fromJson(new InputStreamReader(con.getInputStream()), PlayerProfile.class);
@@ -70,25 +62,21 @@ public class MojangApi
 		con.disconnect();
 		return uuid;
 	}
-	
-	
-	public static String getNameFromUUID(String uuid) throws IOException
-	{
-		URL url = new URL("https://api.mojang.com/user/profiles/" + uuid + "/names");
+
+	public static String getNameFromUUID(String uuid) throws IOException {
+		URL url = new URL("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid);
 		HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
-		PlayerName[] arr = gson.fromJson(new InputStreamReader(con.getInputStream()), PlayerName[].class);
+		PlayerSession session = gson.fromJson(new InputStreamReader(con.getInputStream()), PlayerSession.class);
 		con.disconnect();
-		return arr[arr.length - 1].name;
+		return session.name;
 	}
-	
-	public static ServerStatus getServerStatus() throws IOException
-	{
+
+	public static ServerStatus getServerStatus() throws IOException {
 		URL url = new URL("https://status.mojang.com/check");
 		HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 		JsonArray arr = gson.fromJson(new InputStreamReader(con.getInputStream()), JsonArray.class);
 		ServerStatus status = new ServerStatus();
-		for (JsonElement en : arr)
-		{
+		for (JsonElement en : arr) {
 			String tmp = en.toString().substring(2);
 			tmp = tmp.substring(0, tmp.length() - 2);
 			String[] sarr = tmp.split("\":\"");
@@ -112,7 +100,5 @@ public class MojangApi
 		con.disconnect();
 		return status;
 	}
-	
-	
-	
+
 }

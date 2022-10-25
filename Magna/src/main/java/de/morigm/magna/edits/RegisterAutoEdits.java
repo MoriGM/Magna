@@ -15,20 +15,19 @@ import de.morigm.magna.edits.server.AutoEdit_Motd;
 import de.morigm.magna.edits.server.AutoEdit_PlayerCount;
 import lombok.Getter;
 
-public class RegisterAutoEdits
-{
+public class RegisterAutoEdits {
 
-	@Getter List<PlayerAutoEditStruct> playerAutoEditStructs = new ArrayList<>();
-	@Getter List<AutoEditStruct> autoEditStructs = new ArrayList<>();
-	
-	public void registerServerStruct()
-	{
+	@Getter
+	List<PlayerAutoEditStruct> playerAutoEditStructs = new ArrayList<>();
+	@Getter
+	List<AutoEditStruct> autoEditStructs = new ArrayList<>();
+
+	public void registerServerStruct() {
 		new AutoEdit_PlayerCount().register();
 		new AutoEdit_Motd().register();
 	}
 
-	public void registerPlayerStruct() 
-	{
+	public void registerPlayerStruct() {
 		new AutoEdit_WorldName().register();
 		new AutoEdit_PlayerName().register();
 		new AutoEdit_PlayerUUID().register();

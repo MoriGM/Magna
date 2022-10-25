@@ -10,48 +10,36 @@ import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDHome extends CommandHelper
-{
+public class CMDHome extends CommandHelper {
 
 	@Override
-	public void registerUtils()
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("home");
-		Util().registerTranslation("cmd.home");
-		Util().registerTranslation("cmd.home.exists");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("home");
+		util().registerTranslation("cmd.home");
+		util().registerTranslation("cmd.home.exists");
 	}
-	
+
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args)
-	{
-		if (PlayerHelper.isPlayer(com))
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (PlayerHelper.isPlayer(com)) {
 			Player p = (Player) com;
-			if (testPermission(p, "home"))
-			{
-				if (args.length >= 1)
-				{
+			if (testPermission(p, "home")) {
+				if (args.length >= 1) {
 					String name = args[0];
-					if (getHomeManager().hasHome(p, name))
-					{
+					if (getHomeManager().hasHome(p, name)) {
 						de.morigm.magna.api.home.Home home = getHomeManager().getHome(p, name);
 						p.teleport(home.location);
 						p.sendMessage(Chat.prefix + translate("cmd.home"));
-					}
-					else
+					} else
 						p.sendMessage(Chat.prefix + translate("cmd.home.exists"));
-				}
-				else
+				} else
 					p.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <home>");
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}
-
 
 }

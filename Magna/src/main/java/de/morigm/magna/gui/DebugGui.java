@@ -11,12 +11,10 @@ import de.morigm.magna.api.helper.ItemHelper;
 import de.morigm.magna.api.helper.ListHelper;
 import de.morigm.magna.chat.Chat;
 
-public class DebugGui extends Gui 
-{
+public class DebugGui extends Gui {
 
 	@Override
-	public void load() 
-	{
+	public void load() {
 		setName(ChatColor.GREEN + "Debug");
 		setSize(9);
 		setPermission(getPermission("debug"));
@@ -28,8 +26,7 @@ public class DebugGui extends Gui
 	}
 
 	@Override
-	public void onClick(GuiButton button) 
-	{
+	public void onClick(GuiButton button) {
 		if (button.getId() == 1 && testPermission(getPlayer(), "debug.version"))
 			getPlayer().sendMessage(Chat.prefix + "Version:" + Chat.version);
 		if (button.getId() == 2 && testPermission(getPlayer(), "debug.owncommandspy"))
@@ -39,7 +36,7 @@ public class DebugGui extends Gui
 		if (button.getId() == 4 && testPermission(getPlayer(), "debug.language"))
 			getPlayer().sendMessage(Chat.prefix + "Language:" + Magna.getSettings().getLanguage());
 		if (button.getId() == 5 && testPermission(getPlayer(), "debug.chatclear"))
-				Magna.getSettings().setShowChatClear(!Magna.getSettings().getShowChatClear());
+			Magna.getSettings().setShowChatClear(!Magna.getSettings().getShowChatClear());
 		if (ListHelper.isInArray(button.getId(), 2, 5))
 			Magna.getUser(getPlayer()).openGui(new DebugGui());
 	}

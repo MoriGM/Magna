@@ -16,207 +16,175 @@ import de.morigm.magna.api.events.PlayerWriteBlockedWordEvent;
 import de.morigm.magna.api.helper.ListenerHelper;
 import de.morigm.magna.chat.Chat;
 
-public class Listener_BlackList extends ListenerHelper 
-{
-	
+public class Listener_BlackList extends ListenerHelper {
+
 	@EventHandler
-	public void on(AsyncPlayerChatEvent e)
-	{
-		if (Magna.getBlackListManager().hasBlackWord(e.getMessage()))
-		{
+	public void on(AsyncPlayerChatEvent e) {
+		if (Magna.getBlackListManager().hasBlackWord(e.getMessage())) {
 			BlackWord bword = Magna.getBlackListManager().getBlackWordFromText(e.getMessage());
 			Bukkit.getPluginManager().callEvent(new PlayerWriteBlockedWordEvent(e.getPlayer(), bword.word, bword.type));
-			if (!e.getPlayer().hasPermission(bword.permission) || !Magna.getSettings().getBlackListPermission())
-			{
-				switch(bword.type)
-				{
-					case NORMAL:
-						normal(e);
-						break;
-					case KICK:
-						kick(e);
-						break;
-					case WARN:
-						warn(e);
-						break;
-					case MUTE:
-						mute(e);
-						break;
-					case BAN:
-						ban(e);
-						break;
-					case DEOP:
-						deop(e);
-						break;
-					case SPAWN:
-						spawn(e);
-						break;
-					case GROUPKICK:
-						groupkick(e);
-						break;
-					case GROUPBAN:
-						groupban(e);
-						break;
-					case KILL:
-						kill(e);
-						break;
-					case CLEAR:
-						clear(e);
-						break;
-					case BLIND:
-						blind(e);
-						break;
-					default:
-						break;
-						
+			if (!e.getPlayer().hasPermission(bword.permission) || !Magna.getSettings().getBlackListPermission()) {
+				switch (bword.type) {
+				case NORMAL:
+					normal(e);
+					break;
+				case KICK:
+					kick(e);
+					break;
+				case WARN:
+					warn(e);
+					break;
+				case MUTE:
+					mute(e);
+					break;
+				case BAN:
+					ban(e);
+					break;
+				case DEOP:
+					deop(e);
+					break;
+				case SPAWN:
+					spawn(e);
+					break;
+				case GROUPKICK:
+					groupkick(e);
+					break;
+				case GROUPBAN:
+					groupban(e);
+					break;
+				case KILL:
+					kill(e);
+					break;
+				case CLEAR:
+					clear(e);
+					break;
+				case BLIND:
+					blind(e);
+					break;
+				default:
+					break;
+
 				}
 			}
 		}
 	}
-	
-	private void blind(AsyncPlayerChatEvent e)
-	{
-		new BukkitRunnable() 
-		{
+
+	private void blind(AsyncPlayerChatEvent e) {
+		new BukkitRunnable() {
 			@Override
-			public void run() 
-			{
+			public void run() {
 				e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, 1));
 			}
 		}.runTaskLater(Main.getInstance(), 1);
 		e.setCancelled(true);
 	}
 
-	private void clear(AsyncPlayerChatEvent e) 
-	{
-		new BukkitRunnable() 
-		{
+	private void clear(AsyncPlayerChatEvent e) {
+		new BukkitRunnable() {
 			@Override
-			public void run() 
-			{
+			public void run() {
 				e.getPlayer().getInventory().clear();
 			}
 		}.runTaskLater(Main.getInstance(), 1);
 		e.setCancelled(true);
 	}
 
-	private void kill(AsyncPlayerChatEvent e) 
-	{
-		new BukkitRunnable() 
-		{
+	private void kill(AsyncPlayerChatEvent e) {
+		new BukkitRunnable() {
 			@Override
-			public void run() 
-			{
+			public void run() {
 				e.getPlayer().setHealth(0);
 			}
 		}.runTaskLater(Main.getInstance(), 1);
 		e.setCancelled(true);
 	}
 
-	private void groupban(AsyncPlayerChatEvent e) 
-	{
-		new BukkitRunnable() 
-		{
-			
+	private void groupban(AsyncPlayerChatEvent e) {
+		new BukkitRunnable() {
+
 			@Override
-			public void run() 
-			{
-				if(Magna.getGroupManager().isPlayerInGroup(e.getPlayer()))
-					for(Player t : Magna.getGroupManager().getPlayersByGroup(Main.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer())))
+			public void run() {
+				if (Magna.getGroupManager().isPlayerInGroup(e.getPlayer()))
+					for (Player t : Magna.getGroupManager()
+							.getPlayersByGroup(Main.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer())))
 						t.getPlayer().kickPlayer("Banned Word");
 			}
 		}.runTaskLater(Main.getInstance(), 1);
 		e.setCancelled(true);
 	}
 
-	private void groupkick(AsyncPlayerChatEvent e) 
-	{
-		new BukkitRunnable() 
-		{
-			
+	private void groupkick(AsyncPlayerChatEvent e) {
+		new BukkitRunnable() {
+
 			@Override
-			public void run() 
-			{
-				if(Magna.getGroupManager().isPlayerInGroup(e.getPlayer()))
-					for(Player t : Magna.getGroupManager().getPlayersByGroup(Main.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer())))
-						{
-							Bukkit.getBanList(Type.NAME).addBan(t.getName(), "You are not allowed to write this text", null, "Magna");
-							t.getPlayer().kickPlayer("Banned Word");
-						}
+			public void run() {
+				if (Magna.getGroupManager().isPlayerInGroup(e.getPlayer()))
+					for (Player t : Magna.getGroupManager().getPlayersByGroup(
+							Main.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer()))) {
+						Bukkit.getBanList(Type.NAME).addBan(t.getName(), "You are not allowed to write this text", null,
+								"Magna");
+						t.getPlayer().kickPlayer("Banned Word");
+					}
 			}
 		}.runTaskLater(Main.getInstance(), 1);
 		e.setCancelled(true);
 	}
 
-	private void spawn(AsyncPlayerChatEvent e) 
-	{
-		new BukkitRunnable() 
-		{
+	private void spawn(AsyncPlayerChatEvent e) {
+		new BukkitRunnable() {
 			@Override
-			public void run() 
-			{
-				if(Main.getInstance().getDefaultPluginConfig().spawn != null)
+			public void run() {
+				if (Main.getInstance().getDefaultPluginConfig().spawn != null)
 					e.getPlayer().teleport(Main.getInstance().getDefaultPluginConfig().spawn);
 			}
 		}.runTaskLater(Main.getInstance(), 1);
 		e.setCancelled(true);
 	}
 
-	private void deop(AsyncPlayerChatEvent e) 
-	{
-		new BukkitRunnable() 
-		{
+	private void deop(AsyncPlayerChatEvent e) {
+		new BukkitRunnable() {
 			@Override
-			public void run() 
-			{
+			public void run() {
 				e.getPlayer().setOp(false);
 			}
 		}.runTaskLater(Main.getInstance(), 1);
 		e.setCancelled(true);
 	}
 
-	private void ban(AsyncPlayerChatEvent e) 
-	{
-		new BukkitRunnable() 
-		{
+	private void ban(AsyncPlayerChatEvent e) {
+		new BukkitRunnable() {
 			@Override
-			public void run() 
-			{
-				Bukkit.getBanList(Type.NAME).addBan(e.getPlayer().getName(), "You are not allowed to write this text", null, "Magna");
+			public void run() {
+				Bukkit.getBanList(Type.NAME).addBan(e.getPlayer().getName(), "You are not allowed to write this text",
+						null, "Magna");
 				e.getPlayer().kickPlayer("Banned Word");
 			}
 		}.runTaskLater(Main.getInstance(), 1);
 		e.setCancelled(true);
 	}
 
-	private void mute(AsyncPlayerChatEvent e) 
-	{
+	private void mute(AsyncPlayerChatEvent e) {
 		Magna.getMutedPlayerManager().addPlayer(e.getPlayer());
 		e.setCancelled(true);
 	}
 
-	private void warn(AsyncPlayerChatEvent e) 
-	{
+	private void warn(AsyncPlayerChatEvent e) {
 		e.getPlayer().sendMessage(Chat.prefix + translate("listener.censor.warn"));
 		e.setCancelled(true);
 	}
 
-	private void kick(AsyncPlayerChatEvent e) 
-	{
-		new BukkitRunnable() 
-		{
-			
+	private void kick(AsyncPlayerChatEvent e) {
+		new BukkitRunnable() {
+
 			@Override
-			public void run() 
-			{
+			public void run() {
 				e.getPlayer().kickPlayer("Banned Word");
 			}
 		}.runTaskLater(Main.getInstance(), 1);
 		e.setCancelled(true);
 	}
 
-	private void normal(AsyncPlayerChatEvent e) 
-	{
+	private void normal(AsyncPlayerChatEvent e) {
 		e.setCancelled(true);
 	}
 

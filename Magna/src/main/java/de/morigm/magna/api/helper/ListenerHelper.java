@@ -10,50 +10,44 @@ import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
 
-public class ListenerHelper implements Listener, PermissionHelper, TranslationHelper
-{
-	
+public class ListenerHelper implements Listener, PermissionHelper, TranslationHelper {
+
 	private Language language;
 	private PermissionManager permission;
-	
-	public void register()
-	{
-		this.register(Main.getInstance() != null ? Magna.getLanguage() : null, Main.getInstance() != null ? Magna.getPermissionManager() : null, Main.getInstance());
+
+	public void register() {
+		this.register(Main.getInstance() != null ? Magna.getLanguage() : null,
+				Main.getInstance() != null ? Magna.getPermissionManager() : null, Main.getInstance());
 	}
-	
-	public void register(JavaPlugin javaplugin)
-	{
-		this.register(Main.getInstance() != null ? Magna.getLanguage() : null, Main.getInstance() != null ? Magna.getPermissionManager() : null, javaplugin);
+
+	public void register(JavaPlugin javaplugin) {
+		this.register(Main.getInstance() != null ? Magna.getLanguage() : null,
+				Main.getInstance() != null ? Magna.getPermissionManager() : null, javaplugin);
 	}
-	
-	public void register(Language language)
-	{
+
+	public void register(Language language) {
 		this.register(language, Main.getInstance() != null ? Magna.getPermissionManager() : null, Main.getInstance());
 	}
-	
-	public void register(PermissionManager permission)
-	{
+
+	public void register(PermissionManager permission) {
 		this.register(Main.getInstance() != null ? Magna.getLanguage() : null, permission, Main.getInstance());
 	}
-	
-	public void register(Language language, PermissionManager permission, JavaPlugin javaplugin)
-	{
+
+	public void register(Language language, PermissionManager permission, JavaPlugin javaplugin) {
 		if (language != null)
 			this.language = language;
 		if (permission != null)
 			this.permission = permission;
 		Bukkit.getPluginManager().registerEvents(this, javaplugin);
 	}
-	
+
 	@Override
-	public String translate(String text, TextStruct ... structs) 
-	{
+	public String translate(String text, TextStruct... structs) {
 		return language.translate(text, structs);
 	}
-	
+
 	@Override
-	public String getPermission(String Permission) 
-	{
+	public String getPermission(String Permission) {
 		return this.permission.getPermission(Permission);
 	}
 }

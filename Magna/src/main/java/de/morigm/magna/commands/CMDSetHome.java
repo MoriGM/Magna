@@ -12,46 +12,35 @@ import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.api.home.Home;
 import de.morigm.magna.chat.Chat;
 
-public class CMDSetHome extends CommandHelper
-{
+public class CMDSetHome extends CommandHelper {
 
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("sethome");
-		Util().registerTranslation("cmd.sethome");
-		Util().registerTranslation("cmd.sethome.max");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("sethome");
+		util().registerTranslation("cmd.sethome");
+		util().registerTranslation("cmd.sethome.max");
 	}
-	
+
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (PlayerHelper.isPlayer(com))
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (PlayerHelper.isPlayer(com)) {
 			Player p = (Player) com;
-			if (testPermission(p, "sethome"))
-			{
-				if (args.length >= 1)
-				{
+			if (testPermission(p, "sethome")) {
+				if (args.length >= 1) {
 					String name = args[0];
 					Location loc = p.getLocation();
-					if (getHomeManager().maxPlayerHomes(p) > getHomeManager().getPlayerHomes(p).size())
-					{
+					if (getHomeManager().maxPlayerHomes(p) > getHomeManager().getPlayerHomes(p).size()) {
 						Home home = new Home(name, loc);
 						getHomeManager().setHome(p, home);
 						p.sendMessage(Chat.prefix + translate("cmd.sethome"));
-					}
-					else
+					} else
 						p.sendMessage(Chat.prefix + translate("cmd.sethome.max"));
-				}
-				else
+				} else
 					p.sendMessage(Chat.prefix + "/" + getCommand() + " <home>");
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}

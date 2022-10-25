@@ -7,17 +7,14 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
 import de.morigm.magna.chat.Chat;
 
-public class Listener_Muted extends ListenerHelper
-{
+public class Listener_Muted extends ListenerHelper {
 
 	@EventHandler
-	public void on(AsyncPlayerChatEvent e)
-	{
-		if (Main.getInstance().getMutedPlayerManager().containsPlayer(e.getPlayer()))
-		{
+	public void on(AsyncPlayerChatEvent e) {
+		if (Main.getInstance().getMutedPlayerManager().containsPlayer(e.getPlayer())) {
 			e.getPlayer().sendMessage(Chat.prefix + translate("listener.mute"));
 			e.setCancelled(true);
 		}
 	}
-	
+
 }

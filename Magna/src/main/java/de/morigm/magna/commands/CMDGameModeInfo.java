@@ -8,34 +8,27 @@ import org.bukkit.entity.Player;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDGameModeInfo extends CommandHelper
-{
-	
+public class CMDGameModeInfo extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("gamemodeinfo");
-		Util().registerTranslation("cmd.gamemodeinfo");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("gamemodeinfo");
+		util().registerTranslation("cmd.gamemodeinfo");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args)
-	{
-		if (testPermission(com, "gamemodeinfo"))
-		{
-			if (args.length >= 1)
-			{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (testPermission(com, "gamemodeinfo")) {
+			if (args.length >= 1) {
 				Player t = Bukkit.getPlayer(args[0]);
 				if (t != null)
 					com.sendMessage(Chat.prefix + translate("cmd.gamemodeinfo") + ":" + t.getGameMode().name());
 				else
 					Chat.noOnline(com);
-			}
-			else
+			} else
 				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
-		}
-		else
+		} else
 			Chat.noPermission(com);
 		return false;
 	}

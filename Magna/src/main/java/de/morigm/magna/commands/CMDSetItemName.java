@@ -9,44 +9,33 @@ import org.bukkit.inventory.meta.ItemMeta;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDSetItemName extends CommandHelper
-{
-	
-	
+public class CMDSetItemName extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("setitemname");
-		Util().registerTranslation("cmd.setitemname.error");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("setitemname");
+		util().registerTranslation("cmd.setitemname.error");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (com instanceof Player)
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (com instanceof Player) {
 			Player p = (Player) com;
-			if (testPermission(p, "setitemname"))
-			{
-				if (args.length >= 1)
-				{
-					if (p.getInventory().getItemInMainHand() != null && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR))
-					{
+			if (testPermission(p, "setitemname")) {
+				if (args.length >= 1) {
+					if (p.getInventory().getItemInMainHand() != null
+							&& !p.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
 						ItemMeta meta = p.getInventory().getItemInMainHand().getItemMeta();
 						meta.setDisplayName(args[0]);
 						p.getInventory().getItemInMainHand().setItemMeta(meta);
-					}
-					else
+					} else
 						p.sendMessage(Chat.prefix + translate("cmd.setitemname.error"));
-				}
-				else
+				} else
 					p.sendMessage(Chat.prefix + "/" + getCommand() + " <name>");
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}

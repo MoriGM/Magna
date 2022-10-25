@@ -10,38 +10,30 @@ import de.morigm.magna.api.censor.CensorType;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDCensor extends CommandHelper
-{
-	
+public class CMDCensor extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("censor");
-		Util().registerPermission("blacklistword");
-		Util().registerTranslation("cmd.censor.add");
-		Util().registerTranslation("cmd.censor.add.error");
-		Util().registerTranslation("cmd.censor.remove");
-		Util().registerTranslation("cmd.censor.remove.error");
-		Util().registerTranslation("cmd.censor.words");
-		Util().registerTranslation("cmd.censor.or");
-		Util().registerTranslation("cmd.censor.type");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("censor");
+		util().registerPermission("blacklistword");
+		util().registerTranslation("cmd.censor.add");
+		util().registerTranslation("cmd.censor.add.error");
+		util().registerTranslation("cmd.censor.remove");
+		util().registerTranslation("cmd.censor.remove.error");
+		util().registerTranslation("cmd.censor.words");
+		util().registerTranslation("cmd.censor.or");
+		util().registerTranslation("cmd.censor.type");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args)
-	{
-		if (testPermission(com, "censor"))
-		{
-			if (args.length >= 2)
-			{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (testPermission(com, "censor")) {
+			if (args.length >= 2) {
 				String word = args[1];
-				
-					
-				if (args[0].equalsIgnoreCase("add"))
-				{
-					if (!getBlackListManager().containsBlackWord(word))
-					{
+
+				if (args[0].equalsIgnoreCase("add")) {
+					if (!getBlackListManager().containsBlackWord(word)) {
 						String permission = getPermission("blacklistword");
 						CensorType type = CensorType.NORMAL;
 						if (args.length >= 3)
@@ -51,52 +43,41 @@ public class CMDCensor extends CommandHelper
 						BlackWord bword = new BlackWord(word, permission, type);
 						getBlackListManager().addBlackWord(bword);
 						com.sendMessage(Chat.prefix + translate("cmd.censor.add"));
-					}
-					else
+					} else
 						com.sendMessage(Chat.prefix + translate("cmd.censor.add.error"));
-				}
-				else
-				if (args[0].equalsIgnoreCase("remove"))
-				{
-					if (getBlackListManager().containsBlackWord(word))
-					{
+				} else if (args[0].equalsIgnoreCase("remove")) {
+					if (getBlackListManager().containsBlackWord(word)) {
 						getBlackListManager().removeBlackWord(getBlackListManager().getBlackWord(word));
 						com.sendMessage(Chat.prefix + translate("cmd.censor.remove"));
-					}
-					else
+					} else
 						com.sendMessage(Chat.prefix + translate("cmd.censor.remove.error"));
-				}
-				else
-					com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
-			}
-			else
-			if (args.length >= 1)
-			{
-				if(args[0].equalsIgnoreCase("list"))
-				{
+				} else
+					com.sendMessage(
+							Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] "
+									+ translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
+			} else if (args.length >= 1) {
+				if (args[0].equalsIgnoreCase("list")) {
 					String words = "";
-					for(BlackWord bword : getBlackListManager().getBlackWords())
-							words += bword.word + ",";
-					if(!words.isEmpty())
-							words = words.substring(0,words.length() - 1);
+					for (BlackWord bword : getBlackListManager().getBlackWords())
+						words += bword.word + ",";
+					if (!words.isEmpty())
+						words = words.substring(0, words.length() - 1);
 					com.sendMessage(Chat.prefix + translate("cmd.censor.words") + ":" + words);
-				}
-				else
-				if (args[0].equalsIgnoreCase("types"))
+				} else if (args[0].equalsIgnoreCase("types"))
 					com.sendMessage(Chat.prefix + translate("cmd.censor.type") + ":" + getTypes());
 				else
-					com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
-			}
-			else
-				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] " + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
-		}
-		else
+					com.sendMessage(
+							Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] "
+									+ translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
+			} else
+				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] "
+						+ translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
+		} else
 			Chat.noPermission(com);
 		return false;
 	}
-	
-	public String getTypes()
-	{
+
+	public String getTypes() {
 		String types = "";
 		for (CensorType type : CensorType.values())
 			types += type.name() + ",";

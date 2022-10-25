@@ -10,39 +10,31 @@ import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDOnlyBreak extends CommandHelper
-{
+public class CMDOnlyBreak extends CommandHelper {
 
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("onlybreak");
-		Util().registerTranslation("cmd.onlybreak.on");
-		Util().registerTranslation("cmd.onlybreak.off");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("onlybreak");
+		util().registerTranslation("cmd.onlybreak.on");
+		util().registerTranslation("cmd.onlybreak.off");
 	}
-	
+
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (PlayerHelper.isPlayer(com))
-		{
-			if (testPermission(com, "onlybreak"))
-			{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (PlayerHelper.isPlayer(com)) {
+			if (testPermission(com, "onlybreak")) {
 				Player p = (Player) com;
 				getOnlyBreakManager().togglePlayer(p);
 				if (getOnlyBreakManager().containsPlayer(p))
 					p.sendMessage(Chat.prefix + translate("cmd.onlybreak.on"));
 				else
 					p.sendMessage(Chat.prefix + translate("cmd.onlybreak.off"));
-			}
-			else
+			} else
 				Chat.noPermission(com);
-		}
-		else
+		} else
 			Chat.noConsole(com);
-			return false;
+		return false;
 	}
-
 
 }

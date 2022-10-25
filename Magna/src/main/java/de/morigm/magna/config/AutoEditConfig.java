@@ -10,16 +10,16 @@ import de.morigm.magna.api.helper.FileHelper;
 import de.morigm.magna.api.helper.LoadHelper;
 import lombok.Getter;
 
-public class AutoEditConfig implements LoadHelper 
-{
+public class AutoEditConfig implements LoadHelper {
 
-	@Getter private FileConfiguration config;
+	@Getter
+	private FileConfiguration config;
 	private File file, filePlayer;
-	@Getter private FileConfiguration configPlayer;
-	
+	@Getter
+	private FileConfiguration configPlayer;
+
 	@Override
-	public void load() 
-	{
+	public void load() {
 		this.file = Magna.getFolders().getAutoEditFile();
 		FileHelper.createFileIfNotExists(file);
 		this.config = YamlConfiguration.loadConfiguration(file);

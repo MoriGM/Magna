@@ -12,20 +12,19 @@ import de.morigm.magna.chat.Chat;
 import org.jetbrains.annotations.NotNull;
 
 public class CMDWarps extends CommandHelper {
-	
+
 	@Override
 	public void registerUtils() {
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("warps");
-		Util().registerTranslation("cmd.warps");
+		util().registerCommandName(getCommand());
+		util().registerPermission("warps");
+		util().registerTranslation("cmd.warps");
 	}
-	
+
 	@Override
-	public boolean onCommand(@NotNull CommandSender com, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) 	{
-		if (com instanceof Player p)
-		{
-			if (testPermission(p, "warps"))
-			{
+	public boolean onCommand(@NotNull CommandSender com, @NotNull Command cmd, @NotNull String label,
+			@NotNull String[] args) {
+		if (com instanceof Player p) {
+			if (testPermission(p, "warps")) {
 				StringBuilder warps = new StringBuilder();
 				for (Warp w : getWarpManager().getWarps())
 					if (warps.length() == 0)
@@ -33,11 +32,9 @@ public class CMDWarps extends CommandHelper {
 					else
 						warps.append(",").append(w.name);
 				p.sendMessage(Chat.prefix + translate("cmd.warps") + ":" + warps);
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}

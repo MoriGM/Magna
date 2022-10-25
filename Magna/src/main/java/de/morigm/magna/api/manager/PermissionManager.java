@@ -6,34 +6,28 @@ import java.io.InputStreamReader;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-public class PermissionManager 
-{
+public class PermissionManager {
 	private FileConfiguration configuration;
 	private InputStream input;
-	
-	public PermissionManager(InputStream in) 
-	{
+
+	public PermissionManager(InputStream in) {
 		this.input = in;
 	}
 
-	public void load()
-	{
+	public void load() {
 		FileConfiguration configuration = YamlConfiguration.loadConfiguration(new InputStreamReader(input));
 		this.configuration = configuration;
 	}
-	
-	public FileConfiguration getConfiguration() 
-	{
+
+	public FileConfiguration getConfiguration() {
 		return configuration;
 	}
-	
-	public String getPermission(String Permission)
-	{
+
+	public String getPermission(String Permission) {
 		return configuration.getString(Permission);
 	}
 
-	public boolean hasPermission(String permission) 
-	{
+	public boolean hasPermission(String permission) {
 		return configuration.contains(permission);
 	}
 }

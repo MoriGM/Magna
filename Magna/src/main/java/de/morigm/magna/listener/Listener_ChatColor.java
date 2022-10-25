@@ -5,13 +5,11 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import de.morigm.magna.api.helper.ListenerHelper;
 
-public class Listener_ChatColor extends ListenerHelper
-{
+public class Listener_ChatColor extends ListenerHelper {
 	@EventHandler
-	public void on(AsyncPlayerChatEvent e)
-	{
+	public void on(AsyncPlayerChatEvent e) {
 		if (e.getPlayer().hasPermission(getPermission("chatcolor")))
 			e.setMessage(e.getMessage().replaceAll("&", "§"));
 	}
-	
+
 }

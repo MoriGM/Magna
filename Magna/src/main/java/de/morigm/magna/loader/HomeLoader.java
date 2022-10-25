@@ -15,19 +15,15 @@ import de.morigm.magna.api.helper.LoadHelper;
 import de.morigm.magna.api.helper.SaveHelper;
 import de.morigm.magna.api.home.Home;
 
-public class HomeLoader implements LoadHelper,SaveHelper
-{
+public class HomeLoader implements LoadHelper, SaveHelper {
 
-	public Map<UUID,List<Home>> player_home_map = new HashMap<>();
-	
+	public Map<UUID, List<Home>> player_home_map = new HashMap<>();
+
 	@Override
-	public void load() 
-	{
-		for (String s : getConfig().getKeys(true))
-		{
+	public void load() {
+		for (String s : getConfig().getKeys(true)) {
 			String[] args = s.replace('.', ',').split(",");
-			if(args.length == 2)
-			{
+			if (args.length == 2) {
 				UUID uuid = UUID.fromString(args[0]);
 				String name = args[1];
 				Location loc = FileConfigHelper.getLocation(getConfig(), uuid.toString() + "." + name);
@@ -40,28 +36,23 @@ public class HomeLoader implements LoadHelper,SaveHelper
 		}
 	}
 
-	
 	@Override
-	public void save() 
-	{
+	public void save() {
 		deleteConfig(getConfig());
-		
-		for (UUID uuid : player_home_map.keySet())
-		{
+
+		for (UUID uuid : player_home_map.keySet()) {
 			List<Home> homes = player_home_map.get(uuid);
 			for (Home home : homes)
 				FileConfigHelper.setLocation(getConfig(), uuid.toString() + "." + home.name, home.location);
 		}
 	}
-	
-	public static void deleteConfig(FileConfiguration config)
-	{
+
+	public static void deleteConfig(FileConfiguration config) {
 		for (String key : config.getKeys(true))
 			config.set(key, null);
 	}
-	
-	public FileConfiguration getConfig()
-	{
+
+	public FileConfiguration getConfig() {
 		return Main.getInstance().getHomeConfig().getConfig();
 	}
 

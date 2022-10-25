@@ -11,49 +11,36 @@ import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.StringHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDMSGR extends CommandHelper
-{
+public class CMDMSGR extends CommandHelper {
 
-	
 	@Override
-	public void registerUtils()
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerTranslation("cmd.msgr.error");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerTranslation("cmd.msgr.error");
 	}
-	
+
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (com instanceof Player)
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (com instanceof Player) {
 			Player p = (Player) com;
-			if (args.length >= 1)
-			{
+			if (args.length >= 1) {
 				String target = Magna.getMSGManager().getLastMessagedPlayer(p);
-				if (target != null)
-				{
+				if (target != null) {
 					Player t = Bukkit.getPlayer(target);
-					if (t != null)
-					{
+					if (t != null) {
 						String text = StringHelper.StringArrayToString(args, " ").replace('&', '§');
-						t.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + p.getName() + ChatColor.GRAY + " -> " + ChatColor.BLUE + t.getName() +  ChatColor.GRAY + "]" + ChatColor.RESET + " " + text);
-					}
-					else
+						t.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + p.getName() + ChatColor.GRAY + " -> "
+								+ ChatColor.BLUE + t.getName() + ChatColor.GRAY + "]" + ChatColor.RESET + " " + text);
+					} else
 						Chat.noOnline(p);
-				}
-				else
+				} else
 					p.sendMessage(Chat.prefix + translate("cmd.msgr.error"));
-			}
-			else
+			} else
 				p.sendMessage(Chat.prefix + "/" + getCommand() + " <MSG>");
-		}
-		else
+		} else
 			Chat.noConsole(com);
-			
+
 		return false;
 	}
-
-	
 
 }

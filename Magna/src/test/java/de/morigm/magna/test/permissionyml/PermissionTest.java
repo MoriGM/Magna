@@ -12,31 +12,26 @@ import org.junit.Test;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.loader.PluginLoader;
 
-public class PermissionTest
-{
-	public class CommandLoader extends PluginLoader
-	{
-		private boolean isactive = false; 
-		
+public class PermissionTest {
+	public class CommandLoader extends PluginLoader {
+		private boolean isactive = false;
+
 		@Override
-		public void registerCommands() 
-		{
-			if(!isactive)
+		public void registerCommands() {
+			if (!isactive)
 				super.registerCommands();
 			isactive = true;
 		}
 	}
-	
-	
+
 	@Test
-	public void testYMLPermission()
-	{
+	public void testYMLPermission() {
 		CommandLoader loader = new CommandLoader();
 		loader.registerCommands();
 		List<String> permission = Magna.getCommandUtil().getPermissions();
-		FileConfiguration conf = YamlConfiguration.loadConfiguration(new InputStreamReader(ClassLoader.getSystemResourceAsStream("Permission.yml")));
-		for(String s : permission)
-		{
+		FileConfiguration conf = YamlConfiguration
+				.loadConfiguration(new InputStreamReader(ClassLoader.getSystemResourceAsStream("Permission.yml")));
+		for (String s : permission) {
 			System.out.println("Test Permission:" + s);
 			assertTrue(conf.contains(s));
 		}

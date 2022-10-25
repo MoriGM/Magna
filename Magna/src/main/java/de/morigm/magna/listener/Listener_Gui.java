@@ -12,52 +12,45 @@ import de.morigm.magna.api.gui.Gui;
 import de.morigm.magna.api.helper.ListenerHelper;
 import de.morigm.magna.stuff.MagnaStuff;
 
-public class Listener_Gui extends ListenerHelper 
-{
-	
+public class Listener_Gui extends ListenerHelper {
+
 	@EventHandler
-	public void on(InventoryClickEvent e)
-	{
-		if(e.getWhoClicked() instanceof Player && e.getInventory().getType() == InventoryType.CHEST)
-		{
+	public void on(InventoryClickEvent e) {
+		if (e.getWhoClicked() instanceof Player && e.getInventory().getType() == InventoryType.CHEST) {
 			Player p = (Player) e.getWhoClicked();
 			Gui gui;
-			if ((gui = Magna.getUser(p).getGui()) != null)
-			{
+			if ((gui = Magna.getUser(p).getGui()) != null) {
 				if (!gui.getName().isEmpty())
-					if(!e.getView().getTitle().equals(gui.getName()))
+					if (!e.getView().getTitle().equals(gui.getName()))
 						return;
 				if (gui.getSize() != e.getInventory().getSize())
 					return;
 				if (!gui.getInventory().getHolder().equals(e.getInventory().getHolder()))
 					return;
-				
+
 				e.setCancelled(true);
-				
+
 				if (e.getRawSlot() != e.getSlot())
 					return;
-			
+
 				if (!gui.getPermission().isEmpty())
 					if (!p.hasPermission(gui.getPermission()))
 						return;
-				
+
 				gui.registerClick(e.getSlot());
-				
+
 			}
 		}
 	}
-	
+
 	@EventHandler
-	public void on(InventoryCloseEvent e)
-	{
-		if (e.getPlayer() instanceof Player && e.getInventory() instanceof InventoryView)
-		{
+	public void on(InventoryCloseEvent e) {
+		if (e.getPlayer() instanceof Player && e.getInventory() instanceof InventoryView) {
 			Player p = (Player) e.getPlayer();
 			Gui gui;
 
 			InventoryView invv = (InventoryView) e.getInventory();
-			if ((gui = Magna.getUser(p).getGui()) != null)
-			{
+			if ((gui = Magna.getUser(p).getGui()) != null) {
 				if (!gui.getName().isEmpty())
 					if (!invv.getTitle().equals(gui.getName()))
 						return;

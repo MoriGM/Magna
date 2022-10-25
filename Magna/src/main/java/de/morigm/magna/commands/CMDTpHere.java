@@ -8,43 +8,32 @@ import org.bukkit.entity.Player;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class CMDTpHere extends CommandHelper
-{
-	
+public class CMDTpHere extends CommandHelper {
+
 	@Override
-	public void registerUtils() 
-	{
-		Util().registerCommandName(getCommand());
-		Util().registerPermission("tphere");
-		Util().registerTranslation("cmd.tphere");
+	public void registerUtils() {
+		util().registerCommandName(getCommand());
+		util().registerPermission("tphere");
+		util().registerTranslation("cmd.tphere");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) 
-	{
-		if (com instanceof Player)
-		{
+	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+		if (com instanceof Player) {
 			Player p = (Player) com;
-			if (testPermission(p, "tphere"))
-			{
-				if (args.length >= 1)
-				{
+			if (testPermission(p, "tphere")) {
+				if (args.length >= 1) {
 					Player t = Bukkit.getPlayer(args[0]);
-					if (t != null)
-					{
+					if (t != null) {
 						t.teleport(p);
 						p.sendMessage(Chat.prefix + translate("cmd.tphere"));
-					}
-					else
+					} else
 						Chat.noOnline(p);
-				}
-				else
+				} else
 					p.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
-			}
-			else
+			} else
 				Chat.noPermission(p);
-		}
-		else
+		} else
 			Chat.noConsole(com);
 		return false;
 	}

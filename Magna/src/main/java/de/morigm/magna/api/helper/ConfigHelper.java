@@ -1,6 +1,5 @@
 package de.morigm.magna.api.helper;
 
-public interface ConfigHelper extends LoadHelper,SaveHelper
-{
-	
+public interface ConfigHelper extends LoadHelper, SaveHelper {
+
 }
