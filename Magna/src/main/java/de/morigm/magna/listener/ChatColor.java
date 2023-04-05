@@ -1,10 +1,10 @@
 package de.morigm.magna.listener;
 
-import de.morigm.magna.api.helper.ListenerHelper;
+import de.morigm.magna.api.helper.Listener;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class ChatColor extends ListenerHelper {
+public class ChatColor extends Listener {
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e) {
 		if (e.getPlayer().hasPermission(getPermission("chatcolor")))

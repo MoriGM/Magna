@@ -4,7 +4,7 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.events.PlayerWriteBlockedWordEvent;
-import de.morigm.magna.api.helper.ListenerHelper;
+import de.morigm.magna.api.helper.Listener;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
@@ -15,7 +15,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class BlackList extends ListenerHelper {
+public class BlackList extends Listener {
 
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e) {

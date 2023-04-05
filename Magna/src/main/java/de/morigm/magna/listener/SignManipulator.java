@@ -1,7 +1,7 @@
 package de.morigm.magna.listener;
 
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.ListenerHelper;
+import de.morigm.magna.api.helper.Listener;
 import de.morigm.magna.api.sign.SignListener;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Sign;
@@ -10,7 +10,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-public class SignManipulator extends ListenerHelper {
+public class SignManipulator extends Listener {
 
 	public static final String prefix = ChatColor.GRAY + "[" + ChatColor.BLUE;
 	public static final String suffix = ChatColor.GRAY + "]";

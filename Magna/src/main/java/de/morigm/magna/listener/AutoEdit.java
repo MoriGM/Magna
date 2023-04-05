@@ -1,11 +1,11 @@
 package de.morigm.magna.listener;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.ListenerHelper;
+import de.morigm.magna.api.helper.Listener;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class AutoEdit extends ListenerHelper {
+public class AutoEdit extends Listener {
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e) {
 		if (Main.getInstance().getDefaultPluginConfig().autoedit)

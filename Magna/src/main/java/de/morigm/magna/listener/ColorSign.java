@@ -1,10 +1,10 @@
 package de.morigm.magna.listener;
 
-import de.morigm.magna.api.helper.ListenerHelper;
+import de.morigm.magna.api.helper.Listener;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.SignChangeEvent;
 
-public class ColorSign extends ListenerHelper {
+public class ColorSign extends Listener {
 	@EventHandler
 	public void on(SignChangeEvent e) {
 		if (e.getPlayer().hasPermission(getPermission("colorsign"))) {

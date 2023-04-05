@@ -2,7 +2,7 @@ package de.morigm.magna.listener;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.gui.Gui;
-import de.morigm.magna.api.helper.ListenerHelper;
+import de.morigm.magna.api.helper.Listener;
 import de.morigm.magna.stuff.MagnaStuff;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,7 +11,7 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.InventoryView;
 
-public class GuiController extends ListenerHelper {
+public class GuiController extends Listener {
 
 	@EventHandler
 	public void on(InventoryClickEvent e) {

@@ -1,14 +1,14 @@
 package de.morigm.magna.log;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.Loger;
+import de.morigm.magna.api.logger.Logger;
 import de.morigm.magna.api.log.Log;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class CommandLoger implements Loger {
+public class CommandLogger implements Logger {
 
     private Log log;
 

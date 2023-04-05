@@ -1,6 +1,6 @@
 package de.morigm.magna.listener;
 
-import de.morigm.magna.api.helper.ListenerHelper;
+import de.morigm.magna.api.helper.Listener;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,7 +14,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import static de.morigm.magna.api.Magna.getAFKManager;
 
-public class AFK extends ListenerHelper {
+public class AFK extends Listener {
 
 	@EventHandler
 	public void testIfAFK(PlayerMoveEvent e) {

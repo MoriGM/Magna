@@ -3,7 +3,7 @@ package de.morigm.magna.api.runner;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.PermissionHelper;
-import de.morigm.magna.api.helper.TranslationHelper;
+import de.morigm.magna.api.translation.Translation;
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
@@ -11,7 +11,7 @@ import lombok.Getter;
 import org.bukkit.command.CommandSender;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public abstract class Runner implements TranslationHelper, PermissionHelper {
+public abstract class Runner implements Translation, PermissionHelper {
 
 	@Getter
 	private String name;

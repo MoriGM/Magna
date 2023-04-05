@@ -1,7 +1,7 @@
 package de.morigm.magna.api.manager;
 
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.TranslationHelper;
+import de.morigm.magna.api.translation.Translation;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.stuff.AFKStuff;
@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 import java.util.List;
 import java.util.Map;
 
-public class AFK implements TranslationHelper {
+public class AFK implements Translation {
 
 	public void updateTimeAndLocation(Player p, Location l, long time) {
 		getLastPositions().put(p, l);

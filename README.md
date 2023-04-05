@@ -2,15 +2,10 @@
 
 A Minecraft Server Manager Tool
 
-## Build status
-
-* Travis-CI:
-	* [![Build Status](https://api.travis-ci.org/MoriGM/Magna.svg)](https://travis-ci.com/MoriGM/Magna/)
-
 ## Prerequisites
 
 * Java JDK 17
-* Spigot Server 1.18
+* Spigot Server 1.19
 
 ## Authors
 
@@ -30,17 +25,13 @@ mvn install
 
 ### Tested Operating System
 
-* Linux Ubuntu 20.04
-* Debian 10
-* Windows 10
-
-### Tested Architecture
-
-* x86_64
+* Manjaro
+* Debian 11
+* Fedora >37
 
 ### Tested Spigot Server Version
 
-* Spigot 1.18
+* Spigot 1.19
 
 ## Built With
 

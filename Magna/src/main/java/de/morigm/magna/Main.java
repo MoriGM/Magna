@@ -8,7 +8,7 @@ import de.morigm.magna.chat.Chat;
 import de.morigm.magna.config.*;
 import de.morigm.magna.edits.RegisterAutoEdits;
 import de.morigm.magna.loader.*;
-import de.morigm.magna.log.CommandLoger;
+import de.morigm.magna.log.CommandLogger;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -78,7 +78,7 @@ public class Main extends JavaPlugin {
 	private HomeConfig homeConfig;
 
 	@Getter
-	private CommandLoger commandsLoger;
+	private CommandLogger commandsLoger;
 
 	@Getter
 	private GroupLoader groupLoader;
@@ -128,7 +128,7 @@ public class Main extends JavaPlugin {
 		this.mutedPlayerManager = new MutedPlayerManager();
 		this.godModeManager = new GodModeManager();
 		this.commandSpyManager = new CommandSpyManager();
-		this.commandsLoger = new CommandLoger();
+		this.commandsLoger = new CommandLogger();
 		this.commandsLoger.load();
 		this.warpConfig = new WarpConfig();
 		this.warpConfig.load();

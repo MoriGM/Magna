@@ -5,11 +5,11 @@ import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
+import de.morigm.magna.api.translation.Translation;
 import org.bukkit.Bukkit;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ListenerHelper implements Listener, PermissionHelper, TranslationHelper {
+public class Listener implements org.bukkit.event.Listener, PermissionHelper, Translation {
 
 	private Language language;
 	private PermissionManager permission;
