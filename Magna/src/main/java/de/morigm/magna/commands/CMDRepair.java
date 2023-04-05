@@ -1,8 +1,9 @@
 package de.morigm.magna.commands;
 
 import de.morigm.magna.api.command.Command;
-import de.morigm.magna.api.helper.ItemHelper;
+import de.morigm.magna.api.items.ItemIs;
 import de.morigm.magna.chat.Chat;
+import lombok.NonNull;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -21,13 +22,13 @@ public class CMDRepair extends Command {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(@NonNull CommandSender com, @NonNull org.bukkit.command.Command cmd, @NonNull String label, @NonNull String[] args) {
         if (isPlayer(com)) {
             Player p = (Player) com;
             if (testPermission(p, "repair")) {
                 if (p.getInventory().getItemInMainHand() != null
                         && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR)
-                        && ItemHelper.isRepairable(p.getInventory().getItemInMainHand())) {
+                        && ItemIs.repairable(p.getInventory().getItemInMainHand())) {
                     ItemStack item = p.getInventory().getItemInMainHand();
                     ItemMeta meta = item.getItemMeta();
                     if (meta instanceof Damageable)
