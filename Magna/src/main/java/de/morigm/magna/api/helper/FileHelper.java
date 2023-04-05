@@ -5,6 +5,7 @@ import lombok.SneakyThrows;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FileHelper {
 
@@ -59,7 +60,7 @@ public class FileHelper {
 
 	@SneakyThrows
 	public static void copyFile(InputStream in, OutputStream out) {
-		int readlen = 0;
+		int readlen;
 		byte[] bt = new byte[1024];
 
 		while ((readlen = in.read(bt)) >= 0)
@@ -67,7 +68,7 @@ public class FileHelper {
 	}
 
 	public static void getFiles(List<File> files, File folder) {
-		for (File f : folder.listFiles())
+		for (File f : Objects.requireNonNull(folder.listFiles()))
 			if (f.isDirectory())
 				getFiles(files, f);
 			else {
@@ -79,16 +80,21 @@ public class FileHelper {
 
 	public static void delete(List<File> files) {
 		List<File> folders = new ArrayList<>();
-		for (File f : files)
-			if (f.exists())
-				if (f.isDirectory())
+		for (File f : files) {
+			if (f.exists()) {
+				if (f.isDirectory()) {
 					folders.add(f);
-				else
-					f.delete();
-
-		for (File f : folders)
-			if (f.exists())
+					continue;
+				}
 				f.delete();
+			}
+		}
+
+		for (File f : folders) {
+			if (f.exists()) {
+				f.delete();
+			}
+		}
 	}
 
 }

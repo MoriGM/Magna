@@ -1,43 +1,43 @@
 package de.morigm.magna.log;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.LogerHelper;
+import de.morigm.magna.api.helper.Loger;
 import de.morigm.magna.api.log.Log;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class CommandLoger implements LogerHelper {
+public class CommandLoger implements Loger {
 
-	private Log log;
+    private Log log;
 
-	@Override
-	public void load() {
-		if (!Main.getInstance().getDefaultPluginConfig().commandlog)
-			return;
-		LocalDateTime local = LocalDateTime.now();
-		File dir = new File("./server-log/command/");
-		if (!dir.exists())
-			dir.mkdirs();
-		try {
-			log = new Log(new File(dir, local.getDayOfMonth() + "-" + local.getMonthValue() + "-" + local.getYear()
-					+ "-" + local.getHour() + "-" + local.getMinute() + ".log"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void load() {
+        if (!Main.getInstance().getDefaultPluginConfig().commandlog)
+            return;
+        LocalDateTime local = LocalDateTime.now();
+        File dir = new File("./server-log/command/");
+        if (!dir.exists())
+            dir.mkdirs();
+        try {
+            log = new Log(new File(dir, local.getDayOfMonth() + "-" + local.getMonthValue() + "-" + local.getYear()
+                    + "-" + local.getHour() + "-" + local.getMinute() + ".log"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-	@Override
-	public void save() {
-		if (!Main.getInstance().getDefaultPluginConfig().commandlog)
-			return;
-		log.save();
-	}
+    @Override
+    public void save() {
+        if (!Main.getInstance().getDefaultPluginConfig().commandlog)
+            return;
+        log.save();
+    }
 
-	@Override
-	public void addLine(String text) {
-		log.log(text);
-	}
+    @Override
+    public void addLine(String text) {
+        log.log(text);
+    }
 
 }

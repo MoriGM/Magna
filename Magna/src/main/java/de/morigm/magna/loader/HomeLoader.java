@@ -1,7 +1,7 @@
 package de.morigm.magna.loader;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.FileConfigHelper;
+import de.morigm.magna.api.config.FileConfig;
 import de.morigm.magna.api.home.Home;
 import de.morigm.magna.api.loader.Loader;
 import de.morigm.magna.api.saver.Saver;
@@ -26,7 +26,7 @@ public class HomeLoader implements Loader, Saver {
             if (args.length == 2) {
                 UUID uuid = UUID.fromString(args[0]);
                 String name = args[1];
-                Location loc = FileConfigHelper.getLocation(getConfig(), uuid + "." + name);
+                Location loc = FileConfig.getLocation(getConfig(), uuid + "." + name);
                 if (!player_home_map.containsKey(uuid))
                     player_home_map.put(uuid, new ArrayList<>());
                 List<Home> homes = player_home_map.get(uuid);
@@ -43,12 +43,12 @@ public class HomeLoader implements Loader, Saver {
         for (UUID uuid : player_home_map.keySet()) {
             List<Home> homes = player_home_map.get(uuid);
             for (Home home : homes)
-                FileConfigHelper.setLocation(getConfig(), uuid.toString() + "." + home.name, home.location);
+                FileConfig.setLocation(getConfig(), uuid.toString() + "." + home.name, home.location);
         }
     }
 
     public FileConfiguration getConfig() {
         return Main.getInstance().getHomeConfig().getConfig();
-	}
+    }
 
 }

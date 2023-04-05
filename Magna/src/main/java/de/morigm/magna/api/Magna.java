@@ -113,7 +113,7 @@ public class Magna {
 	}
 
 	public static boolean isSupported() {
-		return Arrays.binarySearch(spigot_versions, getServerVersion()) >= 0;
+		return Arrays.binarySearch(Magna.getSupportedVersions(), getServerVersion()) != -1;
 	}
 
 	public static User getUser(Player p) {

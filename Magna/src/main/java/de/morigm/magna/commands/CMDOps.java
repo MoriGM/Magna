@@ -1,31 +1,30 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.api.command.Command;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-public class CMDOps extends CommandHelper {
+public class CMDOps extends Command {
 
-	@Override
-	public void registerUtils() {
-		util().registerCommandName(getCommand());
-		util().registerPermission("ops");
-	}
+    @Override
+    public void registerUtils() {
+        util().registerCommandName(getCommand());
+        util().registerPermission("ops");
+    }
 
-	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
-		if (testPermission(com, "ops")) {
-			String ops = "";
-			for (OfflinePlayer of : Bukkit.getOperators())
-				ops += of.getName() + ",";
-			ops = ops.substring(0, ops.length() - 1);
-			com.sendMessage("Ops:" + ops);
-		} else
-			Chat.noPermission(com);
-		return false;
-	}
+    @Override
+    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+        if (testPermission(com, "ops")) {
+            String ops = "";
+            for (OfflinePlayer of : Bukkit.getOperators())
+                ops += of.getName() + ",";
+            ops = ops.substring(0, ops.length() - 1);
+            com.sendMessage("Ops:" + ops);
+        } else
+            Chat.noPermission(com);
+        return false;
+    }
 
 }

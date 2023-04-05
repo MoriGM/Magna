@@ -1,4 +1,4 @@
-package de.morigm.magna.api.helper;
+package de.morigm.magna.api.config;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
 
-public class FileConfigHelper {
+public class FileConfig {
 
 	public static void setLocation(FileConfiguration config, String name, Location loc) {
 		config.set(name + ".x", loc.getX());

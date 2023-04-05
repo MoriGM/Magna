@@ -1,7 +1,7 @@
 package de.morigm.magna.config;
 
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.ConfigHelper;
+import de.morigm.magna.api.config.Config;
 import de.morigm.magna.api.helper.FileHelper;
 import lombok.Getter;
 import lombok.SneakyThrows;
@@ -12,30 +12,30 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlackListConfig implements ConfigHelper {
+public class BlackListConfig implements Config {
 
-	@Getter
-	private File file;
-	@Getter
-	private FileConfiguration config;
-	@Getter
-	private final List<String> blackwords = new ArrayList<>();
+    @Getter
+    private final List<String> blackwords = new ArrayList<>();
+    @Getter
+    private File file;
+    @Getter
+    private FileConfiguration config;
 
-	@Override
-	public void load() {
-		File file = Magna.getFolders().getBlackListFile();
-		FileHelper.createFileIfNotExists(file);
-		FileConfiguration config = YamlConfiguration.loadConfiguration(file);
-		this.file = file;
-		this.config = config;
+    @Override
+    public void load() {
+        File file = Magna.getFolders().getBlackListFile();
+        FileHelper.createFileIfNotExists(file);
+        FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+        this.file = file;
+        this.config = config;
 
-		blackwords.addAll(getConfig().getKeys(false));
-	}
+        blackwords.addAll(getConfig().getKeys(false));
+    }
 
-	@SneakyThrows
-	@Override
-	public void save() {
-		this.config.save(getFile());
-	}
+    @SneakyThrows
+    @Override
+    public void save() {
+        this.config.save(getFile());
+    }
 
 }

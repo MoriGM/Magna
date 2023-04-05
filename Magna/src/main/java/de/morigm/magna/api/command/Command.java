@@ -1,8 +1,9 @@
-package de.morigm.magna.api.helper;
+package de.morigm.magna.api.command;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.command.CommandUtil;
+import de.morigm.magna.api.helper.PermissionHelper;
+import de.morigm.magna.api.helper.TranslationHelper;
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
@@ -12,7 +13,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public abstract class CommandHelper implements CommandExecutor, PermissionHelper, TranslationHelper {
+public abstract class Command implements CommandExecutor, PermissionHelper, TranslationHelper {
 
 	private String name = "";
 	private Language language;
@@ -41,10 +42,10 @@ public abstract class CommandHelper implements CommandExecutor, PermissionHelper
 		this.register(cmd_name, language, permission, Main.getInstance());
 	}
 
-	public void register(String cmd_name, Language language, PermissionManager permission, JavaPlugin javaPlugin) {
-		name = cmd_name;
+	public void register(String cmdName, Language language, PermissionManager permission, JavaPlugin javaPlugin) {
+		name = cmdName;
 		if (javaPlugin != null)
-			javaPlugin.getCommand(cmd_name).setExecutor(this);
+			javaPlugin.getCommand(cmdName).setExecutor(this);
 		if (language != null)
 			this.language = language;
 		if (permission != null)
