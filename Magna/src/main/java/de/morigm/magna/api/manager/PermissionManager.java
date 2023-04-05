@@ -1,14 +1,14 @@
 package de.morigm.magna.api.manager;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 public class PermissionManager {
 	private FileConfiguration configuration;
-	private InputStream input;
+	private final InputStream input;
 
 	public PermissionManager(InputStream in) {
 		this.input = in;

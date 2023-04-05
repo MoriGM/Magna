@@ -1,12 +1,11 @@
 package de.morigm.magna.runner;
 
-import static de.morigm.magna.api.Magna.getAFKManager;
-
+import de.morigm.magna.api.Magna;
+import de.morigm.magna.api.runner.Runner;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.runner.Runner;
+import static de.morigm.magna.api.Magna.getAFKManager;
 
 public class AfkTestRunner extends Runner {
 
@@ -18,9 +17,9 @@ public class AfkTestRunner extends Runner {
 			if (!getAFKManager().containsTime(t))
 				getAFKManager().setTime(t, System.currentTimeMillis());
 			if (getAFKManager().containsTime(t)) {
-				if ((System.currentTimeMillis() - getAFKManager().getTime(t)) >= (Magna.getSettings().getAFKTimer() * 60
-						* 1000))
-					getAFKManager().addPlayer(t);
+                if ((System.currentTimeMillis() - getAFKManager().getTime(t)) >= ((long) Magna.getSettings().getAFKTimer() * 60
+                        * 1000))
+                    getAFKManager().addPlayer(t);
 			}
 		}
 	}

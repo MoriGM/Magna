@@ -1,13 +1,12 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
 
 public class CMDTeamChat extends CommandHelper {
 
@@ -29,7 +28,7 @@ public class CMDTeamChat extends CommandHelper {
 				for (Player t : Bukkit.getOnlinePlayers())
 					if (testPermission(t, "teamchat-see"))
 						t.sendMessage(ChatColor.GRAY + "[" + ChatColor.BLUE + "TeamChat" + ChatColor.GRAY + "]"
-								+ ChatColor.RESET + "<" + (com instanceof Player ? ((Player) com).getName() : "SERVER")
+								+ ChatColor.RESET + "<" + (com instanceof Player ? com.getName() : "SERVER")
 								+ ">" + s);
 			} else
 				com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Text>");

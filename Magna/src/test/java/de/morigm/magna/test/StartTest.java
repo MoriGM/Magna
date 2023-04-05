@@ -1,29 +1,29 @@
 package de.morigm.magna.test;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 public class StartTest {
 
 	@Test
 	public void PluginYMLExistsTest() {
-		assertTrue(ClassLoader.getSystemResourceAsStream("plugin.yml") != null);
+		assertNotNull(ClassLoader.getSystemResourceAsStream("plugin.yml"));
 	}
 
 	@Test
 	public void ENYMLExistsTest() {
-		assertTrue(ClassLoader.getSystemResourceAsStream("en-en.yml") != null);
+		assertNotNull(ClassLoader.getSystemResourceAsStream("en-en.yml"));
 	}
 
 	@Test
 	public void DEYMLExistsTest() {
-		assertTrue(ClassLoader.getSystemResourceAsStream("de-de.yml") != null);
+		assertNotNull(ClassLoader.getSystemResourceAsStream("de-de.yml"));
 	}
 
 	@Test
 	public void PermissionYMLExistsTest() {
-		assertTrue(ClassLoader.getSystemResourceAsStream("Permission.yml") != null);
+		assertNotNull(ClassLoader.getSystemResourceAsStream("Permission.yml"));
 	}
 
 }

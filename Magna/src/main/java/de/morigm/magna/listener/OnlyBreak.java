@@ -1,13 +1,12 @@
 package de.morigm.magna.listener;
 
-import static de.morigm.magna.api.Magna.getOnlyBreakManager;
-
+import de.morigm.magna.api.helper.ItemHelper;
+import de.morigm.magna.api.helper.ListenerHelper;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 
-import de.morigm.magna.api.helper.ItemHelper;
-import de.morigm.magna.api.helper.ListenerHelper;
+import static de.morigm.magna.api.Magna.getOnlyBreakManager;
 
 public class OnlyBreak extends ListenerHelper {
 

@@ -1,30 +1,29 @@
 package de.morigm.magna.loader;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bukkit.configuration.file.FileConfiguration;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.censor.CensorType;
-import de.morigm.magna.api.helper.LoadHelper;
 import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.helper.SaveHelper;
+import de.morigm.magna.api.loader.Loader;
 import de.morigm.magna.config.BlackListConfig;
 import lombok.Getter;
+import org.bukkit.configuration.file.FileConfiguration;
 
-public class BlackListLoader implements LoadHelper, SaveHelper, PermissionHelper {
+import java.util.ArrayList;
+import java.util.List;
 
-	@Getter
-	private List<BlackWord> blackWords = new ArrayList<>();
+public class BlackListLoader implements Loader, SaveHelper, PermissionHelper {
 
-	@Override
-	public void load() {
-		for (String word : getBlackListConfig().getBlackwords()) {
-			String permission = getConfig().contains(word + ".permission") ? getConfig().getString(word + ".permission")
-					: getPermission("blacklistword");
-			CensorType type = getConfig().contains(word + ".type")
+    @Getter
+    private final List<BlackWord> blackWords = new ArrayList<>();
+
+    @Override
+    public void load() {
+        for (String word : getBlackListConfig().getBlackwords()) {
+            String permission = getConfig().contains(word + ".permission") ? getConfig().getString(word + ".permission")
+                    : getPermission("blacklistword");
+            CensorType type = getConfig().contains(word + ".type")
 					? CensorType.getType(getConfig().getString(word + ".type"))
 					: CensorType.NORMAL;
 			BlackWord bword = new BlackWord(word, permission, type);
@@ -37,9 +36,9 @@ public class BlackListLoader implements LoadHelper, SaveHelper, PermissionHelper
 		deleteConfig(getConfig());
 
 		for (BlackWord word : getBlackWords()) {
-			getConfig().set(word.word + ".permission", word.permission);
-			getConfig().set(word.word + ".type", word.type.name());
-		}
+            getConfig().set(word.word() + ".permission", word.permission());
+            getConfig().set(word.word() + ".type", word.type().name());
+        }
 	}
 
 	public void deleteConfig(FileConfiguration config) {

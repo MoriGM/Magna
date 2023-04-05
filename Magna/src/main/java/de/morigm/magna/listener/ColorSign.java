@@ -1,9 +1,8 @@
 package de.morigm.magna.listener;
 
+import de.morigm.magna.api.helper.ListenerHelper;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.SignChangeEvent;
-
-import de.morigm.magna.api.helper.ListenerHelper;
 
 public class ColorSign extends ListenerHelper {
 	@EventHandler

@@ -38,16 +38,16 @@ public class FileConfigHelper {
 	}
 
 	public static void saveInventory(FileConfiguration config, Inventory inv, String pos) {
-		config.set(pos + ".size", inv.getSize());
-		if (inv instanceof InventoryView) {
-			InventoryView invv = (InventoryView) inv;
-			if (invv.getTitle() != null && !invv.getTitle().isEmpty())
-				config.set(pos + ".name", invv.getTitle());
-			for (int i = 0; i < inv.getSize(); i++)
-				if (inv.getItem(i) != null && !inv.getItem(i).getType().equals(Material.AIR))
-					config.set(pos + "." + i, inv.getItem(i));
-		}
-	}
+        config.set(pos + ".size", inv.getSize());
+        if (inv instanceof InventoryView invv) {
+            invv.getTitle();
+            if (!invv.getTitle().isEmpty())
+                config.set(pos + ".name", invv.getTitle());
+            for (int i = 0; i < inv.getSize(); i++)
+                if (inv.getItem(i) != null && !inv.getItem(i).getType().equals(Material.AIR))
+                    config.set(pos + "." + i, inv.getItem(i));
+        }
+    }
 
 	public static Inventory getInventory(FileConfiguration config, String pos) {
 		if (config.contains(pos + ".size")) {

@@ -1,20 +1,19 @@
 package de.morigm.magna.loader;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import de.morigm.magna.Main;
+import de.morigm.magna.api.helper.SaveHelper;
+import de.morigm.magna.api.loader.Loader;
+import de.morigm.magna.api.warp.Warp;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.LoadHelper;
-import de.morigm.magna.api.helper.SaveHelper;
-import de.morigm.magna.api.warp.Warp;
-import lombok.Getter;
+import java.util.ArrayList;
+import java.util.List;
 
-public class WarpLoader implements LoadHelper, SaveHelper {
+public class WarpLoader implements Loader, SaveHelper {
 
 	@Getter
 	private final List<Warp> warps;

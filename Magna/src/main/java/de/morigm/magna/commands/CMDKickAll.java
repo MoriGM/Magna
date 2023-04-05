@@ -1,17 +1,16 @@
 package de.morigm.magna.commands;
 
-import static de.morigm.magna.api.Magna.getGroupManager;
-
-import java.util.List;
-
+import de.morigm.magna.api.group.Group;
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.api.group.Group;
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
+import java.util.List;
+
+import static de.morigm.magna.api.Magna.getGroupManager;
 
 public class CMDKickAll extends CommandHelper {
 

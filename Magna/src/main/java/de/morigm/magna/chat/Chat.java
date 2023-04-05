@@ -1,11 +1,10 @@
 package de.morigm.magna.chat;
 
-import org.bukkit.Bukkit;
-import org.bukkit.command.CommandSender;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.chat.ChatColor;
+import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
 
 public class Chat {
 

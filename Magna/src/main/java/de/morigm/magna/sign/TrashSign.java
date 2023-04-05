@@ -1,13 +1,12 @@
 package de.morigm.magna.sign;
 
+import de.morigm.magna.api.sign.SignListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-
-import de.morigm.magna.api.sign.SignListener;
 
 public class TrashSign extends SignListener {
 

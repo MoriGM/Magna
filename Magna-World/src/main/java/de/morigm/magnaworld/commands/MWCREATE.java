@@ -1,16 +1,15 @@
 package de.morigm.magnaworld.commands;
 
-import org.bukkit.World.Environment;
-import org.bukkit.WorldType;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
 import de.morigm.magna.api.convert.Convert;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
 import de.morigm.magnaworld.api.helper.EnumHelper;
 import de.morigm.magnaworld.api.world.WorldStruct;
+import org.bukkit.World.Environment;
+import org.bukkit.WorldType;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 
 public class MWCREATE extends CommandHelper {
 

@@ -1,12 +1,11 @@
 package de.morigm.magna.api.settings;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bukkit.Location;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.config.PluginConfig;
+import org.bukkit.Location;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Settings {
 

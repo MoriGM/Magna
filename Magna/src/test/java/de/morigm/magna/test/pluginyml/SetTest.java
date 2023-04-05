@@ -1,12 +1,12 @@
 package de.morigm.magna.test.pluginyml;
 
-import static org.junit.Assert.assertTrue;
-
-import java.io.InputStreamReader;
-
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.junit.Test;
+
+import java.io.InputStreamReader;
+
+import static org.junit.Assert.assertTrue;
 
 public class SetTest {
 

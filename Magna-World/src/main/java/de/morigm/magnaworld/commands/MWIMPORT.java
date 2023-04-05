@@ -1,14 +1,13 @@
 package de.morigm.magnaworld.commands;
 
-import java.io.File;
-
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
 import de.morigm.magnaworld.api.world.WorldStruct;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+
+import java.io.File;
 
 public class MWIMPORT extends CommandHelper {
 	@Override

@@ -1,12 +1,11 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
 
 public class CMDGetPos extends CommandHelper {
 
@@ -19,8 +18,7 @@ public class CMDGetPos extends CommandHelper {
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
-		if (com instanceof Player) {
-			Player p = (Player) com;
+		if (com instanceof Player p) {
 			if (testPermission(com, "getpos"))
 				if (args.length >= 1) {
 					Player t = Bukkit.getPlayer(args[0]);

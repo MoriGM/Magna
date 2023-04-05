@@ -1,16 +1,16 @@
 package de.morigm.magna.api.log;
 
+import de.morigm.magna.api.helper.FileHelper;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalTime;
 
-import de.morigm.magna.api.helper.FileHelper;
-
 public class Log {
 
-	private BufferedWriter writer;
+	private final BufferedWriter writer;
 
 	public Log(File f) throws IOException {
 		FileHelper.createFileIfNotExists(f);

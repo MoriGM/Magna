@@ -1,12 +1,11 @@
 package de.morigm.magna.test.api.mojang;
 
-import static org.junit.Assert.assertEquals;
+import de.morigm.magna.api.mojang.MojangApi;
+import org.junit.Test;
 
 import java.io.IOException;
 
-import org.junit.Test;
-
-import de.morigm.magna.api.mojang.MojangApi;
+import static org.junit.Assert.assertEquals;
 
 public class MojangApiFromUUIDTest {
 

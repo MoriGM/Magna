@@ -1,9 +1,8 @@
 package de.morigm.magnaworld.chat;
 
+import de.morigm.magnaworld.api.MagnaWorld;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-
-import de.morigm.magnaworld.api.MagnaWorld;
 
 public class Chat {
 

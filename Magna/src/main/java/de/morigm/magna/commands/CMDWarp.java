@@ -1,13 +1,12 @@
 package de.morigm.magna.commands;
 
-import static de.morigm.magna.api.Magna.getWarpManager;
-
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
+import static de.morigm.magna.api.Magna.getWarpManager;
 
 public class CMDWarp extends CommandHelper {
 
@@ -21,8 +20,7 @@ public class CMDWarp extends CommandHelper {
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
-		if (com instanceof Player) {
-			Player p = (Player) com;
+		if (com instanceof Player p) {
 			if (testPermission(p, "warp")) {
 				if (args.length >= 1) {
 					String warpname = args[0];

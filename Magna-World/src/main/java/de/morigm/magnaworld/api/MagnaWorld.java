@@ -1,20 +1,19 @@
 package de.morigm.magnaworld.api;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import de.morigm.magnaworld.api.world.WorldStruct;
+import lombok.NonNull;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
 import org.bukkit.WorldCreator;
 import org.bukkit.WorldType;
 
-import de.morigm.magnaworld.api.world.WorldStruct;
-import lombok.NonNull;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MagnaWorld {
 
-	private static List<WorldStruct> worlds = new ArrayList<>();
+	private static final List<WorldStruct> worlds = new ArrayList<>();
 
 	public static void registerWorld(@NonNull WorldStruct world, @NonNull WorldType type, @NonNull Environment ev) {
 		if (!containsWorld(world) && !containsWorld(world.getName())) {

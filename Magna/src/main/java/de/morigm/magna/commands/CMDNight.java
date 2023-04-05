@@ -1,11 +1,10 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
 
 public class CMDNight extends CommandHelper {
 
@@ -19,8 +18,7 @@ public class CMDNight extends CommandHelper {
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) {
 		if (testPermission(com, "night")) {
-			if (com instanceof Player) {
-				Player p = (Player) com;
+			if (com instanceof Player p) {
 				p.getWorld().setTime(16000);
 				p.sendMessage(Chat.prefix + translate("cmd.night"));
 			} else

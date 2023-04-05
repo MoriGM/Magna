@@ -1,26 +1,21 @@
 package de.morigm.magna.api.user;
 
-import static de.morigm.magna.api.Magna.getAFKManager;
-import static de.morigm.magna.api.Magna.getCommandSpyManager;
-import static de.morigm.magna.api.Magna.getGodModeManager;
-import static de.morigm.magna.api.Magna.getMutedPlayerManager;
-import static de.morigm.magna.api.Magna.getOnlyBreakManager;
-
-import java.util.UUID;
-
-import org.bukkit.Location;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
-
 import de.morigm.magna.api.gui.Gui;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.stuff.MagnaStuff;
 import lombok.Getter;
+import org.bukkit.Location;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+
+import java.util.UUID;
+
+import static de.morigm.magna.api.Magna.*;
 
 public class User {
 	@Getter
-	private Player player;
-	private PermissionManager[] permission;
+	private final Player player;
+	private final PermissionManager[] permission;
 
 	public User(Player p, PermissionManager... permission) {
 		this.player = p;
@@ -121,10 +116,7 @@ public class User {
 	}
 
 	public Gui getGui() {
-		if (MagnaStuff.getGuis().containsKey(player))
-			return MagnaStuff.getGuis().get(player);
-		else
-			return null;
+		return MagnaStuff.getGuis().getOrDefault(player, null);
 	}
 
 	public void closeGui() {

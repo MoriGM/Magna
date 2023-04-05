@@ -1,14 +1,13 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
 
 public class CMDTrash extends CommandHelper {
 
@@ -20,8 +19,7 @@ public class CMDTrash extends CommandHelper {
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
-		if (com instanceof Player) {
-			Player p = (Player) com;
+		if (com instanceof Player p) {
 			if (testPermission(p, "trash")) {
 				Inventory inv = Bukkit.createInventory(null, (9 * 6), (ChatColor.RED + "Trash"));
 				p.openInventory(inv);

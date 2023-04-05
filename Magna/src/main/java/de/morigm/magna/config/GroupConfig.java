@@ -1,13 +1,12 @@
 package de.morigm.magna.config;
 
-import java.io.File;
-
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.ConfigHelper;
 import de.morigm.magna.api.helper.FileHelper;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
 
 public class GroupConfig implements ConfigHelper {
 

@@ -1,5 +1,9 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.api.mojang.MojangApi;
+import de.morigm.magna.chat.Chat;
+import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -7,11 +11,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
-
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.api.mojang.MojangApi;
-import de.morigm.magna.chat.Chat;
-import lombok.SneakyThrows;
 
 public class CMDSkull extends CommandHelper {
 
@@ -25,8 +24,7 @@ public class CMDSkull extends CommandHelper {
 	@SneakyThrows
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
-		if (com instanceof Player) {
-			Player p = (Player) com;
+		if (com instanceof Player p) {
 			if (p.hasPermission(getPermission("skull"))) {
 				if (args.length >= 1) {
 					String owner = args[0];

@@ -1,10 +1,9 @@
 package de.morigm.magna.listener;
 
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.entity.PlayerDeathEvent;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.entity.PlayerDeathEvent;
 
 public class DeathBack extends ListenerHelper {
 	@EventHandler

@@ -1,13 +1,12 @@
 package de.morigm.magna.test.helper;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import de.morigm.magna.api.helper.ListHelper;
+import org.junit.Test;
 
 import java.util.List;
 
-import org.junit.Test;
-
-import de.morigm.magna.api.helper.ListHelper;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ListHelperTest {
 

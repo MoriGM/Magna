@@ -1,20 +1,20 @@
 package de.morigm.magna.api.manager;
 
-import java.util.List;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.censor.BlackWord;
 
+import java.util.List;
+
 public class BlackListManager {
 
-	public void addBlackWord(BlackWord bword) {
-		if (!containsBlackWord(bword.word))
-			getBlackWords().add(bword);
-	}
+    public void addBlackWord(BlackWord bword) {
+        if (!containsBlackWord(bword.word()))
+            getBlackWords().add(bword);
+    }
 
-	public void removeBlackWord(BlackWord bword) {
-		if (containsBlackWord(bword.word))
-			getBlackWords().remove(bword);
+    public void removeBlackWord(BlackWord bword) {
+        if (containsBlackWord(bword.word()))
+            getBlackWords().remove(bword);
 	}
 
 	public boolean containsBlackWord(String word) {
@@ -23,8 +23,8 @@ public class BlackListManager {
 
 	public BlackWord getBlackWord(String word) {
 		for (BlackWord bword : getBlackWords())
-			if (bword.word.equals(word))
-				return bword;
+            if (bword.word().equals(word))
+                return bword;
 		return null;
 	}
 
@@ -34,8 +34,8 @@ public class BlackListManager {
 
 	public BlackWord getBlackWordFromText(String text) {
 		for (BlackWord bword : getBlackWords())
-			if (text.toLowerCase().contains(bword.word.toLowerCase()))
-				return bword;
+            if (text.toLowerCase().contains(bword.word().toLowerCase()))
+                return bword;
 		return null;
 	}
 

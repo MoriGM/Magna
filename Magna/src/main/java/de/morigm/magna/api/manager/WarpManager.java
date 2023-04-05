@@ -1,12 +1,11 @@
 package de.morigm.magna.api.manager;
 
-import java.util.List;
-
-import org.bukkit.Location;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.warp.Warp;
 import de.morigm.magna.loader.WarpLoader;
+import org.bukkit.Location;
+
+import java.util.List;
 
 public class WarpManager {
 	public void setWarp(String name, Location loc) {

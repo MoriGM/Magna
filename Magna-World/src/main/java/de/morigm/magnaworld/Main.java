@@ -1,9 +1,5 @@
 package de.morigm.magnaworld;
 
-import java.io.File;
-
-import org.bukkit.plugin.java.JavaPlugin;
-
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magnaworld.loader.LanguageLoader;
@@ -11,6 +7,9 @@ import de.morigm.magnaworld.loader.PluginLoader;
 import de.morigm.magnaworld.loader.WorldLoader;
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
 
 public class Main extends JavaPlugin {
 

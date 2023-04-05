@@ -1,7 +1,6 @@
 package de.morigm.magna.listener;
 
-import static de.morigm.magna.api.Magna.getAFKManager;
-
+import de.morigm.magna.api.helper.ListenerHelper;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,7 +12,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import de.morigm.magna.api.helper.ListenerHelper;
+import static de.morigm.magna.api.Magna.getAFKManager;
 
 public class AFK extends ListenerHelper {
 

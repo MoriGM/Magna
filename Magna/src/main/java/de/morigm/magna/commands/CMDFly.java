@@ -1,13 +1,12 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.chat.ChatColor;
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import de.morigm.magna.api.chat.ChatColor;
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
 
 public class CMDFly extends CommandHelper {
 
@@ -23,8 +22,7 @@ public class CMDFly extends CommandHelper {
 
 	@Override
 	public boolean onCommand(CommandSender com, Command command, String label, String[] args) {
-		if (com instanceof Player) {
-			Player t = (Player) com;
+		if (com instanceof Player t) {
 			if (testPermission(t, "fly")) {
 				if (args.length >= 1)
 					t = Bukkit.getPlayer(args[0]);
@@ -32,9 +30,9 @@ public class CMDFly extends CommandHelper {
 					t.setAllowFlight(!t.getAllowFlight());
 					com.sendMessage(Chat.prefix + (t.getAllowFlight()
 							? ChatColor.GREEN
-									+ (com == t ? translate("cmd.fly.you.on") : translate("cmd.fly.player.on"))
+							+ (com == t ? translate("cmd.fly.you.on") : translate("cmd.fly.player.on"))
 							: ChatColor.RED
-									+ (com == t ? translate("cmd.fly.you.off") : translate("cmd.fly.player.off"))));
+							+ (com == t ? translate("cmd.fly.you.off") : translate("cmd.fly.player.off"))));
 				} else
 					Chat.noOnline(com);
 			} else

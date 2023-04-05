@@ -1,16 +1,15 @@
 package de.morigm.magna.api.mojang;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.UUID;
-
-import javax.net.ssl.HttpsURLConnection;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+
+import javax.net.ssl.HttpsURLConnection;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.UUID;
 
 public class MojangApi {
 
@@ -29,21 +28,21 @@ public class MojangApi {
 		String name;
 	}
 
-	public static class ServerStatus {
-		public static enum StatusColor {
-			GREEN, YELLOW, RED;
-		}
-
-		public StatusColor minecraft_net, session_minecraft_net, account_mojang_com, authserver_mojang_com,
-				sessionserver_mojang_com, api_mojang_com, textures_minecraft_net, mojang_com;
-	}
-
 	public static UUID MojangUUIDtoRealUUID(String s) {
 		String suuid = "";
 		suuid = s.substring(0, 8) + "-" + s.substring(8, 12) + "-" + s.substring(12, 16) + "-" + s.substring(16, 20)
-				+ "-" + s.substring(20, s.length());
+				+ "-" + s.substring(20);
 		UUID uuid = UUID.fromString(suuid);
 		return uuid;
+	}
+
+	public static class ServerStatus {
+		public StatusColor minecraft_net, session_minecraft_net, account_mojang_com, authserver_mojang_com,
+				sessionserver_mojang_com, api_mojang_com, textures_minecraft_net, mojang_com;
+
+		public enum StatusColor {
+			GREEN, YELLOW, RED
+		}
 	}
 
 	public static UUID getPlayerUUID(String playername) throws IOException {

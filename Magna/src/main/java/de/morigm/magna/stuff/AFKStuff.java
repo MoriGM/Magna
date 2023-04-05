@@ -1,12 +1,12 @@
 package de.morigm.magna.stuff;
 
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
 
 public class AFKStuff {
 

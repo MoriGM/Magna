@@ -9,6 +9,6 @@ public class DeathBack {
 		this.location = location;
 	}
 
-	public Location location;
-	public final String uuid;
+	public final Location location;
+    public final String uuid;
 }

@@ -1,18 +1,17 @@
 package de.morigm.magna.test.languageyml;
 
-import static org.junit.Assert.assertTrue;
+import de.morigm.magna.api.Magna;
+import de.morigm.magna.loader.PluginLoader;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
-import org.junit.Test;
-
-import de.morigm.magna.api.Magna;
-import de.morigm.magna.loader.PluginLoader;
+import static org.junit.Assert.assertTrue;
 
 public class DeTest {
-	public class CommandLoader extends PluginLoader {
+	public static class CommandLoader extends PluginLoader {
 		private boolean isactive = false;
 
 		@Override

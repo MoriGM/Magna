@@ -1,5 +1,11 @@
 package de.morigm.magna.listener;
 
+import de.morigm.magna.Main;
+import de.morigm.magna.api.Magna;
+import de.morigm.magna.api.censor.BlackWord;
+import de.morigm.magna.api.events.PlayerWriteBlockedWordEvent;
+import de.morigm.magna.api.helper.ListenerHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -9,60 +15,29 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import de.morigm.magna.Main;
-import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.censor.BlackWord;
-import de.morigm.magna.api.events.PlayerWriteBlockedWordEvent;
-import de.morigm.magna.api.helper.ListenerHelper;
-import de.morigm.magna.chat.Chat;
-
 public class BlackList extends ListenerHelper {
 
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e) {
 		if (Magna.getBlackListManager().hasBlackWord(e.getMessage())) {
 			BlackWord bword = Magna.getBlackListManager().getBlackWordFromText(e.getMessage());
-			Bukkit.getPluginManager().callEvent(new PlayerWriteBlockedWordEvent(e.getPlayer(), bword.word, bword.type));
-			if (!e.getPlayer().hasPermission(bword.permission) || !Magna.getSettings().getBlackListPermission()) {
-				switch (bword.type) {
-				case NORMAL:
-					normal(e);
-					break;
-				case KICK:
-					kick(e);
-					break;
-				case WARN:
-					warn(e);
-					break;
-				case MUTE:
-					mute(e);
-					break;
-				case BAN:
-					ban(e);
-					break;
-				case DEOP:
-					deop(e);
-					break;
-				case SPAWN:
-					spawn(e);
-					break;
-				case GROUPKICK:
-					groupkick(e);
-					break;
-				case GROUPBAN:
-					groupban(e);
-					break;
-				case KILL:
-					kill(e);
-					break;
-				case CLEAR:
-					clear(e);
-					break;
-				case BLIND:
-					blind(e);
-					break;
-				default:
-					break;
+			Bukkit.getPluginManager().callEvent(new PlayerWriteBlockedWordEvent(e.getPlayer(), bword.word(), bword.type()));
+			if (!e.getPlayer().hasPermission(bword.permission()) || !Magna.getSettings().getBlackListPermission()) {
+				switch (bword.type()) {
+					case NORMAL -> normal(e);
+					case KICK -> kick(e);
+					case WARN -> warn(e);
+					case MUTE -> mute(e);
+					case BAN -> ban(e);
+					case DEOP -> deop(e);
+					case SPAWN -> spawn(e);
+					case GROUPKICK -> groupkick(e);
+					case GROUPBAN -> groupban(e);
+					case KILL -> kill(e);
+					case CLEAR -> clear(e);
+					case BLIND -> blind(e);
+					default -> {
+					}
 				}
 			}
 		}

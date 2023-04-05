@@ -1,12 +1,11 @@
 package de.morigm.magna.test.api.mojang;
 
-import java.io.IOException;
-
-import org.junit.Test;
-
 import de.morigm.magna.api.mojang.MojangApi;
 import de.morigm.magna.api.mojang.MojangApi.ServerStatus;
 import de.morigm.magna.api.mojang.MojangApi.ServerStatus.StatusColor;
+import org.junit.Test;
+
+import java.io.IOException;
 
 public class MojangServerStatus {
 	@Test

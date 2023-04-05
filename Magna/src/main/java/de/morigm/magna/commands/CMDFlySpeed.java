@@ -1,14 +1,13 @@
 package de.morigm.magna.commands;
 
-import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
 import de.morigm.magna.api.convert.Convert;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class CMDFlySpeed extends CommandHelper {
 
@@ -28,9 +27,9 @@ public class CMDFlySpeed extends CommandHelper {
 			if (testPermission(p, "flyspeed"))
 				if (args.length >= 1) {
 					if (Convert.isInteger(args[0])) {
-						float f = Float.valueOf(args[0]) / 10;
+						float f = Float.parseFloat(args[0]) / 10;
 
-						if (Integer.valueOf(args[0]) > 10 || Integer.valueOf(args[0]) < 0) {
+						if (Integer.parseInt(args[0]) > 10 || Integer.parseInt(args[0]) < 0) {
 							p.sendMessage(Chat.prefix + translate("cmd.flyspeed.error"));
 							return false;
 						}

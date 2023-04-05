@@ -1,20 +1,19 @@
 package de.morigm.magna.commands;
 
-import static de.morigm.magna.api.Magna.getGroupManager;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
+import de.morigm.magna.api.group.Group;
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.api.group.Group;
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import static de.morigm.magna.api.Magna.getGroupManager;
 
 public class CMDMagna_List extends CommandHelper {
 
@@ -36,21 +35,20 @@ public class CMDMagna_List extends CommandHelper {
 						Group group = getGroupManager().getGroup(args[0]);
 						if (group != null) {
 							List<Player> players = getGroupManager().getPlayersByGroup(group);
-							String groups = "";
-							for (Player t : players)
-								groups += ChatColor.GREEN + t.getName() + ChatColor.RESET + " ";
+							StringBuilder groups = new StringBuilder();
+							for (Player t : players) {
+								groups.append(ChatColor.GREEN).append(t.getName()).append(ChatColor.RESET).append(" ");
+							}
 							com.sendMessage(Chat.prefix + translate("cmd.list.player") + ":" + groups);
 						} else
 							com.sendMessage(Chat.prefix + translate("cmd.list.group.notfound"));
 					} else {
 						Map<Player, Group> map = getGroupManager().getOnlinePlayerWithGroup();
-						String group = "";
-						for (Entry<Player, Group> entry : map.entrySet())
-							group += "(" + entry.getKey().getName() + " : "
-									+ (entry.getValue() != null ? entry.getValue().name
-											: translate("cmd.list.group.no"))
-									+ "),";
-						group = group.substring(0, group.length() - 1);
+						StringBuilder group = new StringBuilder();
+						for (Entry<Player, Group> entry : map.entrySet()) {
+							group.append("(").append(entry.getKey().getName()).append(" : ").append(entry.getValue() != null ? entry.getValue().name : translate("cmd.list.group.no")).append("),");
+						}
+						group = new StringBuilder(group.substring(0, group.length() - 1));
 						com.sendMessage(Chat.prefix + group);
 					}
 				} else

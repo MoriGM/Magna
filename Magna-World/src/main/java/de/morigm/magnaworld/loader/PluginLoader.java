@@ -2,11 +2,7 @@ package de.morigm.magnaworld.loader;
 
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magnaworld.Main;
-import de.morigm.magnaworld.commands.MWCREATE;
-import de.morigm.magnaworld.commands.MWDELETE;
-import de.morigm.magnaworld.commands.MWIMPORT;
-import de.morigm.magnaworld.commands.MWLIST;
-import de.morigm.magnaworld.commands.MWTP;
+import de.morigm.magnaworld.commands.*;
 
 public class PluginLoader {
 

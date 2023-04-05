@@ -1,21 +1,17 @@
 package de.morigm.magna.sign;
 
-import org.bukkit.block.Block;
-import org.bukkit.block.Sign;
-import org.bukkit.entity.Player;
-
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.sign.SignListener;
 import de.morigm.magna.api.warp.Warp;
+import org.bukkit.block.Block;
+import org.bukkit.block.Sign;
+import org.bukkit.entity.Player;
 
 public class WarpSign extends SignListener {
 
 	@Override
 	public boolean onCreate(String[] lines, Player p, Block sign) {
-		if (!lines[1].isEmpty() && Magna.getWarpManager().containsWarp(lines[1]) && testPermission(p, "createwarpsign"))
-			return true;
-		else
-			return false;
+        return !lines[1].isEmpty() && Magna.getWarpManager().containsWarp(lines[1]) && testPermission(p, "createwarpsign");
 	}
 
 	@Override

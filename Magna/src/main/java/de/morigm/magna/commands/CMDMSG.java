@@ -1,16 +1,15 @@
 package de.morigm.magna.commands;
 
-import static de.morigm.magna.api.Magna.getMSGManager;
-
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.api.helper.StringHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.api.helper.StringHelper;
-import de.morigm.magna.chat.Chat;
+import static de.morigm.magna.api.Magna.getMSGManager;
 
 public class CMDMSG extends CommandHelper {
 	@Override
@@ -21,8 +20,7 @@ public class CMDMSG extends CommandHelper {
 
 	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
-		if (com instanceof Player) {
-			Player p = (Player) com;
+		if (com instanceof Player p) {
 			if (args.length >= 2) {
 				Player t = Bukkit.getPlayer(args[0]);
 				String text = StringHelper.StringArrayToString(args, " ", 1).replace('&', '§');

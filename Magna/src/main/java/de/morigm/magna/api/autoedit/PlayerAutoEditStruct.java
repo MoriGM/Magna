@@ -1,17 +1,16 @@
 package de.morigm.magna.api.autoedit;
 
-import org.bukkit.entity.Player;
-
 import de.morigm.magna.Main;
+import org.bukkit.entity.Player;
 
 public interface PlayerAutoEditStruct {
 
-	public String getName();
+    String getName();
 
-	public String getEdit(Player p);
+    String getEdit(Player p);
 
-	public default void register() {
-		Main.getInstance().getRegisterAutoEdits().getPlayerAutoEditStructs().add(this);
-	}
+    default void register() {
+        Main.getInstance().getRegisterAutoEdits().getPlayerAutoEditStructs().add(this);
+    }
 
 }

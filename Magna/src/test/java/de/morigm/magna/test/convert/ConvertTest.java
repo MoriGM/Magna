@@ -1,10 +1,10 @@
 package de.morigm.magna.test.convert;
 
-import static org.junit.Assert.assertTrue;
-
+import de.morigm.magna.api.convert.Convert;
 import org.junit.Test;
 
-import de.morigm.magna.api.convert.Convert;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ConvertTest {
 
@@ -17,9 +17,9 @@ public class ConvertTest {
 
 	@Test
 	public void testIntString() {
-		assertTrue(!Convert.isInteger("Test"));
-		assertTrue(!Convert.isInteger("123123.1231232"));
-	}
+        assertFalse(Convert.isInteger("Test"));
+        assertFalse(Convert.isInteger("123123.1231232"));
+    }
 
 	@Test
 	public void testBooleanBoolean() {
@@ -29,9 +29,9 @@ public class ConvertTest {
 
 	@Test
 	public void testBooleanString() {
-		assertTrue(!Convert.isBoolean("asdsadsa"));
-		assertTrue(!Convert.isBoolean("asdfasd"));
-	}
+        assertFalse(Convert.isBoolean("asdsadsa"));
+        assertFalse(Convert.isBoolean("asdfasd"));
+    }
 
 	@Test
 	public void testDoubleDouble() {
@@ -41,8 +41,8 @@ public class ConvertTest {
 
 	@Test
 	public void testDoubleString() {
-		assertTrue(!Convert.isDouble("sdfsdafasdfsdafsdaf"));
-		assertTrue(!Convert.isDouble("5.5.5"));
-	}
+        assertFalse(Convert.isDouble("sdfsdafasdfsdafsdaf"));
+        assertFalse(Convert.isDouble("5.5.5"));
+    }
 
 }

@@ -1,15 +1,14 @@
 package de.morigm.magna.api.manager;
 
+import de.morigm.magna.Main;
+import de.morigm.magna.api.group.Group;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-
-import de.morigm.magna.Main;
-import de.morigm.magna.api.group.Group;
 
 public class GroupManager {
 

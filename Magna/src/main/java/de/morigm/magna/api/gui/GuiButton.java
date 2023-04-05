@@ -1,8 +1,7 @@
 package de.morigm.magna.api.gui;
 
-import org.bukkit.inventory.ItemStack;
-
 import lombok.Getter;
+import org.bukkit.inventory.ItemStack;
 
 public class GuiButton {
 

@@ -1,14 +1,13 @@
 package de.morigm.magna.config;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import de.morigm.magna.Main;
+import de.morigm.magna.api.helper.ConfigHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.ConfigHelper;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PluginConfig implements ConfigHelper {
 

@@ -1,11 +1,10 @@
 package de.morigm.magna.commands;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 
 public class CMDReloadConfig extends CommandHelper {
 

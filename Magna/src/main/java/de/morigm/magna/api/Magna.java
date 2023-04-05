@@ -1,34 +1,18 @@
 package de.morigm.magna.api;
 
-import java.util.Arrays;
-
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.command.CommandUtil;
 import de.morigm.magna.api.language.Language;
-import de.morigm.magna.api.manager.AFK;
-import de.morigm.magna.api.manager.AutoEditManager;
-import de.morigm.magna.api.manager.BlackListManager;
-import de.morigm.magna.api.manager.CommandSpyManager;
-import de.morigm.magna.api.manager.DeathBackManager;
-import de.morigm.magna.api.manager.GodModeManager;
-import de.morigm.magna.api.manager.GroupManager;
-import de.morigm.magna.api.manager.HomeManager;
-import de.morigm.magna.api.manager.MSGManager;
-import de.morigm.magna.api.manager.MutedPlayerManager;
-import de.morigm.magna.api.manager.OnlyBreakManager;
-import de.morigm.magna.api.manager.PermissionManager;
-import de.morigm.magna.api.manager.RunnerManager;
-import de.morigm.magna.api.manager.SignManager;
-import de.morigm.magna.api.manager.WarpManager;
-import de.morigm.magna.api.manager.WayPointManager;
+import de.morigm.magna.api.manager.*;
 import de.morigm.magna.api.memory.MemoryManager;
 import de.morigm.magna.api.settings.Folders;
 import de.morigm.magna.api.settings.Settings;
 import de.morigm.magna.api.user.User;
 import lombok.Getter;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
+import java.util.Arrays;
 
 public class Magna {
 

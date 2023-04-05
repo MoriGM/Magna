@@ -1,13 +1,12 @@
 package de.morigm.magna.commands;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.gui.DebugGui;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 
 public class CMDVersion extends CommandHelper {
 

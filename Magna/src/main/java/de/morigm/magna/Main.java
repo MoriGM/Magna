@@ -1,51 +1,18 @@
 package de.morigm.magna;
 
-import java.io.File;
-
-import org.bukkit.plugin.java.JavaPlugin;
-
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.language.Language;
-import de.morigm.magna.api.manager.AFK;
-import de.morigm.magna.api.manager.AutoEditManager;
-import de.morigm.magna.api.manager.BlackListManager;
-import de.morigm.magna.api.manager.CommandSpyManager;
-import de.morigm.magna.api.manager.DeathBackManager;
-import de.morigm.magna.api.manager.GodModeManager;
-import de.morigm.magna.api.manager.GroupManager;
-import de.morigm.magna.api.manager.HomeManager;
-import de.morigm.magna.api.manager.MSGManager;
-import de.morigm.magna.api.manager.MutedPlayerManager;
-import de.morigm.magna.api.manager.OnlyBreakManager;
-import de.morigm.magna.api.manager.PermissionManager;
-import de.morigm.magna.api.manager.RunnerManager;
-import de.morigm.magna.api.manager.SignManager;
-import de.morigm.magna.api.manager.WarpManager;
-import de.morigm.magna.api.manager.WayPointManager;
+import de.morigm.magna.api.manager.*;
 import de.morigm.magna.api.memory.MemoryManager;
 import de.morigm.magna.chat.Chat;
-import de.morigm.magna.config.AutoEditConfig;
-import de.morigm.magna.config.BlackListConfig;
-import de.morigm.magna.config.DeathBackConfig;
-import de.morigm.magna.config.GroupConfig;
-import de.morigm.magna.config.HomeConfig;
-import de.morigm.magna.config.PlayerConfig;
-import de.morigm.magna.config.PluginConfig;
-import de.morigm.magna.config.WarpConfig;
-import de.morigm.magna.config.WayPointConfig;
+import de.morigm.magna.config.*;
 import de.morigm.magna.edits.RegisterAutoEdits;
-import de.morigm.magna.loader.AutoEditLoader;
-import de.morigm.magna.loader.BlackListLoader;
-import de.morigm.magna.loader.DeathBackLoader;
-import de.morigm.magna.loader.GroupLoader;
-import de.morigm.magna.loader.HomeLoader;
-import de.morigm.magna.loader.LanguageLoader;
-import de.morigm.magna.loader.Listeners;
-import de.morigm.magna.loader.PluginLoader;
-import de.morigm.magna.loader.WarpLoader;
-import de.morigm.magna.loader.WayPointLoader;
+import de.morigm.magna.loader.*;
 import de.morigm.magna.log.CommandLoger;
 import lombok.Getter;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
 
 public class Main extends JavaPlugin {
 
@@ -212,7 +179,7 @@ public class Main extends JavaPlugin {
 		this.onlyBreakManager = new OnlyBreakManager();
 		this.wayPointManager = new WayPointManager();
 		if (Magna.getSettings().getWarning() && !Magna.isSupported()) {
-			Chat.writeError(Main.getInstance().getLanguage().translate("plugin.warning.supported"));
+			Chat.writeError(this.getLanguage().translate("plugin.warning.supported"));
 		}
 		Chat.writeMessage("Version: " + Chat.version);
 		Chat.writeMessage(this.getLanguage().translate("plugin.start"));

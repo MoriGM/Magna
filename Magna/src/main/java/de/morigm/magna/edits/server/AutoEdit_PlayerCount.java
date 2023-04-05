@@ -1,8 +1,7 @@
 package de.morigm.magna.edits.server;
 
-import org.bukkit.Bukkit;
-
 import de.morigm.magna.api.autoedit.AutoEditStruct;
+import org.bukkit.Bukkit;
 
 public class AutoEdit_PlayerCount implements AutoEditStruct {
 

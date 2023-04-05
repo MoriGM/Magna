@@ -1,19 +1,19 @@
 package de.morigm.magna.api.settings;
 
-import java.io.File;
-
 import de.morigm.magna.api.Magna;
 import lombok.Getter;
 
+import java.io.File;
+
 public class Folders {
 
-	@Getter
-	private final File languageFile, autoEditFile, playerAutoEditFile, blackListFile, deathBackFile, groupsFile,
-			playerFile, warpsFile, homeFile, pluginFolder, dataFolder, languageFolder, waypointFolder;
+    @Getter
+    private final File languageFile, autoEditFile, playerAutoEditFile, blackListFile, deathBackFile, groupsFile,
+            playerFile, warpsFile, homeFile, pluginFolder, dataFolder, languageFolder, waypointFolder;
 
-	public Folders() {
-		this.pluginFolder = new File("plugins");
-		this.dataFolder = new File(this.pluginFolder, Magna.getName());
+    public Folders() {
+        this.pluginFolder = new File("plugins");
+        this.dataFolder = new File(this.pluginFolder, Magna.getName());
 		this.languageFolder = new File(dataFolder, "languages");
 		this.languageFile = new File(this.languageFolder, Magna.getSettings().getLanguage());
 		this.autoEditFile = new File(this.dataFolder, "autoedit.yml");

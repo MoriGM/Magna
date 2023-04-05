@@ -1,12 +1,11 @@
 package de.morigm.magna.api.manager;
 
-import java.util.List;
-
+import de.morigm.magna.Main;
+import de.morigm.magna.api.deathback.DeathBack;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
-import de.morigm.magna.api.deathback.DeathBack;
+import java.util.List;
 
 public class DeathBackManager {
 

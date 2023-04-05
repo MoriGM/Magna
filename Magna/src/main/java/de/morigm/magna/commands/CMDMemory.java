@@ -1,13 +1,12 @@
 package de.morigm.magna.commands;
 
-import static de.morigm.magna.api.Magna.getMemoryManager;
-
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.memory.MemoryManager.MemoryType;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+
+import static de.morigm.magna.api.Magna.getMemoryManager;
 
 public class CMDMemory extends CommandHelper {
 

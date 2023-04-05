@@ -1,8 +1,7 @@
 package de.morigm.magna.edits.player;
 
-import org.bukkit.entity.Player;
-
 import de.morigm.magna.api.autoedit.PlayerAutoEditStruct;
+import org.bukkit.entity.Player;
 
 public class AutoEdit_Item implements PlayerAutoEditStruct {
 
@@ -13,7 +12,7 @@ public class AutoEdit_Item implements PlayerAutoEditStruct {
 
 	@Override
 	public String getEdit(Player p) {
-		return String.valueOf(p.getInventory().getItemInMainHand().getType().name().replace('_', ' ').toLowerCase());
+        return p.getInventory().getItemInMainHand().getType().name().replace('_', ' ').toLowerCase();
 	}
 
 }

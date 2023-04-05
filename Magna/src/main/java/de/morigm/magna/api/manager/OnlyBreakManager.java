@@ -1,10 +1,9 @@
 package de.morigm.magna.api.manager;
 
-import java.util.List;
-
+import de.morigm.magna.stuff.MagnaStuff;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.stuff.MagnaStuff;
+import java.util.List;
 
 public class OnlyBreakManager {
 

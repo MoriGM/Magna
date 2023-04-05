@@ -1,26 +1,25 @@
 package de.morigm.magna.config;
 
+import de.morigm.magna.api.Magna;
+import de.morigm.magna.api.helper.ConfigHelper;
+import de.morigm.magna.api.helper.FileHelper;
+import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-
-import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.ConfigHelper;
-import de.morigm.magna.api.helper.FileHelper;
-import lombok.Getter;
-import lombok.Setter;
-
 public class WayPointConfig implements ConfigHelper {
 
 	@Getter
 	@Setter
 	private FileConfiguration config;
-	public List<AbstractMap.SimpleEntry<String, String>> waypoints = new ArrayList<>();
+	public final List<AbstractMap.SimpleEntry<String, String>> waypoints = new ArrayList<>();
 
 	@Getter
 	private final File configFile = Magna.getFolders().getWaypointFolder();

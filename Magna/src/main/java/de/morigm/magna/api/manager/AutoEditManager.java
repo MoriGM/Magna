@@ -1,14 +1,13 @@
 package de.morigm.magna.api.manager;
 
-import java.util.List;
-
-import org.bukkit.entity.Player;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.autoedit.AutoEditStruct;
 import de.morigm.magna.api.autoedit.CumstomPlayerAutoEditStruct;
 import de.morigm.magna.api.autoedit.CustomAutoEditStruct;
 import de.morigm.magna.api.autoedit.PlayerAutoEditStruct;
+import org.bukkit.entity.Player;
+
+import java.util.List;
 
 public class AutoEditManager {
 

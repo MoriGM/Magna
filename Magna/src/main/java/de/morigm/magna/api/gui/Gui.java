@@ -1,19 +1,18 @@
 package de.morigm.magna.api.gui;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.manager.PermissionManager;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Gui implements PermissionHelper {
 
@@ -26,12 +25,12 @@ public abstract class Gui implements PermissionHelper {
 	@Getter
 	private Player player;
 	@Getter
-	private List<GuiButton> guiButtons = new ArrayList<>();
+	private final List<GuiButton> guiButtons = new ArrayList<>();
 
 	@Getter
 	private Inventory inventory;
 
-	private PermissionManager permissionManager;
+	private final PermissionManager permissionManager;
 
 	public Gui() {
 		this(Main.getInstance().getPermissionManager());
@@ -70,7 +69,7 @@ public abstract class Gui implements PermissionHelper {
 		for (GuiButton button : getGuiButtons())
 			if (button.getSlot() >= 0)
 				this.inventory.setItem(button.getSlot(), button.getItem());
-		for (GuiButton button : getGuiButtons().toArray(new GuiButton[getGuiButtons().size()]))
+		for (GuiButton button : getGuiButtons().toArray(new GuiButton[0]))
 			if (button.getSlot() == -1) {
 				int slot = this.inventory.firstEmpty();
 				GuiButton gb = new GuiButton(button.getItem(), button.getId(), slot);

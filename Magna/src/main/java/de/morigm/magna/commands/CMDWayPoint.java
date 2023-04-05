@@ -1,16 +1,15 @@
 package de.morigm.magna.commands;
 
-import java.util.Arrays;
-
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.waypoint.WayPoint;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import java.util.Arrays;
 
 public class CMDWayPoint extends CommandHelper {
 
@@ -59,7 +58,7 @@ public class CMDWayPoint extends CommandHelper {
 					new TextStruct("%X%", String.valueOf(wayPoint.Location.getBlockX())),
 					new TextStruct("%Y%", String.valueOf(wayPoint.Location.getBlockY())),
 					new TextStruct("%Z%", String.valueOf(wayPoint.Location.getBlockZ())),
-					new TextStruct("%WORLD%", String.valueOf(wayPoint.Location.getWorld().getName())));
+					new TextStruct("%WORLD%", wayPoint.Location.getWorld().getName()));
 		}
 
 		if (args[0].equalsIgnoreCase("remove")) {

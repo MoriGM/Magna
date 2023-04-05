@@ -1,14 +1,13 @@
 package de.morigm.magna.stuff;
 
+import de.morigm.magna.api.gui.Gui;
+import lombok.Getter;
+import org.bukkit.entity.Player;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.bukkit.entity.Player;
-
-import de.morigm.magna.api.gui.Gui;
-import lombok.Getter;
 
 public class MagnaStuff {
 	static {
@@ -17,10 +16,10 @@ public class MagnaStuff {
 		guis = new HashMap<>();
 	}
 
-	@Getter
-	private static Map<String, String> msg;
-	@Getter
-	private static List<Player> onlybreaks;
-	@Getter
-	private static Map<Player, Gui> guis;
+    @Getter
+    private static final Map<String, String> msg;
+    @Getter
+    private static final List<Player> onlybreaks;
+    @Getter
+    private static final Map<Player, Gui> guis;
 }

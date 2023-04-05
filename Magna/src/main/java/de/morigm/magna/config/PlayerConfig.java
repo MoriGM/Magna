@@ -1,13 +1,12 @@
 package de.morigm.magna.config;
 
-import java.io.IOException;
-import java.util.List;
-
+import de.morigm.magna.api.Magna;
+import de.morigm.magna.api.helper.ConfigHelper;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.ConfigHelper;
+import java.io.IOException;
+import java.util.List;
 
 public class PlayerConfig implements ConfigHelper {
 

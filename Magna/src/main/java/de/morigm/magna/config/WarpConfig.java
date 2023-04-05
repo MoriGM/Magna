@@ -1,37 +1,36 @@
 package de.morigm.magna.config;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
-
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.ConfigHelper;
 import de.morigm.magna.api.helper.FileHelper;
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WarpConfig implements ConfigHelper {
 
 	@Getter
 	@Setter
 	private FileConfiguration config;
-	public List<String> warps = new ArrayList<>();
+	public final List<String> warps = new ArrayList<>();
 
 	@Getter
-	private File configFile = Magna.getFolders().getWarpsFile();
+	private final File configFile = Magna.getFolders().getWarpsFile();
 
 	@Override
 	public void load() {
 		FileHelper.createFileIfNotExists(configFile);
 		this.config = YamlConfiguration.loadConfiguration(configFile);
-		if (this.config.isList("warps"))
+		if (this.config.isList("warps")) {
 			this.config.set("warps", null);
-		for (String keys : this.config.getKeys(false))
-			this.warps.add(keys);
+		}
+		this.warps.addAll(this.config.getKeys(false));
 	}
 
 	@Override

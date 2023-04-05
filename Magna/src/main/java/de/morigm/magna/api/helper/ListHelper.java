@@ -1,9 +1,11 @@
 package de.morigm.magna.api.helper;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import lombok.NonNull;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class ListHelper {
 
@@ -21,8 +23,7 @@ public class ListHelper {
 	@SafeVarargs
 	public static <T> List<T> createList(@NonNull T... array) {
 		List<T> list = new ArrayList<>();
-		for (T t : array)
-			list.add(t);
+		Collections.addAll(list, array);
 		return list;
 	}
 
@@ -42,8 +43,7 @@ public class ListHelper {
 		List<T> list = new ArrayList<>();
 		if (i > t.length)
 			return list;
-		for (int x = i; x < t.length; x++)
-			list.add(t[x]);
+		list.addAll(Arrays.asList(t).subList(i, t.length));
 		return list;
 
 	}

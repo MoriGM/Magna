@@ -1,12 +1,11 @@
 package de.morigm.magna.commands;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.mojang.MojangApi;
 import de.morigm.magna.chat.Chat;
 import lombok.SneakyThrows;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 
 public class CMDgetUUID extends CommandHelper {
 

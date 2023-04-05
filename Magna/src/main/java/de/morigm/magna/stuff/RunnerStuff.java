@@ -1,9 +1,9 @@
 package de.morigm.magna.stuff;
 
+import de.morigm.magna.api.runner.Runner;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import de.morigm.magna.api.runner.Runner;
 
 public class RunnerStuff {
 

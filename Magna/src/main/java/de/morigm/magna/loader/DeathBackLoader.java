@@ -1,23 +1,22 @@
 package de.morigm.magna.loader;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import de.morigm.magna.Main;
+import de.morigm.magna.api.deathback.DeathBack;
+import de.morigm.magna.api.helper.SaveHelper;
+import de.morigm.magna.api.loader.Loader;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import de.morigm.magna.Main;
-import de.morigm.magna.api.deathback.DeathBack;
-import de.morigm.magna.api.helper.LoadHelper;
-import de.morigm.magna.api.helper.SaveHelper;
-import lombok.Getter;
+import java.util.ArrayList;
+import java.util.List;
 
-public class DeathBackLoader implements LoadHelper, SaveHelper {
+public class DeathBackLoader implements Loader, SaveHelper {
 
 	@Getter
-	private List<DeathBack> deathBacks = new ArrayList<>();
+	private final List<DeathBack> deathBacks = new ArrayList<>();
 
 	@Override
 	public void load() {

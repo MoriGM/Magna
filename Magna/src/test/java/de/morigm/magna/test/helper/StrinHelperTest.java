@@ -1,10 +1,9 @@
 package de.morigm.magna.test.helper;
 
-import static org.junit.Assert.assertTrue;
-
+import de.morigm.magna.api.helper.StringHelper;
 import org.junit.Test;
 
-import de.morigm.magna.api.helper.StringHelper;
+import static org.junit.Assert.assertEquals;
 
 public class StrinHelperTest {
 
@@ -12,7 +11,7 @@ public class StrinHelperTest {
 	public void test() {
 		String[] a = { "Hi", "Bye", "Toast" };
 		String s = StringHelper.StringArrayToString(a, " ");
-		assertTrue(s.equals("Hi Bye Toast"));
+		assertEquals("Hi Bye Toast", s);
 	}
 
 }

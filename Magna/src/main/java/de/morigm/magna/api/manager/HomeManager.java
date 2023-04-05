@@ -1,15 +1,14 @@
 package de.morigm.magna.api.manager;
 
+import de.morigm.magna.Main;
+import de.morigm.magna.api.helper.PermissionHelper;
+import de.morigm.magna.api.home.Home;
+import org.bukkit.entity.Player;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
-import org.bukkit.entity.Player;
-
-import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.PermissionHelper;
-import de.morigm.magna.api.home.Home;
 
 public class HomeManager implements PermissionHelper {
 

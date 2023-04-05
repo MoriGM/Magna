@@ -1,7 +1,5 @@
 package de.morigm.magna.gui;
 
-import org.bukkit.Material;
-
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magna.api.gui.Gui;
@@ -10,6 +8,7 @@ import de.morigm.magna.api.gui.GuiSwitchButton;
 import de.morigm.magna.api.helper.ItemHelper;
 import de.morigm.magna.api.helper.ListHelper;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.Material;
 
 public class DebugGui extends Gui {
 

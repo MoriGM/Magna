@@ -1,14 +1,13 @@
 package de.morigm.magna.commands;
 
-import static de.morigm.magna.api.Magna.getWarpManager;
-
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.api.warp.Warp;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.api.warp.Warp;
-import de.morigm.magna.chat.Chat;
+import static de.morigm.magna.api.Magna.getWarpManager;
 
 public class CMDWarps extends CommandHelper {
 

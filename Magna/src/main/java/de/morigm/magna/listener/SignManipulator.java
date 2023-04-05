@@ -1,15 +1,14 @@
 package de.morigm.magna.listener;
 
+import de.morigm.magna.api.Magna;
+import de.morigm.magna.api.helper.ListenerHelper;
+import de.morigm.magna.api.sign.SignListener;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Sign;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-
-import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.ListenerHelper;
-import de.morigm.magna.api.sign.SignListener;
 
 public class SignManipulator extends ListenerHelper {
 
@@ -34,17 +33,16 @@ public class SignManipulator extends ListenerHelper {
 	@EventHandler
 	public void on(PlayerInteractEvent e) {
 		if (e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
-			if (e.getClickedBlock().getState() instanceof Sign) {
-				Sign sign = (Sign) e.getClickedBlock().getState();
-				if (sign.getLine(0).startsWith(prefix) && sign.getLine(0).endsWith(suffix)
-						&& sign.getLine(0).length() >= (prefix.length() + suffix.length() + 1)) {
-					String name = sign.getLine(0).substring(prefix.length(),
-							(sign.getLine(0).length() - suffix.length()));
-					SignListener sl = Magna.getSignManager().getSignListener(name);
-					if (sl != null && e.getPlayer().hasPermission(getPermission("signclick") + "." + name))
-						sl.onClick(sign, e.getPlayer());
-				}
-			}
+            if (e.getClickedBlock().getState() instanceof Sign sign) {
+                if (sign.getLine(0).startsWith(prefix) && sign.getLine(0).endsWith(suffix)
+                        && sign.getLine(0).length() >= (prefix.length() + suffix.length() + 1)) {
+                    String name = sign.getLine(0).substring(prefix.length(),
+                            (sign.getLine(0).length() - suffix.length()));
+                    SignListener sl = Magna.getSignManager().getSignListener(name);
+                    if (sl != null && e.getPlayer().hasPermission(getPermission("signclick") + "." + name))
+                        sl.onClick(sign, e.getPlayer());
+                }
+            }
 	}
 
 }

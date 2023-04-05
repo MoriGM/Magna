@@ -1,10 +1,5 @@
 package de.morigm.magna.api.helper;
 
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.command.CommandUtil;
@@ -12,6 +7,10 @@ import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public abstract class CommandHelper implements CommandExecutor, PermissionHelper, TranslationHelper {
 

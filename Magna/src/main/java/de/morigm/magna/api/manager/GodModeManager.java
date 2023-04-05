@@ -1,10 +1,9 @@
 package de.morigm.magna.api.manager;
 
-import java.util.List;
-
+import de.morigm.magna.Main;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
+import java.util.List;
 
 public class GodModeManager {
 	public void addPlayer(Player p) {
@@ -13,8 +12,7 @@ public class GodModeManager {
 	}
 
 	public void removePlayer(Player p) {
-		if (getPlayers().contains(p.getUniqueId().toString()))
-			getPlayers().remove(p.getUniqueId().toString());
+        getPlayers().remove(p.getUniqueId().toString());
 	}
 
 	public boolean containsPlayer(Player p) {

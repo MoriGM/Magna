@@ -1,9 +1,8 @@
 package de.morigm.magna.api.gui;
 
-import org.bukkit.Material;
-
 import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magna.api.helper.ItemHelper;
+import org.bukkit.Material;
 
 public class GuiSwitchButton extends GuiButton {
 

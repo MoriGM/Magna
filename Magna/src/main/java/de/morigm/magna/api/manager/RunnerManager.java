@@ -1,11 +1,10 @@
 package de.morigm.magna.api.manager;
 
-import org.bukkit.scheduler.BukkitRunnable;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.runner.Runner;
 import de.morigm.magna.api.runner.RunnerType;
 import de.morigm.magna.stuff.RunnerStuff;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class RunnerManager {
 

@@ -1,10 +1,9 @@
 package de.morigm.magna.api.manager;
 
-import java.util.List;
-
+import de.morigm.magna.Main;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.Main;
+import java.util.List;
 
 public class MutedPlayerManager {
 	public void addPlayer(Player p) {

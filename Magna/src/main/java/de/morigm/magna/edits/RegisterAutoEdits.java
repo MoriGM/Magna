@@ -1,26 +1,23 @@
 package de.morigm.magna.edits;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import de.morigm.magna.api.autoedit.AutoEditStruct;
 import de.morigm.magna.api.autoedit.PlayerAutoEditStruct;
-import de.morigm.magna.edits.player.AutoEdit_Item;
-import de.morigm.magna.edits.player.AutoEdit_ItemCount;
-import de.morigm.magna.edits.player.AutoEdit_PlayerName;
-import de.morigm.magna.edits.player.AutoEdit_PlayerUUID;
-import de.morigm.magna.edits.player.AutoEdit_WorldName;
-import de.morigm.magna.edits.player.AutoEdit_WorldPlayerCount;
+import de.morigm.magna.edits.player.*;
 import de.morigm.magna.edits.server.AutoEdit_Motd;
 import de.morigm.magna.edits.server.AutoEdit_PlayerCount;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RegisterAutoEdits {
 
-	@Getter
-	List<PlayerAutoEditStruct> playerAutoEditStructs = new ArrayList<>();
-	@Getter
-	List<AutoEditStruct> autoEditStructs = new ArrayList<>();
+    @Getter
+    final
+    List<PlayerAutoEditStruct> playerAutoEditStructs = new ArrayList<>();
+    @Getter
+    final
+    List<AutoEditStruct> autoEditStructs = new ArrayList<>();
 
 	public void registerServerStruct() {
 		new AutoEdit_PlayerCount().register();

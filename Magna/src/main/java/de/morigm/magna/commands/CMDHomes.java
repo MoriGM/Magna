@@ -1,15 +1,14 @@
 package de.morigm.magna.commands;
 
-import static de.morigm.magna.api.Magna.getHomeManager;
-
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.api.home.Home;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+import static de.morigm.magna.api.Magna.getHomeManager;
 
 public class CMDHomes extends CommandHelper {
 
@@ -24,9 +23,10 @@ public class CMDHomes extends CommandHelper {
 		if (PlayerHelper.isPlayer(com)) {
 			Player p = (Player) com;
 			if (testPermission(p, "homes")) {
-				String homes = "";
-				for (Home h : getHomeManager().getPlayerHomes(p))
-					homes += homes.isEmpty() ? h.name : "," + h.name;
+				StringBuilder homes = new StringBuilder();
+				for (Home h : getHomeManager().getPlayerHomes(p)) {
+					homes.append((homes.length() == 0) ? h.name : "," + h.name);
+				}
 				p.sendMessage(Chat.prefix + "Homes:" + homes);
 			} else
 				Chat.noPermission(p);

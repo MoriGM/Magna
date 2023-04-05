@@ -2,12 +2,12 @@ package de.morigm.magna.api.memory;
 
 public class MemoryManager {
 
-	public static enum MemoryType {
+	public enum MemoryType {
 		BYTE(1), GIGABYTE(1024 * 1024 * 1024), MEGABYTE(1024 * 1024), KILOBYTE(1024);
 
-		private int size;
+		private final int size;
 
-		private MemoryType(int i) {
+		MemoryType(int i) {
 			this.size = i;
 		}
 

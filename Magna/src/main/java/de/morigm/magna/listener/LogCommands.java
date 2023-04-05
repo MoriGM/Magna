@@ -1,10 +1,9 @@
 package de.morigm.magna.listener;
 
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 public class LogCommands extends ListenerHelper {
 	@EventHandler

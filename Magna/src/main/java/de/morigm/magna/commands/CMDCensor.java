@@ -1,14 +1,13 @@
 package de.morigm.magna.commands;
 
-import static de.morigm.magna.api.Magna.getBlackListManager;
-
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.censor.CensorType;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+
+import static de.morigm.magna.api.Magna.getBlackListManager;
 
 public class CMDCensor extends CommandHelper {
 
@@ -59,7 +58,7 @@ public class CMDCensor extends CommandHelper {
 				if (args[0].equalsIgnoreCase("list")) {
 					String words = "";
 					for (BlackWord bword : getBlackListManager().getBlackWords())
-						words += bword.word + ",";
+						words += bword.word() + ",";
 					if (!words.isEmpty())
 						words = words.substring(0, words.length() - 1);
 					com.sendMessage(Chat.prefix + translate("cmd.censor.words") + ":" + words);

@@ -1,17 +1,16 @@
 package de.morigm.magnaworld.commands;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.FileHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MWDELETE extends CommandHelper {
 

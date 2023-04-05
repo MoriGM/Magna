@@ -1,15 +1,14 @@
 package de.morigm.magna.commands;
 
-import static de.morigm.magna.api.Magna.getGroupManager;
-
+import de.morigm.magna.api.group.Group;
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.morigm.magna.api.group.Group;
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
+import static de.morigm.magna.api.Magna.getGroupManager;
 
 public class CMDMagna_Id extends CommandHelper {
 
@@ -26,8 +25,7 @@ public class CMDMagna_Id extends CommandHelper {
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
 		if (testPermission(com, "magna-id")) {
 			if (getGroupManager().getGroups().length >= 1) {
-				if (com instanceof Player) {
-					Player t = (Player) com;
+				if (com instanceof Player t) {
 					if (args.length >= 1)
 						t = Bukkit.getPlayer(args[0]);
 					if (t != null) {

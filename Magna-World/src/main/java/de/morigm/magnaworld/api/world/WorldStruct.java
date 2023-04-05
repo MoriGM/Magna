@@ -1,15 +1,14 @@
 package de.morigm.magnaworld.api.world;
 
-import org.bukkit.World;
-
 import lombok.Getter;
+import org.bukkit.World;
 
 public class WorldStruct {
 
-	@Getter
-	private String name;
-	@Getter
-	private World world;
+    @Getter
+    private final String name;
+    @Getter
+    private World world;
 	@Getter
 	private Long seed = null;
 

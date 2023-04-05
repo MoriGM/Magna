@@ -1,39 +1,39 @@
 package de.morigm.magna.test.pluginyml;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
+import de.morigm.magna.api.Magna;
+import de.morigm.magna.loader.PluginLoader;
 import org.bukkit.plugin.InvalidDescriptionException;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.junit.Test;
 
-import de.morigm.magna.api.Magna;
-import de.morigm.magna.loader.PluginLoader;
+import java.util.List;
+import java.util.Objects;
+
+import static org.junit.Assert.assertTrue;
 
 public class CommandsTest {
-
-	public class CommandLoader extends PluginLoader {
-		private boolean isactive = false;
-
-		@Override
-		public void registerCommands() {
-			if (!isactive)
-				super.registerCommands();
-			isactive = true;
-		}
-	}
 
 	@Test
 	public void isCommandInYML() throws InvalidDescriptionException {
 		System.out.println("Test if Command is in YML");
 		CommandLoader loader = new CommandLoader();
 		loader.registerCommands();
-		PluginDescriptionFile file = new PluginDescriptionFile(ClassLoader.getSystemResourceAsStream("plugin.yml"));
+		PluginDescriptionFile file = new PluginDescriptionFile(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream("plugin.yml")));
 		List<String> commands = Magna.getCommandUtil().getCommandsName();
 		for (String c : commands) {
 			System.out.println("Test Comamnd : " + c);
 			assertTrue(file.getCommands().containsKey(c));
+		}
+	}
+
+	public static class CommandLoader extends PluginLoader {
+		private boolean isActive = false;
+
+		@Override
+		public void registerCommands() {
+			if (!isActive)
+				super.registerCommands();
+			isActive = true;
 		}
 	}
 

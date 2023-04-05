@@ -1,8 +1,7 @@
 package de.morigm.magna.edits.player;
 
-import org.bukkit.entity.Player;
-
 import de.morigm.magna.api.autoedit.PlayerAutoEditStruct;
+import org.bukkit.entity.Player;
 
 public class AutoEdit_PlayerName implements PlayerAutoEditStruct {
 

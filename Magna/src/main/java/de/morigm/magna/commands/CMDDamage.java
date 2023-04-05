@@ -1,12 +1,11 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
 
 public class CMDDamage extends CommandHelper {
 
@@ -23,7 +22,7 @@ public class CMDDamage extends CommandHelper {
 		if (testPermission(com, "damage")) {
 			if (args.length >= 2) {
 				try {
-					int d = Integer.valueOf(args[1]);
+					int d = Integer.parseInt(args[1]);
 					Player t = Bukkit.getPlayer(args[0]);
 					if (t != null) {
 						t.damage(d);

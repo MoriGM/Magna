@@ -1,14 +1,14 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.helper.CommandHelper;
+import de.morigm.magna.chat.Chat;
+import lombok.NonNull;
 import org.bukkit.BanEntry;
 import org.bukkit.BanList;
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-
-import de.morigm.magna.api.helper.CommandHelper;
-import de.morigm.magna.chat.Chat;
 
 public class CMDBanIps extends CommandHelper {
 
@@ -19,7 +19,7 @@ public class CMDBanIps extends CommandHelper {
 	}
 
 	@Override
-	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
+	public boolean onCommand(@NonNull CommandSender com, @NonNull Command cmd, @NonNull String label, @NonNull String[] args) {
 		if (testPermission(com, "banips")) {
 			String bans = "";
 			BanList list = Bukkit.getBanList(Type.IP);
