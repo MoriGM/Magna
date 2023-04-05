@@ -3,7 +3,7 @@ version: 0.11.0
 author: MoriGM
 api-version: 1.19
 
-loadbefore: [Magna]
+depend: [ Magna ]
 
 main: de.morigm.magnaworld.Main
 
