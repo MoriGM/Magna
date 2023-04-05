@@ -1,7 +1,7 @@
 package de.morigm.magnaworld.loader;
 
-import de.morigm.magna.api.helper.SaveHelper;
 import de.morigm.magna.api.loader.Loader;
+import de.morigm.magna.api.saver.Saver;
 import de.morigm.magnaworld.Main;
 import de.morigm.magnaworld.api.MagnaWorld;
 import de.morigm.magnaworld.api.world.WorldStruct;
@@ -11,7 +11,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
-public class WorldLoader implements Loader, SaveHelper {
+public class WorldLoader implements Loader, Saver {
 
     @Override
     public void load() {

@@ -2,15 +2,15 @@ package de.morigm.magna.loader;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.FileConfigHelper;
-import de.morigm.magna.api.helper.SaveHelper;
 import de.morigm.magna.api.home.Home;
 import de.morigm.magna.api.loader.Loader;
+import de.morigm.magna.api.saver.Saver;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.*;
 
-public class HomeLoader implements Loader, SaveHelper {
+public class HomeLoader implements Loader, Saver {
 
     public final Map<UUID, List<Home>> player_home_map = new HashMap<>();
 

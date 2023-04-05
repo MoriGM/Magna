@@ -1,8 +1,8 @@
 package de.morigm.magna.loader;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.SaveHelper;
 import de.morigm.magna.api.loader.Loader;
+import de.morigm.magna.api.saver.Saver;
 import de.morigm.magna.api.warp.Warp;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -13,7 +13,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WarpLoader implements Loader, SaveHelper {
+public class WarpLoader implements Loader, Saver {
 
 	@Getter
 	private final List<Warp> warps;

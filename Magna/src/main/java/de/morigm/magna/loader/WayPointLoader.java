@@ -1,8 +1,8 @@
 package de.morigm.magna.loader;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.SaveHelper;
 import de.morigm.magna.api.loader.Loader;
+import de.morigm.magna.api.saver.Saver;
 import de.morigm.magna.api.waypoint.WayPoint;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -14,7 +14,7 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WayPointLoader implements Loader, SaveHelper {
+public class WayPointLoader implements Loader, Saver {
 
 	@Getter
 	private final List<WayPoint> WayPoints;

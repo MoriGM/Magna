@@ -4,8 +4,8 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.censor.CensorType;
 import de.morigm.magna.api.helper.PermissionHelper;
-import de.morigm.magna.api.helper.SaveHelper;
 import de.morigm.magna.api.loader.Loader;
+import de.morigm.magna.api.saver.Saver;
 import de.morigm.magna.config.BlackListConfig;
 import lombok.Getter;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -13,17 +13,17 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlackListLoader implements Loader, SaveHelper, PermissionHelper {
+public class BlackListLoader implements Loader, Saver, PermissionHelper {
 
-    @Getter
-    private final List<BlackWord> blackWords = new ArrayList<>();
+	@Getter
+	private final List<BlackWord> blackWords = new ArrayList<>();
 
-    @Override
-    public void load() {
-        for (String word : getBlackListConfig().getBlackwords()) {
-            String permission = getConfig().contains(word + ".permission") ? getConfig().getString(word + ".permission")
-                    : getPermission("blacklistword");
-            CensorType type = getConfig().contains(word + ".type")
+	@Override
+	public void load() {
+		for (String word : getBlackListConfig().getBlackwords()) {
+			String permission = getConfig().contains(word + ".permission") ? getConfig().getString(word + ".permission")
+					: getPermission("blacklistword");
+			CensorType type = getConfig().contains(word + ".type")
 					? CensorType.getType(getConfig().getString(word + ".type"))
 					: CensorType.NORMAL;
 			BlackWord bword = new BlackWord(word, permission, type);
