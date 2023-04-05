@@ -23,7 +23,8 @@ public class GuiController extends ListenerHelper {
 				if (!gui.getName().isEmpty())
 					if (!e.getView().getTitle().equals(gui.getName()))
 						return;
-				if ((gui.getSize() != e.getInventory().getSize()) || !gui.getInventory().getHolder().equals(e.getInventory().getHolder()))
+				if ((gui.getSize() != e.getInventory().getSize())
+						|| !gui.getInventory().getHolder().equals(e.getInventory().getHolder()))
 					return;
 
 				e.setCancelled(true);
@@ -52,7 +53,8 @@ public class GuiController extends ListenerHelper {
 				if (!gui.getName().isEmpty())
 					if (!invv.getTitle().equals(gui.getName()))
 						return;
-				if ((gui.getSize() != e.getInventory().getSize()) || !gui.getInventory().getHolder().equals(e.getInventory().getHolder()))
+				if ((gui.getSize() != e.getInventory().getSize())
+						|| !gui.getInventory().getHolder().equals(e.getInventory().getHolder()))
 					return;
 				MagnaStuff.getGuis().remove(e.getPlayer());
 			}

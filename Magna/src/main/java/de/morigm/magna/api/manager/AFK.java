@@ -19,7 +19,7 @@ public class AFK implements TranslationHelper {
 		getLastPositions().put(p, l);
 		getLastPlayerTimes().put(p, time);
 	}
-	
+
 	public void updateCurrentPlayer(Player player) {
 		getLastPositions().put(player, player.getLocation());
 		getLastPlayerTimes().put(player, System.currentTimeMillis());

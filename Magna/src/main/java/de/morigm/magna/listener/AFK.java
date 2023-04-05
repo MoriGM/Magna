@@ -2,6 +2,7 @@ package de.morigm.magna.listener;
 
 import static de.morigm.magna.api.Magna.getAFKManager;
 
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -59,12 +60,16 @@ public class AFK extends ListenerHelper {
 	@EventHandler
 	public void testIfNotAFK(PlayerMoveEvent e) {
 		Player player = e.getPlayer();
-		if (getAFKManager().isAfk(player)
-				&& (getAFKManager().getLocation(player).getBlockX() != player.getLocation().getBlockX()
-						|| getAFKManager().getLocation(player).getBlockY() != player.getLocation()
-								.getBlockY()
-						|| getAFKManager().getLocation(player).getBlockZ() != player.getLocation()
-								.getBlockZ())) {
+		if (!getAFKManager().isAfk(player)) {
+			return;
+		}
+
+		Location oldLocation = getAFKManager().getLocation(player);
+		Location currentLocation = player.getLocation();
+
+		if ((oldLocation.getBlockX() != currentLocation.getBlockX()
+				|| oldLocation.getBlockY() != currentLocation.getBlockY()
+				|| oldLocation.getBlockZ() != currentLocation.getBlockZ())) {
 			getAFKManager().removePlayer(player);
 			getAFKManager().updateCurrentPlayer(player);
 		}
@@ -82,7 +87,7 @@ public class AFK extends ListenerHelper {
 	public void testIfNotAFK(BlockBreakEvent e) {
 		if (getAFKManager().isAfk(e.getPlayer())) {
 			getAFKManager().removePlayer(e.getPlayer());
-			getAFKManager().updateTimeAndLocation(e.getPlayer(), e.getPlayer().getLocation(), System.currentTimeMillis());
+			getAFKManager().updateCurrentPlayer(e.getPlayer());
 		}
 	}
 
@@ -90,7 +95,8 @@ public class AFK extends ListenerHelper {
 	public void testIfNotAFK(AsyncPlayerChatEvent e) {
 		if (getAFKManager().isAfk(e.getPlayer())) {
 			getAFKManager().removePlayer(e.getPlayer());
-			getAFKManager().updateTimeAndLocation(e.getPlayer(), e.getPlayer().getLocation(), System.currentTimeMillis());
+			getAFKManager().updateTimeAndLocation(e.getPlayer(), e.getPlayer().getLocation(),
+					System.currentTimeMillis());
 		}
 	}
 
@@ -98,7 +104,8 @@ public class AFK extends ListenerHelper {
 	public void testIfNotAFK(PlayerCommandPreprocessEvent e) {
 		if (getAFKManager().isAfk(e.getPlayer()) && !e.getMessage().startsWith("/afk")) {
 			getAFKManager().removePlayer(e.getPlayer());
-			getAFKManager().updateTimeAndLocation(e.getPlayer(), e.getPlayer().getLocation(), System.currentTimeMillis());
+			getAFKManager().updateTimeAndLocation(e.getPlayer(), e.getPlayer().getLocation(),
+					System.currentTimeMillis());
 		}
 	}
 
@@ -113,12 +120,15 @@ public class AFK extends ListenerHelper {
 
 	@EventHandler
 	public void on(PlayerQuitEvent e) {
-		if (getAFKManager().containsLocation(e.getPlayer()))
+		if (getAFKManager().containsLocation(e.getPlayer())) {
 			getAFKManager().getLastPlayerTimes().remove(e.getPlayer());
-		if (getAFKManager().containsLocation(e.getPlayer()))
+		}
+		if (getAFKManager().containsLocation(e.getPlayer())) {
 			getAFKManager().getLastPositions().remove(e.getPlayer());
-		if (getAFKManager().isAfk(e.getPlayer()))
+		}
+		if (getAFKManager().isAfk(e.getPlayer())) {
 			getAFKManager().removePlayer(e.getPlayer());
+		}
 	}
 
 }

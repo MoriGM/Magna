@@ -4,7 +4,7 @@
 
   <groupId>de.morigm</groupId>
   <artifactId>Magna</artifactId>
-  <version>0.10.0</version>
+  <version>0.11.0</version>
   <packaging>jar</packaging>
 
   <name>Magna</name>
@@ -47,7 +47,7 @@
     <dependency>
     	<groupId>org.projectlombok</groupId>
     	<artifactId>lombok</artifactId>
-    	<version>1.18.22</version>
+    	<version>1.18.26</version>
     	<scope>provided</scope>
         <optional>true</optional>
 	</dependency>
