@@ -32,6 +32,7 @@ public class LanguageLoader implements LoadHelper {
 			this.language = new File(Magna.getFolders().getLanguageFolder(), "en-en.yml");
 	}
 
+	@Override
 	public void load() {
 		if (!Magna.getFolders().getLanguageFolder().exists())
 			Magna.getFolders().getLanguageFolder().mkdirs();

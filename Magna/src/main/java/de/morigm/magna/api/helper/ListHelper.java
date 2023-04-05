@@ -27,7 +27,7 @@ public class ListHelper {
 	}
 
 	public static <T> List<T> createList() {
-		return new ArrayList<T>();
+		return new ArrayList<>();
 	}
 
 	@SafeVarargs

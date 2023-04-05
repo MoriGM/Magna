@@ -12,11 +12,13 @@ import de.morigm.magna.chat.Chat;
 
 public class CMDTrash extends CommandHelper {
 
+	@Override
 	public void registerUtils() {
 		util().registerCommandName(getCommand());
 		util().registerPermission("trash");
 	}
 
+	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
 		if (com instanceof Player) {
 			Player p = (Player) com;

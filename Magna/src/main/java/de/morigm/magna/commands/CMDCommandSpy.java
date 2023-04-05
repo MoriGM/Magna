@@ -1,11 +1,12 @@
 package de.morigm.magna.commands;
 
+import static de.morigm.magna.api.Magna.getCommandSpyManager;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static de.morigm.magna.api.Magna.getCommandSpyManager;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 

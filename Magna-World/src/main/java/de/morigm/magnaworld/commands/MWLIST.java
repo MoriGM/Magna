@@ -8,30 +8,25 @@ import org.bukkit.command.CommandSender;
 import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.chat.Chat;
 
-public class MWLIST extends CommandHelper 
-{
-	
+public class MWLIST extends CommandHelper {
+
 	@Override
-	public void registerUtils()
-	{
+	public void registerUtils() {
 		util().registerCommandName(getCommand());
 		util().registerPermission("mwlist");
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
-	{
-		if(testPermission(sender,"mwlist"))
-		{
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (testPermission(sender, "mwlist")) {
 			String worlds = "";
-			for(World w : Bukkit.getWorlds())
+			for (World w : Bukkit.getWorlds())
 				worlds += w.getName() + ",";
-			
-			worlds = worlds.substring(0,worlds.length() - 1);
-			
+
+			worlds = worlds.substring(0, worlds.length() - 1);
+
 			sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + "Worlds:" + worlds);
-		}
-		else
+		} else
 			Chat.noPermission(sender);
 		return false;
 	}

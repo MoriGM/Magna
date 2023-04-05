@@ -31,19 +31,11 @@ public class MojangApi {
 
 	public static class ServerStatus {
 		public static enum StatusColor {
-			GREEN, 
-			YELLOW, 
-			RED;
+			GREEN, YELLOW, RED;
 		}
 
-		public StatusColor 	minecraft_net, 
-							session_minecraft_net, 
-							account_mojang_com, 
-							authserver_mojang_com,
-							sessionserver_mojang_com, 
-							api_mojang_com, 
-							textures_minecraft_net, 
-							mojang_com;
+		public StatusColor minecraft_net, session_minecraft_net, account_mojang_com, authserver_mojang_com,
+				sessionserver_mojang_com, api_mojang_com, textures_minecraft_net, mojang_com;
 	}
 
 	public static UUID MojangUUIDtoRealUUID(String s) {

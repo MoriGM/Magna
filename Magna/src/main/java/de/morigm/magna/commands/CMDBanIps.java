@@ -2,8 +2,8 @@ package de.morigm.magna.commands;
 
 import org.bukkit.BanEntry;
 import org.bukkit.BanList;
-import org.bukkit.Bukkit;
 import org.bukkit.BanList.Type;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 

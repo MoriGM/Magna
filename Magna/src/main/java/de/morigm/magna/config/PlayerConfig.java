@@ -19,6 +19,7 @@ public class PlayerConfig implements ConfigHelper {
 		this.configuration = conf;
 	}
 
+	@Override
 	public void load() {
 		this.loadFile();
 		this.muted = this.configuration.getStringList("muted");
@@ -26,6 +27,7 @@ public class PlayerConfig implements ConfigHelper {
 		this.cmdspy = this.configuration.getStringList("cmdspy");
 	}
 
+	@Override
 	public void save() {
 		this.configuration.set("muted", this.muted);
 		this.configuration.set("godmode", this.godmode);

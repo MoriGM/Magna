@@ -10,12 +10,10 @@ import de.morigm.magna.api.helper.CommandHelper;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
 
-public class MWTP extends CommandHelper 
-{
+public class MWTP extends CommandHelper {
 
 	@Override
-	public void registerUtils() 
-	{
+	public void registerUtils() {
 		util().registerCommandName(getCommand());
 		util().registerPermission("mwtp");
 		util().registerTranslation("cmd.mwtp");
@@ -23,33 +21,25 @@ public class MWTP extends CommandHelper
 	}
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) 
-	{
-		if(PlayerHelper.isPlayer(sender))
-			if(testPermission(sender,"mwtp"))
-			{
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (PlayerHelper.isPlayer(sender))
+			if (testPermission(sender, "mwtp")) {
 				Player p = (Player) sender;
-				if(args.length >= 1)
-				{
+				if (args.length >= 1) {
 					String name = args[0];
 					World w = Bukkit.getWorld(name);
-					if(w != null)
-					{
+					if (w != null) {
 						p.teleport(w.getSpawnLocation());
 						p.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwtp"));
-					}
-					else
+					} else
 						p.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwtp.error"));
-				}
-				else
+				} else
 					p.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("/" + getCommand() + " <name>"));
-			}
-			else
+			} else
 				Chat.noPermission(sender);
 		else
 			Chat.noConsole(sender);
 		return false;
 	}
-
 
 }

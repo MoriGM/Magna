@@ -43,6 +43,7 @@ public class PluginConfig implements ConfigHelper {
 		getConfig().addDefault("afk-timer", 5);
 	}
 
+	@Override
 	public void load() {
 		this.adddefault();
 		this.commandspyblocked = getConfig().getStringList("commandspyblocked");
@@ -84,6 +85,7 @@ public class PluginConfig implements ConfigHelper {
 		}
 	}
 
+	@Override
 	public void save() {
 		if (this.spawn != null)
 			savespawn();

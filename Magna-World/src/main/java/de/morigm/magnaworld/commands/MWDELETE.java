@@ -13,29 +13,23 @@ import de.morigm.magna.api.helper.FileHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
 
-public class MWDELETE extends CommandHelper
-{
+public class MWDELETE extends CommandHelper {
 
 	@Override
-	public void registerUtils() 
-	{
+	public void registerUtils() {
 		util().registerCommandName(getCommand());
 		util().registerPermission("mwdelete");
 		util().registerTranslation("cmd.mwdelete");
 		util().registerTranslation("cmd.mwdelete.error");
 	}
-	
+
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) 
-	{
-		if(testPermission(sender,"mwdelete"))
-		{
-			if(args.length >= 1)
-			{
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (testPermission(sender, "mwdelete")) {
+			if (args.length >= 1) {
 				String name = args[0];
-				if(MagnaWorld.containsWorld(name))
-				{
-					if(name.startsWith("/"))
+				if (MagnaWorld.containsWorld(name)) {
+					if (name.startsWith("/"))
 						throw new NullPointerException();
 					Bukkit.unloadWorld(name, false);
 					List<File> files = new ArrayList<>();
@@ -43,18 +37,13 @@ public class MWDELETE extends CommandHelper
 					FileHelper.delete(files);
 					MagnaWorld.removeWorld(name);
 					sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwdelete"));
-				}
-				else
+				} else
 					sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwdelete.error"));
-			}
-			else
+			} else
 				sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("/" + getCommand() + " <name>"));
-		}
-		else
+		} else
 			Chat.noPermission(sender);
 		return false;
 	}
-
-	
 
 }

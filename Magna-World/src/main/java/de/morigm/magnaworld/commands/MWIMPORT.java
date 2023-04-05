@@ -10,47 +10,34 @@ import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
 import de.morigm.magnaworld.api.world.WorldStruct;
 
-public class MWIMPORT extends CommandHelper
-{
+public class MWIMPORT extends CommandHelper {
 	@Override
-	public void registerUtils() 
-	{
+	public void registerUtils() {
 		util().registerCommandName(getCommand());
 		util().registerPermission("mwimport");
 		util().registerTranslation("cmd.mwimport");
 		util().registerTranslation("cmd.mwimport.error");
 		util().registerTranslation("cmd.mwimport.missing");
 	}
-	
+
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) 
-	{
-		if (testPermission(sender, "mwimport"))
-		{
-			if (args.length >= 1)
-			{
-				if (!MagnaWorld.containsWorld(args[0]))
-				{
-					if (new File(args[0]).isDirectory())
-					{
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (testPermission(sender, "mwimport")) {
+			if (args.length >= 1) {
+				if (!MagnaWorld.containsWorld(args[0])) {
+					if (new File(args[0]).isDirectory()) {
 						WorldStruct ws = new WorldStruct(args[0]);
 						MagnaWorld.loadWorld(ws);
 						sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwimport"));
-					}
-					else
+					} else
 						sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwimport.missing"));
-				}
-				else
+				} else
 					sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwimport.error"));
-			}
-			else
+			} else
 				sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + Slash(sender) + getCommand() + " <name>");
-		}
-		else
+		} else
 			Chat.noPermission(sender);
 		return false;
 	}
-
-	
 
 }

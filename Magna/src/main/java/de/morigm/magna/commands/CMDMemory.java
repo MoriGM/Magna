@@ -20,6 +20,7 @@ public class CMDMemory extends CommandHelper {
 		util().registerTranslation("cmd.memory.total");
 	}
 
+	@Override
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
 		if (testPermission(com, "memory")) {
 			if (args.length >= 1) {
