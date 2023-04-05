@@ -27,18 +27,24 @@ public class DebugGui extends Gui {
 
 	@Override
 	public void onClick(GuiButton button) {
-		if (button.getId() == 1 && testPermission(getPlayer(), "debug.version"))
+		if (button.getId() == 1 && testPermission(getPlayer(), "debug.version")) {
 			getPlayer().sendMessage(Chat.prefix + "Version:" + Chat.version);
-		if (button.getId() == 2 && testPermission(getPlayer(), "debug.owncommandspy"))
+		}
+		if (button.getId() == 2 && testPermission(getPlayer(), "debug.owncommandspy")) {
 			Magna.getSettings().setOwnCommandSpy(!Magna.getSettings().getOwnCommandSpy());
-		if (button.getId() == 3 && testPermission(getPlayer(), "debug.afktimer"))
+		}
+		if (button.getId() == 3 && testPermission(getPlayer(), "debug.afktimer")) {
 			getPlayer().sendMessage(Chat.prefix + "AfkTimer:" + Magna.getSettings().getAFKTimer());
-		if (button.getId() == 4 && testPermission(getPlayer(), "debug.language"))
+		}
+		if (button.getId() == 4 && testPermission(getPlayer(), "debug.language")) {
 			getPlayer().sendMessage(Chat.prefix + "Language:" + Magna.getSettings().getLanguage());
-		if (button.getId() == 5 && testPermission(getPlayer(), "debug.chatclear"))
+		}
+		if (button.getId() == 5 && testPermission(getPlayer(), "debug.chatclear")) {
 			Magna.getSettings().setShowChatClear(!Magna.getSettings().getShowChatClear());
-		if (ListHelper.isInArray(button.getId(), 2, 5))
+		}
+		if (ListHelper.isInArray(button.getId(), 2, 5)) {
 			Magna.getUser(getPlayer()).openGui(new DebugGui());
+		}
 	}
 
 }

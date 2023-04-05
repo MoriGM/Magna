@@ -40,6 +40,7 @@ import de.morigm.magna.loader.DeathBackLoader;
 import de.morigm.magna.loader.GroupLoader;
 import de.morigm.magna.loader.HomeLoader;
 import de.morigm.magna.loader.LanguageLoader;
+import de.morigm.magna.loader.Listeners;
 import de.morigm.magna.loader.PluginLoader;
 import de.morigm.magna.loader.WarpLoader;
 import de.morigm.magna.loader.WayPointLoader;
@@ -136,6 +137,9 @@ public class Main extends JavaPlugin {
 	@Getter
 	private Language language;
 
+	@Getter
+	private Listeners listeners;
+
 	@Override
 	public void onEnable() {
 		Main.instance = this;
@@ -150,7 +154,8 @@ public class Main extends JavaPlugin {
 		this.permissionManager.load();
 		this.pluginLoader = new PluginLoader();
 		this.pluginLoader.registerCommands();
-		this.pluginLoader.registerListener();
+		this.listeners = new Listeners();
+		this.listeners.load();
 		this.playerConfig = new PlayerConfig();
 		this.playerConfig.load();
 		this.mutedPlayerManager = new MutedPlayerManager();

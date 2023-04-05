@@ -1,5 +1,7 @@
 package de.morigm.magna.api;
 
+import java.util.Arrays;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -30,8 +32,9 @@ import lombok.Getter;
 
 public class Magna {
 
-	private static final String[] spigot_versions = { "v1_18_R1" };
-	private static CommandUtil commandutil;
+	private static final String[] spigot_versions = { "v1_19_R1" };
+	@Getter
+	private static CommandUtil commandUtil;
 	@Getter
 	private static Settings settings;
 	@Getter
@@ -40,7 +43,7 @@ public class Magna {
 	private final static String name = "Magna";
 
 	static {
-		Magna.commandutil = new CommandUtil();
+		Magna.commandUtil = new CommandUtil();
 		Magna.settings = new Settings(getMain());
 		Magna.folders = new Folders();
 	}
@@ -126,14 +129,7 @@ public class Magna {
 	}
 
 	public static boolean isSupported() {
-		for (String s : spigot_versions)
-			if (s.equals(getServerVersion()))
-				return true;
-		return false;
-	}
-
-	public static CommandUtil getCommandUtil() {
-		return Magna.commandutil;
+		return Arrays.binarySearch(spigot_versions, getServerVersion()) >= 0;
 	}
 
 	public static User getUser(Player p) {
