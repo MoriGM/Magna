@@ -2,7 +2,7 @@ package de.morigm.magna.listener;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.gui.Gui;
-import de.morigm.magna.api.helper.Listener;
+import de.morigm.magna.api.listner.Listener;
 import de.morigm.magna.stuff.MagnaStuff;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

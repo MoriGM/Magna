@@ -1,6 +1,6 @@
 package de.morigm.magna.listener;
 
-import de.morigm.magna.api.helper.Listener;
+import de.morigm.magna.api.listner.Listener;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

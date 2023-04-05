@@ -1,7 +1,7 @@
 package de.morigm.magna.listener;
 
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.Listener;
+import de.morigm.magna.api.listner.Listener;
 import de.morigm.magna.api.sign.SignListener;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Sign;

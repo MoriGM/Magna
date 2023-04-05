@@ -4,7 +4,7 @@ import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.events.PlayerWriteBlockedWordEvent;
-import de.morigm.magna.api.helper.Listener;
+import de.morigm.magna.api.listner.Listener;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;

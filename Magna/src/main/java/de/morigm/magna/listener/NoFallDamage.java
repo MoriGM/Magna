@@ -1,7 +1,7 @@
 package de.morigm.magna.listener;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.Listener;
+import de.morigm.magna.api.listner.Listener;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageEvent;

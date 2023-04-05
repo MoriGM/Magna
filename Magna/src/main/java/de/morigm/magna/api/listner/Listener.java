@@ -1,7 +1,8 @@
-package de.morigm.magna.api.helper;
+package de.morigm.magna.api.listner;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
+import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
