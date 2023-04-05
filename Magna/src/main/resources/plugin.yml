@@ -6,69 +6,69 @@ api-version: 1.19
 main: de.morigm.magna.Main
 
 commands:
-      fly:
-      godmode:
-      mute:
-      heal:
-      getworld:
-      setitemname:
-      ip:
-      tpall:
-      itemhead:
-      cmdspy:
-      magna-reloadconfig:
-      getpos:
-      setwarp:
-      getwarp:
-      removewarp:
-      warp:
-      warps:
-      kickall:
-      memory:
-      chatclear:
-      allchatclear:
-      magna-groups:
-      magna-id:
-      magna-list:
-      magna-group-exec:
-      teamchat:
-      setspawn:
-      spawn:
-      day:
-      night:
-      broadcast:
-      gamemodeinfo:
-      repair:
-      ops:
-      bans:
-      banips:
-      skull:
-      tpto:
-      tphere:
-            aliases: tph
-      getuuid:
-      trash:
-      enderchest:
-      workbench:
-      deathback:
-      censor:
-      gamemode:
-          aliases: gm
-      pardon:
-          aliases: unban
-      damage:
-      msg:
-      msgr:
-          aliases: r
-      afk:
-      isafk:
-      sethome:
-      homes:
-      deletehome:
-            aliases: delhome
-      home:
-      onlybreak:
-      magna-version:
-      speed:
-      flyspeed:
-      waypoint:
+  fly:
+  godmode:
+  mute:
+  heal:
+  getworld:
+  setitemname:
+  ip:
+  tpall:
+  itemhead:
+  cmdspy:
+  magna-reloadconfig:
+  getpos:
+  setwarp:
+  getwarp:
+  removewarp:
+  warp:
+  warps:
+  kickall:
+  memory:
+  chatclear:
+  allchatclear:
+  magna-groups:
+  magna-id:
+  magna-list:
+  magna-group-exec:
+  teamchat:
+  setspawn:
+  spawn:
+  day:
+  night:
+  broadcast:
+  gamemodeinfo:
+  repair:
+  ops:
+  bans:
+  banips:
+  skull:
+  tpto:
+  tphere:
+    aliases: tph
+  getuuid:
+  trash:
+  enderchest:
+  workbench:
+  deathback:
+  censor:
+  gamemode:
+    aliases: gm
+  pardon:
+    aliases: unban
+  damage:
+  msg:
+  msgr:
+    aliases: r
+  afk:
+  isafk:
+  sethome:
+  homes:
+  deletehome:
+    aliases: delhome
+  home:
+  onlybreak:
+  magna-version:
+  speed:
+  flyspeed:
+  waypoint:

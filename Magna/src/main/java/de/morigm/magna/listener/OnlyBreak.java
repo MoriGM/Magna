@@ -10,11 +10,11 @@ import static de.morigm.magna.api.Magna.getOnlyBreakManager;
 
 public class OnlyBreak extends Listener {
 
-	@EventHandler
-	public void on(BlockBreakEvent e) {
-		if (getOnlyBreakManager().containsPlayer(e.getPlayer()) && e.getPlayer().getInventory().getItemInMainHand() != null && !e.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
-			e.setCancelled(!ItemIs.equalType(e.getPlayer().getInventory().getItemInMainHand(), e.getBlock().getType()));
-		}
-	}
+    @EventHandler
+    public void on(BlockBreakEvent e) {
+        if (getOnlyBreakManager().containsPlayer(e.getPlayer()) && e.getPlayer().getInventory().getItemInMainHand() != null && !e.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
+            e.setCancelled(!ItemIs.equalType(e.getPlayer().getInventory().getItemInMainHand(), e.getBlock().getType()));
+        }
+    }
 
 }

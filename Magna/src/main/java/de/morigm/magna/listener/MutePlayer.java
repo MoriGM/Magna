@@ -8,12 +8,12 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class MutePlayer extends Listener {
 
-	@EventHandler
-	public void on(AsyncPlayerChatEvent e) {
-		if (Main.getInstance().getMutedPlayerManager().containsPlayer(e.getPlayer())) {
-			e.getPlayer().sendMessage(Chat.prefix + translate("listener.mute"));
-			e.setCancelled(true);
-		}
-	}
+    @EventHandler
+    public void on(AsyncPlayerChatEvent e) {
+        if (Main.getInstance().getMutedPlayerManager().containsPlayer(e.getPlayer())) {
+            e.getPlayer().sendMessage(Chat.prefix + translate("listener.mute"));
+            e.setCancelled(true);
+        }
+    }
 
 }

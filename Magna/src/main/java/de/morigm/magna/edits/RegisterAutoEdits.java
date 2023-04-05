@@ -19,18 +19,18 @@ public class RegisterAutoEdits {
     final
     List<AutoEditStruct> autoEditStructs = new ArrayList<>();
 
-	public void registerServerStruct() {
-		new AutoEdit_PlayerCount().register();
-		new AutoEdit_Motd().register();
-	}
+    public void registerServerStruct() {
+        new AutoEdit_PlayerCount().register();
+        new AutoEdit_Motd().register();
+    }
 
-	public void registerPlayerStruct() {
-		new AutoEdit_WorldName().register();
-		new AutoEdit_PlayerName().register();
-		new AutoEdit_PlayerUUID().register();
-		new AutoEdit_WorldPlayerCount().register();
-		new AutoEdit_Item().register();
-		new AutoEdit_ItemCount().register();
-	}
+    public void registerPlayerStruct() {
+        new AutoEdit_WorldName().register();
+        new AutoEdit_PlayerName().register();
+        new AutoEdit_PlayerUUID().register();
+        new AutoEdit_WorldPlayerCount().register();
+        new AutoEdit_Item().register();
+        new AutoEdit_ItemCount().register();
+    }
 
 }

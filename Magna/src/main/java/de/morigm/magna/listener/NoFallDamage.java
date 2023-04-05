@@ -8,12 +8,12 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
 public class NoFallDamage extends Listener {
-	@EventHandler
-	public void on(EntityDamageEvent e) {
-		if (e.getEntity() instanceof Player)
-			if (e.getCause().equals(DamageCause.FALL))
-				if (Main.getInstance().getDefaultPluginConfig().nofalldamage
-						.contains(e.getEntity().getWorld().getName()))
-					e.setCancelled(true);
-	}
+    @EventHandler
+    public void on(EntityDamageEvent e) {
+        if (e.getEntity() instanceof Player)
+            if (e.getCause().equals(DamageCause.FALL))
+                if (Main.getInstance().getDefaultPluginConfig().nofalldamage
+                        .contains(e.getEntity().getWorld().getName()))
+                    e.setCancelled(true);
+    }
 }

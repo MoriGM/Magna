@@ -2,7 +2,6 @@ package de.morigm.magna.api.helper;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class ItemHelper {

@@ -8,10 +8,10 @@ import org.junit.Test;
 import java.io.IOException;
 
 public class MojangServerStatus {
-	@Test
-	public void test() throws IOException {
-		ServerStatus status = MojangApi.getServerStatus();
-		if (status.minecraft_net.equals(StatusColor.RED))
-			System.out.println("Minecraft Website is Down");
-	}
+    @Test
+    public void test() throws IOException {
+        ServerStatus status = MojangApi.getServerStatus();
+        if (status.minecraft_net.equals(StatusColor.RED))
+            System.out.println("Minecraft Website is Down");
+    }
 }

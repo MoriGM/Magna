@@ -36,7 +36,7 @@ public class CMDWayPoint extends Command {
             return false;
         }
 
-        if (Arrays.stream(new String[] { "set", "get", "remove" }).noneMatch(args[0]::equalsIgnoreCase)) {
+        if (Arrays.stream(new String[]{"set", "get", "remove"}).noneMatch(args[0]::equalsIgnoreCase)) {
             this.sendMessage(p, "<set,get, remove> <name>");
             return false;
         }

@@ -7,11 +7,11 @@ import static org.junit.Assert.assertEquals;
 
 public class StrinHelperTest {
 
-	@Test
-	public void test() {
-		String[] a = { "Hi", "Bye", "Toast" };
-		String s = StringHelper.StringArrayToString(a, " ");
-		assertEquals("Hi Bye Toast", s);
-	}
+    @Test
+    public void test() {
+        String[] a = {"Hi", "Bye", "Toast"};
+        String s = StringHelper.StringArrayToString(a, " ");
+        assertEquals("Hi Bye Toast", s);
+    }
 
 }

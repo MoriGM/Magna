@@ -15,43 +15,43 @@ import java.util.List;
 
 public class BlackListLoader implements Loader, Saver, PermissionHelper {
 
-	@Getter
-	private final List<BlackWord> blackWords = new ArrayList<>();
+    @Getter
+    private final List<BlackWord> blackWords = new ArrayList<>();
 
-	@Override
-	public void load() {
-		for (String word : getBlackListConfig().getBlackwords()) {
-			String permission = getConfig().contains(word + ".permission") ? getConfig().getString(word + ".permission")
-					: getPermission("blacklistword");
-			CensorType type = getConfig().contains(word + ".type")
-					? CensorType.getType(getConfig().getString(word + ".type"))
-					: CensorType.NORMAL;
-			BlackWord bword = new BlackWord(word, permission, type);
-			getBlackWords().add(bword);
-		}
-	}
+    @Override
+    public void load() {
+        for (String word : getBlackListConfig().getBlackwords()) {
+            String permission = getConfig().contains(word + ".permission") ? getConfig().getString(word + ".permission")
+                    : getPermission("blacklistword");
+            CensorType type = getConfig().contains(word + ".type")
+                    ? CensorType.getType(getConfig().getString(word + ".type"))
+                    : CensorType.NORMAL;
+            BlackWord bword = new BlackWord(word, permission, type);
+            getBlackWords().add(bword);
+        }
+    }
 
-	@Override
-	public void save() {
-		deleteConfig(getConfig());
+    @Override
+    public void save() {
+        deleteConfig(getConfig());
 
-		for (BlackWord word : getBlackWords()) {
+        for (BlackWord word : getBlackWords()) {
             getConfig().set(word.word() + ".permission", word.permission());
             getConfig().set(word.word() + ".type", word.type().name());
         }
-	}
+    }
 
-	public void deleteConfig(FileConfiguration config) {
-		for (String key : config.getKeys(true))
-			config.set(key, null);
-	}
+    public void deleteConfig(FileConfiguration config) {
+        for (String key : config.getKeys(true))
+            config.set(key, null);
+    }
 
-	private FileConfiguration getConfig() {
-		return Main.getInstance().getBlackListConfig().getConfig();
-	}
+    private FileConfiguration getConfig() {
+        return Main.getInstance().getBlackListConfig().getConfig();
+    }
 
-	private BlackListConfig getBlackListConfig() {
-		return Main.getInstance().getBlackListConfig();
-	}
+    private BlackListConfig getBlackListConfig() {
+        return Main.getInstance().getBlackListConfig();
+    }
 
 }

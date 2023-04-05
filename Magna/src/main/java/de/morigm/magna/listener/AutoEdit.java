@@ -6,9 +6,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class AutoEdit extends Listener {
-	@EventHandler
-	public void on(AsyncPlayerChatEvent e) {
-		if (Main.getInstance().getDefaultPluginConfig().autoedit)
-			e.setMessage(Main.getInstance().getAutoEditManager().getChangesFromEdit(e.getMessage(), e.getPlayer()));
-	}
+    @EventHandler
+    public void on(AsyncPlayerChatEvent e) {
+        if (Main.getInstance().getDefaultPluginConfig().autoedit)
+            e.setMessage(Main.getInstance().getAutoEditManager().getChangesFromEdit(e.getMessage(), e.getPlayer()));
+    }
 }

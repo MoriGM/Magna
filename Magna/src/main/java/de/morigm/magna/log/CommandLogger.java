@@ -1,8 +1,8 @@
 package de.morigm.magna.log;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.logger.Logger;
 import de.morigm.magna.api.log.Log;
+import de.morigm.magna.api.logger.Logger;
 
 import java.io.File;
 import java.io.IOException;

@@ -51,7 +51,7 @@ User
 * Magna Api
 * Magna Language Api
 
-### Bugfix 
+### Bugfix
 
 * Afk Command doesn't workded right
 
@@ -84,14 +84,14 @@ NoFallDamage Added to Magna
 #### System
 
 Added BlackList to Magna  
-AutoEdit System to Magna  
+AutoEdit System to Magna
 
 ### Bug
 
 Fixed Command skull in Magna  
 Fixed that you only can set a warp once  
 testPermission Stackoverflow  
-spawn save error  
+spawn save error
 
 ### Rebuild
 
@@ -106,25 +106,26 @@ Warp System
 Added Command Skull to Magna  
 Added Command TpTo to Magna  
 Added Command TpHere to Magna  
-Added Command getuuid to Magna  
+Added Command getuuid to Magna
 
 #### Listener
 
 Trash Sign
 
 #### Class
+
 CommandUtil  
 CommandsHelper Function add registerUtils  
 Junit System  
 CommandTest  
 PluginSetTest  
-PermissionTest  
+PermissionTest
 
 ### Change
 
 Warp System  
 Added Command BanIps to PluginLoader  
-GNU GPL 3 to GNU GPL 2  
+GNU GPL 3 to GNU GPL 2
 
 ### Fixed
 
@@ -144,7 +145,7 @@ Command broadcast
 Command gamemodeinfo  
 Mute Listener to Language System  
 FileHelper Class  
-Warning System  
+Warning System
 
 ## Change
 
@@ -166,7 +167,7 @@ Command setitemname
 Command itemhead  
 Command magna-group-exec  
 Command manga-list  
-Class CommandLoger  
+Class CommandLoger
 
 ### Typo
 
@@ -178,7 +179,7 @@ Command heal
 
 teamchat  
 setspawn  
-spawn  
+spawn
 
 ## 0.0.0
 
@@ -208,12 +209,12 @@ allchatclear
 magna-groups  
 magna-id  
 magna-list  
-magna-group-exec  
+magna-group-exec
 
 ### Added Listener
 
 Added ChatColor  
-Added SignColor  
+Added SignColor
 
 ### Managers
 

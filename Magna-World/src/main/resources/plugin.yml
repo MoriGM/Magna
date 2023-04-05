@@ -8,8 +8,8 @@ depend: [ Magna ]
 main: de.morigm.magnaworld.Main
 
 commands:
-      mwcreate:
-      mwtp:
-      mwdelete:
-      mwlist:
-      mwimport:
+  mwcreate:
+  mwtp:
+  mwdelete:
+  mwlist:
+  mwimport:

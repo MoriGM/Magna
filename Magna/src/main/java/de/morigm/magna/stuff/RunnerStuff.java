@@ -7,10 +7,10 @@ import java.util.List;
 
 public class RunnerStuff {
 
-	static {
-		runners = new ArrayList<>();
-	}
+    public static final List<Runner> runners;
 
-	public static final List<Runner> runners;
+    static {
+        runners = new ArrayList<>();
+    }
 
 }

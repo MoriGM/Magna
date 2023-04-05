@@ -18,28 +18,28 @@ public class AutoEditLoader {
 
     public void loadPlayerEdit() {
         for (String key : getAutoEditConfig().getConfigPlayer().getKeys(true)) {
-			String[] kys = key.replace(".", "\",\"").split("\",\"");
-			if (kys.length == 2) {
-				String uuid = kys[0];
-				String name = "[" + kys[1] + "]";
-				String edit = getAutoEditConfig().getConfigPlayer().getString(key);
-				CumstomPlayerAutoEditStruct struct = new CumstomPlayerAutoEditStruct(name, edit, uuid);
-				getCustomPlayerAutoEditStructs().add(struct);
-			}
-		}
-	}
+            String[] kys = key.replace(".", "\",\"").split("\",\"");
+            if (kys.length == 2) {
+                String uuid = kys[0];
+                String name = "[" + kys[1] + "]";
+                String edit = getAutoEditConfig().getConfigPlayer().getString(key);
+                CumstomPlayerAutoEditStruct struct = new CumstomPlayerAutoEditStruct(name, edit, uuid);
+                getCustomPlayerAutoEditStructs().add(struct);
+            }
+        }
+    }
 
-	public void loadServerEdit() {
-		for (String key : getAutoEditConfig().getConfig().getKeys(false)) {
-			String name = "[" + key + "]";
-			String edit = getAutoEditConfig().getConfig().getString(key);
-			CustomAutoEditStruct struct = new CustomAutoEditStruct(name, edit);
-			getCustomAutoEditStructs().add(struct);
-		}
-	}
+    public void loadServerEdit() {
+        for (String key : getAutoEditConfig().getConfig().getKeys(false)) {
+            String name = "[" + key + "]";
+            String edit = getAutoEditConfig().getConfig().getString(key);
+            CustomAutoEditStruct struct = new CustomAutoEditStruct(name, edit);
+            getCustomAutoEditStructs().add(struct);
+        }
+    }
 
-	private AutoEditConfig getAutoEditConfig() {
-		return Main.getInstance().getAutoEditConfig();
-	}
+    private AutoEditConfig getAutoEditConfig() {
+        return Main.getInstance().getAutoEditConfig();
+    }
 
 }

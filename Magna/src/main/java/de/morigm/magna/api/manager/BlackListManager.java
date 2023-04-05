@@ -15,32 +15,32 @@ public class BlackListManager {
     public void removeBlackWord(BlackWord bword) {
         if (containsBlackWord(bword.word()))
             getBlackWords().remove(bword);
-	}
+    }
 
-	public boolean containsBlackWord(String word) {
-		return getBlackWord(word) != null;
-	}
+    public boolean containsBlackWord(String word) {
+        return getBlackWord(word) != null;
+    }
 
-	public BlackWord getBlackWord(String word) {
-		for (BlackWord bword : getBlackWords())
+    public BlackWord getBlackWord(String word) {
+        for (BlackWord bword : getBlackWords())
             if (bword.word().equals(word))
                 return bword;
-		return null;
-	}
+        return null;
+    }
 
-	public List<BlackWord> getBlackWords() {
-		return Main.getInstance().getBlackListLoader().getBlackWords();
-	}
+    public List<BlackWord> getBlackWords() {
+        return Main.getInstance().getBlackListLoader().getBlackWords();
+    }
 
-	public BlackWord getBlackWordFromText(String text) {
-		for (BlackWord bword : getBlackWords())
+    public BlackWord getBlackWordFromText(String text) {
+        for (BlackWord bword : getBlackWords())
             if (text.toLowerCase().contains(bword.word().toLowerCase()))
                 return bword;
-		return null;
-	}
+        return null;
+    }
 
-	public boolean hasBlackWord(String text) {
-		return getBlackWordFromText(text) != null;
-	}
+    public boolean hasBlackWord(String text) {
+        return getBlackWordFromText(text) != null;
+    }
 
 }

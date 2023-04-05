@@ -8,27 +8,27 @@ import org.bukkit.event.HandlerList;
 
 public class PlayerWriteBlockedWordEvent extends Event {
 
-	private final static HandlerList HANDLERS = new HandlerList();
-	@Getter
-	private final Player player;
-	@Getter
-	private final String word;
-	@Getter
-	private final CensorType censorType;
+    private final static HandlerList HANDLERS = new HandlerList();
+    @Getter
+    private final Player player;
+    @Getter
+    private final String word;
+    @Getter
+    private final CensorType censorType;
 
-	public PlayerWriteBlockedWordEvent(Player p, String word, CensorType type) {
-		this.player = p;
-		this.word = word;
-		this.censorType = type;
-	}
+    public PlayerWriteBlockedWordEvent(Player p, String word, CensorType type) {
+        this.player = p;
+        this.word = word;
+        this.censorType = type;
+    }
 
-	@Override
-	public HandlerList getHandlers() {
-		return HANDLERS;
-	}
+    public static HandlerList getHandlerList() {
+        return HANDLERS;
+    }
 
-	public static HandlerList getHandlerList() {
-		return HANDLERS;
-	}
+    @Override
+    public HandlerList getHandlers() {
+        return HANDLERS;
+    }
 
 }

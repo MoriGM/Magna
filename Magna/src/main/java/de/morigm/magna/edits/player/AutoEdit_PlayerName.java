@@ -5,14 +5,14 @@ import org.bukkit.entity.Player;
 
 public class AutoEdit_PlayerName implements PlayerAutoEditStruct {
 
-	@Override
-	public String getName() {
-		return "[name]";
-	}
+    @Override
+    public String getName() {
+        return "[name]";
+    }
 
-	@Override
-	public String getEdit(Player p) {
-		return p.getName();
-	}
+    @Override
+    public String getEdit(Player p) {
+        return p.getName();
+    }
 
 }

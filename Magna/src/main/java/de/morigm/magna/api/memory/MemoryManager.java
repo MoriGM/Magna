@@ -2,34 +2,34 @@ package de.morigm.magna.api.memory;
 
 public class MemoryManager {
 
-	public enum MemoryType {
-		BYTE(1), GIGABYTE(1024 * 1024 * 1024), MEGABYTE(1024 * 1024), KILOBYTE(1024);
+    public int getFreeMemory(MemoryType type) {
+        return (int) (Runtime.getRuntime().freeMemory() / type.getSize());
+    }
 
-		private final int size;
+    public int getTotalMemory(MemoryType type) {
+        return (int) (Runtime.getRuntime().totalMemory() / type.getSize());
+    }
 
-		MemoryType(int i) {
-			this.size = i;
-		}
+    public int getUsedMemory(MemoryType type) {
+        return (int) ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / type.getSize());
+    }
 
-		public int getSize() {
-			return size;
-		}
-	}
+    public int getMaxMemory(MemoryType type) {
+        return (int) (Runtime.getRuntime().maxMemory() / type.getSize());
+    }
 
-	public int getFreeMemory(MemoryType type) {
-		return (int) (Runtime.getRuntime().freeMemory() / type.getSize());
-	}
+    public enum MemoryType {
+        BYTE(1), GIGABYTE(1024 * 1024 * 1024), MEGABYTE(1024 * 1024), KILOBYTE(1024);
 
-	public int getTotalMemory(MemoryType type) {
-		return (int) (Runtime.getRuntime().totalMemory() / type.getSize());
-	}
+        private final int size;
 
-	public int getUsedMemory(MemoryType type) {
-		return (int) ((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / type.getSize());
-	}
+        MemoryType(int i) {
+            this.size = i;
+        }
 
-	public int getMaxMemory(MemoryType type) {
-		return (int) (Runtime.getRuntime().maxMemory() / type.getSize());
-	}
+        public int getSize() {
+            return size;
+        }
+    }
 
 }

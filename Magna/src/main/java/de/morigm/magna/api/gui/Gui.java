@@ -16,84 +16,81 @@ import java.util.List;
 
 public abstract class Gui implements PermissionHelper {
 
-	@Getter
-	@Setter
-	private String name = "", permission = "";
-	@Getter
-	private int size = 9 * 3;
+    @Getter
+    private final List<GuiButton> guiButtons = new ArrayList<>();
+    private final PermissionManager permissionManager;
+    @Getter
+    @Setter
+    private String name = "", permission = "";
+    @Getter
+    private int size = 9 * 3;
+    @Getter
+    private Player player;
+    @Getter
+    private Inventory inventory;
 
-	@Getter
-	private Player player;
-	@Getter
-	private final List<GuiButton> guiButtons = new ArrayList<>();
+    public Gui() {
+        this(Main.getInstance().getPermissionManager());
+    }
 
-	@Getter
-	private Inventory inventory;
+    public Gui(PermissionManager permissionManager) {
+        this.permissionManager = permissionManager;
+    }
 
-	private final PermissionManager permissionManager;
+    public void setSize(int size) {
+        if ((size % 9) == 0)
+            this.size = size;
+    }
 
-	public Gui() {
-		this(Main.getInstance().getPermissionManager());
-	}
+    public abstract void load();
 
-	public Gui(PermissionManager permissionManager) {
-		this.permissionManager = permissionManager;
-	}
+    public abstract void onClick(GuiButton button);
 
-	public void setSize(int size) {
-		if ((size % 9) == 0)
-			this.size = size;
-	}
+    public void addButton(GuiButton button) {
+        if (button.getSlot() > this.getSize())
+            return;
 
-	public abstract void load();
+        for (GuiButton b : getGuiButtons())
+            if (b.getSlot() >= 0 && button.getId() == b.getId())
+                return;
 
-	public abstract void onClick(GuiButton button);
+        getGuiButtons().add(button);
+    }
 
-	public void addButton(GuiButton button) {
-		if (button.getSlot() > this.getSize())
-			return;
+    public void createGUI(@NonNull Player player) {
+        this.player = player;
+        if (this.getName().isEmpty())
+            this.inventory = Bukkit.createInventory(player, size);
+        else
+            this.inventory = Bukkit.createInventory(player, size, name);
+        for (GuiButton button : getGuiButtons())
+            if (button.getSlot() >= 0)
+                this.inventory.setItem(button.getSlot(), button.getItem());
+        for (GuiButton button : getGuiButtons().toArray(new GuiButton[0]))
+            if (button.getSlot() == -1) {
+                int slot = this.inventory.firstEmpty();
+                GuiButton gb = new GuiButton(button.getItem(), button.getId(), slot);
+                getGuiButtons().remove(button);
+                getGuiButtons().add(gb);
+                this.inventory.setItem(slot, gb.getItem());
+            }
+    }
 
-		for (GuiButton b : getGuiButtons())
-			if (b.getSlot() >= 0 && button.getId() == b.getId())
-				return;
+    public void registerClick(int slot) {
+        for (GuiButton button : getGuiButtons())
+            if (button.getSlot() == slot) {
+                this.onClick(button);
+                return;
+            }
+    }
 
-		getGuiButtons().add(button);
-	}
+    @Override
+    public boolean testPermission(CommandSender p, String permission) {
+        return p.hasPermission(getPermission(permission));
+    }
 
-	public void createGUI(@NonNull Player player) {
-		this.player = player;
-		if (this.getName().isEmpty())
-			this.inventory = Bukkit.createInventory(player, size);
-		else
-			this.inventory = Bukkit.createInventory(player, size, name);
-		for (GuiButton button : getGuiButtons())
-			if (button.getSlot() >= 0)
-				this.inventory.setItem(button.getSlot(), button.getItem());
-		for (GuiButton button : getGuiButtons().toArray(new GuiButton[0]))
-			if (button.getSlot() == -1) {
-				int slot = this.inventory.firstEmpty();
-				GuiButton gb = new GuiButton(button.getItem(), button.getId(), slot);
-				getGuiButtons().remove(button);
-				getGuiButtons().add(gb);
-				this.inventory.setItem(slot, gb.getItem());
-			}
-	}
-
-	public void registerClick(int slot) {
-		for (GuiButton button : getGuiButtons())
-			if (button.getSlot() == slot) {
-				this.onClick(button);
-				return;
-			}
-	}
-
-	@Override
-	public boolean testPermission(CommandSender p, String permission) {
-		return p.hasPermission(getPermission(permission));
-	}
-
-	@Override
-	public String getPermission(String permission) {
-		return permissionManager.getPermission(permission);
-	}
+    @Override
+    public String getPermission(String permission) {
+        return permissionManager.getPermission(permission);
+    }
 }

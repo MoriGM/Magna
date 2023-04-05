@@ -16,15 +16,15 @@ public class SignManager {
             signs.add(listener);
     }
 
-	public boolean containsSignListener(String name) {
-		return getSignListener(name) != null;
-	}
+    public boolean containsSignListener(String name) {
+        return getSignListener(name) != null;
+    }
 
-	public SignListener getSignListener(String name) {
-		for (SignListener sign : signs)
-			if (sign.getName().equals(name))
-				return sign;
-		return null;
-	}
+    public SignListener getSignListener(String name) {
+        for (SignListener sign : signs)
+            if (sign.getName().equals(name))
+                return sign;
+        return null;
+    }
 
 }

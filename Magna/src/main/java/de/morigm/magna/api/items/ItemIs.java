@@ -8,6 +8,7 @@ public class ItemIs {
     public static boolean equalType(ItemStack item, Material material) {
         return item.getType().equals(material);
     }
+
     public static boolean equal(ItemStack first, ItemStack second) {
         return first.getType().equals(second.getType());
     }

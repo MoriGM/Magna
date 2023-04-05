@@ -16,116 +16,116 @@ import java.util.Arrays;
 
 public class Magna {
 
-	private static final String[] spigot_versions = { "v1_19_R1" };
-	@Getter
-	private static CommandUtil commandUtil;
-	@Getter
-	private static Settings settings;
-	@Getter
-	private static Folders folders;
-	@Getter
-	private final static String name = "Magna";
+    private static final String[] spigot_versions = {"v1_19_R3"};
+    @Getter
+    private final static String name = "Magna";
+    @Getter
+    private static CommandUtil commandUtil;
+    @Getter
+    private static Settings settings;
+    @Getter
+    private static Folders folders;
 
-	static {
-		Magna.commandUtil = new CommandUtil();
-		Magna.settings = new Settings(getMain());
-		Magna.folders = new Folders();
-	}
+    static {
+        Magna.commandUtil = new CommandUtil();
+        Magna.settings = new Settings(getMain());
+        Magna.folders = new Folders();
+    }
 
-	public static GroupManager getGroupManager() {
-		return getMain().getGroupManager();
-	}
+    public static GroupManager getGroupManager() {
+        return getMain().getGroupManager();
+    }
 
-	public static MemoryManager getMemoryManager() {
-		return getMain().getMemoryManager();
-	}
+    public static MemoryManager getMemoryManager() {
+        return getMain().getMemoryManager();
+    }
 
-	public static WarpManager getWarpManager() {
-		return getMain().getWarpManager();
-	}
+    public static WarpManager getWarpManager() {
+        return getMain().getWarpManager();
+    }
 
-	public static MutedPlayerManager getMutedPlayerManager() {
-		return getMain().getMutedPlayerManager();
-	}
+    public static MutedPlayerManager getMutedPlayerManager() {
+        return getMain().getMutedPlayerManager();
+    }
 
-	public static GodModeManager getGodModeManager() {
-		return getMain().getGodModeManager();
-	}
+    public static GodModeManager getGodModeManager() {
+        return getMain().getGodModeManager();
+    }
 
-	public static CommandSpyManager getCommandSpyManager() {
-		return getMain().getCommandSpyManager();
-	}
+    public static CommandSpyManager getCommandSpyManager() {
+        return getMain().getCommandSpyManager();
+    }
 
-	public static PermissionManager getPermissionManager() {
-		return getMain().getPermissionManager();
-	}
+    public static PermissionManager getPermissionManager() {
+        return getMain().getPermissionManager();
+    }
 
-	public static DeathBackManager getDeathBackManager() {
-		return getMain().getDeathBackManager();
-	}
+    public static DeathBackManager getDeathBackManager() {
+        return getMain().getDeathBackManager();
+    }
 
-	public static AutoEditManager getAutoEditManager() {
-		return getMain().getAutoEditManager();
-	}
+    public static AutoEditManager getAutoEditManager() {
+        return getMain().getAutoEditManager();
+    }
 
-	public static MSGManager getMSGManager() {
-		return getMain().getMSGManager();
-	}
+    public static MSGManager getMSGManager() {
+        return getMain().getMSGManager();
+    }
 
-	public static BlackListManager getBlackListManager() {
-		return getMain().getBlackListManager();
-	}
+    public static BlackListManager getBlackListManager() {
+        return getMain().getBlackListManager();
+    }
 
-	public static RunnerManager getRunnerManager() {
-		return getMain().getRunnerManager();
-	}
+    public static RunnerManager getRunnerManager() {
+        return getMain().getRunnerManager();
+    }
 
-	public static AFK getAFKManager() {
-		return getMain().getAFKManager();
-	}
+    public static AFK getAFKManager() {
+        return getMain().getAFKManager();
+    }
 
-	public static HomeManager getHomeManager() {
-		return getMain().getHomeManager();
-	}
+    public static HomeManager getHomeManager() {
+        return getMain().getHomeManager();
+    }
 
-	public static SignManager getSignManager() {
-		return getMain().getSignManager();
-	}
+    public static SignManager getSignManager() {
+        return getMain().getSignManager();
+    }
 
-	public static OnlyBreakManager getOnlyBreakManager() {
-		return getMain().getOnlyBreakManager();
-	}
+    public static OnlyBreakManager getOnlyBreakManager() {
+        return getMain().getOnlyBreakManager();
+    }
 
-	public static WayPointManager GetWayPointManager() {
-		return getMain().getWayPointManager();
-	}
+    public static WayPointManager GetWayPointManager() {
+        return getMain().getWayPointManager();
+    }
 
-	public static Language getLanguage() {
-		return getMain().getLanguage();
-	}
+    public static Language getLanguage() {
+        return getMain().getLanguage();
+    }
 
-	public static String getServerVersion() {
-		return Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
-	}
+    public static String getServerVersion() {
+        return Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
+    }
 
-	public static String[] getSupportedVersions() {
-		return spigot_versions;
-	}
+    public static String[] getSupportedVersions() {
+        return spigot_versions;
+    }
 
-	public static boolean isSupported() {
-		return Arrays.binarySearch(Magna.getSupportedVersions(), getServerVersion()) != -1;
-	}
+    public static boolean isSupported() {
+        return Arrays.binarySearch(Magna.getSupportedVersions(), getServerVersion()) >= 0;
+    }
 
-	public static User getUser(Player p) {
-		return getUser(p, getPermissionManager());
-	}
+    public static User getUser(Player p) {
+        return getUser(p, getPermissionManager());
+    }
 
-	public static User getUser(Player p, PermissionManager manager) {
-		return new User(p, manager);
-	}
+    public static User getUser(Player p, PermissionManager manager) {
+        return new User(p, manager);
+    }
 
-	private static Main getMain() {
-		return Main.getInstance();
-	}
+    private static Main getMain() {
+        return Main.getInstance();
+    }
 
 }

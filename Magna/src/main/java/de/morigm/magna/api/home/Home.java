@@ -4,12 +4,12 @@ import org.bukkit.Location;
 
 public class Home {
 
-	public final String name;
-	public final Location location;
+    public final String name;
+    public final Location location;
 
-	public Home(String name, Location location) {
-		this.name = name;
-		this.location = location;
-	}
+    public Home(String name, Location location) {
+        this.name = name;
+        this.location = location;
+    }
 
 }

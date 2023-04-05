@@ -6,12 +6,12 @@ import org.bukkit.Material;
 
 public class GuiSwitchButton extends GuiButton {
 
-	public GuiSwitchButton(Material m, String name, int id, boolean state) {
-		this(m, name, id, -1, state);
-	}
+    public GuiSwitchButton(Material m, String name, int id, boolean state) {
+        this(m, name, id, -1, state);
+    }
 
-	public GuiSwitchButton(Material m, String name, int id, int slot, boolean state) {
-		super(ItemHelper.getItem(m, (state ? ChatColor.DARK_GREEN : ChatColor.RED) + name), id, slot);
-	}
+    public GuiSwitchButton(Material m, String name, int id, int slot, boolean state) {
+        super(ItemHelper.getItem(m, (state ? ChatColor.DARK_GREEN : ChatColor.RED) + name), id, slot);
+    }
 
 }

@@ -13,27 +13,27 @@ import java.util.Objects;
 import static org.junit.Assert.assertTrue;
 
 public class PermissionTest {
-	@Test
-	public void testYMLPermission() {
-		CommandLoader loader = new CommandLoader();
-		loader.registerCommands();
-		List<String> permission = Magna.getCommandUtil().getPermissions();
-		FileConfiguration conf = YamlConfiguration
-				.loadConfiguration(new InputStreamReader(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream("Permission.yml"))));
-		for (String s : permission) {
-			System.out.println("Test Permission:" + s);
-			assertTrue(conf.contains(s));
-		}
-	}
+    @Test
+    public void testYMLPermission() {
+        CommandLoader loader = new CommandLoader();
+        loader.registerCommands();
+        List<String> permission = Magna.getCommandUtil().getPermissions();
+        FileConfiguration conf = YamlConfiguration
+                .loadConfiguration(new InputStreamReader(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream("Permission.yml"))));
+        for (String s : permission) {
+            System.out.println("Test Permission:" + s);
+            assertTrue(conf.contains(s));
+        }
+    }
 
-	public static class CommandLoader extends PluginLoader {
-		private boolean isactive = false;
+    public static class CommandLoader extends PluginLoader {
+        private boolean isactive = false;
 
-		@Override
-		public void registerCommands() {
-			if (!isactive)
-				super.registerCommands();
-			isactive = true;
-		}
-	}
+        @Override
+        public void registerCommands() {
+            if (!isactive)
+                super.registerCommands();
+            isactive = true;
+        }
+    }
 }

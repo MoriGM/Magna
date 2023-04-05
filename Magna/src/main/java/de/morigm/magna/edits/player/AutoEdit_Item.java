@@ -5,14 +5,14 @@ import org.bukkit.entity.Player;
 
 public class AutoEdit_Item implements PlayerAutoEditStruct {
 
-	@Override
-	public String getName() {
-		return "[item]";
-	}
+    @Override
+    public String getName() {
+        return "[item]";
+    }
 
-	@Override
-	public String getEdit(Player p) {
+    @Override
+    public String getEdit(Player p) {
         return p.getInventory().getItemInMainHand().getType().name().replace('_', ' ').toLowerCase();
-	}
+    }
 
 }

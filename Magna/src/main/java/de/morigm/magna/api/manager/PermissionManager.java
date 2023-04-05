@@ -7,27 +7,27 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class PermissionManager {
-	private FileConfiguration configuration;
-	private final InputStream input;
+    private final InputStream input;
+    private FileConfiguration configuration;
 
-	public PermissionManager(InputStream in) {
-		this.input = in;
-	}
+    public PermissionManager(InputStream in) {
+        this.input = in;
+    }
 
-	public void load() {
-		FileConfiguration configuration = YamlConfiguration.loadConfiguration(new InputStreamReader(input));
-		this.configuration = configuration;
-	}
+    public void load() {
+        FileConfiguration configuration = YamlConfiguration.loadConfiguration(new InputStreamReader(input));
+        this.configuration = configuration;
+    }
 
-	public FileConfiguration getConfiguration() {
-		return configuration;
-	}
+    public FileConfiguration getConfiguration() {
+        return configuration;
+    }
 
-	public String getPermission(String Permission) {
-		return configuration.getString(Permission);
-	}
+    public String getPermission(String Permission) {
+        return configuration.getString(Permission);
+    }
 
-	public boolean hasPermission(String permission) {
-		return configuration.contains(permission);
-	}
+    public boolean hasPermission(String permission) {
+        return configuration.contains(permission);
+    }
 }
