@@ -16,7 +16,7 @@ import de.morigm.magna.api.events.PlayerWriteBlockedWordEvent;
 import de.morigm.magna.api.helper.ListenerHelper;
 import de.morigm.magna.chat.Chat;
 
-public class Listener_BlackList extends ListenerHelper {
+public class BlackList extends ListenerHelper {
 
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e) {
@@ -63,7 +63,6 @@ public class Listener_BlackList extends ListenerHelper {
 					break;
 				default:
 					break;
-
 				}
 			}
 		}

@@ -5,11 +5,16 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
+import de.morigm.magna.chat.Chat;
 
-public class Listener_AutoEdit extends ListenerHelper {
+public class MutePlayer extends ListenerHelper {
+
 	@EventHandler
 	public void on(AsyncPlayerChatEvent e) {
-		if (Main.getInstance().getDefaultPluginConfig().autoedit)
-			e.setMessage(Main.getInstance().getAutoEditManager().getChangesFromEdit(e.getMessage(), e.getPlayer()));
+		if (Main.getInstance().getMutedPlayerManager().containsPlayer(e.getPlayer())) {
+			e.getPlayer().sendMessage(Chat.prefix + translate("listener.mute"));
+			e.setCancelled(true);
+		}
 	}
+
 }

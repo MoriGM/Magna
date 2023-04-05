@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.language.Language;
-import de.morigm.magna.api.manager.AFKManager;
+import de.morigm.magna.api.manager.AFK;
 import de.morigm.magna.api.manager.AutoEditManager;
 import de.morigm.magna.api.manager.BlackListManager;
 import de.morigm.magna.api.manager.CommandSpyManager;
@@ -78,7 +78,7 @@ public class Main extends JavaPlugin {
 	@Getter
 	private RunnerManager runnerManager;
 	@Getter
-	private AFKManager AFKManager;
+	private AFK AFKManager;
 	@Getter
 	private HomeManager homeManager;
 	@Getter
@@ -196,7 +196,7 @@ public class Main extends JavaPlugin {
 		this.runnerManager = new RunnerManager();
 		this.pluginLoader.registerRunners();
 		this.pluginLoader.startRunners();
-		this.AFKManager = new AFKManager();
+		this.AFKManager = new AFK();
 		this.homeConfig = new HomeConfig();
 		this.homeConfig.load();
 		this.homeLoader = new HomeLoader();

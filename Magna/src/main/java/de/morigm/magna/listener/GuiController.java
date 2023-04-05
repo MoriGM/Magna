@@ -12,7 +12,7 @@ import de.morigm.magna.api.gui.Gui;
 import de.morigm.magna.api.helper.ListenerHelper;
 import de.morigm.magna.stuff.MagnaStuff;
 
-public class Listener_Gui extends ListenerHelper {
+public class GuiController extends ListenerHelper {
 
 	@EventHandler
 	public void on(InventoryClickEvent e) {

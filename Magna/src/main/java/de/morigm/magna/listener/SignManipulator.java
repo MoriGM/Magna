@@ -11,7 +11,7 @@ import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.helper.ListenerHelper;
 import de.morigm.magna.api.sign.SignListener;
 
-public class Listener_Sign extends ListenerHelper {
+public class SignManipulator extends ListenerHelper {
 
 	public static final String prefix = ChatColor.GRAY + "[" + ChatColor.BLUE;
 	public static final String suffix = ChatColor.GRAY + "]";

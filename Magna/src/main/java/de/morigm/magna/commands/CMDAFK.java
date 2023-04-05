@@ -19,7 +19,7 @@ public class CMDAFK extends CommandHelper {
 	public boolean onCommand(CommandSender com, Command cmd, String label, String[] args) {
 		if (com instanceof Player) {
 			Player p = (Player) com;
-			Magna.getAFKManager().togglePlayerToAFKMode(p);
+			Magna.getAFKManager().togglePlayer(p);
 		} else
 			Chat.noConsole(com);
 		return false;

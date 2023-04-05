@@ -9,7 +9,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import de.morigm.magna.api.helper.ItemHelper;
 import de.morigm.magna.api.helper.ListenerHelper;
 
-public class Listener_OnlyBreak extends ListenerHelper {
+public class OnlyBreak extends ListenerHelper {
 
 	@EventHandler
 	public void on(BlockBreakEvent e) {

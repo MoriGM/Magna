@@ -12,7 +12,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.helper.ListenerHelper;
 
-public class Listener_GODMODE extends ListenerHelper {
+public class GodMode extends ListenerHelper {
 	@EventHandler
 	public void on(PlayerInteractEvent e) {
 		if (Main.getInstance().getGodModeManager().containsPlayer(e.getPlayer()))

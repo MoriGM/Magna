@@ -62,20 +62,20 @@ import de.morigm.magna.commands.CMDWarp;
 import de.morigm.magna.commands.CMDWarps;
 import de.morigm.magna.commands.CMDWayPoint;
 import de.morigm.magna.commands.CMDgetUUID;
-import de.morigm.magna.listener.Listener_AFK;
-import de.morigm.magna.listener.Listener_AutoEdit;
-import de.morigm.magna.listener.Listener_BlackList;
-import de.morigm.magna.listener.Listener_CMDSPY;
-import de.morigm.magna.listener.Listener_ChatColor;
-import de.morigm.magna.listener.Listener_ColorSign;
-import de.morigm.magna.listener.Listener_CommandLog;
-import de.morigm.magna.listener.Listener_DeathBack;
-import de.morigm.magna.listener.Listener_GODMODE;
-import de.morigm.magna.listener.Listener_Gui;
-import de.morigm.magna.listener.Listener_Muted;
-import de.morigm.magna.listener.Listener_NoFallDamage;
-import de.morigm.magna.listener.Listener_OnlyBreak;
-import de.morigm.magna.listener.Listener_Sign;
+import de.morigm.magna.listener.AFK;
+import de.morigm.magna.listener.AutoEdit;
+import de.morigm.magna.listener.BlackList;
+import de.morigm.magna.listener.CommandSpying;
+import de.morigm.magna.listener.ChatColor;
+import de.morigm.magna.listener.ColorSign;
+import de.morigm.magna.listener.LogCommands;
+import de.morigm.magna.listener.DeathBack;
+import de.morigm.magna.listener.GodMode;
+import de.morigm.magna.listener.GuiController;
+import de.morigm.magna.listener.MutePlayer;
+import de.morigm.magna.listener.NoFallDamage;
+import de.morigm.magna.listener.OnlyBreak;
+import de.morigm.magna.listener.SignManipulator;
 import de.morigm.magna.runner.AfkTestRunner;
 import de.morigm.magna.sign.TrashSign;
 import de.morigm.magna.sign.WarpSign;
@@ -147,20 +147,20 @@ public class PluginLoader {
 	}
 
 	public void registerListener() {
-		new Listener_GODMODE().register();
-		new Listener_Muted().register();
-		new Listener_CMDSPY().register();
-		new Listener_ChatColor().register();
-		new Listener_ColorSign().register();
-		new Listener_CommandLog().register();
-		new Listener_DeathBack().register();
-		new Listener_NoFallDamage().register();
-		new Listener_AutoEdit().register();
-		new Listener_BlackList().register();
-		new Listener_AFK().register();
-		new Listener_Sign().register();
-		new Listener_OnlyBreak().register();
-		new Listener_Gui().register();
+		new GodMode().register();
+		new MutePlayer().register();
+		new CommandSpying().register();
+		new ChatColor().register();
+		new ColorSign().register();
+		new LogCommands().register();
+		new DeathBack().register();
+		new NoFallDamage().register();
+		new AutoEdit().register();
+		new BlackList().register();
+		new AFK().register();
+		new SignManipulator().register();
+		new OnlyBreak().register();
+		new GuiController().register();
 	}
 
 	public void registerRunners() {

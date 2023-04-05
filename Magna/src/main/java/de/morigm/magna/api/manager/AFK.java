@@ -13,15 +13,20 @@ import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.stuff.AFKStuff;
 
-public class AFKManager implements TranslationHelper {
+public class AFK implements TranslationHelper {
 
-	public void setTimeAndLocation(Player p, Location l, long time) {
-		getLastPlayerPositions().put(p, l);
+	public void updateTimeAndLocation(Player p, Location l, long time) {
+		getLastPositions().put(p, l);
 		getLastPlayerTimes().put(p, time);
+	}
+	
+	public void updateCurrentPlayer(Player player) {
+		getLastPositions().put(player, player.getLocation());
+		getLastPlayerTimes().put(player, System.currentTimeMillis());
 	}
 
 	public void setLocation(Player p, Location l) {
-		getLastPlayerPositions().put(p, l);
+		getLastPositions().put(p, l);
 	}
 
 	public void setTime(Player p, long time) {
@@ -29,7 +34,7 @@ public class AFKManager implements TranslationHelper {
 	}
 
 	public Location getLocation(Player p) {
-		return getLastPlayerPositions().get(p);
+		return getLastPositions().get(p);
 	}
 
 	public long getTime(Player p) {
@@ -37,14 +42,14 @@ public class AFKManager implements TranslationHelper {
 	}
 
 	public boolean containsLocation(Player p) {
-		return getLastPlayerPositions().containsKey(p);
+		return getLastPositions().containsKey(p);
 	}
 
 	public boolean containsTime(Player p) {
 		return getLastPlayerTimes().containsKey(p);
 	}
 
-	public void addPlayerToAFKMode(Player p) {
+	public void addPlayer(Player p) {
 		if (!getAFKPlayers().contains(p)) {
 			getAFKPlayers().add(p);
 			if (Magna.getSettings().getShowAfk())
@@ -53,7 +58,7 @@ public class AFKManager implements TranslationHelper {
 		}
 	}
 
-	public void removePlayerFromAFKMode(Player p) {
+	public void removePlayer(Player p) {
 		if (getAFKPlayers().contains(p)) {
 			getAFKPlayers().remove(p);
 			if (Magna.getSettings().getShowAfk())
@@ -62,11 +67,12 @@ public class AFKManager implements TranslationHelper {
 		}
 	}
 
-	public void togglePlayerToAFKMode(Player p) {
-		if (isAfk(p))
-			removePlayerFromAFKMode(p);
-		else
-			addPlayerToAFKMode(p);
+	public void togglePlayer(Player p) {
+		if (isAfk(p)) {
+			removePlayer(p);
+			return;
+		}
+		addPlayer(p);
 	}
 
 	public boolean isAfk(Player p) {
@@ -77,7 +83,7 @@ public class AFKManager implements TranslationHelper {
 		return AFKStuff.afkPlayers;
 	}
 
-	public Map<Player, Location> getLastPlayerPositions() {
+	public Map<Player, Location> getLastPositions() {
 		return AFKStuff.last_player_position;
 	}
 

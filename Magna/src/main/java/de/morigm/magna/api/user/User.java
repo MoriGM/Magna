@@ -68,9 +68,9 @@ public class User {
 
 	public void setAfk(boolean state) {
 		if (state)
-			getAFKManager().addPlayerToAFKMode(player);
+			getAFKManager().addPlayer(player);
 		else
-			getAFKManager().removePlayerFromAFKMode(player);
+			getAFKManager().removePlayer(player);
 	}
 
 	public void setMuted(boolean state) {
