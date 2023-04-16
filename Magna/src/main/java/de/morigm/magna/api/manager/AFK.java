@@ -5,6 +5,7 @@ import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.translation.Translation;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.stuff.AFKStuff;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -51,18 +52,18 @@ public class AFK implements Translation {
     public void addPlayer(Player p) {
         if (!getAFKPlayers().contains(p)) {
             getAFKPlayers().add(p);
-            if (Magna.getSettings().getShowAfk())
-                Bukkit.broadcastMessage(
-                        Chat.prefix + translate("afk.show.on", new TextStruct("%player%", p.getName())));
+            if (Magna.getSettings().getShowAfk()) {
+                Bukkit.broadcast(Component.text(Chat.prefix + translate("afk.show.on", new TextStruct("%player%", p.getName()))));
+            }
         }
     }
 
     public void removePlayer(Player p) {
         if (getAFKPlayers().contains(p)) {
             getAFKPlayers().remove(p);
-            if (Magna.getSettings().getShowAfk())
-                Bukkit.broadcastMessage(
-                        Chat.prefix + translate("afk.show.off", new TextStruct("%player%", p.getName())));
+            if (Magna.getSettings().getShowAfk()) {
+                Bukkit.broadcast(Component.text(Chat.prefix + translate("afk.show.off", new TextStruct("%player%", p.getName()))));
+            }
         }
     }
 
