@@ -2,13 +2,13 @@ package de.morigm.magna.commands;
 
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.censor.CensorType;
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.command.CommandSender;
 
 import static de.morigm.magna.api.Magna.getBlackListManager;
 
-public class CMDCensor extends Command {
+public class CMDCensor extends PluginCommand {
 
     @Override
     public void registerUtils() {

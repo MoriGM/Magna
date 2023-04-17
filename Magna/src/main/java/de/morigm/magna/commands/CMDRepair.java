@@ -1,6 +1,6 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.items.ItemIs;
 import de.morigm.magna.chat.Chat;
 import lombok.NonNull;
@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class CMDRepair extends Command {
+public class CMDRepair extends PluginCommand {
 
     @Override
     public void registerUtils() {

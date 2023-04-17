@@ -1,6 +1,6 @@
 package de.morigm.magnaworld.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
@@ -8,7 +8,7 @@ import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class MWTP extends Command {
+public class MWTP extends PluginCommand {
 
     @Override
     public void registerUtils() {

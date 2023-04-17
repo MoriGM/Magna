@@ -1,13 +1,13 @@
 package de.morigm.magna.commands;
 
 import de.morigm.magna.api.chat.ChatColor;
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CMDFly extends Command {
+public class CMDFly extends PluginCommand {
 
     @Override
     public void registerUtils() {

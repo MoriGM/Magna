@@ -1,12 +1,12 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.mojang.MojangApi;
 import de.morigm.magna.chat.Chat;
 import lombok.SneakyThrows;
 import org.bukkit.command.CommandSender;
 
-public class CMDgetUUID extends Command {
+public class CMDgetUUID extends PluginCommand {
 
     @Override
     public void registerUtils() {

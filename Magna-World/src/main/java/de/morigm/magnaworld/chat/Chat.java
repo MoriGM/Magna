@@ -1,8 +1,8 @@
 package de.morigm.magnaworld.chat;
 
+import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magnaworld.api.MagnaWorld;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 
 public class Chat {
 
@@ -11,11 +11,11 @@ public class Chat {
     public static final String name = MagnaWorld.getName();
 
     public static void writeMessage(String text) {
-        Bukkit.getConsoleSender().sendMessage(Chat.prefix + text);
+        Bukkit.getConsoleSender().sendPlainMessage(Chat.prefix + text);
     }
 
     public static void writeError(String text) {
-        Bukkit.getConsoleSender().sendMessage(Chat.prefix + ChatColor.RED + text);
+        Bukkit.getConsoleSender().sendPlainMessage(Chat.prefix + ChatColor.RED + text);
     }
 
 }

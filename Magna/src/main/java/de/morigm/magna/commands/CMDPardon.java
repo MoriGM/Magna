@@ -1,12 +1,12 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
-public class CMDPardon extends Command {
+public class CMDPardon extends PluginCommand {
 
     @Override
     public void registerUtils() {

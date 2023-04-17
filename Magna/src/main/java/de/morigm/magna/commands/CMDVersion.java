@@ -1,13 +1,13 @@
 package de.morigm.magna.commands;
 
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.gui.DebugGui;
 import org.bukkit.command.CommandSender;
 
-public class CMDVersion extends Command {
+public class CMDVersion extends PluginCommand {
 
     @Override
     public void registerUtils() {

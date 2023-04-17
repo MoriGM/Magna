@@ -1,6 +1,6 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.api.home.Home;
 import de.morigm.magna.chat.Chat;
@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 import static de.morigm.magna.api.Magna.getHomeManager;
 
-public class CMDSetHome extends Command {
+public class CMDSetHome extends PluginCommand {
 
     @Override
     public void registerUtils() {

@@ -1,16 +1,16 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.helper.StringHelper;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import de.morigm.magna.api.chat.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import static de.morigm.magna.api.Magna.getMSGManager;
 
-public class CMDMSG extends Command {
+public class CMDMSG extends PluginCommand {
     @Override
     public void registerUtils() {
         util().registerCommandName(getCommand());

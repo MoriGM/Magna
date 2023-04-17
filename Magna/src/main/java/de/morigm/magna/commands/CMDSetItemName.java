@@ -1,13 +1,14 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class CMDSetItemName extends Command {
+public class CMDSetItemName extends PluginCommand {
 
     @Override
     public void registerUtils() {
@@ -24,12 +25,12 @@ public class CMDSetItemName extends Command {
                     if (p.getInventory().getItemInMainHand() != null
                             && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
                         ItemMeta meta = p.getInventory().getItemInMainHand().getItemMeta();
-                        meta.setDisplayName(args[0]);
+                        meta.displayName(Component.text(args[0]));
                         p.getInventory().getItemInMainHand().setItemMeta(meta);
                     } else
-                        p.sendMessage(Chat.prefix + translate("cmd.setitemname.error"));
+                        p.sendPlainMessage(Chat.prefix + translate("cmd.setitemname.error"));
                 } else
-                    p.sendMessage(Chat.prefix + "/" + getCommand() + " <name>");
+                    p.sendPlainMessage(Chat.prefix + "/" + getCommand() + " <name>");
             } else
                 Chat.noPermission(p);
         } else

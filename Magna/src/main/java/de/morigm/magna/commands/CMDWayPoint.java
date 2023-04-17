@@ -1,7 +1,7 @@
 package de.morigm.magna.commands;
 
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.waypoint.WayPoint;
 import de.morigm.magna.chat.Chat;
@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 
-public class CMDWayPoint extends Command {
+public class CMDWayPoint extends PluginCommand {
 
     @Override
     public void registerUtils() {

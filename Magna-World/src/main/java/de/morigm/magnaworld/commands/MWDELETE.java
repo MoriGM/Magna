@@ -1,6 +1,6 @@
 package de.morigm.magnaworld.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.helper.FileHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
@@ -11,7 +11,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MWDELETE extends Command {
+public class MWDELETE extends PluginCommand {
 
     @Override
     public void registerUtils() {

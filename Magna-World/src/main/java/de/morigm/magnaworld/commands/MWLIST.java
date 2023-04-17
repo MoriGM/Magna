@@ -1,12 +1,12 @@
 package de.morigm.magnaworld.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 
-public class MWLIST extends Command {
+public class MWLIST extends PluginCommand {
 
     @Override
     public void registerUtils() {

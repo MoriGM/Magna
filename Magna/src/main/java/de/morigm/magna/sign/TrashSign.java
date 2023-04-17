@@ -1,8 +1,9 @@
 package de.morigm.magna.sign;
 
+import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magna.api.sign.SignListener;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -17,7 +18,7 @@ public class TrashSign extends SignListener {
 
     @Override
     public void onClick(Sign sign, Player player) {
-        Inventory inv = Bukkit.createInventory(null, (9 * 6), (ChatColor.RED + "TrashSign"));
+        Inventory inv = Bukkit.createInventory(null, (9 * 6), Component.text(ChatColor.RED + "TrashSign"));
         player.openInventory(inv);
     }
 

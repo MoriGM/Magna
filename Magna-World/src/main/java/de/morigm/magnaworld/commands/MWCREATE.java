@@ -1,6 +1,6 @@
 package de.morigm.magnaworld.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.convert.Convert;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
@@ -10,7 +10,7 @@ import org.bukkit.World.Environment;
 import org.bukkit.WorldType;
 import org.bukkit.command.CommandSender;
 
-public class MWCREATE extends Command {
+public class MWCREATE extends PluginCommand {
 
     @Override
     public void registerUtils() {

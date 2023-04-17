@@ -6,6 +6,7 @@ import de.morigm.magna.api.manager.PermissionManager;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -62,7 +63,7 @@ public abstract class Gui implements PermissionHelper {
         if (this.getName().isEmpty())
             this.inventory = Bukkit.createInventory(player, size);
         else
-            this.inventory = Bukkit.createInventory(player, size, name);
+            this.inventory = Bukkit.createInventory(player, size, Component.text(name));
         for (GuiButton button : getGuiButtons())
             if (button.getSlot() >= 0)
                 this.inventory.setItem(button.getSlot(), button.getItem());

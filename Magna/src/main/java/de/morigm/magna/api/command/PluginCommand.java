@@ -13,7 +13,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public abstract class Command implements CommandExecutor, PermissionHelper, Translation {
+public abstract class PluginCommand implements CommandExecutor, PermissionHelper, Translation {
 
     private String name = "";
     private Language language;

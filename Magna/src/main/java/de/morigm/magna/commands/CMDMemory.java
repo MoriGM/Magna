@@ -1,13 +1,13 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.memory.MemoryManager.MemoryType;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.command.CommandSender;
 
 import static de.morigm.magna.api.Magna.getMemoryManager;
 
-public class CMDMemory extends Command {
+public class CMDMemory extends PluginCommand {
 
     @Override
     public void registerUtils() {

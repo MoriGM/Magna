@@ -1,9 +1,9 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import de.morigm.magna.api.chat.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -12,7 +12,7 @@ import java.util.UUID;
 
 import static de.morigm.magna.api.Magna.getMutedPlayerManager;
 
-public class CMDMute extends Command {
+public class CMDMute extends PluginCommand {
 
     @Override
     public void registerUtils() {

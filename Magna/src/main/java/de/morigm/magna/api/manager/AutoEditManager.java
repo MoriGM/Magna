@@ -2,7 +2,7 @@ package de.morigm.magna.api.manager;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.autoedit.AutoEditStruct;
-import de.morigm.magna.api.autoedit.CumstomPlayerAutoEditStruct;
+import de.morigm.magna.api.autoedit.CustomPlayerAutoEditStruct;
 import de.morigm.magna.api.autoedit.CustomAutoEditStruct;
 import de.morigm.magna.api.autoedit.PlayerAutoEditStruct;
 import org.bukkit.entity.Player;
@@ -15,7 +15,7 @@ public class AutoEditManager {
         String edittext = text;
         if (text.contains("[") && text.contains("]")) {
             for (CustomAutoEditStruct s : getCustomAutoEditStructs())
-                edittext = edittext.replace(s.name, s.edit);
+                edittext = edittext.replace(s.name(), s.edit());
             for (AutoEditStruct s : getAutoEditStructs())
                 edittext = edittext.replace(s.getName(), s.getEdit());
         }
@@ -25,12 +25,12 @@ public class AutoEditManager {
     public String getChangesFromEdit(String text, Player p) {
         String edittext = text;
         if (text.contains("[") && text.contains("]")) {
-            for (CumstomPlayerAutoEditStruct s : getCustomPlayerAutoEditStructs())
-                if (s.uuid.equals(p.getUniqueId().toString()))
-                    edittext = edittext.replace(s.name, s.edit);
+            for (CustomPlayerAutoEditStruct s : getCustomPlayerAutoEditStructs())
+                if (s.uuid().equals(p.getUniqueId().toString()))
+                    edittext = edittext.replace(s.name(), s.edit());
 
             for (CustomAutoEditStruct s : getCustomAutoEditStructs())
-                edittext = edittext.replace(s.name, s.edit);
+                edittext = edittext.replace(s.name(), s.edit());
 
             for (PlayerAutoEditStruct s : getPlayerAutoEditStructs())
                 edittext = edittext.replace(s.getName(), s.getEdit(p));
@@ -53,7 +53,7 @@ public class AutoEditManager {
         return Main.getInstance().getAutoEditLoader().getCustomAutoEditStructs();
     }
 
-    public List<CumstomPlayerAutoEditStruct> getCustomPlayerAutoEditStructs() {
+    public List<CustomPlayerAutoEditStruct> getCustomPlayerAutoEditStructs() {
         return Main.getInstance().getAutoEditLoader().getCustomPlayerAutoEditStructs();
     }
 

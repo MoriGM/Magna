@@ -1,5 +1,7 @@
 package de.morigm.magna.api.config;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -39,13 +41,16 @@ public class FileConfig {
 
     public static void saveInventory(FileConfiguration config, Inventory inv, String pos) {
         config.set(pos + ".size", inv.getSize());
-        if (inv instanceof InventoryView invv) {
-            invv.getTitle();
-            if (!invv.getTitle().isEmpty())
-                config.set(pos + ".name", invv.getTitle());
-            for (int i = 0; i < inv.getSize(); i++)
-                if (inv.getItem(i) != null && !inv.getItem(i).getType().equals(Material.AIR))
+        if (inv instanceof InventoryView invView) {
+            TextComponent title = (TextComponent) invView.title();
+            if (!title.content().isEmpty()) {
+                config.set(pos + ".name", title.content());
+            }
+            for (int i = 0; i < inv.getSize(); i++) {
+                if (inv.getItem(i) != null && !inv.getItem(i).getType().equals(Material.AIR)) {
                     config.set(pos + "." + i, inv.getItem(i));
+                }
+            }
         }
     }
 
@@ -53,7 +58,7 @@ public class FileConfig {
         if (config.contains(pos + ".size")) {
             Inventory inv;
             if (config.contains(pos + ".name"))
-                inv = Bukkit.createInventory(null, config.getInt(pos + ".size"), config.getString(pos + ".name"));
+                inv = Bukkit.createInventory(null, config.getInt(pos + ".size"), Component.text(config.getString(pos + ".name")));
             else
                 inv = Bukkit.createInventory(null, config.getInt(pos + ".size"));
             for (int i = 0; i < config.getInt(pos + ".size"); i++)

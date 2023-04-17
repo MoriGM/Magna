@@ -1,6 +1,6 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.group.Group;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
@@ -11,7 +11,7 @@ import java.util.List;
 
 import static de.morigm.magna.api.Magna.getGroupManager;
 
-public class CMDKickAll extends Command {
+public class CMDKickAll extends PluginCommand {
 
     @Override
     public void registerUtils() {

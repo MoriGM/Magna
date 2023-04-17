@@ -1,13 +1,13 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import static de.morigm.magna.api.Magna.getWarpManager;
 
-public class CMDWarp extends Command {
+public class CMDWarp extends PluginCommand {
 
     @Override
     public void registerUtils() {

@@ -1,11 +1,11 @@
 package de.morigm.magna.commands;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.command.CommandSender;
 
-public class CMDReloadConfig extends Command {
+public class CMDReloadConfig extends PluginCommand {
 
     @Override
     public void registerUtils() {

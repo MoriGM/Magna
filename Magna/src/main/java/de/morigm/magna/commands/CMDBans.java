@@ -1,6 +1,6 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.BanEntry;
 import org.bukkit.BanList;
@@ -8,7 +8,7 @@ import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
-public class CMDBans extends Command {
+public class CMDBans extends PluginCommand {
 
     @Override
     public void registerUtils() {

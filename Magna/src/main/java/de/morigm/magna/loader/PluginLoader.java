@@ -18,7 +18,7 @@ public class PluginLoader {
         new CMDIP().register("ip");
         new CMDTPAll().register("tpall");
         new CMDItemHead().register("itemhead");
-        new CMDCommandSpy().register("cmdspy");
+        new CMDPluginCommandSpy().register("cmdspy");
         new CMDReloadConfig().register("magna-reloadconfig");
         new CMDGetPos().register("getpos");
         new CMDSetWarp().register("setwarp");

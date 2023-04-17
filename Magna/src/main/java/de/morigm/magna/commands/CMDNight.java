@@ -1,11 +1,11 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CMDNight extends Command {
+public class CMDNight extends PluginCommand {
 
     @Override
     public void registerUtils() {

@@ -1,6 +1,6 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.mojang.MojangApi;
 import de.morigm.magna.chat.Chat;
 import lombok.SneakyThrows;
@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
-public class CMDSkull extends Command {
+public class CMDSkull extends PluginCommand {
 
     @Override
     public void registerUtils() {

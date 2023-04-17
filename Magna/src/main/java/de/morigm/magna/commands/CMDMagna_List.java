@@ -1,10 +1,10 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.group.Group;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import de.morigm.magna.api.chat.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -14,7 +14,7 @@ import java.util.Map.Entry;
 
 import static de.morigm.magna.api.Magna.getGroupManager;
 
-public class CMDMagna_List extends Command {
+public class CMDMagna_List extends PluginCommand {
 
     @Override
     public void registerUtils() {

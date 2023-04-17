@@ -1,6 +1,6 @@
 package de.morigm.magna.commands;
 
-import de.morigm.magna.api.command.Command;
+import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.deathback.DeathBack;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.command.CommandSender;
@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 import static de.morigm.magna.api.Magna.getDeathBackManager;
 
-public class CMDGoDeathBack extends Command {
+public class CMDGoDeathBack extends PluginCommand {
 
     @Override
     public void registerUtils() {

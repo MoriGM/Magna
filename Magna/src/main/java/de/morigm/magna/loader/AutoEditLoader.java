@@ -1,7 +1,7 @@
 package de.morigm.magna.loader;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.autoedit.CumstomPlayerAutoEditStruct;
+import de.morigm.magna.api.autoedit.CustomPlayerAutoEditStruct;
 import de.morigm.magna.api.autoedit.CustomAutoEditStruct;
 import de.morigm.magna.config.AutoEditConfig;
 import lombok.Getter;
@@ -14,7 +14,7 @@ public class AutoEditLoader {
     @Getter
     private final List<CustomAutoEditStruct> customAutoEditStructs = new ArrayList<>();
     @Getter
-    private final List<CumstomPlayerAutoEditStruct> customPlayerAutoEditStructs = new ArrayList<>();
+    private final List<CustomPlayerAutoEditStruct> customPlayerAutoEditStructs = new ArrayList<>();
 
     public void loadPlayerEdit() {
         for (String key : getAutoEditConfig().getConfigPlayer().getKeys(true)) {
@@ -23,7 +23,7 @@ public class AutoEditLoader {
                 String uuid = kys[0];
                 String name = "[" + kys[1] + "]";
                 String edit = getAutoEditConfig().getConfigPlayer().getString(key);
-                CumstomPlayerAutoEditStruct struct = new CumstomPlayerAutoEditStruct(name, edit, uuid);
+                CustomPlayerAutoEditStruct struct = new CustomPlayerAutoEditStruct(name, edit, uuid);
                 getCustomPlayerAutoEditStructs().add(struct);
             }
         }
