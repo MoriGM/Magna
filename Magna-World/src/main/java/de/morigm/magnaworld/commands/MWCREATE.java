@@ -4,7 +4,7 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.convert.Convert;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
-import de.morigm.magnaworld.api.helper.EnumHelper;
+import de.morigm.magnaworld.api.helper.WorldHelper;
 import de.morigm.magnaworld.api.world.WorldStruct;
 import lombok.NonNull;
 import org.bukkit.World.Environment;
@@ -25,7 +25,7 @@ public class MWCREATE extends PluginCommand {
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
         if (checkPermission(sender, "mwcreate")) {
-            if (args.length >= 3 && EnumHelper.isEnvironment(args[1]) && EnumHelper.isWorldType(args[2])) {
+            if (args.length >= 3 && WorldHelper.isEnvironment(args[1]) && WorldHelper.isWorldType(args[2])) {
                 String name = args[0];
                 if (!MagnaWorld.containsWorld(name)) {
                     WorldType type = WorldType.valueOf(args[2]);
