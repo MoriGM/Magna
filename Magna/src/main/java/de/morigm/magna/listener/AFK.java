@@ -1,13 +1,13 @@
 package de.morigm.magna.listener;
 
 import de.morigm.magna.api.listner.Listener;
+import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -41,7 +41,7 @@ public class AFK extends Listener {
     }
 
     @EventHandler
-    public void testIfAFK(AsyncPlayerChatEvent e) {
+    public void testIfAFK(AsyncChatEvent e) {
         getAFKManager().updateCurrentPlayer(e.getPlayer());
     }
 
@@ -91,7 +91,7 @@ public class AFK extends Listener {
     }
 
     @EventHandler
-    public void testIfNotAFK(AsyncPlayerChatEvent e) {
+    public void testIfNotAFK(AsyncChatEvent e) {
         if (getAFKManager().isAfk(e.getPlayer())) {
             getAFKManager().removePlayer(e.getPlayer());
             getAFKManager().updateTimeAndLocation(e.getPlayer(), e.getPlayer().getLocation(),
