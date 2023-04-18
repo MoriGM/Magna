@@ -13,7 +13,7 @@ public class TrashSign extends SignListener {
 
     @Override
     public boolean onCreate(String[] lines, Player p, Block sign) {
-        return testPermission(p, "createtrashsign");
+        return checkPermission(p, "createtrashsign");
     }
 
     @Override

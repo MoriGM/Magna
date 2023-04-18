@@ -3,7 +3,9 @@ package de.morigm.magna.commands;
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.memory.MemoryManager.MemoryType;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 import static de.morigm.magna.api.Magna.getMemoryManager;
 
@@ -19,8 +21,8 @@ public class CMDMemory extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
-        if (testPermission(com, "memory")) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (checkPermission(com, "memory")) {
             if (args.length >= 1) {
                 if (args[0].equalsIgnoreCase("GIGABYTE") || args[0].equalsIgnoreCase("GB")) {
                     com.sendMessage(Chat.prefix + translate("cmd.memory.used") + ":"

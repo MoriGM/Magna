@@ -5,8 +5,10 @@ import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.api.home.Home;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Location;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import static de.morigm.magna.api.Magna.getHomeManager;
 
@@ -21,10 +23,10 @@ public class CMDSetHome extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (PlayerHelper.isPlayer(com)) {
             Player p = (Player) com;
-            if (testPermission(p, "sethome")) {
+            if (checkPermission(p, "sethome")) {
                 if (args.length >= 1) {
                     String name = args[0];
                     Location loc = p.getLocation();

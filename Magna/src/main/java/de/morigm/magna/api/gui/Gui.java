@@ -15,7 +15,7 @@ import org.bukkit.inventory.Inventory;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Gui implements PermissionHelper {
+public abstract class Gui extends PermissionHelper {
 
     @Getter
     private final List<GuiButton> guiButtons = new ArrayList<>();
@@ -64,10 +64,12 @@ public abstract class Gui implements PermissionHelper {
             this.inventory = Bukkit.createInventory(player, size);
         else
             this.inventory = Bukkit.createInventory(player, size, Component.text(name));
-        for (GuiButton button : getGuiButtons())
-            if (button.getSlot() >= 0)
+        for (GuiButton button : getGuiButtons()) {
+            if (button.getSlot() >= 0) {
                 this.inventory.setItem(button.getSlot(), button.getItem());
-        for (GuiButton button : getGuiButtons().toArray(new GuiButton[0]))
+            }
+        }
+        for (GuiButton button : getGuiButtons().toArray(new GuiButton[0])) {
             if (button.getSlot() == -1) {
                 int slot = this.inventory.firstEmpty();
                 GuiButton gb = new GuiButton(button.getItem(), button.getId(), slot);
@@ -75,18 +77,20 @@ public abstract class Gui implements PermissionHelper {
                 getGuiButtons().add(gb);
                 this.inventory.setItem(slot, gb.getItem());
             }
+        }
     }
 
     public void registerClick(int slot) {
-        for (GuiButton button : getGuiButtons())
+        for (GuiButton button : getGuiButtons()) {
             if (button.getSlot() == slot) {
                 this.onClick(button);
                 return;
             }
+        }
     }
 
     @Override
-    public boolean testPermission(CommandSender p, String permission) {
+    public boolean checkPermission(CommandSender p, String permission) {
         return p.hasPermission(getPermission(permission));
     }
 

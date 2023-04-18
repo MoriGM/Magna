@@ -6,7 +6,9 @@ import org.bukkit.BanEntry;
 import org.bukkit.BanList;
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 public class CMDBans extends PluginCommand {
 
@@ -17,8 +19,8 @@ public class CMDBans extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
-        if (testPermission(com, "bans")) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (checkPermission(com, "bans")) {
             String bans = "";
             BanList list = Bukkit.getBanList(Type.NAME);
             for (BanEntry ban : list.getBanEntries())

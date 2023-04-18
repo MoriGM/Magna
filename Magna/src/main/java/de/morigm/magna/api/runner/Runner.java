@@ -11,7 +11,7 @@ import lombok.Getter;
 import org.bukkit.command.CommandSender;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public abstract class Runner implements Translation, PermissionHelper {
+public abstract class Runner extends PermissionHelper implements Translation {
 
     @Getter
     private String name;
@@ -83,7 +83,7 @@ public abstract class Runner implements Translation, PermissionHelper {
     }
 
     @Override
-    public boolean testPermission(CommandSender p, String permission) {
+    public boolean checkPermission(CommandSender p, String permission) {
         return p.hasPermission(this.getPermission(permission));
     }
 

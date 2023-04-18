@@ -13,7 +13,7 @@ import org.bukkit.block.Sign;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public abstract class SignListener implements Translation, PermissionHelper {
+public abstract class SignListener extends PermissionHelper implements Translation {
 
     @Getter
     private String name;
@@ -57,7 +57,7 @@ public abstract class SignListener implements Translation, PermissionHelper {
     }
 
     @Override
-    public boolean testPermission(CommandSender p, String permission) {
+    public boolean checkPermission(CommandSender p, String permission) {
         return p.hasPermission(this.getPermission(permission));
     }
 

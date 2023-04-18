@@ -4,7 +4,9 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.convert.Convert;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
+import lombok.NonNull;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -20,10 +22,10 @@ public class CMDSpeed extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
+    public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
         if (PlayerHelper.isPlayer(sender)) {
             Player p = (Player) sender;
-            if (testPermission(p, "speed"))
+            if (checkPermission(p, "speed"))
                 if (args.length >= 1) {
                     if (Convert.isInteger(args[0])) {
                         float f = Float.parseFloat(args[0]) / 10;

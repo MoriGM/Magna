@@ -4,8 +4,10 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.group.Group;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import static de.morigm.magna.api.Magna.getGroupManager;
 
@@ -21,8 +23,8 @@ public class CMDMagna_Id extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
-        if (testPermission(com, "magna-id")) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (checkPermission(com, "magna-id")) {
             if (getGroupManager().getGroups().length >= 1) {
                 if (com instanceof Player t) {
                     if (args.length >= 1)

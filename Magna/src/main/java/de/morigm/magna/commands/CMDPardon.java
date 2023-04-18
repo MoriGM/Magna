@@ -4,7 +4,9 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 public class CMDPardon extends PluginCommand {
 
@@ -18,8 +20,8 @@ public class CMDPardon extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
-        if (testPermission(com, "pardon")) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (checkPermission(com, "pardon")) {
             if (args.length >= 1) {
                 String t = args[0];
                 if (Bukkit.getBanList(Type.NAME).isBanned(t)) {

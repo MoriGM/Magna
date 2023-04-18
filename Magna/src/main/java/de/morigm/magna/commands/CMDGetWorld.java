@@ -2,8 +2,10 @@ package de.morigm.magna.commands;
 
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class CMDGetWorld extends PluginCommand {
 
@@ -15,9 +17,9 @@ public class CMDGetWorld extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (com instanceof Player p) {
-            if (testPermission(p, "getworld")) {
+            if (checkPermission(p, "getworld")) {
                 p.sendMessage(Chat.prefix + translate("cmd.getworld") + " " + p.getWorld().getName());
             } else
                 Chat.noPermission(p);

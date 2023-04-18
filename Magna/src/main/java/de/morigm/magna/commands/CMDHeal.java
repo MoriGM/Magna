@@ -4,8 +4,10 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class CMDHeal extends PluginCommand {
 
@@ -18,9 +20,9 @@ public class CMDHeal extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (com instanceof Player t) {
-            if (testPermission(com, "heal")) {
+            if (checkPermission(com, "heal")) {
                 if (args.length >= 1)
                     t = Bukkit.getPlayer(args[0]);
                 if (t != null) {

@@ -43,7 +43,7 @@ public class HomeLoader implements Loader, Saver {
         for (UUID uuid : player_home_map.keySet()) {
             List<Home> homes = player_home_map.get(uuid);
             for (Home home : homes)
-                FileConfig.setLocation(getConfig(), uuid.toString() + "." + home.name, home.location);
+                FileConfig.setLocation(getConfig(), uuid.toString() + "." + home.name(), home.location());
         }
     }
 

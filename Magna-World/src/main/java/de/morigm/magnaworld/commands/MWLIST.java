@@ -2,8 +2,10 @@ package de.morigm.magnaworld.commands;
 
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
+import lombok.NonNull;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 public class MWLIST extends PluginCommand {
@@ -15,8 +17,8 @@ public class MWLIST extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
-        if (testPermission(sender, "mwlist")) {
+    public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
+        if (checkPermission(sender, "mwlist")) {
             String worlds = "";
             for (World w : Bukkit.getWorlds())
                 worlds += w.getName() + ",";

@@ -10,22 +10,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-public class HomeManager implements PermissionHelper {
+public class HomeManager extends PermissionHelper {
 
     private static final int maxHomes = 50;
 
     public List<Home> getPlayerHomes(Player player) {
-        if (getAllHomes().containsKey(player.getUniqueId()))
+        if (getAllHomes().containsKey(player.getUniqueId())) {
             return getAllHomes().get(player.getUniqueId());
-        else
-            return new ArrayList<>();
+        }
+        return new ArrayList<>();
     }
 
     public void setHome(Player player, Home home) {
-        if (hasHome(player, home.name))
-            removeHome(player, home.name);
+        if (hasHome(player, home.name())) {
+            removeHome(player, home.name());
+        }
 
-        if (!hasHome(player, home.name) && getPlayerHomes(player).size() < maxPlayerHomes(player)) {
+        if (!hasHome(player, home.name()) && getPlayerHomes(player).size() < maxPlayerHomes(player)) {
             List<Home> homes = getPlayerHomes(player);
             homes.add(home);
             getAllHomes().put(player.getUniqueId(), homes);
@@ -41,9 +42,11 @@ public class HomeManager implements PermissionHelper {
     }
 
     public Home getHome(Player player, String name) {
-        for (Home home : getPlayerHomes(player))
-            if (home.name.equals(name))
+        for (Home home : getPlayerHomes(player)) {
+            if (home.name().equals(name)) {
                 return home;
+            }
+        }
         return null;
     }
 

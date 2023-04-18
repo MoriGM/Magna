@@ -13,7 +13,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlackListLoader implements Loader, Saver, PermissionHelper {
+public class BlackListLoader extends PermissionHelper implements Loader, Saver {
 
     @Getter
     private final List<BlackWord> blackWords = new ArrayList<>();

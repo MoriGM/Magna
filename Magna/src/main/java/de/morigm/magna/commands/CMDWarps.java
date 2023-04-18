@@ -3,8 +3,10 @@ package de.morigm.magna.commands;
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.warp.Warp;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import static de.morigm.magna.api.Magna.getWarpManager;
 
@@ -18,9 +20,9 @@ public class CMDWarps extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (com instanceof Player p) {
-            if (testPermission(p, "warps")) {
+            if (checkPermission(p, "warps")) {
                 StringBuilder warps = new StringBuilder();
                 for (Warp w : getWarpManager().getWarps())
                     if (warps.length() == 0)

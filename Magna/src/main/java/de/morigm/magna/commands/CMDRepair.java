@@ -25,7 +25,7 @@ public class CMDRepair extends PluginCommand {
     public boolean onCommand(@NonNull CommandSender com, @NonNull org.bukkit.command.Command cmd, @NonNull String label, @NonNull String[] args) {
         if (isPlayer(com)) {
             Player p = (Player) com;
-            if (testPermission(p, "repair")) {
+            if (checkPermission(p, "repair")) {
                 if (p.getInventory().getItemInMainHand() != null
                         && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR)
                         && ItemIs.repairable(p.getInventory().getItemInMainHand())) {

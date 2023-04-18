@@ -4,7 +4,9 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.mojang.MojangApi;
 import de.morigm.magna.chat.Chat;
 import lombok.SneakyThrows;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 public class CMDgetUUID extends PluginCommand {
 
@@ -16,8 +18,8 @@ public class CMDgetUUID extends PluginCommand {
 
     @SneakyThrows
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
-        if (testPermission(com, "getuuid")) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (checkPermission(com, "getuuid")) {
             if (args.length >= 1) {
                 String name = args[0];
                 com.sendMessage(Chat.prefix + "UUID:" + MojangApi.getPlayerUUID(name));

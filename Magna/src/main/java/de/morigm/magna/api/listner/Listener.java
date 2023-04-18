@@ -10,7 +10,7 @@ import de.morigm.magna.api.translation.Translation;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Listener implements org.bukkit.event.Listener, PermissionHelper, Translation {
+public class Listener extends PermissionHelper implements org.bukkit.event.Listener, Translation {
 
     private Language language;
     private PermissionManager permission;

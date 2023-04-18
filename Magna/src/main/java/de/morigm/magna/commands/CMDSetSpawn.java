@@ -3,8 +3,10 @@ package de.morigm.magna.commands;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class CMDSetSpawn extends PluginCommand {
 
@@ -16,9 +18,9 @@ public class CMDSetSpawn extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (com instanceof Player p) {
-            if (testPermission(com, "setspawn")) {
+            if (checkPermission(com, "setspawn")) {
                 Magna.getSettings().setSpawn(p.getLocation());
                 p.sendMessage(Chat.prefix + translate("cmd.setspawn"));
             } else

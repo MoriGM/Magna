@@ -4,7 +4,9 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.helper.FileHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
+import lombok.NonNull;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import java.io.File;
@@ -22,8 +24,8 @@ public class MWDELETE extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
-        if (testPermission(sender, "mwdelete")) {
+    public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
+        if (checkPermission(sender, "mwdelete")) {
             if (args.length >= 1) {
                 String name = args[0];
                 if (MagnaWorld.containsWorld(name)) {

@@ -1,10 +1,10 @@
 package de.morigm.magna.listener;
 
 import de.morigm.magna.Main;
+import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magna.api.listner.Listener;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
-import de.morigm.magna.api.chat.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;

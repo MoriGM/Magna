@@ -5,6 +5,7 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.waypoint.WayPoint;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -23,7 +24,7 @@ public class CMDWayPoint extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command command, String s, String[] args) {
+    public boolean onCommand(CommandSender com, Command command, String s, String[] args) {
         if (!isPlayer(com)) {
             Chat.noConsole(com);
             return false;

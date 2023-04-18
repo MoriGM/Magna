@@ -11,9 +11,7 @@ public class Convert {
     }
 
     public static boolean isBoolean(String s) {
-        if (s.equals("false") || s.equals("true"))
-            return true;
-        return false;
+        return s.equals("false") || s.equals("true");
     }
 
     public static boolean isFloat(String s) {

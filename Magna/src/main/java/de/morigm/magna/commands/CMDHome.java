@@ -3,8 +3,10 @@ package de.morigm.magna.commands;
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import static de.morigm.magna.api.Magna.getHomeManager;
 
@@ -19,15 +21,15 @@ public class CMDHome extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (PlayerHelper.isPlayer(com)) {
             Player p = (Player) com;
-            if (testPermission(p, "home")) {
+            if (checkPermission(p, "home")) {
                 if (args.length >= 1) {
                     String name = args[0];
                     if (getHomeManager().hasHome(p, name)) {
                         de.morigm.magna.api.home.Home home = getHomeManager().getHome(p, name);
-                        p.teleport(home.location);
+                        p.teleport(home.location());
                         p.sendMessage(Chat.prefix + translate("cmd.home"));
                     } else
                         p.sendMessage(Chat.prefix + translate("cmd.home.exists"));

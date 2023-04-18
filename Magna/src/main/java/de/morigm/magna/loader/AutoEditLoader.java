@@ -1,8 +1,8 @@
 package de.morigm.magna.loader;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.autoedit.CustomPlayerAutoEditStruct;
 import de.morigm.magna.api.autoedit.CustomAutoEditStruct;
+import de.morigm.magna.api.autoedit.CustomPlayerAutoEditStruct;
 import de.morigm.magna.config.AutoEditConfig;
 import lombok.Getter;
 

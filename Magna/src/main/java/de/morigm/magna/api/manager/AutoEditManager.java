@@ -2,8 +2,8 @@ package de.morigm.magna.api.manager;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.autoedit.AutoEditStruct;
-import de.morigm.magna.api.autoedit.CustomPlayerAutoEditStruct;
 import de.morigm.magna.api.autoedit.CustomAutoEditStruct;
+import de.morigm.magna.api.autoedit.CustomPlayerAutoEditStruct;
 import de.morigm.magna.api.autoedit.PlayerAutoEditStruct;
 import org.bukkit.entity.Player;
 

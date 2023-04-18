@@ -1,10 +1,12 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
-import de.morigm.magna.api.chat.ChatColor;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import static de.morigm.magna.api.Magna.getCommandSpyManager;
 
@@ -20,9 +22,9 @@ public class CMDPluginCommandSpy extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (com instanceof Player p) {
-            if (testPermission(p, "cmdspy")) {
+            if (checkPermission(p, "cmdspy")) {
                 getCommandSpyManager().togglePlayer(p);
                 p.sendMessage(Chat.prefix + translate("cmd.cmdspy") + " "
                         + (getCommandSpyManager().containsPlayer(p) ? (ChatColor.GREEN + translate("cmd.cmdspy.on"))

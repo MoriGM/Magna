@@ -4,7 +4,10 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
 import de.morigm.magnaworld.api.world.WorldStruct;
+import lombok.NonNull;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
@@ -19,8 +22,8 @@ public class MWIMPORT extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
-        if (testPermission(sender, "mwimport")) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NonNull String[] args) {
+        if (checkPermission(sender, "mwimport")) {
             if (args.length >= 1) {
                 if (!MagnaWorld.containsWorld(args[0])) {
                     if (new File(args[0]).isDirectory()) {

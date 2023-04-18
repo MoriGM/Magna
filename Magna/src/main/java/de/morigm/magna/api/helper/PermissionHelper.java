@@ -4,13 +4,13 @@ import org.bukkit.command.CommandSender;
 
 import static de.morigm.magna.api.Magna.getPermissionManager;
 
-public interface PermissionHelper {
+public abstract class PermissionHelper {
 
-    default String getPermission(String Permission) {
+    public String getPermission(String Permission) {
         return getPermissionManager().getPermission(Permission);
     }
 
-    default boolean testPermission(CommandSender p, String permission) {
+    public boolean checkPermission(CommandSender p, String permission) {
         return p.hasPermission(getPermission(permission));
     }
 

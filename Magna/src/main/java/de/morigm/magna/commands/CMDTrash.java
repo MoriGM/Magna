@@ -1,12 +1,15 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
-import de.morigm.magna.api.chat.ChatColor;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.jetbrains.annotations.NotNull;
 
 public class CMDTrash extends PluginCommand {
 
@@ -17,10 +20,10 @@ public class CMDTrash extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (com instanceof Player p) {
-            if (testPermission(p, "trash")) {
-                Inventory inv = Bukkit.createInventory(null, (9 * 6), (ChatColor.RED + "Trash"));
+            if (checkPermission(p, "trash")) {
+                Inventory inv = Bukkit.createInventory(null, (9 * 6), Component.text(ChatColor.RED + "Trash"));
                 p.openInventory(inv);
             } else
                 Chat.noPermission(p);

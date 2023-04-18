@@ -13,7 +13,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public abstract class PluginCommand implements CommandExecutor, PermissionHelper, Translation {
+public abstract class PluginCommand extends PermissionHelper implements CommandExecutor, Translation {
 
     private String name = "";
     private Language language;
@@ -44,12 +44,15 @@ public abstract class PluginCommand implements CommandExecutor, PermissionHelper
 
     public void register(String cmdName, Language language, PermissionManager permission, JavaPlugin javaPlugin) {
         name = cmdName;
-        if (javaPlugin != null)
+        if (javaPlugin != null) {
             javaPlugin.getCommand(cmdName).setExecutor(this);
-        if (language != null)
+        }
+        if (language != null) {
             this.language = language;
-        if (permission != null)
+        }
+        if (permission != null) {
             this.permission = permission;
+        }
         registerUtils();
     }
 

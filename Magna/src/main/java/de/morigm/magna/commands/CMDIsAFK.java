@@ -4,8 +4,10 @@ import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class CMDIsAFK extends PluginCommand {
 
@@ -18,8 +20,8 @@ public class CMDIsAFK extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
-        if (testPermission(com, "isafk")) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (checkPermission(com, "isafk")) {
             if (args.length >= 1) {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t != null) {

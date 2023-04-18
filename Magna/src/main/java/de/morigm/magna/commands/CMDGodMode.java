@@ -2,7 +2,9 @@ package de.morigm.magna.commands;
 
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
+import lombok.NonNull;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -21,9 +23,9 @@ public class CMDGodMode extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command command, String label, String[] args) {
+    public boolean onCommand(@NonNull CommandSender com, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
         if (com instanceof Player p) {
-            if (testPermission(p, "godmode")) {
+            if (checkPermission(p, "godmode")) {
                 if (args.length >= 1) {
                     Player t = Bukkit.getPlayer(args[0]);
                     if (t != null) {

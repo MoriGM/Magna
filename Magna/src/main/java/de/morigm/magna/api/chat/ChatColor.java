@@ -6,7 +6,7 @@ public enum ChatColor {
     DARK_GRAY('8', "dark_gray"), BLUE('9', "blue"), GREEN('a', "green"), AQUA('b', "aqua"), RED('c', "red"),
     LIGHT_PURPLE('d', "light_purple"), YELLOW('e', "yellow"), WHITE('f', "white"), MAGIC('k', "obfuscated"),
     BOLD('l', "bold"), STRIKETHROUGH('m', "strikethrough"), UNDERLINE('n', "underline"), ITALIC('o', "italic"),
-    RESET('r', "reset"), COLOR_CHAR('§',"");
+    RESET('r', "reset"), COLOR_CHAR('§', "");
 
     private final String color_name;
     private final char color_char;

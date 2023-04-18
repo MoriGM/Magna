@@ -4,11 +4,11 @@ import de.morigm.magna.Main;
 
 public interface AutoEditStruct {
 
-    public String getName();
+    String getName();
 
-    public String getEdit();
+    String getEdit();
 
-    public default void register() {
+    default void register() {
         Main.getInstance().getRegisterAutoEdits().getAutoEditStructs().add(this);
     }
 

@@ -1,10 +1,12 @@
 package de.morigm.magna.commands;
 
+import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
+import lombok.NonNull;
 import org.bukkit.Bukkit;
-import de.morigm.magna.api.chat.ChatColor;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -27,8 +29,8 @@ public class CMDMute extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command command, String label, String[] args) {
-        if (testPermission(com, "mute")) {
+    public boolean onCommand(@NonNull CommandSender com, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
+        if (checkPermission(com, "mute")) {
             if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("list")) {
                     String players = "";

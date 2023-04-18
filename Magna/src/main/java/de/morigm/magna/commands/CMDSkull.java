@@ -6,10 +6,12 @@ import de.morigm.magna.chat.Chat;
 import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.jetbrains.annotations.NotNull;
 
 public class CMDSkull extends PluginCommand {
 
@@ -22,7 +24,7 @@ public class CMDSkull extends PluginCommand {
 
     @SneakyThrows
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (com instanceof Player p) {
             if (p.hasPermission(getPermission("skull"))) {
                 if (args.length >= 1) {

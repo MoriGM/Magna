@@ -5,6 +5,8 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.helper.PlayerHelper;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.gui.DebugGui;
+import lombok.NonNull;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 public class CMDVersion extends PluginCommand {
@@ -16,8 +18,8 @@ public class CMDVersion extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
-        if (PlayerHelper.isPlayer(sender) && !testPermission(sender, "version")) {
+    public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
+        if (PlayerHelper.isPlayer(sender) && !checkPermission(sender, "version")) {
             Chat.noPermission(sender);
             return false;
         }

@@ -4,8 +4,10 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public class CMDIP extends PluginCommand {
 
@@ -17,8 +19,8 @@ public class CMDIP extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
-        if (testPermission(com, "ip")) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (checkPermission(com, "ip")) {
             if (args.length >= 1) {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t != null)

@@ -4,8 +4,10 @@ import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.group.Group;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -23,8 +25,8 @@ public class CMDKickAll extends PluginCommand {
     }
 
     @Override
-    public boolean onCommand(CommandSender com, org.bukkit.command.Command cmd, String label, String[] args) {
-        if (testPermission(com, "kickall")) {
+    public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (checkPermission(com, "kickall")) {
             if (args.length >= 1) {
                 Group group = getGroupManager().getGroup(args[0]);
                 if (group != null) {
