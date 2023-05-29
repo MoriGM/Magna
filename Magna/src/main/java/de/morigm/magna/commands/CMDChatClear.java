@@ -18,7 +18,7 @@ public class CMDChatClear extends PluginCommand {
     public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (checkPermission(com, "chatclear"))
             for (int i = 0; i < 100; i++)
-                com.sendMessage(" ");
+                com.sendPlainMessage(" ");
         else
             Chat.noPermission(com);
         return false;

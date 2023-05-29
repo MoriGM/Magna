@@ -19,8 +19,6 @@ public class Main extends JavaPlugin {
     @Getter
     private static Main instance;
 
-    private PluginLoader pluginLoader;
-
     @Getter
     private PermissionManager permissionManager;
     @Getter
@@ -119,8 +117,8 @@ public class Main extends JavaPlugin {
         this.language.load();
         this.permissionManager = new PermissionManager(this.getResource("Permission.yml"));
         this.permissionManager.load();
-        this.pluginLoader = new PluginLoader();
-        this.pluginLoader.registerCommands();
+        PluginLoader pluginLoader = new PluginLoader();
+        pluginLoader.registerCommands();
         this.listeners = new Listeners();
         this.listeners.load();
         this.playerConfig = new PlayerConfig();
@@ -166,8 +164,8 @@ public class Main extends JavaPlugin {
         this.blackListManager = new BlackListManager();
         this.MSGManager = new MSGManager();
         this.runnerManager = new RunnerManager();
-        this.pluginLoader.registerRunners();
-        this.pluginLoader.startRunners();
+        pluginLoader.registerRunners();
+        pluginLoader.startRunners();
         this.AFKManager = new AFK();
         this.homeConfig = new HomeConfig();
         this.homeConfig.load();
@@ -175,7 +173,7 @@ public class Main extends JavaPlugin {
         this.homeLoader.load();
         this.homeManager = new HomeManager();
         this.signManager = new SignManager();
-        this.pluginLoader.registerSignListener();
+        pluginLoader.registerSignListener();
         this.onlyBreakManager = new OnlyBreakManager();
         this.wayPointManager = new WayPointManager();
         if (Magna.getSettings().getWarning() && !Magna.isSupported()) {

@@ -26,11 +26,11 @@ public class CMDPardon extends PluginCommand {
                 String t = args[0];
                 if (Bukkit.getBanList(Type.NAME).isBanned(t)) {
                     Bukkit.getBanList(Type.NAME).pardon(t);
-                    com.sendMessage(Chat.prefix + translate("cmd.pardon"));
+                    com.sendPlainMessage(Chat.prefix + translate("cmd.pardon"));
                 } else
-                    com.sendMessage(Chat.prefix + translate("cmd.pardon.error"));
+                    com.sendPlainMessage(Chat.prefix + translate("cmd.pardon.error"));
             } else
-                com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
+                com.sendPlainMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
         } else
             Chat.noPermission(com);
         return false;

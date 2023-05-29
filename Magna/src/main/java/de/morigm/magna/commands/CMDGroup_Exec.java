@@ -30,11 +30,11 @@ public class CMDGroup_Exec extends PluginCommand {
                         Bukkit.dispatchCommand(com,
                                 (args[1].startsWith("/") ? args[1].substring(1) : args[1]) + " "
                                         + t.getName());
-                    com.sendMessage(Chat.prefix + translate("cmd.group-exec"));
+                    com.sendPlainMessage(Chat.prefix + translate("cmd.group-exec"));
                 } else
-                    com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Group> <Command>");
+                    com.sendPlainMessage(Chat.prefix + Slash(com) + getCommand() + " <Group> <Command>");
             } else
-                com.sendMessage(Chat.prefix + Chat.no_group);
+                com.sendPlainMessage(Chat.prefix + Chat.no_group);
         } else
             Chat.noPermission(com);
         return false;

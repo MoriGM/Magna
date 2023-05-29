@@ -23,7 +23,7 @@ public class CMDOps extends PluginCommand {
             for (OfflinePlayer of : Bukkit.getOperators())
                 ops += of.getName() + ",";
             ops = ops.substring(0, ops.length() - 1);
-            com.sendMessage("Ops:" + ops);
+            com.sendPlainMessage("Ops:" + ops);
         } else
             Chat.noPermission(com);
         return false;

@@ -40,9 +40,9 @@ public class CMDMagna_List extends PluginCommand {
                             for (Player t : players) {
                                 groups.append(ChatColor.GREEN).append(t.getName()).append(ChatColor.RESET).append(" ");
                             }
-                            com.sendMessage(Chat.prefix + translate("cmd.list.player") + ":" + groups);
+                            com.sendPlainMessage(Chat.prefix + translate("cmd.list.player") + ":" + groups);
                         } else
-                            com.sendMessage(Chat.prefix + translate("cmd.list.group.notfound"));
+                            com.sendPlainMessage(Chat.prefix + translate("cmd.list.group.notfound"));
                     } else {
                         Map<Player, Group> map = getGroupManager().getOnlinePlayerWithGroup();
                         StringBuilder group = new StringBuilder();
@@ -50,12 +50,12 @@ public class CMDMagna_List extends PluginCommand {
                             group.append("(").append(entry.getKey().getName()).append(" : ").append(entry.getValue() != null ? entry.getValue().name : translate("cmd.list.group.no")).append("),");
                         }
                         group = new StringBuilder(group.substring(0, group.length() - 1));
-                        com.sendMessage(Chat.prefix + group);
+                        com.sendPlainMessage(Chat.prefix + group);
                     }
                 } else
                     Chat.noPlayer(com);
             } else
-                com.sendMessage(Chat.prefix + Chat.no_group);
+                com.sendPlainMessage(Chat.prefix + Chat.no_group);
         } else
             Chat.noPermission(com);
         return false;

@@ -32,7 +32,7 @@ public class CMDTeamChat extends PluginCommand {
                                 + ChatColor.RESET + "<" + (com instanceof Player ? com.getName() : "SERVER")
                                 + ">" + s);
             } else
-                com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Text>");
+                com.sendPlainMessage(Chat.prefix + Slash(com) + getCommand() + " <Text>");
         } else
             Chat.noPermission(com);
         return false;

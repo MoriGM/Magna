@@ -36,7 +36,7 @@ public class CMDKickAll extends PluginCommand {
                     if (!(com instanceof Player))
                         Chat.writeMessage(translate("cmd.kickall.group"));
                 } else
-                    com.sendMessage(Chat.prefix + translate("cmd.kickall.group.no"));
+                    com.sendPlainMessage(Chat.prefix + translate("cmd.kickall.group.no"));
             } else {
                 for (Player t : Bukkit.getOnlinePlayers())
                     t.kickPlayer("");

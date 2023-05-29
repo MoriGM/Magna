@@ -32,10 +32,10 @@ public class CMDMagna_Id extends PluginCommand {
                     if (t != null) {
                         Group group = getGroupManager().getGroupFromPlayer(t);
                         if (group != null)
-                            com.sendMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
+                            com.sendPlainMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
                                     + translate("cmd.id.true") + " " + group.name);
                         else
-                            com.sendMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
+                            com.sendPlainMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
                                     + translate("cmd.id.false"));
                     } else
                         Chat.noOnline(com);
@@ -45,10 +45,10 @@ public class CMDMagna_Id extends PluginCommand {
                         if (t != null) {
                             Group group = getGroupManager().getGroupFromPlayer(t);
                             if (group != null)
-                                com.sendMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
+                                com.sendPlainMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
                                         + translate("cmd.id.true") + " " + group.name);
                             else
-                                com.sendMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
+                                com.sendPlainMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
                                         + translate("cmd.id.false"));
                         } else
                             Chat.noOnline(com);
@@ -56,7 +56,7 @@ public class CMDMagna_Id extends PluginCommand {
                         Chat.writeMessage(getCommand() + " " + "<Player>");
                 }
             } else
-                com.sendMessage(Chat.prefix + Chat.no_group);
+                com.sendPlainMessage(Chat.prefix + Chat.no_group);
         } else
             Chat.noPermission(com);
         return false;

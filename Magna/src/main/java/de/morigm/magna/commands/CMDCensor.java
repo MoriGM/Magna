@@ -42,35 +42,35 @@ public class CMDCensor extends PluginCommand {
                             type = CensorType.getType(args[3]);
                         BlackWord bword = new BlackWord(word, permission, type);
                         getBlackListManager().addBlackWord(bword);
-                        com.sendMessage(Chat.prefix + translate("cmd.censor.add"));
+                        com.sendPlainMessage(Chat.prefix + translate("cmd.censor.add"));
                     } else
-                        com.sendMessage(Chat.prefix + translate("cmd.censor.add.error"));
+                        com.sendPlainMessage(Chat.prefix + translate("cmd.censor.add.error"));
                 } else if (args[0].equalsIgnoreCase("remove")) {
                     if (getBlackListManager().containsBlackWord(word)) {
                         getBlackListManager().removeBlackWord(getBlackListManager().getBlackWord(word));
-                        com.sendMessage(Chat.prefix + translate("cmd.censor.remove"));
+                        com.sendPlainMessage(Chat.prefix + translate("cmd.censor.remove"));
                     } else
-                        com.sendMessage(Chat.prefix + translate("cmd.censor.remove.error"));
+                        com.sendPlainMessage(Chat.prefix + translate("cmd.censor.remove.error"));
                 } else
-                    com.sendMessage(
+                    com.sendPlainMessage(
                             Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] "
                                     + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
-            } else if (args.length >= 1) {
+            } else if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("list")) {
                     String words = "";
                     for (BlackWord bword : getBlackListManager().getBlackWords())
                         words += bword.word() + ",";
                     if (!words.isEmpty())
                         words = words.substring(0, words.length() - 1);
-                    com.sendMessage(Chat.prefix + translate("cmd.censor.words") + ":" + words);
+                    com.sendPlainMessage(Chat.prefix + translate("cmd.censor.words") + ":" + words);
                 } else if (args[0].equalsIgnoreCase("types"))
-                    com.sendMessage(Chat.prefix + translate("cmd.censor.type") + ":" + getTypes());
+                    com.sendPlainMessage(Chat.prefix + translate("cmd.censor.type") + ":" + getTypes());
                 else
-                    com.sendMessage(
+                    com.sendPlainMessage(
                             Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] "
                                     + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
             } else
-                com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] "
+                com.sendPlainMessage(Chat.prefix + Slash(com) + getCommand() + " <add,remove> <word> [permission] [type] "
                         + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
         } else
             Chat.noPermission(com);

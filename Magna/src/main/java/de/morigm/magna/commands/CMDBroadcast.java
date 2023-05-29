@@ -25,7 +25,7 @@ public class CMDBroadcast extends PluginCommand {
                 String s = StringHelper.StringArrayToString(args, " ").replace('&', ChatColor.COLOR_CHAR.getColorChar());
                 Bukkit.broadcast(Component.text(s));
             } else
-                com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <message>");
+                com.sendPlainMessage(Chat.prefix + Slash(com) + getCommand() + " <message>");
         } else
             Chat.noPermission(com);
         return false;

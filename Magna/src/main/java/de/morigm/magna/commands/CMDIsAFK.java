@@ -26,13 +26,13 @@ public class CMDIsAFK extends PluginCommand {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t != null) {
                     if (Magna.getAFKManager().isAfk(t))
-                        com.sendMessage(Chat.prefix + translate("cmd.isafk.on"));
+                        com.sendPlainMessage(Chat.prefix + translate("cmd.isafk.on"));
                     else
-                        com.sendMessage(Chat.prefix + translate("cmd.isafk.off"));
+                        com.sendPlainMessage(Chat.prefix + translate("cmd.isafk.off"));
                 } else
                     Chat.noOnline(com);
             } else
-                com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
+                com.sendPlainMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
         } else
             Chat.noPermission(com);
         return false;

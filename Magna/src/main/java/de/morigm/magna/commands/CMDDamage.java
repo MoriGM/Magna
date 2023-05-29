@@ -27,14 +27,14 @@ public class CMDDamage extends PluginCommand {
                     Player t = Bukkit.getPlayer(args[0]);
                     if (t != null) {
                         t.damage(d);
-                        com.sendMessage(Chat.prefix + translate("cmd.damage"));
+                        com.sendPlainMessage(Chat.prefix + translate("cmd.damage"));
                     } else
                         Chat.noOnline(com);
                 } catch (Exception e) {
-                    com.sendMessage(Chat.prefix + translate("cmd.damage.noint"));
+                    com.sendPlainMessage(Chat.prefix + translate("cmd.damage.noint"));
                 }
             } else
-                com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player> <Damage>");
+                com.sendPlainMessage(Chat.prefix + Slash(com) + getCommand() + " <Player> <Damage>");
         } else
             Chat.noPermission(com);
         return false;

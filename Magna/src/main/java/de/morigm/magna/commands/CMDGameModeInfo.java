@@ -23,12 +23,12 @@ public class CMDGameModeInfo extends PluginCommand {
             if (args.length >= 1) {
                 Player t = Bukkit.getPlayer(args[0]);
                 if (t != null) {
-                    com.sendMessage(Chat.prefix + translate("cmd.gamemodeinfo") + ":" + t.getGameMode().name());
+                    com.sendPlainMessage(Chat.prefix + translate("cmd.gamemodeinfo") + ":" + t.getGameMode().name());
                 } else {
                     Chat.noOnline(com);
                 }
             } else {
-                com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
+                com.sendPlainMessage(Chat.prefix + Slash(com) + getCommand() + " <Player>");
             }
         } else {
             Chat.noPermission(com);

@@ -28,23 +28,23 @@ public class Chat {
     }
 
     public static void noPermission(CommandSender com) {
-        com.sendMessage(prefix + no_permission);
+        com.sendPlainMessage(prefix + no_permission);
     }
 
     public static void noConsole(CommandSender com) {
-        com.sendMessage(prefix + no_console);
+        com.sendPlainMessage(prefix + no_console);
     }
 
     public static void noPlayer(CommandSender com) {
-        com.sendMessage(prefix + no_player);
+        com.sendPlainMessage(prefix + no_player);
     }
 
     public static void noOnline(CommandSender com) {
-        com.sendMessage(prefix + no_online);
+        com.sendPlainMessage(prefix + no_online);
     }
 
     public static void noInt(CommandSender com) {
-        com.sendMessage(prefix + no_int);
+        com.sendPlainMessage(prefix + no_int);
     }
 
 }

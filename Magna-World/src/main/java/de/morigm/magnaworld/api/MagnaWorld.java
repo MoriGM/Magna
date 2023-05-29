@@ -16,7 +16,7 @@ public class MagnaWorld {
     private static final List<WorldStruct> worlds = new ArrayList<>();
 
     public static void registerWorld(@NonNull WorldStruct world, @NonNull WorldType type, @NonNull Environment ev) {
-        if (!containsWorld(world) && !containsWorld(world.getName())) {
+        if (containsWorld(world) && !containsWorld(world.getName())) {
             WorldCreator creator = new WorldCreator(world.getName());
             if (world.getSeed() != null)
                 creator.seed(world.getSeed());
@@ -29,7 +29,7 @@ public class MagnaWorld {
     }
 
     public static void loadWorld(@NonNull WorldStruct world) {
-        if (!containsWorld(world) && !containsWorld(world.getName())) {
+        if (containsWorld(world) && !containsWorld(world.getName())) {
             WorldCreator creator = new WorldCreator(world.getName());
             World w = Bukkit.createWorld(creator);
             world.load(w);

@@ -28,9 +28,9 @@ public class CMDGroups extends PluginCommand {
                     groups += ChatColor.GREEN + group.name + ChatColor.RESET + " ";
                 if (groups.length() >= 2)
                     groups = groups.substring(0, groups.length() - 1);
-                com.sendMessage(Chat.prefix + translate("cmd.groups") + ":" + groups);
+                com.sendPlainMessage(Chat.prefix + translate("cmd.groups") + ":" + groups);
             } else
-                com.sendMessage(Chat.prefix + Chat.no_group);
+                com.sendPlainMessage(Chat.prefix + Chat.no_group);
         } else
             Chat.noPermission(com);
         return false;

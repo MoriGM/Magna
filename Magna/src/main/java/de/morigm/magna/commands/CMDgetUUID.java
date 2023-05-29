@@ -22,9 +22,9 @@ public class CMDgetUUID extends PluginCommand {
         if (checkPermission(com, "getuuid")) {
             if (args.length >= 1) {
                 String name = args[0];
-                com.sendMessage(Chat.prefix + "UUID:" + MojangApi.getPlayerUUID(name));
+                com.sendPlainMessage(Chat.prefix + "UUID:" + MojangApi.getPlayerUUID(name));
             } else
-                com.sendMessage(Chat.prefix + Slash(com) + getCommand() + " <name>");
+                com.sendPlainMessage(Chat.prefix + Slash(com) + getCommand() + " <name>");
         } else
             Chat.noPermission(com);
         return false;

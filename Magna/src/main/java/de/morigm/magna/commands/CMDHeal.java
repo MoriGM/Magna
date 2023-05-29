@@ -28,7 +28,7 @@ public class CMDHeal extends PluginCommand {
                 if (t != null) {
                     t.setHealth(t.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
                     t.setFoodLevel(20);
-                    com.sendMessage(Chat.prefix
+                    com.sendPlainMessage(Chat.prefix
                             + (t == com ? translate("cmd.heal.you") : translate("cmd.heal.player")));
                 } else
                     Chat.noOnline(com);

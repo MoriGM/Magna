@@ -25,7 +25,7 @@ public class CMDReloadConfig extends PluginCommand {
                 Main.getInstance().getGroupConfig().load();
                 Main.getInstance().getGroupLoader().load();
             }
-            com.sendMessage(Chat.prefix + translate("cmd.reloadconfig"));
+            com.sendPlainMessage(Chat.prefix + translate("cmd.reloadconfig"));
         } else
             Chat.noPermission(com);
         return false;

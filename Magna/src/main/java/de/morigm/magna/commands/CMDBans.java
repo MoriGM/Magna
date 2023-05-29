@@ -25,9 +25,9 @@ public class CMDBans extends PluginCommand {
             BanList list = Bukkit.getBanList(Type.NAME);
             for (BanEntry ban : list.getBanEntries())
                 bans += ban.getTarget() + " ";
-            com.sendMessage("Bans:" + bans);
+            com.sendPlainMessage("Bans:" + bans);
         } else
-            com.sendMessage(Chat.prefix + Chat.no_permission);
+            com.sendPlainMessage(Chat.prefix + Chat.no_permission);
         return false;
     }
 

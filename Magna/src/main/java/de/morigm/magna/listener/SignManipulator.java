@@ -4,6 +4,7 @@ import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.chat.ChatColor;
 import de.morigm.magna.api.listner.Listener;
 import de.morigm.magna.api.sign.SignListener;
+import net.kyori.adventure.text.Component;
 import org.bukkit.block.Sign;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
@@ -17,6 +18,11 @@ public class SignManipulator extends Listener {
 
     @EventHandler
     public void on(SignChangeEvent e) {
+        Component component = e.line(0);
+        if (component == null) {
+            return;
+        }
+        String firstLine = component.toString();
         if (e.getLines()[0] != null && !e.getLines()[0].isEmpty() && e.getLines()[0].startsWith("[")
                 && e.getLines()[0].endsWith("]") && e.getLines()[0].length() >= 3) {
             String name = e.getLines()[0].substring(1, (e.getLines()[0].length() - 1));
@@ -24,8 +30,9 @@ public class SignManipulator extends Listener {
             if (sl != null)
                 if (e.getPlayer().hasPermission(getPermission("signcreate") + "." + name)) {
                     boolean b = sl.onCreate(e.getLines(), e.getPlayer(), e.getBlock());
-                    if (b)
-                        e.setLine(0, prefix + name + suffix);
+                    if (b) {
+                        e.line(0, Component.text(prefix + name + suffix));
+                    }
                 }
         }
     }
@@ -34,10 +41,9 @@ public class SignManipulator extends Listener {
     public void on(PlayerInteractEvent e) {
         if (e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
             if (e.getClickedBlock().getState() instanceof Sign sign) {
-                if (sign.getLine(0).startsWith(prefix) && sign.getLine(0).endsWith(suffix)
-                        && sign.getLine(0).length() >= (prefix.length() + suffix.length() + 1)) {
-                    String name = sign.getLine(0).substring(prefix.length(),
-                            (sign.getLine(0).length() - suffix.length()));
+                String firstLine = sign.line(0).toString();
+                if (firstLine.startsWith(prefix) && firstLine.endsWith(suffix) && firstLine.length() >= (prefix.length() + suffix.length() + 1)) {
+                    String name = firstLine.substring(prefix.length(), (firstLine.length() - suffix.length()));
                     SignListener sl = Magna.getSignManager().getSignListener(name);
                     if (sl != null && e.getPlayer().hasPermission(getPermission("signclick") + "." + name))
                         sl.onClick(sign, e.getPlayer());
