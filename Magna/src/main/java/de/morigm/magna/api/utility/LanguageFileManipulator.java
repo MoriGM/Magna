@@ -1,11 +1,11 @@
-package de.morigm.magna.api.helper;
+package de.morigm.magna.api.utility;
 
 import lombok.SneakyThrows;
 
 import java.io.*;
 import java.util.Properties;
 
-public class LanguageFileHelper {
+public class LanguageFileManipulator {
     @SneakyThrows
     public static void addNewText(InputStream in, File out) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
@@ -15,7 +15,7 @@ public class LanguageFileHelper {
             String[] sarr = reader.readLine().split("=");
             if (sarr.length >= 2) {
                 if (!outProp.containsKey(sarr[0]))
-                    outProp.setProperty(sarr[0], StringHelper.StringArrayToString(sarr, " ", 1).trim());
+                    outProp.setProperty(sarr[0], StringManipulator.stringArrayToString(sarr, " ", 1).trim());
             }
         }
         FileOutputStream outs = new FileOutputStream(out);

@@ -1,7 +1,7 @@
 package de.morigm.magnaworld.commands;
 
 import de.morigm.magna.api.command.PluginCommand;
-import de.morigm.magna.api.helper.FileHelper;
+import de.morigm.magna.api.utility.FileGenerator;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magnaworld.api.MagnaWorld;
 import lombok.NonNull;
@@ -33,8 +33,8 @@ public class MWDELETE extends PluginCommand {
                         throw new NullPointerException();
                     Bukkit.unloadWorld(name, false);
                     List<File> files = new ArrayList<>();
-                    FileHelper.getFiles(files, new File(name));
-                    FileHelper.delete(files);
+                    FileGenerator.getFiles(files, new File(name));
+                    FileGenerator.delete(files);
                     MagnaWorld.removeWorld(name);
                     sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + translate("cmd.mwdelete"));
                 } else

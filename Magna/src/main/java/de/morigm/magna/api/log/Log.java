@@ -1,6 +1,6 @@
 package de.morigm.magna.api.log;
 
-import de.morigm.magna.api.helper.FileHelper;
+import de.morigm.magna.api.utility.FileGenerator;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,7 +13,7 @@ public class Log {
     private final BufferedWriter writer;
 
     public Log(File f) throws IOException {
-        FileHelper.createFileIfNotExists(f);
+        FileGenerator.createFileIfNotExists(f);
         writer = new BufferedWriter(new FileWriter(f));
     }
 

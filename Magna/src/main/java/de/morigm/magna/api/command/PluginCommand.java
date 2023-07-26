@@ -2,18 +2,18 @@ package de.morigm.magna.api.command;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.translation.Translation;
+import de.morigm.magna.api.utility.Permission;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public abstract class PluginCommand extends PermissionHelper implements CommandExecutor, Translation {
+public abstract class PluginCommand extends Permission implements CommandExecutor, Translation {
 
     private String name = "";
     private Language language;

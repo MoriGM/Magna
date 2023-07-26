@@ -1,9 +1,9 @@
-package de.morigm.magna.api.helper;
+package de.morigm.magna.api.utility;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class ListHelper {
+public class ArrayManipulator {
 
     @SafeVarargs
     public static <T> boolean isInArray(T in, T... ts) {

@@ -1,8 +1,8 @@
 package de.morigm.magna.api.gui;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.manager.PermissionManager;
+import de.morigm.magna.api.utility.Permission;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -15,7 +15,7 @@ import org.bukkit.inventory.Inventory;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Gui extends PermissionHelper {
+public abstract class Gui extends Permission {
 
     @Getter
     private final List<GuiButton> guiButtons = new ArrayList<>();

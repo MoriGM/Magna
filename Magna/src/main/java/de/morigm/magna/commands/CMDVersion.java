@@ -2,7 +2,7 @@ package de.morigm.magna.commands;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.command.PluginCommand;
-import de.morigm.magna.api.helper.PlayerHelper;
+import de.morigm.magna.api.utility.PlayerConverter;
 import de.morigm.magna.chat.Chat;
 import de.morigm.magna.gui.DebugGui;
 import lombok.NonNull;
@@ -19,14 +19,14 @@ public class CMDVersion extends PluginCommand {
 
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
-        if (PlayerHelper.isPlayer(sender) && !checkPermission(sender, "version")) {
+        if (PlayerConverter.isPlayer(sender) && !checkPermission(sender, "version")) {
             Chat.noPermission(sender);
             return false;
         }
-        if (args.length >= 1 && PlayerHelper.isPlayer(sender))
+        if (args.length >= 1 && PlayerConverter.isPlayer(sender))
             if (args[0].equalsIgnoreCase("debug") && Magna.getSettings().getDebug()) {
                 DebugGui gui = new DebugGui();
-                Magna.getUser(PlayerHelper.toPlayer(sender)).openGui(gui);
+                Magna.getUser(PlayerConverter.toPlayer(sender)).openGui(gui);
             }
 
         sender.sendMessage(Chat.prefix + "Version:" + Chat.version);

@@ -1,7 +1,7 @@
 package de.morigm.magna.commands;
 
 import de.morigm.magna.api.command.PluginCommand;
-import de.morigm.magna.api.helper.PlayerHelper;
+import de.morigm.magna.api.utility.PlayerConverter;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -22,7 +22,7 @@ public class CMDDeleteHome extends PluginCommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (PlayerHelper.isPlayer(com)) {
+        if (PlayerConverter.isPlayer(com)) {
             Player p = (Player) com;
             if (checkPermission(p, "deletehome")) {
                 if (args.length >= 1) {

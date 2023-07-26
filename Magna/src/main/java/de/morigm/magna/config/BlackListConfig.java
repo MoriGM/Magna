@@ -2,7 +2,7 @@ package de.morigm.magna.config;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.config.Config;
-import de.morigm.magna.api.helper.FileHelper;
+import de.morigm.magna.api.utility.FileGenerator;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -24,7 +24,7 @@ public class BlackListConfig implements Config {
     @Override
     public void load() {
         File file = Magna.getFolders().getBlackListFile();
-        FileHelper.createFileIfNotExists(file);
+        FileGenerator.createFileIfNotExists(file);
         FileConfiguration config = YamlConfiguration.loadConfiguration(file);
         this.file = file;
         this.config = config;

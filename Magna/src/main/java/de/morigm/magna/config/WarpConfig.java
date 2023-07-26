@@ -2,7 +2,7 @@ package de.morigm.magna.config;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.config.Config;
-import de.morigm.magna.api.helper.FileHelper;
+import de.morigm.magna.api.utility.FileGenerator;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -24,7 +24,7 @@ public class WarpConfig implements Config {
 
     @Override
     public void load() {
-        FileHelper.createFileIfNotExists(configFile);
+        FileGenerator.createFileIfNotExists(configFile);
         this.config = YamlConfiguration.loadConfiguration(configFile);
         if (this.config.isList("warps")) {
             this.config.set("warps", null);
@@ -35,7 +35,7 @@ public class WarpConfig implements Config {
     @Override
     public void save() {
         try {
-            FileHelper.createFileIfNotExists(configFile);
+            FileGenerator.createFileIfNotExists(configFile);
             this.config.save(configFile);
         } catch (IOException e) {
             e.printStackTrace();

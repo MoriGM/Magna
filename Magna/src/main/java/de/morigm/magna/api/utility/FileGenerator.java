@@ -1,4 +1,4 @@
-package de.morigm.magna.api.helper;
+package de.morigm.magna.api.utility;
 
 import lombok.SneakyThrows;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class FileHelper {
+public class FileGenerator {
 
     public static void createFileIfNotExists(String file) {
         createFileIfNotExists(new File(file));
@@ -36,26 +36,10 @@ public class FileHelper {
     }
 
     @SneakyThrows
-    public static void copy(File in, File out) {
-        FileInputStream ins = new FileInputStream(in);
-        FileOutputStream outs = new FileOutputStream(out);
-        copyFile(ins, outs);
-        ins.close();
-        outs.close();
-    }
-
-    @SneakyThrows
     public static void copy(InputStream in, File out) {
         FileOutputStream outs = new FileOutputStream(out);
         copyFile(in, outs);
         outs.close();
-    }
-
-    @SneakyThrows
-    public static void copy(File in, OutputStream out) {
-        FileInputStream ins = new FileInputStream(in);
-        copyFile(ins, out);
-        ins.close();
     }
 
     @SneakyThrows

@@ -1,8 +1,8 @@
 package de.morigm.magna.config;
 
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.FileHelper;
 import de.morigm.magna.api.loader.Loader;
+import de.morigm.magna.api.utility.FileGenerator;
 import lombok.Getter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -19,10 +19,10 @@ public class AutoEditConfig implements Loader {
     @Override
     public void load() {
         File file = Magna.getFolders().getAutoEditFile();
-        FileHelper.createFileIfNotExists(file);
+        FileGenerator.createFileIfNotExists(file);
         this.config = YamlConfiguration.loadConfiguration(file);
         File filePlayer = Magna.getFolders().getPlayerAutoEditFile();
-        FileHelper.createFileIfNotExists(filePlayer);
+        FileGenerator.createFileIfNotExists(filePlayer);
         this.configPlayer = YamlConfiguration.loadConfiguration(filePlayer);
     }
 

@@ -1,7 +1,7 @@
 package de.morigm.magnaworld.commands;
 
 import de.morigm.magna.api.command.PluginCommand;
-import de.morigm.magna.api.helper.PlayerHelper;
+import de.morigm.magna.api.utility.PlayerConverter;
 import de.morigm.magna.chat.Chat;
 import lombok.NonNull;
 import org.bukkit.Bukkit;
@@ -23,7 +23,7 @@ public class MWTP extends PluginCommand {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NonNull String[] args) {
-        if (PlayerHelper.isPlayer(sender))
+        if (PlayerConverter.isPlayer(sender))
             if (checkPermission(sender, "mwtp")) {
                 Player p = (Player) sender;
                 if (args.length >= 1) {

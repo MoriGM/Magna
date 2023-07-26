@@ -2,18 +2,18 @@ package de.morigm.magna.api.sign;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.translation.Translation;
+import de.morigm.magna.api.utility.Permission;
 import lombok.Getter;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public abstract class SignListener extends PermissionHelper implements Translation {
+public abstract class SignListener extends Permission implements Translation {
 
     @Getter
     private String name;

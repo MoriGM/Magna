@@ -48,7 +48,6 @@ public class Main extends JavaPlugin {
         (this.languageLoader = new LanguageLoader()).load();
         this.WorldPluginLoader = new PluginLoader();
         this.WorldPluginLoader.loadCommands();
-        this.WorldPluginLoader.loadListener();
 
     }
 

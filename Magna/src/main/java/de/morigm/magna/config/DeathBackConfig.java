@@ -2,7 +2,7 @@ package de.morigm.magna.config;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.config.Config;
-import de.morigm.magna.api.helper.FileHelper;
+import de.morigm.magna.api.utility.FileGenerator;
 import lombok.SneakyThrows;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -17,7 +17,7 @@ public class DeathBackConfig implements Config {
     @Override
     public void load() {
         this.file = Magna.getFolders().getDeathBackFile();
-        FileHelper.createFileIfNotExists(file);
+        FileGenerator.createFileIfNotExists(file);
         this.config = YamlConfiguration.loadConfiguration(file);
     }
 

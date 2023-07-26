@@ -1,10 +1,10 @@
-package de.morigm.magna.api.helper;
+package de.morigm.magna.api.utility;
 
 import org.bukkit.command.CommandSender;
 
 import static de.morigm.magna.api.Magna.getPermissionManager;
 
-public abstract class PermissionHelper {
+public abstract class Permission {
 
     public String getPermission(String Permission) {
         return getPermissionManager().getPermission(Permission);

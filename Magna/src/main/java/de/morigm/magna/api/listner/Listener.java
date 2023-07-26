@@ -2,15 +2,15 @@ package de.morigm.magna.api.listner;
 
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.language.TextStruct;
 import de.morigm.magna.api.manager.PermissionManager;
 import de.morigm.magna.api.translation.Translation;
+import de.morigm.magna.api.utility.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Listener extends PermissionHelper implements org.bukkit.event.Listener, Translation {
+public class Listener extends Permission implements org.bukkit.event.Listener, Translation {
 
     private Language language;
     private PermissionManager permission;

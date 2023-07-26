@@ -3,9 +3,9 @@ package de.morigm.magna.loader;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.censor.CensorType;
-import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.loader.Loader;
 import de.morigm.magna.api.saver.Saver;
+import de.morigm.magna.api.utility.Permission;
 import de.morigm.magna.config.BlackListConfig;
 import lombok.Getter;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -13,7 +13,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlackListLoader extends PermissionHelper implements Loader, Saver {
+public class BlackListLoader extends Permission implements Loader, Saver {
 
     @Getter
     private final List<BlackWord> blackWords = new ArrayList<>();

@@ -1,9 +1,9 @@
-package de.morigm.magna.api.helper;
+package de.morigm.magna.api.utility;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class PlayerHelper {
+public class PlayerConverter {
 
     public static boolean isPlayer(CommandSender sender) {
         return sender instanceof Player;

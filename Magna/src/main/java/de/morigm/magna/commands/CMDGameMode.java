@@ -1,7 +1,7 @@
 package de.morigm.magna.commands;
 
 import de.morigm.magna.api.command.PluginCommand;
-import de.morigm.magna.api.helper.StringHelper;
+import de.morigm.magna.api.utility.StringManipulator;
 import de.morigm.magna.chat.Chat;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
@@ -55,10 +55,10 @@ public class CMDGameMode extends PluginCommand {
                         t.setGameMode(gamemode);
                         if (t == p) {
                             p.sendMessage(Component.text(Chat.prefix + translate("cmd.gamemode") + " "
-                                    + StringHelper.toFirstUpAndRemainderLower(t.getGameMode().toString())));
+                                    + StringManipulator.capitalizeFirst(t.getGameMode().toString())));
                         } else {
                             p.sendMessage(Component.text(Chat.prefix + translate("cmd.gamemode.other") + " "
-                                    + StringHelper.toFirstUpAndRemainderLower(t.getGameMode().toString())));
+                                    + StringManipulator.capitalizeFirst(t.getGameMode().toString())));
                         }
 
                     } else

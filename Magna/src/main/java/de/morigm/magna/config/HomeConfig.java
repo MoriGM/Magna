@@ -2,7 +2,7 @@ package de.morigm.magna.config;
 
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.config.Config;
-import de.morigm.magna.api.helper.FileHelper;
+import de.morigm.magna.api.utility.FileGenerator;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -17,7 +17,7 @@ public class HomeConfig implements Config {
     @Override
     public void load() {
         File configFile = Magna.getFolders().getHomeFile();
-        FileHelper.createFileIfNotExists(configFile);
+        FileGenerator.createFileIfNotExists(configFile);
         this.config = YamlConfiguration.loadConfiguration(configFile);
 
     }

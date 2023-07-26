@@ -29,10 +29,10 @@ public class BlackList extends Listener {
                     case WARN -> warn(e);
                     case MUTE -> mute(e);
                     case BAN -> ban(e);
-                    case DEOP -> deop(e);
+                    case DE_OP -> deop(e);
                     case SPAWN -> spawn(e);
-                    case GROUPKICK -> groupkick(e);
-                    case GROUPBAN -> groupban(e);
+                    case GROUP_KICK -> groupkick(e);
+                    case GROUP_BAN -> groupban(e);
                     case KILL -> kill(e);
                     case CLEAR -> clear(e);
                     case BLIND -> blind(e);

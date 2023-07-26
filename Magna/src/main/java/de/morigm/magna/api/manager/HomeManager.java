@@ -1,8 +1,8 @@
 package de.morigm.magna.api.manager;
 
 import de.morigm.magna.Main;
-import de.morigm.magna.api.helper.PermissionHelper;
 import de.morigm.magna.api.home.Home;
+import de.morigm.magna.api.utility.Permission;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-public class HomeManager extends PermissionHelper {
+public class HomeManager extends Permission {
 
     private static final int maxHomes = 50;
 

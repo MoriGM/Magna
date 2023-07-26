@@ -1,9 +1,9 @@
 package de.morigm.magnaworld.loader;
 
 import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.helper.LanguageFileHelper;
 import de.morigm.magna.api.language.Language;
 import de.morigm.magna.api.loader.Loader;
+import de.morigm.magna.api.utility.LanguageFileManipulator;
 import de.morigm.magnaworld.Main;
 import lombok.SneakyThrows;
 
@@ -21,7 +21,7 @@ public class LanguageLoader implements Loader {
             if (!f.exists()) {
                 f.createNewFile();
             }
-            LanguageFileHelper.addNewText(Main.getInstance().getResource(l), f);
+            LanguageFileManipulator.addNewText(Main.getInstance().getResource(l), f);
         }
 
         Main.getInstance().setLanguage(

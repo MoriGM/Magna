@@ -2,7 +2,7 @@ package de.morigm.magna.commands;
 
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.api.convert.Convert;
-import de.morigm.magna.api.helper.PlayerHelper;
+import de.morigm.magna.api.utility.PlayerConverter;
 import de.morigm.magna.chat.Chat;
 import lombok.NonNull;
 import org.bukkit.Bukkit;
@@ -23,7 +23,7 @@ public class CMDSpeed extends PluginCommand {
 
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
-        if (PlayerHelper.isPlayer(sender)) {
+        if (PlayerConverter.isPlayer(sender)) {
             Player p = (Player) sender;
             if (checkPermission(p, "speed"))
                 if (args.length >= 1) {
