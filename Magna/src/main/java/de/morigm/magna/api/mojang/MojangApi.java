@@ -20,11 +20,7 @@ public class MojangApi {
     }
 
     public static UUID MojangUUIDtoRealUUID(String s) {
-        String suuid = "";
-        suuid = s.substring(0, 8) + "-" + s.substring(8, 12) + "-" + s.substring(12, 16) + "-" + s.substring(16, 20)
-                + "-" + s.substring(20);
-        UUID uuid = UUID.fromString(suuid);
-        return uuid;
+        return UUID.fromString(s.substring(0, 8) + "-" + s.substring(8, 12) + "-" + s.substring(12, 16) + "-" + s.substring(16, 20) + "-" + s.substring(20));
     }
 
     public static UUID getPlayerUUID(String playername) throws IOException {

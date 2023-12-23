@@ -26,7 +26,7 @@ public class CMDGoDeathBack extends PluginCommand {
             if (checkPermission(p, "deathback")) {
                 if (getDeathBackManager().hasDeathBack(p)) {
                     DeathBack db = getDeathBackManager().getDeathBack(p);
-                    p.teleport(db.location);
+                    p.teleport(db.location());
                     p.sendMessage(Chat.prefix + translate("cmd.deathback"));
                 } else
                     p.sendMessage(Chat.prefix + translate("cmd.deathback.error"));

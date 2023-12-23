@@ -45,12 +45,12 @@ public class DeathBackLoader implements Loader, Saver {
         deleteConfig(getConfig());
 
         for (DeathBack db : getDeathBacks()) {
-            getConfig().set(db.uuid + ".x", db.location.getX());
-            getConfig().set(db.uuid + ".y", db.location.getY());
-            getConfig().set(db.uuid + ".z", db.location.getZ());
-            getConfig().set(db.uuid + ".yaw", db.location.getYaw());
-            getConfig().set(db.uuid + ".pitch", db.location.getPitch());
-            getConfig().set(db.uuid + ".world", db.location.getWorld().getName());
+            getConfig().set(db.uuid() + ".x", db.location().getX());
+            getConfig().set(db.uuid() + ".y", db.location().getY());
+            getConfig().set(db.uuid() + ".z", db.location().getZ());
+            getConfig().set(db.uuid() + ".yaw", db.location().getYaw());
+            getConfig().set(db.uuid() + ".pitch", db.location().getPitch());
+            getConfig().set(db.uuid() + ".world", db.location().getWorld().getName());
         }
 
     }

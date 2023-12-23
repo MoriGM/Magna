@@ -47,11 +47,12 @@ public class GuiController extends Listener {
 
             if ((gui = Magna.getUser(p).getGui()) != null) {
                 if (!gui.getName().isEmpty())
-                    if (!invv.getTitle().equals(gui.getName()))
+                    if (!invv.getTitle().equals(gui.getName())) {
                         return;
-                if ((gui.getSize() != e.getInventory().getSize())
-                        || !gui.getInventory().getHolder().equals(e.getInventory().getHolder()))
+                    }
+                if ((gui.getSize() != e.getInventory().getSize()) || (gui.getInventory().getHolder() != null && !gui.getInventory().getHolder().equals(e.getInventory().getHolder()))) {
                     return;
+                }
                 MagnaStuff.getGuis().remove(e.getPlayer());
             }
         }

@@ -10,8 +10,9 @@ import java.util.List;
 public class DeathBackManager {
 
     public void setDeathBack(Player p, Location loc) {
-        if (hasDeathBack(p))
+        if (hasDeathBack(p)) {
             deleteDeathBack(p);
+        }
         DeathBack db = new DeathBack(p.getUniqueId().toString(), loc);
         getDeathBacks().add(db);
     }
@@ -27,9 +28,11 @@ public class DeathBackManager {
     }
 
     public DeathBack getDeathBack(Player p) {
-        for (DeathBack db : getDeathBacks())
-            if (db.uuid.equals(p.getUniqueId().toString()))
+        for (DeathBack db : getDeathBacks()) {
+            if (db.uuid().equals(p.getUniqueId().toString())) {
                 return db;
+            }
+        }
         return null;
     }
 

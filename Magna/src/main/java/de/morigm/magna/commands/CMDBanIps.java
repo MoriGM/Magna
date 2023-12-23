@@ -11,6 +11,8 @@ import org.bukkit.ban.IpBanList;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import java.net.InetAddress;
+
 public class CMDBanIps extends PluginCommand {
 
     @Override
@@ -24,7 +26,7 @@ public class CMDBanIps extends PluginCommand {
         if (checkPermission(com, "banips")) {
             String bans = "";
             IpBanList list = Bukkit.getBanList(Type.IP);
-            for (BanEntry<?> ban : list.getEntries())
+            for (BanEntry<? super InetAddress> ban : list.getEntries())
                 bans += ban.getBanTarget() + " ";
             com.sendMessage(Component.text("BanIps:" + bans));
         } else

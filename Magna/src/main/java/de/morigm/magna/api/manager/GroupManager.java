@@ -18,13 +18,13 @@ public class GroupManager {
 
     public Group getGroupFromPlayer(Player p) {
         for (Group group : Main.getInstance().getGroupLoader().getGroups())
-            if (p.hasPermission(group.permission))
+            if (p.hasPermission(group.permission()))
                 return group;
         return null;
     }
 
     public boolean isPlayerInGroup(Player p, String group_name) {
-        return getGroupFromPlayer(p).name.equals(group_name);
+        return getGroupFromPlayer(p).name().equals(group_name);
     }
 
     public Group[] getGroups() {
@@ -48,7 +48,7 @@ public class GroupManager {
 
     public Group getGroup(String group) {
         for (Group groups : getGroups())
-            if (groups.name.equals(group))
+            if (groups.name().equals(group))
                 return groups;
         return null;
     }

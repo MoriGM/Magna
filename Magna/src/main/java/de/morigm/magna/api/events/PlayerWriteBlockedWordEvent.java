@@ -5,6 +5,7 @@ import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
+import org.jetbrains.annotations.NotNull;
 
 public class PlayerWriteBlockedWordEvent extends Event {
 
@@ -22,12 +23,8 @@ public class PlayerWriteBlockedWordEvent extends Event {
         this.censorType = type;
     }
 
-    public static HandlerList getHandlerList() {
-        return HANDLERS;
-    }
-
     @Override
-    public HandlerList getHandlers() {
+    public @NotNull HandlerList getHandlers() {
         return HANDLERS;
     }
 

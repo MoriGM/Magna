@@ -6,11 +6,11 @@ import de.morigm.magna.api.censor.BlackWord;
 import de.morigm.magna.api.events.PlayerWriteBlockedWordEvent;
 import de.morigm.magna.api.listner.Listener;
 import de.morigm.magna.chat.Chat;
+import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -18,9 +18,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class BlackList extends Listener {
 
     @EventHandler
-    public void on(AsyncPlayerChatEvent e) {
-        if (Magna.getBlackListManager().hasBlackWord(e.getMessage())) {
-            BlackWord bword = Magna.getBlackListManager().getBlackWordFromText(e.getMessage());
+    public void on(AsyncChatEvent e) {
+        if (Magna.getBlackListManager().hasBlackWord(e.message().toString())) {
+            BlackWord bword = Magna.getBlackListManager().getBlackWordFromText(e.message().toString());
             Bukkit.getPluginManager().callEvent(new PlayerWriteBlockedWordEvent(e.getPlayer(), bword.word(), bword.type()));
             if (!e.getPlayer().hasPermission(bword.permission()) || !Magna.getSettings().getBlackListPermission()) {
                 switch (bword.type()) {
@@ -43,7 +43,7 @@ public class BlackList extends Listener {
         }
     }
 
-    private void blind(AsyncPlayerChatEvent e) {
+    private void blind(AsyncChatEvent e) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -53,7 +53,7 @@ public class BlackList extends Listener {
         e.setCancelled(true);
     }
 
-    private void clear(AsyncPlayerChatEvent e) {
+    private void clear(AsyncChatEvent e) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -63,7 +63,7 @@ public class BlackList extends Listener {
         e.setCancelled(true);
     }
 
-    private void kill(AsyncPlayerChatEvent e) {
+    private void kill(AsyncChatEvent e) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -73,7 +73,7 @@ public class BlackList extends Listener {
         e.setCancelled(true);
     }
 
-    private void groupban(AsyncPlayerChatEvent e) {
+    private void groupban(AsyncChatEvent e) {
         new BukkitRunnable() {
 
             @Override
@@ -87,7 +87,7 @@ public class BlackList extends Listener {
         e.setCancelled(true);
     }
 
-    private void groupkick(AsyncPlayerChatEvent e) {
+    private void groupkick(AsyncChatEvent e) {
         new BukkitRunnable() {
 
             @Override
@@ -104,7 +104,7 @@ public class BlackList extends Listener {
         e.setCancelled(true);
     }
 
-    private void spawn(AsyncPlayerChatEvent e) {
+    private void spawn(AsyncChatEvent e) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -115,7 +115,7 @@ public class BlackList extends Listener {
         e.setCancelled(true);
     }
 
-    private void deop(AsyncPlayerChatEvent e) {
+    private void deop(AsyncChatEvent e) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -125,7 +125,7 @@ public class BlackList extends Listener {
         e.setCancelled(true);
     }
 
-    private void ban(AsyncPlayerChatEvent e) {
+    private void ban(AsyncChatEvent e) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -137,17 +137,17 @@ public class BlackList extends Listener {
         e.setCancelled(true);
     }
 
-    private void mute(AsyncPlayerChatEvent e) {
+    private void mute(AsyncChatEvent e) {
         Magna.getMutedPlayerManager().addPlayer(e.getPlayer());
         e.setCancelled(true);
     }
 
-    private void warn(AsyncPlayerChatEvent e) {
+    private void warn(AsyncChatEvent e) {
         e.getPlayer().sendMessage(Chat.prefix + translate("listener.censor.warn"));
         e.setCancelled(true);
     }
 
-    private void kick(AsyncPlayerChatEvent e) {
+    private void kick(AsyncChatEvent e) {
         new BukkitRunnable() {
 
             @Override
@@ -158,7 +158,7 @@ public class BlackList extends Listener {
         e.setCancelled(true);
     }
 
-    private void normal(AsyncPlayerChatEvent e) {
+    private void normal(AsyncChatEvent e) {
         e.setCancelled(true);
     }
 

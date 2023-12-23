@@ -33,7 +33,7 @@ public class CMDMagna_Id extends PluginCommand {
                         Group group = getGroupManager().getGroupFromPlayer(t);
                         if (group != null)
                             com.sendPlainMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
-                                    + translate("cmd.id.true") + " " + group.name);
+                                    + translate("cmd.id.true") + " " + group.name());
                         else
                             com.sendPlainMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
                                     + translate("cmd.id.false"));
@@ -46,7 +46,7 @@ public class CMDMagna_Id extends PluginCommand {
                             Group group = getGroupManager().getGroupFromPlayer(t);
                             if (group != null)
                                 com.sendPlainMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
-                                        + translate("cmd.id.true") + " " + group.name);
+                                        + translate("cmd.id.true") + " " + group.name());
                             else
                                 com.sendPlainMessage(Chat.prefix + translate("cmd.id.player") + " " + t.getName() + " "
                                         + translate("cmd.id.false"));
