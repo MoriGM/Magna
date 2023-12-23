@@ -3,9 +3,9 @@ package de.morigm.magna.commands;
 import de.morigm.magna.api.command.PluginCommand;
 import de.morigm.magna.chat.Chat;
 import org.bukkit.BanEntry;
-import org.bukkit.BanList;
 import org.bukkit.BanList.Type;
 import org.bukkit.Bukkit;
+import org.bukkit.ban.ProfileBanList;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
@@ -22,9 +22,9 @@ public class CMDBans extends PluginCommand {
     public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (checkPermission(com, "bans")) {
             String bans = "";
-            BanList list = Bukkit.getBanList(Type.NAME);
-            for (BanEntry ban : list.getBanEntries())
-                bans += ban.getTarget() + " ";
+            ProfileBanList list = Bukkit.getBanList(Type.PROFILE);
+            for (BanEntry<?> ban : list.getEntries())
+                bans += ban.getBanTarget() + " ";
             com.sendPlainMessage("Bans:" + bans);
         } else
             com.sendPlainMessage(Chat.prefix + Chat.no_permission);
