@@ -24,8 +24,7 @@ public class CMDSetItemName extends PluginCommand {
         if (com instanceof Player p) {
             if (checkPermission(p, "setitemname")) {
                 if (args.length >= 1) {
-                    if (p.getInventory().getItemInMainHand() != null
-                            && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
+                    if (!p.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
                         ItemMeta meta = p.getInventory().getItemInMainHand().getItemMeta();
                         meta.displayName(Component.text(args[0]));
                         p.getInventory().getItemInMainHand().setItemMeta(meta);

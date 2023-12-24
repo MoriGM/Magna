@@ -24,10 +24,11 @@ public class CMDBanIps extends PluginCommand {
     @Override
     public boolean onCommand(@NonNull CommandSender com, @NonNull Command cmd, @NonNull String label, @NonNull String[] args) {
         if (checkPermission(com, "banips")) {
-            String bans = "";
+            StringBuilder bans = new StringBuilder();
             IpBanList list = Bukkit.getBanList(Type.IP);
-            for (BanEntry<? super InetAddress> ban : list.getEntries())
-                bans += ban.getBanTarget() + " ";
+            for (BanEntry<? super InetAddress> ban : list.getEntries()) {
+                bans.append(ban.getBanTarget()).append(" ");
+            }
             com.sendMessage(Component.text("BanIps:" + bans));
         } else
             com.sendMessage(Component.text(Chat.prefix + Chat.no_permission));

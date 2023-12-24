@@ -26,8 +26,7 @@ public class CMDRepair extends PluginCommand {
         if (isPlayer(com)) {
             Player p = (Player) com;
             if (checkPermission(p, "repair")) {
-                if (p.getInventory().getItemInMainHand() != null
-                        && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR)
+                if (!p.getInventory().getItemInMainHand().getType().equals(Material.AIR)
                         && ItemIs.repairable(p.getInventory().getItemInMainHand())) {
                     ItemStack item = p.getInventory().getItemInMainHand();
                     ItemMeta meta = item.getItemMeta();

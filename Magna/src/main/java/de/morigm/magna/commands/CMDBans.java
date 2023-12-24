@@ -21,10 +21,11 @@ public class CMDBans extends PluginCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (checkPermission(com, "bans")) {
-            String bans = "";
+            StringBuilder bans = new StringBuilder();
             ProfileBanList list = Bukkit.getBanList(Type.PROFILE);
-            for (BanEntry<?> ban : list.getEntries())
-                bans += ban.getBanTarget() + " ";
+            for (BanEntry<?> ban : list.getEntries()) {
+                bans.append(ban.getBanTarget()).append(" ");
+            }
             com.sendPlainMessage("Bans:" + bans);
         } else
             com.sendPlainMessage(Chat.prefix + Chat.no_permission);

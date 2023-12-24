@@ -19,11 +19,12 @@ public class MWLIST extends PluginCommand {
     @Override
     public boolean onCommand(@NonNull CommandSender sender, @NonNull Command command, @NonNull String label, @NonNull String[] args) {
         if (checkPermission(sender, "mwlist")) {
-            String worlds = "";
-            for (World w : Bukkit.getWorlds())
-                worlds += w.getName() + ",";
+            StringBuilder worlds = new StringBuilder();
+            for (World w : Bukkit.getWorlds()) {
+                worlds.append(w.getName()).append(",");
+            }
 
-            worlds = worlds.substring(0, worlds.length() - 1);
+            worlds = new StringBuilder(worlds.substring(0, worlds.length() - 1));
 
             sender.sendMessage(de.morigm.magnaworld.chat.Chat.prefix + "Worlds:" + worlds);
         } else

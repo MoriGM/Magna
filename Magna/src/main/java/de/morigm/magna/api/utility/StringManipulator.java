@@ -3,21 +3,19 @@ package de.morigm.magna.api.utility;
 public class StringManipulator {
 
     public static String stringArrayToString(String[] arr, String split) {
-        String tmp = "";
+        StringBuilder tmp = new StringBuilder();
         for (String s : arr) {
-            tmp += s + split;
+            tmp.append(s).append(split);
         }
-        tmp = tmp.substring(0, (tmp.length() - split.length()));
-        return tmp;
+        return tmp.substring(0, (tmp.length() - split.length()));
     }
 
     public static String stringArrayToString(String[] arr, String split, int count) {
-        String tmp = "";
+        StringBuilder tmp = new StringBuilder();
         for (int i = count; i < arr.length; i++) {
-            tmp += arr[i] + split;
+            tmp.append(arr[i]).append(split);
         }
-        tmp = tmp.substring(0, (tmp.length() - split.length()));
-        return tmp;
+        return tmp.substring(0, (tmp.length() - split.length()));
     }
 
     public static String capitalizeFirst(String text) {

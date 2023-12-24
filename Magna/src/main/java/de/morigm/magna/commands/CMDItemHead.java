@@ -22,8 +22,7 @@ public class CMDItemHead extends PluginCommand {
     public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (com instanceof Player p) {
             if (checkPermission(p, "itemhead")) {
-                if (p.getInventory().getItemInMainHand() != null
-                        && !p.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
+                if (!p.getInventory().getItemInMainHand().getType().equals(Material.AIR)) {
                     p.getInventory().setHelmet(p.getInventory().getItemInMainHand());
                     p.sendMessage(Chat.prefix + translate("cmd.itemhead"));
                 } else

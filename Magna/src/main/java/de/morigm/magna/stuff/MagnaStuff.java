@@ -22,4 +22,5 @@ public class MagnaStuff {
         onlybreaks = new ArrayList<>();
         guis = new HashMap<>();
     }
+
 }

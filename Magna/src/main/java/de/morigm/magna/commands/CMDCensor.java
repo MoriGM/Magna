@@ -57,11 +57,13 @@ public class CMDCensor extends PluginCommand {
                                     + translate("cmd.censor.or") + Slash(com) + getCommand() + " <list,types>");
             } else if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("list")) {
-                    String words = "";
-                    for (BlackWord bword : getBlackListManager().getBlackWords())
-                        words += bword.word() + ",";
-                    if (!words.isEmpty())
-                        words = words.substring(0, words.length() - 1);
+                    StringBuilder words = new StringBuilder();
+                    for (BlackWord bword : getBlackListManager().getBlackWords()) {
+                        words.append(bword.word()).append(",");
+                    }
+                    if (!words.isEmpty()) {
+                        words = new StringBuilder(words.substring(0, words.length() - 1));
+                    }
                     com.sendPlainMessage(Chat.prefix + translate("cmd.censor.words") + ":" + words);
                 } else if (args[0].equalsIgnoreCase("types"))
                     com.sendPlainMessage(Chat.prefix + translate("cmd.censor.type") + ":" + getTypes());
@@ -78,12 +80,12 @@ public class CMDCensor extends PluginCommand {
     }
 
     public String getTypes() {
-        String types = "";
+        StringBuilder types = new StringBuilder();
         for (CensorType type : CensorType.values())
-            types += type.name() + ",";
+            types.append(type.name()).append(", ");
         if (!types.isEmpty())
-            types.substring(0, types.length() - 1);
-        return types;
+            types = new StringBuilder(types.substring(0, types.length() - 2));
+        return types.toString();
     }
 
 }
