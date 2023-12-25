@@ -11,6 +11,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import java.util.Objects;
+
 public class SignManipulator extends Listener {
 
     public static final String prefix = ChatColor.GRAY + "[" + ChatColor.BLUE;
@@ -18,18 +20,18 @@ public class SignManipulator extends Listener {
 
     @EventHandler
     public void on(SignChangeEvent e) {
-        Component component = e.line(0);
-        if (component == null) {
+        if (e.lines().isEmpty()) {
             return;
         }
-        String firstLine = component.toString();
-        if (e.getLines()[0] != null && !e.getLines()[0].isEmpty() && e.getLines()[0].startsWith("[")
-                && e.getLines()[0].endsWith("]") && e.getLines()[0].length() >= 3) {
-            String name = e.getLines()[0].substring(1, (e.getLines()[0].length() - 1));
+
+        String firstLine = Objects.requireNonNull(e.line(0)).toString();
+        if (firstLine.startsWith("[") && firstLine.endsWith("]") && firstLine.length() >= 3) {
+            String name = firstLine.substring(1, (firstLine.length() - 1));
             SignListener sl = Magna.getSignManager().getSignListener(name);
             if (sl != null)
                 if (e.getPlayer().hasPermission(getPermission("signcreate") + "." + name)) {
-                    boolean b = sl.onCreate(e.getLines(), e.getPlayer(), e.getBlock());
+                    String[] lines = e.lines().stream().map(Component::toString).toArray(String[]::new);
+                    boolean b = sl.onCreate(lines, e.getPlayer(), e.getBlock());
                     if (b) {
                         e.line(0, Component.text(prefix + name + suffix));
                     }
