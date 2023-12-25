@@ -26,18 +26,18 @@ mvn install
 ### Tested Operating System
 
 * Manjaro
-* Debian 11
-* Fedora >37
+* Debian 12
+* Fedora >39
 
 ### Tested Spigot Server Version
 
-* Spigot 1.19
+* Spigot 1.20
 
 ## Built With
 
 * [Eclipse](https://www.eclipse.org) - The IDE used
 * [Git](https://git-scm.com) - Used Versioning Programm
-* [OpenJDK 17](http://openjdk.java.net/projects/jdk17/) - Used Linux Java Compiler
+* [OpenJDK 21](http://openjdk.java.net/projects/jdk21/) - Used Linux Java Compiler
 * [Spigot](https://www.spigotmc.org) - Used Minecraft Server
 * [Maven](https://maven.apache.org) - Building Tool
 
