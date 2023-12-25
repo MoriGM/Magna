@@ -27,8 +27,8 @@ public class SignManipulator extends Listener {
         String firstLine = Objects.requireNonNull(e.line(0)).toString();
         if (firstLine.startsWith("[") && firstLine.endsWith("]") && firstLine.length() >= 3) {
             String name = firstLine.substring(1, (firstLine.length() - 1));
-            SignListener sl = Magna.getSignManager().getSignListener(name);
-            if (sl != null)
+            if (Magna.getSignManager().contains(name)) {
+                SignListener sl = Magna.getSignManager().find(name);
                 if (e.getPlayer().hasPermission(getPermission("signcreate") + "." + name)) {
                     String[] lines = e.lines().stream().map(Component::toString).toArray(String[]::new);
                     boolean b = sl.onCreate(lines, e.getPlayer(), e.getBlock());
@@ -36,6 +36,7 @@ public class SignManipulator extends Listener {
                         e.line(0, Component.text(prefix + name + suffix));
                     }
                 }
+            }
         }
     }
 
@@ -46,7 +47,7 @@ public class SignManipulator extends Listener {
                 String firstLine = sign.line(0).toString();
                 if (firstLine.startsWith(prefix) && firstLine.endsWith(suffix) && firstLine.length() >= (prefix.length() + suffix.length() + 1)) {
                     String name = firstLine.substring(prefix.length(), (firstLine.length() - suffix.length()));
-                    SignListener sl = Magna.getSignManager().getSignListener(name);
+                    SignListener sl = Magna.getSignManager().find(name);
                     if (sl != null && e.getPlayer().hasPermission(getPermission("signclick") + "." + name))
                         sl.onClick(sign, e.getPlayer());
                 }
