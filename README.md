@@ -5,7 +5,7 @@ A Minecraft Server Manager Tool
 ## Prerequisites
 
 * Java JDK 21
-* Spigot Server 1.20
+* PaperMc Server 1.20
 
 ## Authors
 
@@ -31,7 +31,7 @@ mvn install
 
 ### Tested Spigot Server Version
 
-* Spigot 1.20
+* PaperMc 1.20
 
 ## Built With
 
