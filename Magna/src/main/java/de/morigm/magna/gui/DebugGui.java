@@ -19,10 +19,10 @@ public class DebugGui extends Gui {
         setSize(9);
         setPermission(getPermission("debug"));
         addButton(new GuiButton(ItemMetaManipulator.changeName(Material.WHITE_WOOL, "Version"), 1));
-        addButton(new GuiSwitchButton(Material.WHITE_WOOL, "OwnCommandSpy", 2, Magna.getSettings().getOwnCommandSpy()));
+        addButton(new GuiSwitchButton(Material.WHITE_WOOL, "OwnCommandSpy", 2, Magna.INSTANCE.getSettings().getOwnCommandSpy()));
         addButton(new GuiButton(ItemMetaManipulator.changeName(Material.WHITE_WOOL, "AfkTimer"), 3));
         addButton(new GuiButton(ItemMetaManipulator.changeName(Material.WHITE_WOOL, "Language"), 4));
-        addButton(new GuiSwitchButton(Material.WHITE_WOOL, "ShowChatClear", 5, Magna.getSettings().getShowChatClear()));
+        addButton(new GuiSwitchButton(Material.WHITE_WOOL, "ShowChatClear", 5, Magna.INSTANCE.getSettings().getShowChatClear()));
     }
 
     @Override
@@ -31,16 +31,16 @@ public class DebugGui extends Gui {
             getPlayer().sendMessage(Chat.prefix + "Version:" + Chat.version);
         }
         if (button.getId() == 2 && checkPermission(getPlayer(), "debug.owncommandspy")) {
-            Magna.getSettings().setOwnCommandSpy(!Magna.getSettings().getOwnCommandSpy());
+            Magna.INSTANCE.getSettings().setOwnCommandSpy(!Magna.INSTANCE.getSettings().getOwnCommandSpy());
         }
         if (button.getId() == 3 && checkPermission(getPlayer(), "debug.afktimer")) {
-            getPlayer().sendMessage(Chat.prefix + "AfkTimer:" + Magna.getSettings().getAFKTimer());
+            getPlayer().sendMessage(Chat.prefix + "AfkTimer:" + Magna.INSTANCE.getSettings().getAFKTimer());
         }
         if (button.getId() == 4 && checkPermission(getPlayer(), "debug.language")) {
-            getPlayer().sendMessage(Chat.prefix + "Language:" + Magna.getSettings().getLanguage());
+            getPlayer().sendMessage(Chat.prefix + "Language:" + Magna.INSTANCE.getSettings().getLanguage());
         }
         if (button.getId() == 5 && checkPermission(getPlayer(), "debug.chatclear")) {
-            Magna.getSettings().setShowChatClear(!Magna.getSettings().getShowChatClear());
+            Magna.INSTANCE.getSettings().setShowChatClear(!Magna.INSTANCE.getSettings().getShowChatClear());
         }
         if (Arrays.binarySearch(new int[]{2, 5}, button.getId()) >= 0) {
             Magna.getUser(getPlayer()).openGui(new DebugGui());

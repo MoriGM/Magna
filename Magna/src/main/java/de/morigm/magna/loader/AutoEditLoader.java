@@ -39,7 +39,7 @@ public class AutoEditLoader {
     }
 
     private AutoEditConfig getAutoEditConfig() {
-        return Main.getInstance().getAutoEditConfig();
+        return Main.Companion.getInstance().getAutoEditConfig();
     }
 
 }

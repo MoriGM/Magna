@@ -25,7 +25,7 @@ public class WayPointLoader implements Loader, Saver {
 
     @Override
     public void load() {
-        for (AbstractMap.SimpleEntry<String, String> entry : Main.getInstance().getWaypointConfig().waypoints) {
+        for (AbstractMap.SimpleEntry<String, String> entry : Main.Companion.getInstance().getWaypointConfig().waypoints) {
             World world = Bukkit.getWorld(getConfig().getString(entry.getKey() + "." + entry.getValue() + ".world"));
             int x = getConfig().getInt(entry.getKey() + "." + entry.getValue() + ".x");
             int y = getConfig().getInt(entry.getKey() + "." + entry.getValue() + ".y");
@@ -34,7 +34,7 @@ public class WayPointLoader implements Loader, Saver {
             Location loc = new Location(world, x, y, z);
             String permission = getConfig().contains(entry.getKey() + "." + entry.getValue() + ".permission")
                     ? getConfig().getString(entry.getKey() + "." + entry.getValue() + ".permission")
-                    : Main.getInstance().getPermissionManager().getPermission("warppermission");
+                    : Main.Companion.getInstance().getPermissionManager().getPermission("warppermission");
             WayPoint wayPoint = new WayPoint(entry.getValue(), entry.getKey(), permission, loc);
             this.WayPoints.add(wayPoint);
         }
@@ -50,7 +50,7 @@ public class WayPointLoader implements Loader, Saver {
             getConfig().set(w.UUID + '.' + w.Name + ".z", w.Location.getZ());
             getConfig().set(w.UUID + '.' + w.Name + ".world", w.Location.getWorld().getName());
             getConfig().set(w.UUID + '.' + w.Name + ".permission",
-                    Main.getInstance().getPermissionManager().getPermission("warppermission") + "." + w.Name);
+                    Main.Companion.getInstance().getPermissionManager().getPermission("warppermission") + "." + w.Name);
         }
     }
 
@@ -61,7 +61,7 @@ public class WayPointLoader implements Loader, Saver {
     }
 
     private FileConfiguration getConfig() {
-        return Main.getInstance().getWaypointConfig().getConfig();
+        return Main.Companion.getInstance().getWaypointConfig().getConfig();
     }
 
 }

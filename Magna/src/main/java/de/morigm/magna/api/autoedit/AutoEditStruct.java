@@ -9,7 +9,7 @@ public interface AutoEditStruct {
     String getEdit();
 
     default void register() {
-        Main.getInstance().getRegisterAutoEdits().getAutoEditStructs().add(this);
+        Main.Companion.getInstance().getRegisterAutoEdits().getAutoEditStructs().add(this);
     }
 
 }

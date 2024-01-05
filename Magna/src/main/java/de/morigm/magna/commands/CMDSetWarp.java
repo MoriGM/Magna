@@ -24,9 +24,9 @@ public class CMDSetWarp extends PluginCommand {
             if (checkPermission(p, "setwarp")) {
                 if (args.length >= 1) {
                     String warpname = args[0];
-                    if (Main.getInstance().getWarpManager().containsWarp(warpname))
-                        Main.getInstance().getWarpManager().removeWarp(warpname);
-                    Main.getInstance().getWarpManager().setWarp(warpname, p.getLocation());
+                    if (Main.Companion.getInstance().getWarpManager().containsWarp(warpname))
+                        Main.Companion.getInstance().getWarpManager().removeWarp(warpname);
+                    Main.Companion.getInstance().getWarpManager().setWarp(warpname, p.getLocation());
                     p.sendMessage(Chat.prefix + translate("cmd.setwarp.warp") + " " + warpname + " "
                             + translate("cmd.setwarp.end"));
                 } else

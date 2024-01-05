@@ -16,21 +16,21 @@ public class Listener extends Permission implements org.bukkit.event.Listener, T
     private PermissionManager permission;
 
     public void register() {
-        this.register(Main.getInstance() != null ? Magna.getLanguage() : null,
-                Main.getInstance() != null ? Magna.getPermissionManager() : null, Main.getInstance());
+        this.register(Main.Companion.getInstance() != null ? Magna.getLanguage() : null,
+                Main.Companion.getInstance() != null ? Magna.getPermissionManager() : null, Main.Companion.getInstance());
     }
 
     public void register(JavaPlugin javaplugin) {
-        this.register(Main.getInstance() != null ? Magna.getLanguage() : null,
-                Main.getInstance() != null ? Magna.getPermissionManager() : null, javaplugin);
+        this.register(Main.Companion.getInstance() != null ? Magna.getLanguage() : null,
+                Main.Companion.getInstance() != null ? Magna.getPermissionManager() : null, javaplugin);
     }
 
     public void register(Language language) {
-        this.register(language, Main.getInstance() != null ? Magna.getPermissionManager() : null, Main.getInstance());
+        this.register(language, Main.Companion.getInstance() != null ? Magna.getPermissionManager() : null, Main.Companion.getInstance());
     }
 
     public void register(PermissionManager permission) {
-        this.register(Main.getInstance() != null ? Magna.getLanguage() : null, permission, Main.getInstance());
+        this.register(Main.Companion.getInstance() != null ? Magna.getLanguage() : null, permission, Main.Companion.getInstance());
     }
 
     public void register(Language language, PermissionManager permission, JavaPlugin javaplugin) {

@@ -99,7 +99,7 @@ public class PluginConfig implements Config {
         getConfig().set("blacklistperm", this.blacklistperm);
         getConfig().set("afk-timer", this.afkTimer);
         getConfig().set("showafk", this.showafk);
-        Main.getInstance().saveConfig();
+        Main.Companion.getInstance().saveConfig();
     }
 
     private void savespawn() {
@@ -112,7 +112,7 @@ public class PluginConfig implements Config {
     }
 
     public FileConfiguration getConfig() {
-        return Main.getInstance().getConfig();
+        return Main.Companion.getInstance().getConfig();
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public class WayPointManager {
 
     public void SetWayPoint(String name, String uuid, Location loc) {
-        WayPoint w = new WayPoint(name, uuid, Main.getInstance().getPermissionManager().getPermission("waypoint"), loc);
+        WayPoint w = new WayPoint(name, uuid, Main.Companion.getInstance().getPermissionManager().getPermission("waypoint"), loc);
         if (!ContainsWayPoint(w.Name, w.UUID)) {
             GetWayPoints().add(w);
         }
@@ -44,6 +44,6 @@ public class WayPointManager {
     }
 
     private WayPointLoader GetWayPointLoader() {
-        return Main.getInstance().getWayPointLoader();
+        return Main.Companion.getInstance().getWayPointLoader();
     }
 }

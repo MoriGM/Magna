@@ -8,14 +8,14 @@ import java.io.File;
 public class Folders {
 
     @Getter
-    private final File languageFile, autoEditFile, playerAutoEditFile, blackListFile, deathBackFile, groupsFile,
+    public final File languageFile, autoEditFile, playerAutoEditFile, blackListFile, deathBackFile, groupsFile,
             playerFile, warpsFile, homeFile, pluginFolder, dataFolder, languageFolder, waypointFolder;
 
     public Folders() {
         this.pluginFolder = new File("plugins");
-        this.dataFolder = new File(this.pluginFolder, Magna.getName());
+        this.dataFolder = new File(this.pluginFolder, Magna.INSTANCE.getName());
         this.languageFolder = new File(dataFolder, "languages");
-        this.languageFile = new File(this.languageFolder, Magna.getSettings().getLanguage());
+        this.languageFile = new File(this.languageFolder, Magna.INSTANCE.getSettings().getLanguage());
         this.autoEditFile = new File(this.dataFolder, "autoedit.yml");
         this.playerAutoEditFile = new File(this.dataFolder, "playerautoedit.yml");
         this.blackListFile = new File(this.dataFolder, "blacklist.yml");

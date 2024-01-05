@@ -8,16 +8,16 @@ import org.bukkit.command.CommandSender;
 
 public class Chat {
 
-    public static final String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + Magna.getName()
+    public static final String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + Magna.INSTANCE.getName()
             + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE;
-    public static final String name = Magna.getName();
-    public static final String version = Main.getInstance().getDescription().getVersion();
-    public static final String no_console = Main.getInstance().getLanguage().translate("chat.no-console");
-    public static final String no_player = Main.getInstance().getLanguage().translate("chat.no-player");
-    public static final String no_permission = Main.getInstance().getLanguage().translate("chat.no-permission");
-    public static final String no_online = Main.getInstance().getLanguage().translate("chat.no-online");
-    public static final String no_group = Main.getInstance().getLanguage().translate("chat.no-group");
-    public static final String no_int = Main.getInstance().getLanguage().translate("chat.no-int");
+    public static final String name = Magna.INSTANCE.getName();
+    public static final String version = Main.Companion.getInstance().getDescription().getVersion();
+    public static final String no_console = Main.Companion.getInstance().getLanguage().translate("chat.no-console");
+    public static final String no_player = Main.Companion.getInstance().getLanguage().translate("chat.no-player");
+    public static final String no_permission = Main.Companion.getInstance().getLanguage().translate("chat.no-permission");
+    public static final String no_online = Main.Companion.getInstance().getLanguage().translate("chat.no-online");
+    public static final String no_group = Main.Companion.getInstance().getLanguage().translate("chat.no-group");
+    public static final String no_int = Main.Companion.getInstance().getLanguage().translate("chat.no-int");
 
     public static void writeMessage(String text) {
         Bukkit.getConsoleSender().sendMessage(Chat.prefix + text);

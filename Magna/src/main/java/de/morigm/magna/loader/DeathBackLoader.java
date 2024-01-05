@@ -23,7 +23,7 @@ public class DeathBackLoader implements Loader, Saver {
         for (String key : getConfig().getKeys(false)) {
             String uuid = key;
             World world = Bukkit
-                    .getWorld(Main.getInstance().getDeathBackConfig().getConfig().getString(key + ".world"));
+                    .getWorld(Main.Companion.getInstance().getDeathBackConfig().getConfig().getString(key + ".world"));
             int x = getConfig().getInt(key + ".x");
             int y = getConfig().getInt(key + ".y");
             int z = getConfig().getInt(key + ".z");
@@ -61,7 +61,7 @@ public class DeathBackLoader implements Loader, Saver {
     }
 
     private FileConfiguration getConfig() {
-        return Main.getInstance().getDeathBackConfig().getConfig();
+        return Main.Companion.getInstance().getDeathBackConfig().getConfig();
     }
 
 }

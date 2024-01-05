@@ -14,7 +14,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 public class GodMode extends Listener {
     @EventHandler
     public void on(PlayerInteractEvent e) {
-        if (Main.getInstance().getGodModeManager().containsPlayer(e.getPlayer()))
+        if (Main.Companion.getInstance().getGodModeManager().containsPlayer(e.getPlayer()))
             if (e.getAction().equals(Action.LEFT_CLICK_BLOCK) && e.getClickedBlock() != null)
                 if (!e.getClickedBlock().getType().equals(Material.BEDROCK))
                     e.getClickedBlock().breakNaturally();
@@ -23,7 +23,7 @@ public class GodMode extends Listener {
     @EventHandler
     public void on(EntityDamageEvent e) {
         if (e.getEntity() instanceof Player p) {
-            if (Main.getInstance().getGodModeManager().containsPlayer(p))
+            if (Main.Companion.getInstance().getGodModeManager().containsPlayer(p))
                 e.setCancelled(true);
         }
     }
@@ -31,7 +31,7 @@ public class GodMode extends Listener {
     @EventHandler
     public void on(EntityDamageByEntityEvent e) {
         if (e.getDamager() instanceof Player p) {
-            if (Main.getInstance().getGodModeManager().containsPlayer(p))
+            if (Main.Companion.getInstance().getGodModeManager().containsPlayer(p))
                 e.setDamage(10000000D);
         }
     }
@@ -39,7 +39,7 @@ public class GodMode extends Listener {
     @EventHandler
     public void on(FoodLevelChangeEvent e) {
         if (e.getEntity() instanceof Player p) {
-            if (Main.getInstance().getGodModeManager().containsPlayer(p))
+            if (Main.Companion.getInstance().getGodModeManager().containsPlayer(p))
                 e.setCancelled(true);
         }
     }

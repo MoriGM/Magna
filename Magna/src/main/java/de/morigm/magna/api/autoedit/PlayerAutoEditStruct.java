@@ -10,7 +10,7 @@ public interface PlayerAutoEditStruct {
     String getEdit(Player p);
 
     default void register() {
-        Main.getInstance().getRegisterAutoEdits().getPlayerAutoEditStructs().add(this);
+        Main.Companion.getInstance().getRegisterAutoEdits().getPlayerAutoEditStructs().add(this);
     }
 
 }

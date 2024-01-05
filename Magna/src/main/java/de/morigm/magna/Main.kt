@@ -1,207 +1,230 @@
-package de.morigm.magna;
+package de.morigm.magna
 
-import de.morigm.magna.api.Magna;
-import de.morigm.magna.api.language.Language;
-import de.morigm.magna.api.manager.*;
-import de.morigm.magna.api.memory.MemoryManager;
-import de.morigm.magna.chat.Chat;
-import de.morigm.magna.config.*;
-import de.morigm.magna.edits.RegisterAutoEdits;
-import de.morigm.magna.loader.*;
-import de.morigm.magna.log.CommandLogger;
-import lombok.Getter;
-import org.bukkit.plugin.java.JavaPlugin;
+import de.morigm.magna.api.Magna
+import de.morigm.magna.api.Magna.isSupported
+import de.morigm.magna.api.language.Language
+import de.morigm.magna.api.manager.*
+import de.morigm.magna.api.memory.MemoryManager
+import de.morigm.magna.chat.Chat
+import de.morigm.magna.config.*
+import de.morigm.magna.edits.RegisterAutoEdits
+import de.morigm.magna.loader.*
+import de.morigm.magna.log.CommandLogger
+import org.bukkit.plugin.java.JavaPlugin
+import java.io.File
 
-import java.io.File;
+class Main : JavaPlugin() {
+    var permissionManager: PermissionManager? = null
 
-public class Main extends JavaPlugin {
 
-    @Getter
-    private static Main instance;
+    var mutedPlayerManager: MutedPlayerManager? = null
 
-    @Getter
-    private PermissionManager permissionManager;
-    @Getter
-    private MutedPlayerManager mutedPlayerManager;
-    @Getter
-    private GodModeManager godModeManager;
-    @Getter
-    private CommandSpyManager commandSpyManager;
-    @Getter
-    private WarpManager warpManager;
-    @Getter
-    private MemoryManager memoryManager;
-    @Getter
-    private GroupManager groupManager;
-    @Getter
-    private DeathBackManager deathBackManager;
-    @Getter
-    private AutoEditManager autoEditManager;
-    @Getter
-    private BlackListManager blackListManager;
-    @Getter
-    private MSGManager MSGManager;
-    @Getter
-    private RunnerManager runnerManager;
-    @Getter
-    private AFK AFKManager;
-    @Getter
-    private HomeManager homeManager;
-    @Getter
-    private SignManager signManager;
-    @Getter
-    private OnlyBreakManager onlyBreakManager;
-    @Getter
-    private WayPointManager wayPointManager;
 
-    @Getter
-    private RegisterAutoEdits registerAutoEdits;
+    var godModeManager: GodModeManager? = null
 
-    @Getter
-    private PlayerConfig playerConfig;
-    private PluginConfig pluginConfig;
-    @Getter
-    private WarpConfig warpConfig;
-    @Getter
-    private WayPointConfig waypointConfig;
-    @Getter
-    private GroupConfig groupConfig;
-    @Getter
-    private DeathBackConfig deathBackConfig;
-    @Getter
-    private AutoEditConfig autoEditConfig;
-    @Getter
-    private BlackListConfig blackListConfig;
-    @Getter
-    private HomeConfig homeConfig;
 
-    @Getter
-    private CommandLogger commandsLoger;
+    var commandSpyManager: CommandSpyManager? = null
 
-    @Getter
-    private GroupLoader groupLoader;
-    @Getter
-    private WarpLoader warpLoader;
-    @Getter
-    private WayPointLoader wayPointLoader;
-    @Getter
-    private DeathBackLoader deathBackLoader;
-    @Getter
-    private AutoEditLoader autoEditLoader;
-    @Getter
-    private BlackListLoader blackListLoader;
-    @Getter
-    private HomeLoader homeLoader;
 
-    @Getter
-    private File jar;
+    var warpManager: WarpManager? = null
 
-    @Getter
-    private LanguageLoader LanguageLoader;
 
-    @Getter
-    private Language language;
+    var memoryManager: MemoryManager? = null
 
-    @Getter
-    private Listeners listeners;
 
-    @Override
-    public void onEnable() {
-        Main.instance = this;
-        this.pluginConfig = new PluginConfig();
-        this.pluginConfig.load();
-        this.jar = this.getFile();
-        this.LanguageLoader = new LanguageLoader();
-        this.LanguageLoader.load();
-        this.language = new Language(Magna.getFolders().getLanguageFile());
-        this.language.load();
-        this.permissionManager = new PermissionManager(this.getResource("Permission.yml"));
-        this.permissionManager.load();
-        PluginLoader pluginLoader = new PluginLoader();
-        pluginLoader.registerCommands();
-        this.listeners = new Listeners();
-        this.listeners.load();
-        this.playerConfig = new PlayerConfig();
-        this.playerConfig.load();
-        this.mutedPlayerManager = new MutedPlayerManager();
-        this.godModeManager = new GodModeManager();
-        this.commandSpyManager = new CommandSpyManager();
-        this.commandsLoger = new CommandLogger();
-        this.commandsLoger.load();
-        this.warpConfig = new WarpConfig();
-        this.warpConfig.load();
-        this.waypointConfig = new WayPointConfig();
-        this.waypointConfig.load();
-        this.warpLoader = new WarpLoader();
-        this.warpLoader.load();
-        this.wayPointLoader = new WayPointLoader();
-        this.wayPointLoader.load();
-        this.warpManager = new WarpManager();
-        this.memoryManager = new MemoryManager();
-        this.groupConfig = new GroupConfig();
-        this.groupLoader = new GroupLoader();
-        this.groupConfig.load();
-        this.groupLoader.load();
-        this.groupManager = new GroupManager();
-        this.deathBackConfig = new DeathBackConfig();
-        this.deathBackConfig.load();
-        this.deathBackLoader = new DeathBackLoader();
-        this.deathBackLoader.load();
-        this.deathBackManager = new DeathBackManager();
-        this.registerAutoEdits = new RegisterAutoEdits();
-        this.registerAutoEdits.registerServerStruct();
-        this.registerAutoEdits.registerPlayerStruct();
-        this.autoEditManager = new AutoEditManager();
-        this.autoEditConfig = new AutoEditConfig();
-        this.autoEditConfig.load();
-        this.autoEditLoader = new AutoEditLoader();
-        this.autoEditLoader.loadPlayerEdit();
-        this.autoEditLoader.loadServerEdit();
-        this.blackListConfig = new BlackListConfig();
-        this.blackListConfig.load();
-        this.blackListLoader = new BlackListLoader();
-        this.blackListLoader.load();
-        this.blackListManager = new BlackListManager();
-        this.MSGManager = new MSGManager();
-        this.runnerManager = new RunnerManager();
-        pluginLoader.registerRunners();
-        pluginLoader.startRunners();
-        this.AFKManager = new AFK();
-        this.homeConfig = new HomeConfig();
-        this.homeConfig.load();
-        this.homeLoader = new HomeLoader();
-        this.homeLoader.load();
-        this.homeManager = new HomeManager();
-        this.signManager = new SignManager();
-        pluginLoader.registerSignListener();
-        this.onlyBreakManager = new OnlyBreakManager();
-        this.wayPointManager = new WayPointManager();
-        if (Magna.getSettings().getWarning() && !Magna.isSupported()) {
-            Chat.writeError(this.getLanguage().translate("plugin.warning.supported"));
+    var groupManager: GroupManager? = null
+
+
+    var deathBackManager: DeathBackManager? = null
+
+
+    var autoEditManager: AutoEditManager? = null
+
+
+    var blackListManager: BlackListManager? = null
+
+
+    var msgManager: MSGManager? = null
+
+
+    var runnerManager: RunnerManager? = null
+
+
+    var afkManager: AFK? = null
+
+
+    var homeManager: HomeManager? = null
+
+
+    var signManager: SignManager? = null
+
+
+    var onlyBreakManager: OnlyBreakManager? = null
+
+
+    var wayPointManager: WayPointManager? = null
+
+
+    var registerAutoEdits: RegisterAutoEdits? = null
+
+
+    var playerConfig: PlayerConfig? = null
+    var defaultPluginConfig: PluginConfig? = null
+        private set
+
+
+    var warpConfig: WarpConfig? = null
+
+
+    var waypointConfig: WayPointConfig? = null
+
+
+    var groupConfig: GroupConfig? = null
+
+
+    var deathBackConfig: DeathBackConfig? = null
+
+
+    var autoEditConfig: AutoEditConfig? = null
+
+
+    var blackListConfig: BlackListConfig? = null
+
+
+    var homeConfig: HomeConfig? = null
+
+
+    var commandsLoger: CommandLogger? = null
+
+
+    var groupLoader: GroupLoader? = null
+
+
+    var warpLoader: WarpLoader? = null
+
+
+    var wayPointLoader: WayPointLoader? = null
+
+
+    var deathBackLoader: DeathBackLoader? = null
+
+
+    var autoEditLoader: AutoEditLoader? = null
+
+
+    var blackListLoader: BlackListLoader? = null
+
+
+    var homeLoader: HomeLoader? = null
+
+
+    var jar: File? = null
+
+
+    var LanguageLoader: LanguageLoader? = null
+
+
+    var language: Language? = null
+
+
+    var listeners: Listeners? = null
+
+    override fun onEnable() {
+        instance = this
+        this.defaultPluginConfig = PluginConfig()
+        defaultPluginConfig!!.load()
+        this.jar = this.file
+        this.LanguageLoader = LanguageLoader()
+        this.LanguageLoader!!.load()
+        this.language = Language(Magna.folders?.languageFile)
+        language!!.load()
+        this.permissionManager = PermissionManager(this.getResource("Permission.yml"))
+        permissionManager!!.load()
+        val pluginLoader = PluginLoader()
+        pluginLoader.registerCommands()
+        this.listeners = Listeners()
+        listeners!!.load()
+        this.playerConfig = PlayerConfig()
+        playerConfig!!.load()
+        this.mutedPlayerManager = MutedPlayerManager()
+        this.godModeManager = GodModeManager()
+        this.commandSpyManager = CommandSpyManager()
+        this.commandsLoger = CommandLogger()
+        commandsLoger!!.load()
+        this.warpConfig = WarpConfig()
+        warpConfig!!.load()
+        this.waypointConfig = WayPointConfig()
+        waypointConfig!!.load()
+        this.warpLoader = WarpLoader()
+        warpLoader!!.load()
+        this.wayPointLoader = WayPointLoader()
+        wayPointLoader!!.load()
+        this.warpManager = WarpManager()
+        this.memoryManager = MemoryManager()
+        this.groupConfig = GroupConfig()
+        this.groupLoader = GroupLoader()
+        groupConfig!!.load()
+        groupLoader!!.load()
+        this.groupManager = GroupManager()
+        this.deathBackConfig = DeathBackConfig()
+        deathBackConfig!!.load()
+        this.deathBackLoader = DeathBackLoader()
+        deathBackLoader!!.load()
+        this.deathBackManager = DeathBackManager()
+        this.registerAutoEdits = RegisterAutoEdits()
+        registerAutoEdits!!.registerServerStruct()
+        registerAutoEdits!!.registerPlayerStruct()
+        this.autoEditManager = AutoEditManager()
+        this.autoEditConfig = AutoEditConfig()
+        autoEditConfig!!.load()
+        this.autoEditLoader = AutoEditLoader()
+        autoEditLoader!!.loadPlayerEdit()
+        autoEditLoader!!.loadServerEdit()
+        this.blackListConfig = BlackListConfig()
+        blackListConfig!!.load()
+        this.blackListLoader = BlackListLoader()
+        blackListLoader!!.load()
+        this.blackListManager = BlackListManager()
+        this.msgManager = MSGManager()
+        this.runnerManager = RunnerManager()
+        pluginLoader.registerRunners()
+        pluginLoader.startRunners()
+        this.afkManager = AFK()
+        this.homeConfig = HomeConfig()
+        homeConfig!!.load()
+        this.homeLoader = HomeLoader()
+        homeLoader!!.load()
+        this.homeManager = HomeManager()
+        this.signManager = SignManager()
+        pluginLoader.registerSignListener()
+        this.onlyBreakManager = OnlyBreakManager()
+        this.wayPointManager = WayPointManager()
+        if (Magna.settings!!.warning == true && !isSupported) {
+            Chat.writeError(this.language!!.translate("plugin.warning.supported"))
         }
-        Chat.writeMessage("Version: " + Chat.version);
-        Chat.writeMessage(this.getLanguage().translate("plugin.start"));
+        Chat.writeMessage("Version: " + Chat.version)
+        Chat.writeMessage(this.language!!.translate("plugin.start"))
     }
 
-    @Override
-    public void onDisable() {
-        this.playerConfig.save();
-        this.pluginConfig.save();
-        this.commandsLoger.save();
-        this.warpLoader.save();
-        this.wayPointLoader.save();
-        this.warpConfig.save();
-        this.deathBackLoader.save();
-        this.deathBackConfig.save();
-        this.blackListLoader.save();
-        this.blackListConfig.save();
-        this.homeLoader.save();
-        this.homeConfig.save();
-        this.waypointConfig.save();
-        Chat.writeMessage(this.getLanguage().translate("plugin.stop"));
+    override fun onDisable() {
+        playerConfig!!.save()
+        defaultPluginConfig!!.save()
+        commandsLoger!!.save()
+        warpLoader!!.save()
+        wayPointLoader!!.save()
+        warpConfig!!.save()
+        deathBackLoader!!.save()
+        deathBackConfig!!.save()
+        blackListLoader!!.save()
+        blackListConfig!!.save()
+        homeLoader!!.save()
+        homeConfig!!.save()
+        waypointConfig!!.save()
+        Chat.writeMessage(this.language!!.translate("plugin.stop"))
     }
 
-    public PluginConfig getDefaultPluginConfig() {
-        return pluginConfig;
+    companion object {
+        var instance: Main? = null
     }
+
 }

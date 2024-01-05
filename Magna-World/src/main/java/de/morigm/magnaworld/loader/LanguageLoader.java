@@ -25,7 +25,7 @@ public class LanguageLoader implements Loader {
         }
 
         Main.getInstance().setLanguage(
-                new Language(new File(Main.getInstance().getLanguageFolder(), Magna.getSettings().getLanguage())));
+                new Language(new File(Main.getInstance().getLanguageFolder(), Magna.INSTANCE.getSettings().getLanguage())));
         Main.getInstance().getLanguage().load();
     }
 

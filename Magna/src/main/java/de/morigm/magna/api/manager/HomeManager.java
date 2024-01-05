@@ -64,7 +64,7 @@ public class HomeManager extends Permission {
     }
 
     public Map<UUID, List<Home>> getAllHomes() {
-        return Main.getInstance().getHomeLoader().player_home_map;
+        return Main.Companion.getInstance().getHomeLoader().player_home_map;
     }
 
 }

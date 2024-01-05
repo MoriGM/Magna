@@ -25,16 +25,16 @@ public abstract class SignListener extends Permission implements Translation {
     public abstract void onClick(Sign sign, Player player);
 
     public void register(String name) {
-        register(name, Main.getInstance() != null ? Magna.getLanguage() : null,
-                Main.getInstance() != null ? Magna.getPermissionManager() : null);
+        register(name, Main.Companion.getInstance() != null ? Magna.getLanguage() : null,
+                Main.Companion.getInstance() != null ? Magna.getPermissionManager() : null);
     }
 
     public void register(String name, Language language) {
-        register(name, language, Main.getInstance() != null ? Magna.getPermissionManager() : null);
+        register(name, language, Main.Companion.getInstance() != null ? Magna.getPermissionManager() : null);
     }
 
     public void register(String name, PermissionManager manager) {
-        register(name, Main.getInstance() != null ? Magna.getLanguage() : null, manager);
+        register(name, Main.Companion.getInstance() != null ? Magna.getLanguage() : null, manager);
     }
 
     public void register(String name, Language language, PermissionManager manager) {

@@ -19,11 +19,11 @@ public class CMDReloadConfig extends PluginCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (checkPermission(com, "magna-reloadconfig")) {
-            Main.getInstance().reloadConfig();
-            Main.getInstance().getDefaultPluginConfig().load();
-            if (Main.getInstance().getDefaultPluginConfig().groups.size() >= 1) {
-                Main.getInstance().getGroupConfig().load();
-                Main.getInstance().getGroupLoader().load();
+            Main.Companion.getInstance().reloadConfig();
+            Main.Companion.getInstance().getDefaultPluginConfig().load();
+            if (Main.Companion.getInstance().getDefaultPluginConfig().groups.size() >= 1) {
+                Main.Companion.getInstance().getGroupConfig().load();
+                Main.Companion.getInstance().getGroupLoader().load();
             }
             com.sendPlainMessage(Chat.prefix + translate("cmd.reloadconfig"));
         } else

@@ -22,8 +22,8 @@ public class CMDSpawn extends PluginCommand {
     public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (com instanceof Player p) {
             if (p.hasPermission(getPermission("spawn"))) {
-                if (Main.getInstance().getDefaultPluginConfig().spawn != null) {
-                    p.teleport(Main.getInstance().getDefaultPluginConfig().spawn);
+                if (Main.Companion.getInstance().getDefaultPluginConfig().spawn != null) {
+                    p.teleport(Main.Companion.getInstance().getDefaultPluginConfig().spawn);
                     p.sendMessage(Chat.prefix + translate("cmd.spawn"));
                 } else
                     p.sendMessage(Chat.prefix + translate("cmd.spawn.error"));

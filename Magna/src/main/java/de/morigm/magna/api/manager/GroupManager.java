@@ -17,7 +17,7 @@ public class GroupManager {
     }
 
     public Group getGroupFromPlayer(Player p) {
-        for (Group group : Main.getInstance().getGroupLoader().getGroups())
+        for (Group group : Main.Companion.getInstance().getGroupLoader().getGroups())
             if (p.hasPermission(group.permission()))
                 return group;
         return null;
@@ -28,7 +28,7 @@ public class GroupManager {
     }
 
     public Group[] getGroups() {
-        return Main.getInstance().getGroupLoader().getGroups();
+        return Main.Companion.getInstance().getGroupLoader().getGroups();
     }
 
     public Map<Player, Group> getOnlinePlayerWithGroup() {

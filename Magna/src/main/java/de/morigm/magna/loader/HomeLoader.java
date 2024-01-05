@@ -48,7 +48,7 @@ public class HomeLoader implements Loader, Saver {
     }
 
     public FileConfiguration getConfig() {
-        return Main.getInstance().getHomeConfig().getConfig();
+        return Main.Companion.getInstance().getHomeConfig().getConfig();
     }
 
 }

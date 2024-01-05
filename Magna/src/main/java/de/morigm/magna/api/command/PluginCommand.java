@@ -20,26 +20,26 @@ public abstract class PluginCommand extends Permission implements CommandExecuto
     private PermissionManager permission;
 
     public void register(String cmd_name) {
-        this.register(cmd_name, Main.getInstance() != null ? Magna.getLanguage() : null);
+        this.register(cmd_name, Main.Companion.getInstance() != null ? Magna.getLanguage() : null);
     }
 
     public void register(String cmd_name, JavaPlugin javaPlugin) {
-        this.register(cmd_name, Main.getInstance() != null ? Magna.getLanguage() : null,
-                Main.getInstance() != null ? Magna.getPermissionManager() : null, javaPlugin);
+        this.register(cmd_name, Main.Companion.getInstance() != null ? Magna.getLanguage() : null,
+                Main.Companion.getInstance() != null ? Magna.getPermissionManager() : null, javaPlugin);
     }
 
     public void register(String cmd_name, Language language) {
-        this.register(cmd_name, language, Main.getInstance() != null ? Magna.getPermissionManager() : null,
-                Main.getInstance());
+        this.register(cmd_name, language, Main.Companion.getInstance() != null ? Magna.getPermissionManager() : null,
+                Main.Companion.getInstance());
     }
 
     public void register(String cmd_name, PermissionManager permission) {
-        this.register(cmd_name, Main.getInstance() != null ? Magna.getLanguage() : null, permission,
-                Main.getInstance());
+        this.register(cmd_name, Main.Companion.getInstance() != null ? Magna.getLanguage() : null, permission,
+                Main.Companion.getInstance());
     }
 
     public void register(String cmd_name, Language language, PermissionManager permission) {
-        this.register(cmd_name, language, permission, Main.getInstance());
+        this.register(cmd_name, language, permission, Main.Companion.getInstance());
     }
 
     public void register(String cmdName, Language language, PermissionManager permission, JavaPlugin javaPlugin) {
@@ -65,7 +65,7 @@ public abstract class PluginCommand extends Permission implements CommandExecuto
     }
 
     public CommandUtil util() {
-        return Magna.getCommandUtil();
+        return Magna.INSTANCE.getCommandUtil();
     }
 
     @Override

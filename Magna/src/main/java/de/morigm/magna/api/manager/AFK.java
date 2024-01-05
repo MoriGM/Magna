@@ -52,7 +52,7 @@ public class AFK implements Translation {
     public void addPlayer(Player p) {
         if (!getAFKPlayers().contains(p)) {
             getAFKPlayers().add(p);
-            if (Magna.getSettings().getShowAfk()) {
+            if (Magna.INSTANCE.getSettings().getShowAfk()) {
                 Bukkit.broadcast(Component.text(Chat.prefix + translate("afk.show.on", new TextStruct("%player%", p.getName()))));
             }
         }
@@ -61,7 +61,7 @@ public class AFK implements Translation {
     public void removePlayer(Player p) {
         if (getAFKPlayers().contains(p)) {
             getAFKPlayers().remove(p);
-            if (Magna.getSettings().getShowAfk()) {
+            if (Magna.INSTANCE.getSettings().getShowAfk()) {
                 Bukkit.broadcast(Component.text(Chat.prefix + translate("afk.show.off", new TextStruct("%player%", p.getName()))));
             }
         }

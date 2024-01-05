@@ -16,7 +16,7 @@ public class EnTest {
         System.out.println("Test En YML");
         CommandLoader loader = new CommandLoader();
         loader.registerCommands();
-        List<String> translations = Magna.getCommandUtil().getTranslations();
+        List<String> translations = Magna.INSTANCE.getCommandUtil().getTranslations();
         Properties prop = new Properties();
         prop.load(ClassLoader.getSystemResourceAsStream("en-en.yml"));
         for (String s : translations) {

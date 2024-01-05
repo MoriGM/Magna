@@ -24,7 +24,7 @@ public class CMDVersion extends PluginCommand {
             return false;
         }
         if (args.length >= 1 && PlayerConverter.isPlayer(sender))
-            if (args[0].equalsIgnoreCase("debug") && Magna.getSettings().getDebug()) {
+            if (args[0].equalsIgnoreCase("debug") && Magna.INSTANCE.getSettings().getDebug()) {
                 DebugGui gui = new DebugGui();
                 Magna.getUser(PlayerConverter.toPlayer(sender)).openGui(gui);
             }

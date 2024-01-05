@@ -15,7 +15,7 @@ public class GroupConfig implements Config {
 
     @Override
     public void load() {
-        this.file = Magna.getFolders().getGroupsFile();
+        this.file = Magna.INSTANCE.getFolders().getGroupsFile();
         FileGenerator.createFileIfNotExists(file);
         this.config = YamlConfiguration.loadConfiguration(file);
     }

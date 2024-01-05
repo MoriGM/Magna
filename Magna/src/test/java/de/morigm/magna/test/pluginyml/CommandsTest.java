@@ -19,7 +19,7 @@ public class CommandsTest {
         CommandLoader loader = new CommandLoader();
         loader.registerCommands();
         PluginDescriptionFile file = new PluginDescriptionFile(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream("plugin.yml")));
-        List<String> commands = Magna.getCommandUtil().getCommandsName();
+        List<String> commands = Magna.INSTANCE.getCommandUtil().getCommandsName();
         for (String c : commands) {
             System.out.println("Test Comamnd : " + c);
             assertTrue(file.getCommands().containsKey(c));
@@ -32,7 +32,7 @@ public class CommandsTest {
         CommandLoader loader = new CommandLoader();
         loader.registerCommands();
         PluginDescriptionFile file = new PluginDescriptionFile(ClassLoader.getSystemResourceAsStream("plugin.yml"));
-        List<String> commands = Magna.getCommandUtil().getCommandsName();
+        List<String> commands = Objects.requireNonNull(Magna.INSTANCE.getCommandUtil()).getCommandsName();
         for (String c : file.getCommands().keySet()) {
             System.out.println("Test Comamnd : " + c);
             assertTrue(commands.contains(c));

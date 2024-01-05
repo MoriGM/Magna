@@ -21,7 +21,7 @@ public class CMDSetSpawn extends PluginCommand {
     public boolean onCommand(@NotNull CommandSender com, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (com instanceof Player p) {
             if (checkPermission(com, "setspawn")) {
-                Magna.getSettings().setSpawn(p.getLocation());
+                Magna.INSTANCE.getSettings().setSpawn(p.getLocation());
                 p.sendMessage(Chat.prefix + translate("cmd.setspawn"));
             } else
                 Chat.noPermission(p);

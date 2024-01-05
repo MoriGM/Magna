@@ -24,7 +24,7 @@ public class RunnerManager {
                     r.run();
                     r.close();
                 }
-            }.runTask(Main.getInstance());
+            }.runTask(Main.Companion.getInstance());
         }
     }
 
@@ -39,7 +39,7 @@ public class RunnerManager {
                     r.run();
                     r.close();
                 }
-            }.runTaskLater(Main.getInstance(), ticklater);
+            }.runTaskLater(Main.Companion.getInstance(), ticklater);
         }
     }
 
@@ -53,7 +53,7 @@ public class RunnerManager {
                     r.load(RunnerType.TIMER, this);
                     r.run();
                 }
-            }.runTaskTimer(Main.getInstance(), 0, ticktimer);
+            }.runTaskTimer(Main.Companion.getInstance(), 0, ticktimer);
         }
     }
 
@@ -67,7 +67,7 @@ public class RunnerManager {
                     r.load(RunnerType.TIMER, this);
                     r.run();
                 }
-            }.runTaskTimer(Main.getInstance(), when, ticktimer);
+            }.runTaskTimer(Main.Companion.getInstance(), when, ticktimer);
         }
     }
 

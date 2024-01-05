@@ -17,25 +17,25 @@ public class LanguageLoader implements Loader {
 
     public void check() {
         for (String languageFile : languageFiles) {
-            File file = new File(Magna.getFolders().getLanguageFolder(), languageFile);
+            File file = new File(Magna.INSTANCE.getFolders().getLanguageFolder(), languageFile);
             if (!file.exists())
-                FileGenerator.copy(Main.getInstance().getResource(languageFile), file);
+                FileGenerator.copy(Main.Companion.getInstance().getResource(languageFile), file);
 
-            if (file.lastModified() < Main.getInstance().getJar().lastModified())
-                LanguageFileManipulator.addNewText(Main.getInstance().getResource(languageFile), file);
+            if (file.lastModified() < Main.Companion.getInstance().getJar().lastModified())
+                LanguageFileManipulator.addNewText(Main.Companion.getInstance().getResource(languageFile), file);
         }
 
-        File language = Magna.getFolders().getLanguageFile();
+        File language = Magna.INSTANCE.getFolders().getLanguageFile();
         if (language.exists())
             this.language = language;
         else
-            this.language = new File(Magna.getFolders().getLanguageFolder(), "en-en.yml");
+            this.language = new File(Magna.INSTANCE.getFolders().getLanguageFolder(), "en-en.yml");
     }
 
     @Override
     public void load() {
-        if (!Magna.getFolders().getLanguageFolder().exists())
-            Magna.getFolders().getLanguageFolder().mkdirs();
+        if (!Magna.INSTANCE.getFolders().getLanguageFolder().exists())
+            Magna.INSTANCE.getFolders().getLanguageFolder().mkdirs();
         check();
     }
 }

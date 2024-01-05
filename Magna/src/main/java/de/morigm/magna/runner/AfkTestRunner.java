@@ -17,7 +17,7 @@ public class AfkTestRunner extends Runner {
             if (!getAFKManager().containsTime(t))
                 getAFKManager().setTime(t, System.currentTimeMillis());
             if (getAFKManager().containsTime(t)) {
-                if ((System.currentTimeMillis() - getAFKManager().getTime(t)) >= ((long) Magna.getSettings().getAFKTimer() * 60
+                if ((System.currentTimeMillis() - getAFKManager().getTime(t)) >= ((long) Magna.INSTANCE.getSettings().getAFKTimer() * 60
                         * 1000))
                     getAFKManager().addPlayer(t);
             }

@@ -1,131 +1,122 @@
-package de.morigm.magna.api;
+package de.morigm.magna.api
 
-import de.morigm.magna.Main;
-import de.morigm.magna.api.command.CommandUtil;
-import de.morigm.magna.api.language.Language;
-import de.morigm.magna.api.manager.*;
-import de.morigm.magna.api.memory.MemoryManager;
-import de.morigm.magna.api.settings.Folders;
-import de.morigm.magna.api.settings.Settings;
-import de.morigm.magna.api.user.User;
-import lombok.Getter;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import de.morigm.magna.Main
+import de.morigm.magna.api.command.CommandUtil
+import de.morigm.magna.api.language.Language
+import de.morigm.magna.api.manager.*
+import de.morigm.magna.api.memory.MemoryManager
+import de.morigm.magna.api.settings.Folders
+import de.morigm.magna.api.settings.Settings
+import de.morigm.magna.api.user.User
+import org.bukkit.Bukkit
+import org.bukkit.entity.Player
+import java.util.*
 
-import java.util.Arrays;
+object Magna {
+    val supportedVersions: Array<String> = arrayOf("v1_20_R3")
 
-public class Magna {
+    val name = "Magna"
 
-    private static final String[] spigot_versions = {"v1_19_R3"};
-    @Getter
-    private final static String name = "Magna";
-    @Getter
-    private static CommandUtil commandUtil;
-    @Getter
-    private static Settings settings;
-    @Getter
-    private static Folders folders;
+    var commandUtil: CommandUtil? = null
 
-    static {
-        Magna.commandUtil = new CommandUtil();
-        Magna.settings = new Settings(getMain());
-        Magna.folders = new Folders();
+    var settings: Settings? = null
+
+    var folders: Folders? = null
+
+    init {
+        commandUtil = CommandUtil()
+        settings = Settings(main)
+        folders = Folders()
     }
 
-    public static GroupManager getGroupManager() {
-        return getMain().getGroupManager();
+    @JvmStatic
+    val groupManager: GroupManager
+        get() = main?.groupManager!!
+
+    @JvmStatic
+    val memoryManager: MemoryManager
+        get() = main?.memoryManager!!
+
+    @JvmStatic
+    val warpManager: WarpManager
+        get() = main?.warpManager!!
+
+    @JvmStatic
+    val mutedPlayerManager: MutedPlayerManager
+        get() = main?.mutedPlayerManager!!
+
+    @JvmStatic
+    val godModeManager: GodModeManager
+        get() = main?.godModeManager!!
+
+    @JvmStatic
+    val commandSpyManager: CommandSpyManager
+        get() = main?.commandSpyManager!!
+
+    @JvmStatic
+    val permissionManager: PermissionManager
+        get() = main?.permissionManager!!
+
+    @JvmStatic
+    val deathBackManager: DeathBackManager
+        get() = main?.deathBackManager!!
+
+    val autoEditManager: AutoEditManager
+        get() = main?.autoEditManager!!
+
+    @JvmStatic
+    val mSGManager: MSGManager
+        get() = main?.msgManager!!
+
+    @JvmStatic
+    val blackListManager: BlackListManager
+        get() = main?.blackListManager!!
+
+    @JvmStatic
+    val runnerManager: RunnerManager
+        get() = main?.runnerManager!!
+
+    @JvmStatic
+    val aFKManager: AFK
+        get() = main?.afkManager!!
+
+    @JvmStatic
+    val homeManager: HomeManager
+        get() = main?.homeManager!!
+
+    @JvmStatic
+    val signManager: SignManager
+        get() = main?.signManager!!
+
+    @JvmStatic
+    val onlyBreakManager: OnlyBreakManager
+        get() = main?.onlyBreakManager!!
+
+    @JvmStatic
+    fun GetWayPointManager(): WayPointManager {
+        return main?.wayPointManager!!
     }
 
-    public static MemoryManager getMemoryManager() {
-        return getMain().getMemoryManager();
+    @JvmStatic
+    val language: Language
+        get() = main?.language!!
+
+    val serverVersion: String
+        get() = Bukkit.getServer().javaClass.getPackage().name.replace(".", ",").split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[3]
+
+    @JvmStatic
+    val isSupported: Boolean
+        get() = Arrays.binarySearch(supportedVersions, serverVersion) >= 0
+
+    @JvmStatic
+    fun getUser(p: Player?): User {
+        return getUser(p, permissionManager)
     }
 
-    public static WarpManager getWarpManager() {
-        return getMain().getWarpManager();
+    fun getUser(p: Player?, manager: PermissionManager?): User {
+        return User(p, manager)
     }
 
-    public static MutedPlayerManager getMutedPlayerManager() {
-        return getMain().getMutedPlayerManager();
-    }
-
-    public static GodModeManager getGodModeManager() {
-        return getMain().getGodModeManager();
-    }
-
-    public static CommandSpyManager getCommandSpyManager() {
-        return getMain().getCommandSpyManager();
-    }
-
-    public static PermissionManager getPermissionManager() {
-        return getMain().getPermissionManager();
-    }
-
-    public static DeathBackManager getDeathBackManager() {
-        return getMain().getDeathBackManager();
-    }
-
-    public static AutoEditManager getAutoEditManager() {
-        return getMain().getAutoEditManager();
-    }
-
-    public static MSGManager getMSGManager() {
-        return getMain().getMSGManager();
-    }
-
-    public static BlackListManager getBlackListManager() {
-        return getMain().getBlackListManager();
-    }
-
-    public static RunnerManager getRunnerManager() {
-        return getMain().getRunnerManager();
-    }
-
-    public static AFK getAFKManager() {
-        return getMain().getAFKManager();
-    }
-
-    public static HomeManager getHomeManager() {
-        return getMain().getHomeManager();
-    }
-
-    public static SignManager getSignManager() {
-        return getMain().getSignManager();
-    }
-
-    public static OnlyBreakManager getOnlyBreakManager() {
-        return getMain().getOnlyBreakManager();
-    }
-
-    public static WayPointManager GetWayPointManager() {
-        return getMain().getWayPointManager();
-    }
-
-    public static Language getLanguage() {
-        return getMain().getLanguage();
-    }
-
-    public static String getServerVersion() {
-        return Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
-    }
-
-    public static String[] getSupportedVersions() {
-        return spigot_versions;
-    }
-
-    public static boolean isSupported() {
-        return Arrays.binarySearch(Magna.getSupportedVersions(), getServerVersion()) >= 0;
-    }
-
-    public static User getUser(Player p) {
-        return getUser(p, getPermissionManager());
-    }
-
-    public static User getUser(Player p, PermissionManager manager) {
-        return new User(p, manager);
-    }
-
-    private static Main getMain() {
-        return Main.getInstance();
-    }
-
+    val main: Main?
+        get() = Main.instance
 }

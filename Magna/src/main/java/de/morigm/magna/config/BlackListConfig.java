@@ -23,7 +23,7 @@ public class BlackListConfig implements Config {
 
     @Override
     public void load() {
-        File file = Magna.getFolders().getBlackListFile();
+        File file = Magna.INSTANCE.getFolders().getBlackListFile();
         FileGenerator.createFileIfNotExists(file);
         FileConfiguration config = YamlConfiguration.loadConfiguration(file);
         this.file = file;

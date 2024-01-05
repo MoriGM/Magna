@@ -26,7 +26,7 @@ public class CMDAllChatClear extends PluginCommand {
                 for (int i = 0; i < 100; i++) {
                     p.sendMessage(Component.text(" "));
                 }
-                if (Magna.getSettings().getShowChatClear()) {
+                if (Magna.INSTANCE.getSettings().getShowChatClear()) {
                     p.sendMessage(Component.text(Chat.prefix + translate("cmd.allchatclear") + " " + ((com instanceof Player) ? com.getName() : "Sever")));
                 }
             }

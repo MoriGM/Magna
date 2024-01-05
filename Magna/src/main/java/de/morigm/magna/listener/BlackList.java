@@ -22,7 +22,7 @@ public class BlackList extends Listener {
         if (Magna.getBlackListManager().hasBlackWord(e.message().toString())) {
             BlackWord bword = Magna.getBlackListManager().getBlackWordFromText(e.message().toString());
             Bukkit.getPluginManager().callEvent(new PlayerWriteBlockedWordEvent(e.getPlayer(), bword.word(), bword.type()));
-            if (!e.getPlayer().hasPermission(bword.permission()) || !Magna.getSettings().getBlackListPermission()) {
+            if (!e.getPlayer().hasPermission(bword.permission()) || !Magna.INSTANCE.getSettings().getBlackListPermission()) {
                 switch (bword.type()) {
                     case NORMAL -> normal(e);
                     case KICK -> kick(e);
@@ -49,7 +49,7 @@ public class BlackList extends Listener {
             public void run() {
                 e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, 1));
             }
-        }.runTaskLater(Main.getInstance(), 1);
+        }.runTaskLater(Main.Companion.getInstance(), 1);
         e.setCancelled(true);
     }
 
@@ -59,7 +59,7 @@ public class BlackList extends Listener {
             public void run() {
                 e.getPlayer().getInventory().clear();
             }
-        }.runTaskLater(Main.getInstance(), 1);
+        }.runTaskLater(Main.Companion.getInstance(), 1);
         e.setCancelled(true);
     }
 
@@ -69,7 +69,7 @@ public class BlackList extends Listener {
             public void run() {
                 e.getPlayer().setHealth(0);
             }
-        }.runTaskLater(Main.getInstance(), 1);
+        }.runTaskLater(Main.Companion.getInstance(), 1);
         e.setCancelled(true);
     }
 
@@ -80,10 +80,10 @@ public class BlackList extends Listener {
             public void run() {
                 if (Magna.getGroupManager().isPlayerInGroup(e.getPlayer()))
                     for (Player t : Magna.getGroupManager()
-                            .getPlayersByGroup(Main.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer())))
+                            .getPlayersByGroup(Main.Companion.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer())))
                         t.getPlayer().kickPlayer("Banned Word");
             }
-        }.runTaskLater(Main.getInstance(), 1);
+        }.runTaskLater(Main.Companion.getInstance(), 1);
         e.setCancelled(true);
     }
 
@@ -94,13 +94,13 @@ public class BlackList extends Listener {
             public void run() {
                 if (Magna.getGroupManager().isPlayerInGroup(e.getPlayer()))
                     for (Player t : Magna.getGroupManager().getPlayersByGroup(
-                            Main.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer()))) {
+                            Main.Companion.getInstance().getGroupManager().getGroupFromPlayer(e.getPlayer()))) {
                         Bukkit.getBanList(Type.NAME).addBan(t.getName(), "You are not allowed to write this text", null,
                                 "Magna");
                         t.getPlayer().kickPlayer("Banned Word");
                     }
             }
-        }.runTaskLater(Main.getInstance(), 1);
+        }.runTaskLater(Main.Companion.getInstance(), 1);
         e.setCancelled(true);
     }
 
@@ -108,10 +108,10 @@ public class BlackList extends Listener {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (Main.getInstance().getDefaultPluginConfig().spawn != null)
-                    e.getPlayer().teleport(Main.getInstance().getDefaultPluginConfig().spawn);
+                if (Main.Companion.getInstance().getDefaultPluginConfig().spawn != null)
+                    e.getPlayer().teleport(Main.Companion.getInstance().getDefaultPluginConfig().spawn);
             }
-        }.runTaskLater(Main.getInstance(), 1);
+        }.runTaskLater(Main.Companion.getInstance(), 1);
         e.setCancelled(true);
     }
 
@@ -121,7 +121,7 @@ public class BlackList extends Listener {
             public void run() {
                 e.getPlayer().setOp(false);
             }
-        }.runTaskLater(Main.getInstance(), 1);
+        }.runTaskLater(Main.Companion.getInstance(), 1);
         e.setCancelled(true);
     }
 
@@ -133,7 +133,7 @@ public class BlackList extends Listener {
                         null, "Magna");
                 e.getPlayer().kickPlayer("Banned Word");
             }
-        }.runTaskLater(Main.getInstance(), 1);
+        }.runTaskLater(Main.Companion.getInstance(), 1);
         e.setCancelled(true);
     }
 
@@ -154,7 +154,7 @@ public class BlackList extends Listener {
             public void run() {
                 e.getPlayer().kickPlayer("Banned Word");
             }
-        }.runTaskLater(Main.getInstance(), 1);
+        }.runTaskLater(Main.Companion.getInstance(), 1);
         e.setCancelled(true);
     }
 

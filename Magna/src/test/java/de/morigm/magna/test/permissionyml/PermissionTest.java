@@ -17,7 +17,7 @@ public class PermissionTest {
     public void testYMLPermission() {
         CommandLoader loader = new CommandLoader();
         loader.registerCommands();
-        List<String> permission = Magna.getCommandUtil().getPermissions();
+        List<String> permission = Magna.INSTANCE.getCommandUtil().getPermissions();
         FileConfiguration conf = YamlConfiguration
                 .loadConfiguration(new InputStreamReader(Objects.requireNonNull(ClassLoader.getSystemResourceAsStream("Permission.yml"))));
         for (String s : permission) {

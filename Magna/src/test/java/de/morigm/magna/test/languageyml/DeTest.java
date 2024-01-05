@@ -16,7 +16,7 @@ public class DeTest {
         System.out.println("Test De YML");
         CommandLoader loader = new CommandLoader();
         loader.registerCommands();
-        List<String> translations = Magna.getCommandUtil().getTranslations();
+        List<String> translations = Magna.INSTANCE.getCommandUtil().getTranslations();
         Properties prop = new Properties();
         prop.load(ClassLoader.getSystemResourceAsStream("de-de.yml"));
         for (String s : translations) {

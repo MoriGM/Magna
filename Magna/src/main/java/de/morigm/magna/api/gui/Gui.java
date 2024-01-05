@@ -31,7 +31,7 @@ public abstract class Gui extends Permission {
     private Inventory inventory;
 
     public Gui() {
-        this(Main.getInstance().getPermissionManager());
+        this(Main.Companion.getInstance().getPermissionManager());
     }
 
     public Gui(PermissionManager permissionManager) {

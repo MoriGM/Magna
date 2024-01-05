@@ -14,7 +14,7 @@ public class PlayerConfig implements Config {
     private FileConfiguration configuration;
 
     public void loadFile() {
-        FileConfiguration conf = YamlConfiguration.loadConfiguration(Magna.getFolders().getPlayerFile());
+        FileConfiguration conf = YamlConfiguration.loadConfiguration(Magna.INSTANCE.getFolders().getPlayerFile());
         this.configuration = conf;
     }
 
@@ -32,7 +32,7 @@ public class PlayerConfig implements Config {
         this.configuration.set("godmode", this.godmode);
         this.configuration.set("cmdspy", this.cmdspy);
         try {
-            this.configuration.save(Magna.getFolders().getPlayerFile());
+            this.configuration.save(Magna.INSTANCE.getFolders().getPlayerFile());
         } catch (IOException e) {
             e.printStackTrace();
         }

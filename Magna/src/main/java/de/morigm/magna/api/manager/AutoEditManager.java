@@ -42,19 +42,19 @@ public class AutoEditManager {
     }
 
     public List<PlayerAutoEditStruct> getPlayerAutoEditStructs() {
-        return Main.getInstance().getRegisterAutoEdits().getPlayerAutoEditStructs();
+        return Main.Companion.getInstance().getRegisterAutoEdits().getPlayerAutoEditStructs();
     }
 
     public List<AutoEditStruct> getAutoEditStructs() {
-        return Main.getInstance().getRegisterAutoEdits().getAutoEditStructs();
+        return Main.Companion.getInstance().getRegisterAutoEdits().getAutoEditStructs();
     }
 
     public List<CustomAutoEditStruct> getCustomAutoEditStructs() {
-        return Main.getInstance().getAutoEditLoader().getCustomAutoEditStructs();
+        return Main.Companion.getInstance().getAutoEditLoader().getCustomAutoEditStructs();
     }
 
     public List<CustomPlayerAutoEditStruct> getCustomPlayerAutoEditStructs() {
-        return Main.getInstance().getAutoEditLoader().getCustomPlayerAutoEditStructs();
+        return Main.Companion.getInstance().getAutoEditLoader().getCustomPlayerAutoEditStructs();
     }
 
 }

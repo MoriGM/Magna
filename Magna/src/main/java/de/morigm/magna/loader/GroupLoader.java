@@ -14,11 +14,11 @@ public class GroupLoader implements Loader {
     @Override
     public void load() {
         List<Group> list = new ArrayList<>();
-        Group[] groups = new Group[Main.getInstance().getDefaultPluginConfig().groups.size()];
-        for (String group : Main.getInstance().getDefaultPluginConfig().groups) {
-            String name = Main.getInstance().getGroupConfig().getConfig().getString(group + "." + "name");
-            String permission = Main.getInstance().getGroupConfig().getConfig().getString(group + "." + "permission");
-            int id = Main.getInstance().getGroupConfig().getConfig().getInt(group + "." + "id");
+        Group[] groups = new Group[Main.Companion.getInstance().getDefaultPluginConfig().groups.size()];
+        for (String group : Main.Companion.getInstance().getDefaultPluginConfig().groups) {
+            String name = Main.Companion.getInstance().getGroupConfig().getConfig().getString(group + "." + "name");
+            String permission = Main.Companion.getInstance().getGroupConfig().getConfig().getString(group + "." + "permission");
+            int id = Main.Companion.getInstance().getGroupConfig().getConfig().getInt(group + "." + "id");
             list.add(new Group(name, permission, id));
         }
         if (list.size() >= 1) {

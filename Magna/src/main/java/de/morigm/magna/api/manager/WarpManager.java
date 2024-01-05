@@ -9,7 +9,7 @@ import java.util.List;
 
 public class WarpManager {
     public void setWarp(String name, Location loc) {
-        Warp w = new Warp(name, Main.getInstance().getPermissionManager().getPermission("warppermission"), loc);
+        Warp w = new Warp(name, Main.Companion.getInstance().getPermissionManager().getPermission("warppermission"), loc);
         if (!containsWarp(w.name))
             getWarps().add(w);
     }
@@ -39,6 +39,6 @@ public class WarpManager {
     }
 
     private WarpLoader getWarpLoader() {
-        return Main.getInstance().getWarpLoader();
+        return Main.Companion.getInstance().getWarpLoader();
     }
 }

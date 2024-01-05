@@ -16,7 +16,7 @@ public class DeathBackConfig implements Config {
 
     @Override
     public void load() {
-        this.file = Magna.getFolders().getDeathBackFile();
+        this.file = Magna.INSTANCE.getFolders().getDeathBackFile();
         FileGenerator.createFileIfNotExists(file);
         this.config = YamlConfiguration.loadConfiguration(file);
     }

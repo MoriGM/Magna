@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 public class LogCommands extends Listener {
     @EventHandler
     public void on(PlayerCommandPreprocessEvent e) {
-        if (Main.getInstance().getDefaultPluginConfig().commandlog)
-            Main.getInstance().getCommandsLoger().addLine("<" + e.getPlayer().getName() + ">" + e.getMessage());
+        if (Main.Companion.getInstance().getDefaultPluginConfig().commandlog)
+            Main.Companion.getInstance().getCommandsLoger().addLine("<" + e.getPlayer().getName() + ">" + e.getMessage());
     }
 }

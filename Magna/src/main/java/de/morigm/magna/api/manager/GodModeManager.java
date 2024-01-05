@@ -27,7 +27,7 @@ public class GodModeManager {
     }
 
     public List<String> getPlayers() {
-        return Main.getInstance().getPlayerConfig().godmode;
+        return Main.Companion.getInstance().getPlayerConfig().godmode;
     }
 
 }

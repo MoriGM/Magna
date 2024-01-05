@@ -28,6 +28,6 @@ public class MutedPlayerManager {
     }
 
     public List<String> getMutedUUIDS() {
-        return Main.getInstance().getPlayerConfig().muted;
+        return Main.Companion.getInstance().getPlayerConfig().muted;
     }
 }

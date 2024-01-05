@@ -24,8 +24,8 @@ public class WarpLoader implements Loader, Saver {
 
     @Override
     public void load() {
-        for (String w : Main.getInstance().getWarpConfig().warps) {
-            World world = Bukkit.getWorld(Main.getInstance().getWarpConfig().getConfig().getString(w + ".world"));
+        for (String w : Main.Companion.getInstance().getWarpConfig().warps) {
+            World world = Bukkit.getWorld(Main.Companion.getInstance().getWarpConfig().getConfig().getString(w + ".world"));
             int x = getConfig().getInt(w + ".x");
             int y = getConfig().getInt(w + ".y");
             int z = getConfig().getInt(w + ".z");
@@ -36,7 +36,7 @@ public class WarpLoader implements Loader, Saver {
             loc.setPitch(pitch);
             loc.setYaw(yaw);
             String permission = getConfig().contains(w + ".permission") ? getConfig().getString(w + ".permission")
-                    : Main.getInstance().getPermissionManager().getPermission("warppermission");
+                    : Main.Companion.getInstance().getPermissionManager().getPermission("warppermission");
             Warp warp = new Warp(w, permission, loc);
             warps.add(warp);
         }
@@ -54,7 +54,7 @@ public class WarpLoader implements Loader, Saver {
             getConfig().set(w.name + ".pitch", w.location.getPitch());
             getConfig().set(w.name + ".world", w.location.getWorld().getName());
             getConfig().set(w.name + ".permission",
-                    Main.getInstance().getPermissionManager().getPermission("warppermission") + "." + w.name);
+                    Main.Companion.getInstance().getPermissionManager().getPermission("warppermission") + "." + w.name);
         }
 
     }
@@ -65,7 +65,7 @@ public class WarpLoader implements Loader, Saver {
     }
 
     private FileConfiguration getConfig() {
-        return Main.getInstance().getWarpConfig().getConfig();
+        return Main.Companion.getInstance().getWarpConfig().getConfig();
     }
 
 }

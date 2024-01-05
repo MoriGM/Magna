@@ -29,7 +29,7 @@ public class BlackListManager {
     }
 
     public List<BlackWord> getBlackWords() {
-        return Main.getInstance().getBlackListLoader().getBlackWords();
+        return Main.Companion.getInstance().getBlackListLoader().getBlackWords();
     }
 
     public BlackWord getBlackWordFromText(String text) {

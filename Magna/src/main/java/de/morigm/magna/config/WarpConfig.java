@@ -17,7 +17,7 @@ public class WarpConfig implements Config {
 
     public final List<String> warps = new ArrayList<>();
     @Getter
-    private final File configFile = Magna.getFolders().getWarpsFile();
+    private final File configFile = Magna.INSTANCE.getFolders().getWarpsFile();
     @Getter
     @Setter
     private FileConfiguration config;

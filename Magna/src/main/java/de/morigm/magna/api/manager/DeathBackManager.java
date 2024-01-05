@@ -37,7 +37,7 @@ public class DeathBackManager {
     }
 
     public List<DeathBack> getDeathBacks() {
-        return Main.getInstance().getDeathBackLoader().getDeathBacks();
+        return Main.Companion.getInstance().getDeathBackLoader().getDeathBacks();
     }
 
 }

@@ -18,7 +18,7 @@ public class WayPointConfig implements Config {
 
     public final List<AbstractMap.SimpleEntry<String, String>> waypoints = new ArrayList<>();
     @Getter
-    private final File configFile = Magna.getFolders().getWaypointFolder();
+    private final File configFile = Magna.INSTANCE.getFolders().getWaypointFolder();
     @Getter
     @Setter
     private FileConfiguration config;

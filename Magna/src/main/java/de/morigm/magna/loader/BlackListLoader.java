@@ -47,11 +47,11 @@ public class BlackListLoader extends Permission implements Loader, Saver {
     }
 
     private FileConfiguration getConfig() {
-        return Main.getInstance().getBlackListConfig().getConfig();
+        return Main.Companion.getInstance().getBlackListConfig().getConfig();
     }
 
     private BlackListConfig getBlackListConfig() {
-        return Main.getInstance().getBlackListConfig();
+        return Main.Companion.getInstance().getBlackListConfig();
     }
 
 }

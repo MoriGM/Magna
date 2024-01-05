@@ -18,10 +18,10 @@ public class AutoEditConfig implements Loader {
 
     @Override
     public void load() {
-        File file = Magna.getFolders().getAutoEditFile();
+        File file = Magna.INSTANCE.getFolders().getAutoEditFile();
         FileGenerator.createFileIfNotExists(file);
         this.config = YamlConfiguration.loadConfiguration(file);
-        File filePlayer = Magna.getFolders().getPlayerAutoEditFile();
+        File filePlayer = Magna.INSTANCE.getFolders().getPlayerAutoEditFile();
         FileGenerator.createFileIfNotExists(filePlayer);
         this.configPlayer = YamlConfiguration.loadConfiguration(filePlayer);
     }

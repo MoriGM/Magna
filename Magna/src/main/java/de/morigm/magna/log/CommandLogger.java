@@ -14,7 +14,7 @@ public class CommandLogger implements Logger {
 
     @Override
     public void load() {
-        if (!Main.getInstance().getDefaultPluginConfig().commandlog)
+        if (!Main.Companion.getInstance().getDefaultPluginConfig().commandlog)
             return;
         LocalDateTime local = LocalDateTime.now();
         File dir = new File("./server-log/command/");
@@ -30,7 +30,7 @@ public class CommandLogger implements Logger {
 
     @Override
     public void save() {
-        if (!Main.getInstance().getDefaultPluginConfig().commandlog)
+        if (!Main.Companion.getInstance().getDefaultPluginConfig().commandlog)
             return;
         log.save();
     }

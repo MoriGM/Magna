@@ -13,6 +13,27 @@ import static org.junit.Assert.assertNotEquals;
 @RunWith(DataProviderRunner.class)
 public class StringManipulatorTest {
 
+    @DataProvider
+    public static Object[][] dataToArrayCorrect() {
+        return new Object[][]{
+                {"bye", "Bye"},
+                {"hi", "Hi"},
+                {"four", "Four"},
+                {"water", "Water"}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] dataToArrayIncorrect() {
+        return new Object[][]{
+                {"bye", "bye"},
+                {"hi", "hi"},
+                {"four", "four"},
+                {"water", "water"},
+                {"Test", "water"},
+        };
+    }
+
     @Test
     public void testStringArrayToString() {
         String[] a = {"Hi", "Bye", "Toast"};
@@ -37,27 +58,6 @@ public class StringManipulatorTest {
     @UseDataProvider("dataToArrayIncorrect")
     public void testCapitalizeFirstIncorrect(String org, String capitalized) {
         assertNotEquals(capitalized, StringManipulator.capitalizeFirst(org));
-    }
-
-    @DataProvider
-    public static Object[][] dataToArrayCorrect() {
-        return new Object[][] {
-                {"bye", "Bye"},
-                {"hi", "Hi"},
-                {"four", "Four"},
-                {"water", "Water"}
-        };
-    }
-
-    @DataProvider
-    public static Object[][] dataToArrayIncorrect() {
-        return new Object[][] {
-                {"bye", "bye"},
-                {"hi", "hi"},
-                {"four", "four"},
-                {"water", "water"},
-                {"Test", "water"},
-        };
     }
 
 }

@@ -16,7 +16,7 @@ public class HomeConfig implements Config {
 
     @Override
     public void load() {
-        File configFile = Magna.getFolders().getHomeFile();
+        File configFile = Magna.INSTANCE.getFolders().getHomeFile();
         FileGenerator.createFileIfNotExists(configFile);
         this.config = YamlConfiguration.loadConfiguration(configFile);
 
@@ -25,7 +25,7 @@ public class HomeConfig implements Config {
     @SneakyThrows
     @Override
     public void save() {
-        config.save(Magna.getFolders().getHomeFile());
+        config.save(Magna.INSTANCE.getFolders().getHomeFile());
     }
 
 }
