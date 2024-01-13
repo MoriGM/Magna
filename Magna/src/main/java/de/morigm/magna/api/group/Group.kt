@@ -1,5 +1,4 @@
-package de.morigm.magna.api.group;
+package de.morigm.magna.api.group
 
-public record Group(String name, String permission, int id) {
-
-}
+@JvmRecord
+data class Group(@JvmField val name: String, @JvmField val permission: String, @JvmField val id: Int)

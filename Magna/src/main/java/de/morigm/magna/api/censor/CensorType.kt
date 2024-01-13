@@ -1,21 +1,31 @@
-package de.morigm.magna.api.censor;
+package de.morigm.magna.api.censor
 
-public enum CensorType {
+import java.util.*
 
-    BAN, KICK, WARN, MUTE, DE_OP, SPAWN, GROUP_KICK, GROUP_BAN, KILL, CLEAR, BLIND, NORMAL;
+enum class CensorType {
+    BAN,
+    KICK,
+    WARN,
+    MUTE,
+    DE_OP,
+    SPAWN,
+    GROUP_KICK,
+    GROUP_BAN,
+    KILL,
+    CLEAR,
+    BLIND,
+    NORMAL;
 
-    public static boolean isType(String s) {
-        for (CensorType t : values())
-            if (t.name().equals(s.toUpperCase()))
-                return true;
-        return false;
+    companion object {
+        fun isType(s: String): Boolean {
+            for (t in entries) if (t.name == s.uppercase(Locale.getDefault())) return true
+            return false
+        }
+
+        @JvmStatic
+        fun getType(s: String): CensorType {
+            for (t in entries) if (t.name == s.uppercase(Locale.getDefault())) return t
+            return NORMAL
+        }
     }
-
-    public static CensorType getType(String s) {
-        for (CensorType t : values())
-            if (t.name().equals(s.toUpperCase()))
-                return t;
-        return CensorType.NORMAL;
-    }
-
 }

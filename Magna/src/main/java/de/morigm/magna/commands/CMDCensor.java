@@ -59,7 +59,7 @@ public class CMDCensor extends PluginCommand {
                 if (args[0].equalsIgnoreCase("list")) {
                     StringBuilder words = new StringBuilder();
                     for (BlackWord bword : getBlackListManager().getBlackWords()) {
-                        words.append(bword.word()).append(",");
+                        words.append(bword.word).append(",");
                     }
                     if (!words.isEmpty()) {
                         words = new StringBuilder(words.substring(0, words.length() - 1));

@@ -25,7 +25,7 @@ public class CMDGroups extends PluginCommand {
             if (getGroupManager().getGroups().length >= 1) {
                 String groups = "";
                 for (Group group : getGroupManager().getGroups())
-                    groups += ChatColor.GREEN + group.name() + ChatColor.RESET + " ";
+                    groups += ChatColor.GREEN + group.name + ChatColor.RESET + " ";
                 if (groups.length() >= 2)
                     groups = groups.substring(0, groups.length() - 1);
                 com.sendPlainMessage(Chat.prefix + translate("cmd.groups") + ":" + groups);

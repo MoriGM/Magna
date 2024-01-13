@@ -47,7 +47,7 @@ public class CMDMagna_List extends PluginCommand {
                         Map<Player, Group> map = getGroupManager().getOnlinePlayerWithGroup();
                         StringBuilder group = new StringBuilder();
                         for (Entry<Player, Group> entry : map.entrySet()) {
-                            group.append("(").append(entry.getKey().getName()).append(" : ").append(entry.getValue() != null ? entry.getValue().name() : translate("cmd.list.group.no")).append("),");
+                            group.append("(").append(entry.getKey().getName()).append(" : ").append(entry.getValue() != null ? entry.getValue().name : translate("cmd.list.group.no")).append("),");
                         }
                         group = new StringBuilder(group.substring(0, group.length() - 1));
                         com.sendPlainMessage(Chat.prefix + group);

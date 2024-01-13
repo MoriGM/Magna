@@ -3,7 +3,7 @@ package de.morigm.magna.listener;
 import de.morigm.magna.Main;
 import de.morigm.magna.api.Magna;
 import de.morigm.magna.api.censor.BlackWord;
-import de.morigm.magna.api.events.PlayerWriteBlockedWordEvent;
+import de.morigm.magna.api.events.PlayerBlockedWordUsedEvent;
 import de.morigm.magna.api.listner.Listener;
 import de.morigm.magna.chat.Chat;
 import io.papermc.paper.event.player.AsyncChatEvent;
@@ -21,9 +21,9 @@ public class BlackList extends Listener {
     public void on(AsyncChatEvent e) {
         if (Magna.getBlackListManager().hasBlackWord(e.message().toString())) {
             BlackWord bword = Magna.getBlackListManager().getBlackWordFromText(e.message().toString());
-            Bukkit.getPluginManager().callEvent(new PlayerWriteBlockedWordEvent(e.getPlayer(), bword.word(), bword.type()));
-            if (!e.getPlayer().hasPermission(bword.permission()) || !Magna.INSTANCE.getSettings().getBlackListPermission()) {
-                switch (bword.type()) {
+            Bukkit.getPluginManager().callEvent(new PlayerBlockedWordUsedEvent(e.getPlayer(), bword.word, bword.type));
+            if (!e.getPlayer().hasPermission(bword.permission) || !Magna.INSTANCE.getSettings().getBlackListPermission()) {
+                switch (bword.type) {
                     case NORMAL -> normal(e);
                     case KICK -> kick(e);
                     case WARN -> warn(e);

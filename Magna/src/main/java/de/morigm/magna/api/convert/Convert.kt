@@ -1,35 +1,26 @@
-package de.morigm.magna.api.convert;
+package de.morigm.magna.api.convert
 
-public class Convert {
+object Convert {
+    @JvmStatic
+    fun isInteger(s: String): Boolean {
+        for (c in s.toCharArray()) if (c.code < 48 || c.code > 57) return false
 
-    public static boolean isInteger(String s) {
-        for (char c : s.toCharArray())
-            if (c < 48 || c > 57)
-                return false;
-
-        return true;
+        return true
     }
 
-    public static boolean isBoolean(String s) {
-        return s.equals("false") || s.equals("true");
+    @JvmStatic
+    fun isBoolean(s: String): Boolean {
+        return s == "false" || s == "true"
     }
 
-    public static boolean isFloat(String s) {
-        return isDouble(s);
-    }
-
-    public static boolean isDouble(String s) {
-        boolean dot_used = false;
-        for (char c : s.toCharArray()) {
-            if (c == '.')
-                if (dot_used)
-                    return false;
-                else
-                    dot_used = true;
-            if ((c < '0' || c > '9') && c != '.')
-                return false;
+    @JvmStatic
+    fun isDouble(s: String): Boolean {
+        var dot_used = false
+        for (c in s.toCharArray()) {
+            if (c == '.') if (dot_used) return false
+            else dot_used = true
+            if ((c < '0' || c > '9') && c != '.') return false
         }
-        return true;
+        return true
     }
-
 }

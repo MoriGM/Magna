@@ -1,4 +1,4 @@
-package de.morigm.magna.api.censor;
+package de.morigm.magna.api.censor
 
-public record BlackWord(String word, String permission, CensorType type) {
-}
+@JvmRecord
+data class BlackWord(@JvmField val word: String, @JvmField val permission: String, @JvmField val type: CensorType)

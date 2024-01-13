@@ -29,7 +29,7 @@ public class DeathBackManager {
 
     public DeathBack getDeathBack(Player p) {
         for (DeathBack db : getDeathBacks()) {
-            if (db.uuid().equals(p.getUniqueId().toString())) {
+            if (db.uuid.equals(p.getUniqueId().toString())) {
                 return db;
             }
         }

@@ -26,7 +26,7 @@ public class GroupLoader implements Loader {
             for (int i = 0; i < list.size(); i++) {
                 Group g = new Group("Buddy", "Buddy", Integer.MAX_VALUE);
                 for (Group group : list)
-                    if (g.id() > group.id() && !end.contains(group))
+                    if (g.id > group.id && !end.contains(group))
                         g = group;
                 end.add(g);
             }

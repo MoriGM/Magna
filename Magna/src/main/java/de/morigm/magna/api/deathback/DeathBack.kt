@@ -1,7 +1,6 @@
-package de.morigm.magna.api.deathback;
+package de.morigm.magna.api.deathback
 
-import org.bukkit.Location;
+import org.bukkit.Location
 
-public record DeathBack(String uuid, Location location) {
-
-}
+@JvmRecord
+data class DeathBack(@JvmField val uuid: String, @JvmField val location: Location)

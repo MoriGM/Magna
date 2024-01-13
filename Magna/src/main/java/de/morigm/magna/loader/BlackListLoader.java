@@ -36,8 +36,8 @@ public class BlackListLoader extends Permission implements Loader, Saver {
         deleteConfig(getConfig());
 
         for (BlackWord word : getBlackWords()) {
-            getConfig().set(word.word() + ".permission", word.permission());
-            getConfig().set(word.word() + ".type", word.type().name());
+            getConfig().set(word.word + ".permission", word.permission);
+            getConfig().set(word.word + ".type", word.type.name());
         }
     }
 
